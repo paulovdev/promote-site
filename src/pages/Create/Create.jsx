@@ -1,12 +1,15 @@
 import React, { useState, useRef } from 'react';
 import emailjs from 'emailjs-com';
 import { IoCloseOutline, IoImageOutline } from "react-icons/io5";
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../firebase/Firebase';
 import "./Create.scss";
 
 const Create = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   const [myName, setMyName] = useState('');
   const [email, setEmail] = useState('');
   const [profileLink, setProfileLink] = useState('');
@@ -31,7 +34,7 @@ const Create = () => {
     }
 
     try {
-      // Upload the image
+      setIsLoading(true);
       const imageRef = ref(storage, `images/${siteName}`);
       await uploadBytes(imageRef, image);
       const downloadURL = await getDownloadURL(imageRef);
@@ -42,17 +45,16 @@ const Create = () => {
         from_name: myName,
         to_name: 'Paulo Vitor',
         profileLink: profileLink,
-        category:category,
+        category: category,
         siteName: siteName,
         description: description,
         livePreview: livePreview,
         buyLink: buyLink,
-        imageURL: downloadURL, // Use the URL of the uploaded image
+        imageURL: downloadURL,
       };
 
       // Send email
       await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
-      alert('Form submitted successfully! Please note that it may take 5 to 7 days for us to review your submission.');
 
       // Reset form fields
       setMyName('');
@@ -67,8 +69,12 @@ const Create = () => {
       setImage(null);
       setImageURL('');
       setIsPhotoValid(true);
+
+      setShowModal(true);
     } catch (error) {
       console.error('Error sending email: ', error);
+    } finally {
+      setIsLoading(false); // Stop loading spinner
     }
   };
 
@@ -241,7 +247,7 @@ const Create = () => {
           </div>
         </div>
 
-        <div className="client-text">
+        <div className="cient-text">
           <p>By ticking this box you agree to receive communications from SitePromote.</p>
           <input
             type="checkbox"
@@ -253,12 +259,41 @@ const Create = () => {
 
         <div className="buttons-register-wrapper">
           <div className="button-register-wrapper">
-            <button type="submit">Submit</button>
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? <LoadingSpinner /> : 'Submit'}
+            </button>
           </div>
         </div>
       </form>
+      <AnimatePresence>
+        {showModal && <Modal onClose={() => setShowModal(false)} />}
+      </AnimatePresence>
     </div>
   );
 };
+
+const LoadingSpinner = () => (
+  <div className="spinner"></div>
+);
+
+const Modal = ({ onClose }) => (
+  <motion.div
+    className="modal-overlay"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.3 }}
+    onClick={onClose}
+  >
+    <motion.div
+      className="modal-content"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <button className="close-button" onClick={onClose}><IoCloseOutline size={32} /></button>
+      <h3>Form submitted successfully!</h3>
+      <p>Please note that it may take 5 to 7 days for us to review your submission.</p>
+    </motion.div>
+  </motion.div>
+);
 
 export default Create;

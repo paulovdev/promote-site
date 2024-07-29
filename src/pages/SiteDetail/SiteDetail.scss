@@ -1,0 +1,228 @@
+@import '../../index.scss';
+
+
+#site-detail {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    margin: 10rem 0 3rem 0;
+
+    padding: 0 100px !important;
+
+    background-color: var(--bg);
+
+
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+
+    .header-text {
+        width: 100%;
+        height: 100%;
+
+
+        h1 {
+            font-size: 98px;
+            font-weight: 600;
+            letter-spacing: -2px;
+
+            color: var(--p);
+            text-align: start;
+        }
+
+        p {
+            font-size: 24px;
+            font-weight: 400;
+
+            color: var(--p);
+            text-align: start;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .sub-header-text {
+        width: 100%;
+        height: 100%;
+
+        margin-bottom: 5rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .sub-text {
+            position: relative;
+            width: fit-content;
+
+            strong {
+                font-size: 16px;
+                font-weight: 900;
+            }
+
+            a {
+                position: relative;
+                text-decoration: underline;
+                color: var(--p);
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+
+        .site-buttons {
+            width: fit-content;
+            display: flex;
+            align-items: center;
+
+            a {
+                width: 225px;
+                height: 50px;
+
+                outline: none;
+                border: none;
+
+                background-color: var(--bg);
+                border: 1px solid var(--p);
+                border-radius: 2rem;
+
+                color: var(--p);
+
+                font-size: 16px;
+                font-weight: 600;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+                &:hover {
+                    background-color: var(--p);
+                    color: var(--p-2);
+                }
+            }
+
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 750px;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border);
+    }
+
+
+
+}
+
+#site-more-category {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    margin: 10rem 0 3rem 0;
+
+    padding: 0 100px !important;
+
+    background-color: var(--bg);
+
+
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+
+    .sub-header-text {
+        width: 100%;
+        height: 100%;
+
+        margin-bottom: 2rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h2,
+        strong {
+            font-size: 42px;
+            font-weight: 600;
+            letter-spacing: -2px;
+
+            color: var(--p);
+            text-align: start;
+        }
+
+        strong {
+            text-transform: uppercase;
+        }
+
+        a {
+            color: var(--p);
+
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: -1px;
+
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+        }
+    }
+
+    .related-sites {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+
+        a {
+            width: 100%;
+            height: 400px;
+
+            margin-bottom: 3rem;
+
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+
+            transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+            img {
+                width: 100%;
+                height: 250px;
+                border-radius: 0.5rem;
+                border: 1px solid var(--border);
+                margin-bottom: 1rem;
+            }
+
+            h1 {
+                font-size: 32px;
+                font-weight: 500;
+                line-height: 1.2;
+                letter-spacing: -1px;
+
+                color: var(--p);
+
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 500;
+                color: var(--p);
+                word-wrap: break-word !important;
+
+                margin-bottom: 1rem;
+            }
+
+            &:hover {
+                transform: scale(1.02);
+            }
+        }
+    }
+}

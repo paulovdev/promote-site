@@ -39,8 +39,8 @@ const Home = () => {
                 <h1>Discover the latest <img src="/world-img.jpg" alt="" /> sites & resources.</h1>
                 <p>Launch your <span>website</span> in minutes with the latest sites & resources created by the community.</p>
                 <div className="home-buttons">
-                    <Link to="/category/blog">
-                        Explore
+                    <Link to="/sites/blog">
+                        Explore sites
                     </Link>
                 </div>
             </section>
@@ -93,7 +93,7 @@ const Home = () => {
                                         </div>
 
                                         <div className="site-right-content">
-                                            <span>{site.category}</span>
+                                            <span>{site.category} | {site.tool}</span>
                                             <h1>{site.siteName}</h1>
                                             <p>{site.description}</p>
                                             <p>Created by: {site.myName}</p>

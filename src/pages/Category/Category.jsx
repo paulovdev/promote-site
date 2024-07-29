@@ -15,13 +15,34 @@ const Category = () => {
         const fetchSites = async () => {
             try {
                 setLoading(true);
-                const q = query(collection(db, 'sites'), where('category', '==', category));
-                const querySnapshot = await getDocs(q);
-                const sitesData = querySnapshot.docs.map(doc => ({
+
+                // Query for sites where the category matches
+                const categoryQuery = query(collection(db, 'sites'), where('category', '==', category));
+                // Query for sites where the tool matches
+                const toolQuery = query(collection(db, 'sites'), where('tool', '==', category));
+
+                // Fetch results for both queries
+                const categorySnapshot = await getDocs(categoryQuery);
+                const toolSnapshot = await getDocs(toolQuery);
+
+                // Combine results
+                const categorySites = categorySnapshot.docs.map(doc => ({
                     id: doc.id,
                     ...doc.data()
                 }));
-                setSites(sitesData);
+                const toolSites = toolSnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+
+                // Remove duplicates
+                const combinedSites = [...categorySites, ...toolSites];
+                const uniqueSites = Array.from(new Set(combinedSites.map(site => site.id)))
+                    .map(id => {
+                        return combinedSites.find(site => site.id === id);
+                    });
+
+                setSites(uniqueSites);
                 setLoading(false);
             } catch (error) {
                 console.log(error);
@@ -37,21 +58,32 @@ const Category = () => {
             <section id='nav-category'>
                 <nav>
                     <ul>
-                        <li><NavLink to="/category/blog">Blog</NavLink></li>
-                        <li><NavLink to="/category/business">Business</NavLink></li>
-                        <li><NavLink to="/category/creative">Creative</NavLink></li>
-                        <li><NavLink to="/category/educational">Educational</NavLink></li>
-                        <li><NavLink to="/category/e-commerce">E-commerce</NavLink></li>
-                        <li><NavLink to="/category/event">Event</NavLink></li>
-                        <li><NavLink to="/category/health-wellness">Health & Wellness</NavLink></li>
-                        <li><NavLink to="/category/landing-page">Landing Page</NavLink></li>
-                        <li><NavLink to="/category/non-profit">Non-Profit</NavLink></li>
-                        <li><NavLink to="/category/photography">Photography</NavLink></li>
-                        <li><NavLink to="/category/portfolio">Portfolio</NavLink></li>
-                        <li><NavLink to="/category/restaurant">Restaurant</NavLink></li>
-                        <li><NavLink to="/category/saas">Saas</NavLink></li>
-                        <li><NavLink to="/category/technology">Technology</NavLink></li>
-                        <li><NavLink to="/category/travel">Travel</NavLink></li>
+                        <li><NavLink to="/sites/blog">Blog</NavLink></li>
+                        <li><NavLink to="/sites/business">Business</NavLink></li>
+                        <li><NavLink to="/sites/creative">Creative</NavLink></li>
+                        <li><NavLink to="/sites/educational">Educational</NavLink></li>
+                        <li><NavLink to="/sites/e-commerce">E-commerce</NavLink></li>
+                        <li><NavLink to="/sites/event">Event</NavLink></li>
+                        <li><NavLink to="/sites/health-wellness">Health & Wellness</NavLink></li>
+                        <li><NavLink to="/sites/landing-page">Landing Page</NavLink></li>
+                        <li><NavLink to="/sites/non-profit">Non-Profit</NavLink></li>
+                        <li><NavLink to="/sites/photography">Photography</NavLink></li>
+                        <li><NavLink to="/sites/portfolio">Portfolio</NavLink></li>
+                        <li><NavLink to="/sites/restaurant">Restaurant</NavLink></li>
+                        <li><NavLink to="/sites/saas">Saas</NavLink></li>
+                        <li><NavLink to="/sites/technology">Technology</NavLink></li>
+                        <li><NavLink to="/sites/travel">Travel</NavLink></li>
+                        {/* ... */}
+
+                        <li><NavLink to="/sites/elementor">Elementor</NavLink></li>
+                        <li><NavLink to="/sites/framer">Framer</NavLink></li>
+                        <li><NavLink to="/sites/ghost">Ghost</NavLink></li>
+                        <li><NavLink to="/sites/html-css-js">HTML + CSS + JS</NavLink></li>
+                        <li><NavLink to="/sites/next">Next</NavLink></li>
+                        <li><NavLink to="/sites/react">React</NavLink></li>
+                        <li><NavLink to="/sites/webflow">Webflow</NavLink></li>
+                        <li><NavLink to="/sites/wix">Wix</NavLink></li>
+                        <li><NavLink to="/sites/wordpress">WordPress</NavLink></li>
                     </ul>
                 </nav>
             </section>
@@ -71,6 +103,7 @@ const Category = () => {
                     sites.map(site => (
                         <Link to={`/site/${site.id}`} key={site.id} className='site-card'>
                             <img src={site.imageURL} alt={site.siteName} />
+                            <span>{site.category} | {site.tool}</span>
                             <h1>{site.siteName}</h1>
                             <p>{site.description}</p>
                             <p>Created by: {site.myName}</p>

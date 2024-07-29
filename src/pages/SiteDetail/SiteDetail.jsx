@@ -61,10 +61,18 @@ const SiteDetail = () => {
 
                     <div className="sub-text">
                         <strong>Category: </strong>
-                        <Link to={`/category/${site.category}`}>
+                        <Link to={`/sites/${site.category}`}>
                             {site.category}
                         </Link>
                     </div>
+
+                    <div className="sub-text">
+                        <strong>Tool: </strong>
+                        <Link to={`/sites/${site.tool}`}>
+                            {site.tool}
+                        </Link>
+                    </div>
+
 
                     <div className="site-buttons">
                         <a href={site.livePreview} target="_blank" rel="noopener noreferrer">See this site</a>
@@ -81,7 +89,7 @@ const SiteDetail = () => {
             <section id='site-more-category'>
                 <div className="sub-header-text">
                     <h2>More from <strong>{site.category}</strong></h2>
-                    <Link to={`/category/${site.category}`}>View all <FaArrowRightLong /></Link>
+                    <Link to={`/sites/${site.category}`}>View all <FaArrowRightLong /></Link>
                 </div>
 
                 <div className="related-sites">
@@ -89,6 +97,7 @@ const SiteDetail = () => {
                         <div key={relatedSite.id} className="related-site">
                             <Link to={`/site/${relatedSite.id}`} onClick={() => scrollTo({ top: 0, behavior: "smooth" })}>
                                 <img src={relatedSite.imageURL} alt={relatedSite.siteName} />
+                                <span>{site.category} | {site.tool}</span>
                                 <h1>{relatedSite.siteName}</h1>
                                 <p>{relatedSite.description}</p>
                                 <p>Created by: {relatedSite.myName}</p>

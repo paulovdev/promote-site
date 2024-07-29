@@ -12,8 +12,10 @@ const SecureForm = () => {
   const [siteName, setSiteName] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
+  const [tool, setTool] = useState('');
   const [livePreview, setLivePreview] = useState('');
   const [buyLink, setBuyLink] = useState('');
+  const [contactLink, setContactLink] = useState('');
   const [agree, setAgree] = useState(false);
   const [image, setImage] = useState(null);
   const [imageURL, setImageURL] = useState('');
@@ -42,8 +44,10 @@ const SecureForm = () => {
         siteName,
         description,
         category,
+        tool,
         livePreview,
         buyLink,
+        contactLink,
         agree,
         imageURL: downloadURL,
         createdAt: serverTimestamp(),
@@ -58,8 +62,10 @@ const SecureForm = () => {
       setSiteName('');
       setDescription('');
       setCategory('Blog');
+      setTool('');
       setLivePreview('');
       setBuyLink('');
+      setContactLink('');
       setAgree(false);
       setImage(null);
       setImageURL('');
@@ -93,7 +99,12 @@ const SecureForm = () => {
 
   return (
     <div id='secure-form'>
-      <br /><br /><br /><br /><br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
       <form onSubmit={handleSubmit}>
         <h2>1 - Your info:</h2>
         <div className="grid-1">
@@ -140,7 +151,6 @@ const SecureForm = () => {
                 required
               >
                 <option value="" disabled>Select</option>
-                {/* Categories as before */}
                 <option value="blog">Blog</option>
                 <option value="business">Business</option>
                 <option value="creative">Creative</option>
@@ -156,6 +166,29 @@ const SecureForm = () => {
                 <option value="saas">Saas</option>
                 <option value="technology">Technology</option>
                 <option value="travel">Travel</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="step-category">
+            <div className="input-container">
+              <label>Pick a Tool</label>
+              <select
+                value={tool}
+                onChange={(e) => setTool(e.target.value)}
+                required
+              >
+                <option value="" disabled>Select</option>
+                <option value="drupal">Drupal</option>
+                <option value="elementor">Elementor</option>
+                <option value="framer">Framer</option>
+                <option value="ghost">Ghost</option>
+                <option value="html-css-js">HTML + CSS + JS</option>
+                <option value="next">Next</option>
+                <option value="react">React</option>
+                <option value="webflow">Webflow</option>
+                <option value="wix">Wix</option>
+                <option value="wordpress">WordPress</option>
               </select>
             </div>
           </div>
@@ -236,6 +269,17 @@ const SecureForm = () => {
               required
             />
             <label>Buy Link</label>
+          </div>
+
+          <div className="input-container">
+            <input
+              type="text"
+              placeholder=""
+              value={contactLink}
+              onChange={(e) => setContactLink(e.target.value)}
+              required
+            />
+            <label>Contact Link</label>
           </div>
         </div>
 

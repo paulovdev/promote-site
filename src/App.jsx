@@ -20,7 +20,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<Create />} />
           <Route path="/site/:id" element={<SiteDetail />} />
-          <Route path="/category/:category" element={<Category />} />
+          <Route path="/sites/:category" element={<Category />} />
+          <Route path="/sites/:tool" element={<Category />} />
           <Route path="/CNOYMulmOdU0bwORZLxS1sDQs14heCNOYMulmOdU0bwORZLxS" element={<SecureForm />} />
         </Routes>
       </Router>

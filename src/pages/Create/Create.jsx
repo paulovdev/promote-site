@@ -16,8 +16,10 @@ const Create = () => {
   const [siteName, setSiteName] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
+  const [tool, setTool] = useState('');
   const [livePreview, setLivePreview] = useState('');
   const [buyLink, setBuyLink] = useState('');
+  const [contactLink, setContactLink] = useState('');
   const [agree, setAgree] = useState(false);
   const [image, setImage] = useState(null);
   const [imageURL, setImageURL] = useState('');
@@ -46,10 +48,12 @@ const Create = () => {
         to_name: 'Paulo Vitor',
         profileLink: profileLink,
         category: category,
+        tool: tool,
         siteName: siteName,
         description: description,
         livePreview: livePreview,
         buyLink: buyLink,
+        contactLink: contactLink,
         imageURL: downloadURL,
       };
 
@@ -167,6 +171,29 @@ const Create = () => {
               </select>
             </div>
           </div>
+
+          <div className="step-category">
+            <div className="input-container">
+              <label>Pick a Tool</label>
+              <select
+                value={tool}
+                onChange={(e) => setTool(e.target.value)}
+                required
+              >
+                <option value="" disabled>Select</option>
+                <option value="drupal">Drupal</option>
+                <option value="elementor">Elementor</option>
+                <option value="framer">Framer</option>
+                <option value="ghost">Ghost</option>
+                <option value="html-css-js">HTML + CSS + JS</option>
+                <option value="next">Next</option>
+                <option value="react">React</option>
+                <option value="webflow">Webflow</option>
+                <option value="wix">Wix</option>
+                <option value="wordpress">WordPress</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         <div className="input-container text-input">
@@ -244,6 +271,17 @@ const Create = () => {
               required
             />
             <label>Buy Link</label>
+          </div>
+
+          <div className="input-container">
+            <input
+              type="text"
+              placeholder=""
+              value={contactLink}
+              onChange={(e) => setContactLink(e.target.value)}
+              required
+            />
+            <label>Contact Link</label>
           </div>
         </div>
 

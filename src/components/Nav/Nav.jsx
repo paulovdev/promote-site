@@ -52,23 +52,27 @@ const Navbar = () => {
                         isOpen={menuOpen}
                         onStateChange={({ isOpen }) => setMenuOpen(isOpen)}
                     >
-                        <div className="menu-text">
+                        <div className="menu-text" >
                             <span><kbd>Shift + M</kbd></span>
                             <div className="border-bottom"></div>
                         </div>
-                        <div className="nav-text">
+                        <div className="nav-text" onClick={menuOpen}>
                             <Link to="/">Home <FaArrowRightLong /> </Link>
                         </div>
 
-                        <div className="nav-text">
+                        <div className="nav-text" onClick={menuOpen}>
                             <Link to="/create">How it's work? <FaArrowRightLong /> </Link>
                         </div>
 
-                        <div className="nav-text">
+                        <div className="nav-text" onClick={menuOpen}>
                             <Link to="/category/category1" >About <FaArrowRightLong /> </Link>
                         </div>
 
-                        <div className="nav-button">
+                        <div className="nav-text" onClick={menuOpen}>
+                            <Link to="/sites/blog" >Explore <FaArrowRightLong /> </Link>
+                        </div>
+
+                        <div className="nav-button" onClick={menuOpen}>
                             <Link to="/create">
                                 Submit your site <MdKeyboardArrowRight size={22} />
                             </Link >

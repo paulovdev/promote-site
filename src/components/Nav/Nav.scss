@@ -105,7 +105,7 @@ header {
 .bm-item-list {
   width: 100%;
 
-  padding: 2rem;
+  padding: 0.5rem;
 
   display: flex;
   align-items: start;
@@ -178,7 +178,7 @@ header {
 .nav-button {
   display: flex;
   align-items: center;
-  gap: 3rem;
+
   background-color: var(--p);
   border: 1px solid var(--border);
   border-radius: 2rem;
@@ -187,7 +187,7 @@ header {
     width: 100%;
     height: fit-content;
 
-    padding: 1rem 1.3rem;
+    padding: .8rem 1.3rem;
 
     outline: none;
     border: none;
@@ -282,7 +282,7 @@ kbd {
 
 @media (max-width:809px) {
   header {
-    padding: 15px;
+    padding: 25px;
   }
 
   kbd {

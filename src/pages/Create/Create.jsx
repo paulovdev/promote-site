@@ -109,7 +109,7 @@ const Create = () => {
       <h1>Submit your website for promotion</h1>
       <form onSubmit={handleSubmit}>
         <h2>1 - Your info:</h2>
-        <div className="grid-1">
+      
           <div className="input-container">
             <input
               type="text"
@@ -130,10 +130,10 @@ const Create = () => {
             />
             <label>Profile Link</label>
           </div>
-        </div>
+     
 
         <h2>2 - Site Info:</h2>
-        <div className="grid-1">
+      
           <div className="input-container">
             <input
               type="text"
@@ -194,7 +194,7 @@ const Create = () => {
               </select>
             </div>
           </div>
-        </div>
+       
 
         <div className="input-container text-input">
           <textarea
@@ -250,7 +250,7 @@ const Create = () => {
         </div>
         <h2>3 - Site Links:</h2>
 
-        <div className="grid-1">
+     
           <div className="input-container">
             <input
               type="text"
@@ -283,7 +283,7 @@ const Create = () => {
             />
             <label>Contact Link</label>
           </div>
-        </div>
+        
 
         <div className="cient-text">
           <p>By ticking this box you agree to receive communications from SitePromote.</p>

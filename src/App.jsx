@@ -8,6 +8,7 @@ import Create from './pages/Create/Create';
 import ScrollTop from './utils/ScrollTop/ScrollTop';
 import SiteDetail from './pages/SiteDetail/SiteDetail';
 import Category from './pages/Category/Category';
+import SecureForm from './crip/SecureForm';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/create" element={<Create />} />
           <Route path="/site/:id" element={<SiteDetail />} />
           <Route path="/category/:category" element={<Category />} />
+          <Route path="/CNOYMulmOdU0bwORZLxS1sDQs14heCNOYMulmOdU0bwORZLxS" element={<SecureForm />} />
         </Routes>
       </Router>
     </SkeletonTheme>

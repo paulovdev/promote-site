@@ -1,12 +1,11 @@
 import React, { useState, useRef } from 'react';
-import emailjs from 'emailjs-com';
+import { db, storage } from '../firebase/Firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { IoCloseOutline, IoImageOutline } from "react-icons/io5";
 import { motion } from 'framer-motion';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from '../../firebase/Firebase';
-import "./Create.scss";
 
-const Create = () => {
+const SecureForm = () => {
   const [myName, setMyName] = useState('');
   const [email, setEmail] = useState('');
   const [profileLink, setProfileLink] = useState('');
@@ -31,30 +30,28 @@ const Create = () => {
     }
 
     try {
-      // Upload the image
       const imageRef = ref(storage, `images/${siteName}`);
       await uploadBytes(imageRef, image);
       const downloadURL = await getDownloadURL(imageRef);
       setImageURL(downloadURL);
 
-      // Prepare templateParams
-      const templateParams = {
-        from_name: myName,
-        to_name: 'Paulo Vitor',
-        profileLink: profileLink,
-        category:category,
-        siteName: siteName,
-        description: description,
-        livePreview: livePreview,
-        buyLink: buyLink,
-        imageURL: downloadURL, // Use the URL of the uploaded image
-      };
+      await addDoc(collection(db, 'sites'), {
+        myName,
+        email,
+        profileLink,
+        siteName,
+        description,
+        category,
+        livePreview,
+        buyLink,
+        agree,
+        imageURL: downloadURL,
+        createdAt: serverTimestamp(),
+        views: 0,
+      });
 
-      // Send email
-      await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
-      alert('Form submitted successfully! Please note that it may take 5 to 7 days for us to review your submission.');
+      alert('Form submitted successfully!');
 
-      // Reset form fields
       setMyName('');
       setEmail('');
       setProfileLink('');
@@ -68,7 +65,7 @@ const Create = () => {
       setImageURL('');
       setIsPhotoValid(true);
     } catch (error) {
-      console.error('Error sending email: ', error);
+      console.error('Error adding document: ', error);
     }
   };
 
@@ -95,8 +92,8 @@ const Create = () => {
   };
 
   return (
-    <div id='create'>
-      <h1>Submit your website for promotion</h1>
+    <div id='secure-form'>
+      <br /><br /><br /><br /><br />
       <form onSubmit={handleSubmit}>
         <h2>1 - Your info:</h2>
         <div className="grid-1">
@@ -143,6 +140,7 @@ const Create = () => {
                 required
               >
                 <option value="" disabled>Select</option>
+                {/* Categories as before */}
                 <option value="blog">Blog</option>
                 <option value="business">Business</option>
                 <option value="creative">Creative</option>
@@ -261,4 +259,4 @@ const Create = () => {
   );
 };
 
-export default Create;
+export default SecureForm;

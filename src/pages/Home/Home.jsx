@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { db } from "../../firebase/Firebase";
-import { collection, query, orderBy, getDocs } from "firebase/firestore";
+import { collection, query, orderBy, getDocs, limit } from "firebase/firestore";
 import "./Home.scss";
 import { Link } from "react-router-dom";
 import { FaGlobe } from "react-icons/fa";
@@ -17,8 +17,7 @@ const Home = () => {
 
             try {
                 setLoading(true);
-                // Create a query to fetch sites sorted by views in descending order
-                const q = query(collection(db, "sites"), orderBy("views", "desc"));
+                const q = query(collection(db, "sites"), limit(5), orderBy("views", "desc"));
                 const querySnapshot = await getDocs(q);
                 const sitesData = querySnapshot.docs.map(doc => ({
                     id: doc.id,

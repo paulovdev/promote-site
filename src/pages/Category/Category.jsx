@@ -11,21 +11,44 @@ const Category = () => {
     const [sites, setSites] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    // Map URL category values to display names
+    const categoryDisplayNames = {
+        'blog': 'Blog',
+        'business': 'Business',
+        'creative': 'Creative',
+        'educational': 'Educational',
+        'e-commerce': 'E-commerce',
+        'event': 'Event',
+        'health-wellness': 'Health & Wellness',
+        'landing-page': 'Landing Page',
+        'non-profit': 'Non-Profit',
+        'photography': 'Photography',
+        'portfolio': 'Portfolio',
+        'restaurant': 'Restaurant',
+        'saas': 'Saas',
+        'technology': 'Technology',
+        'travel': 'Travel',
+        'elementor': 'Elementor',
+        'framer': 'Framer',
+        'ghost': 'Ghost',
+        'html-css-js': 'HTML + CSS + JS',
+        'next': 'Next',
+        'react': 'React',
+        'webflow': 'Webflow',
+        'wix': 'Wix',
+        'wordpress': 'WordPress'
+    };
+
+    const displayCategoryName = categoryDisplayNames[category] || category;
+
     useEffect(() => {
         const fetchSites = async () => {
             try {
                 setLoading(true);
-
-                // Query for sites where the category matches
                 const categoryQuery = query(collection(db, 'sites'), where('category', '==', category));
-                // Query for sites where the tool matches
                 const toolQuery = query(collection(db, 'sites'), where('tool', '==', category));
-
-                // Fetch results for both queries
                 const categorySnapshot = await getDocs(categoryQuery);
                 const toolSnapshot = await getDocs(toolQuery);
-
-                // Combine results
                 const categorySites = categorySnapshot.docs.map(doc => ({
                     id: doc.id,
                     ...doc.data()
@@ -34,14 +57,11 @@ const Category = () => {
                     id: doc.id,
                     ...doc.data()
                 }));
-
-                // Remove duplicates
                 const combinedSites = [...categorySites, ...toolSites];
                 const uniqueSites = Array.from(new Set(combinedSites.map(site => site.id)))
                     .map(id => {
                         return combinedSites.find(site => site.id === id);
                     });
-
                 setSites(uniqueSites);
                 setLoading(false);
             } catch (error) {
@@ -74,7 +94,6 @@ const Category = () => {
                         <li><NavLink to="/sites/technology">Technology</NavLink></li>
                         <li><NavLink to="/sites/travel">Travel</NavLink></li>
                         {/* ... */}
-
                         <li><NavLink to="/sites/elementor">Elementor</NavLink></li>
                         <li><NavLink to="/sites/framer">Framer</NavLink></li>
                         <li><NavLink to="/sites/ghost">Ghost</NavLink></li>
@@ -89,6 +108,7 @@ const Category = () => {
             </section>
 
             <section id='category'>
+                <h1>Explore in the {displayCategoryName} and search the best site for you!</h1>
                 {loading &&
                     Array.from({ length: 3 }).map((_, index) => (
                         <div key={index} className='skeleton-wrapper'>

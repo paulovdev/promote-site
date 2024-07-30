@@ -61,15 +61,11 @@ const Navbar = () => {
                         </div>
 
                         <div className="nav-text" onClick={menuOpen}>
-                            <Link to="/create">How it's work? <FaArrowRightLong /> </Link>
-                        </div>
-
-                        <div className="nav-text" onClick={menuOpen}>
-                            <Link to="/category/category1" >About <FaArrowRightLong /> </Link>
-                        </div>
-
-                        <div className="nav-text" onClick={menuOpen}>
                             <Link to="/sites/blog" >Explore <FaArrowRightLong /> </Link>
+                        </div>
+
+                        <div className="nav-text" onClick={menuOpen}>
+                            <Link to="/create">How it's work? <FaArrowRightLong /> </Link>
                         </div>
 
                         <div className="nav-button" onClick={menuOpen}>

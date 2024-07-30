@@ -62,3 +62,13 @@
 
     }
 }
+
+@media (max-width){
+    .footer{
+        .container{
+            .footer-content{
+                flex-direction:column;
+            }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+@import "../../index.scss";
+
+.footer {
+    position: relative;
+    width: 100%;
+
+    background-color: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+
+    .container {
+        position: relative;
+        width: 100%;
+
+
+        .footer-content {
+            position: relative;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 2rem;
+        }
+
+        h4,
+        h5 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+
+            .footer-link-group {
+                list-style: none;
+                padding: 0;
+                margin: 0 1.5rem;
+
+                .footer-link-title {
+                    font-weight: bold;
+                    margin-bottom: 1rem;
+                }
+
+                .footer-link-item {
+                    margin-bottom: 0.5rem;
+
+                    .footer-link {
+                        color: var(--p);
+                        text-decoration: none;
+                        transition: color 0.3s;
+
+                        &:hover {
+                            opacity: .8;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

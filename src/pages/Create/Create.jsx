@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../firebase/Firebase';
 import "./Create.scss";
+import { Link } from 'react-router-dom';
 
 const Create = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -107,9 +108,13 @@ const Create = () => {
   return (
     <div id='create'>
       <h1>Submit your website for promotion</h1>
-      <form onSubmit={handleSubmit}>
-        <h2>1 - Your info:</h2>
-      
+      <p>Submit your Framer template for free below to share it with the Frameplate community. It'll be added to the Frameplate website and posted on our Twitter account.
+        We're only adding one website template per weekday to Frameplate as we want each template to get all the visibility it deserves.</p>
+      <div className="sticky-container">
+
+        <form onSubmit={handleSubmit}>
+          <h3>1 - Your info:</h3>
+
           <div className="input-container">
             <input
               type="text"
@@ -130,10 +135,10 @@ const Create = () => {
             />
             <label>Profile Link</label>
           </div>
-     
 
-        <h2>2 - Site Info:</h2>
-      
+
+          <h3>2 - Site Info:</h3>
+
           <div className="input-container">
             <input
               type="text"
@@ -194,63 +199,63 @@ const Create = () => {
               </select>
             </div>
           </div>
-       
 
-        <div className="input-container text-input">
-          <textarea
-            type="text"
-            placeholder=""
-            value={description}
-            maxLength={250}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <label>Description</label>
-          {description && (
-            <span onClick={() => clearInput("description")}>
-              <IoCloseOutline size={24} />
-            </span>
-          )}
-        </div>
-        <div className="step-image">
-          <label>Pick an image</label>
-          <div className="image-select">
-            <button
-              type="button"
-              className="prf-file"
-              onClick={handleClick}
-            >
-              <IoImageOutline size={75} />
-              <p>{image ? 'Image loaded...' : ''}</p>
-            </button>
-            {image && (
-              <img
-                width={150}
-                src={URL.createObjectURL(image)}
-                alt="Image loaded"
-                className="preview-image"
-              />
+
+          <div className="input-container text-input">
+            <textarea
+              type="text"
+              placeholder=""
+              value={description}
+              maxLength={250}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <label>Description</label>
+            {description && (
+              <span onClick={() => clearInput("description")}>
+                <IoCloseOutline size={24} />
+              </span>
             )}
           </div>
-          <input
-            onChange={handleImageChange}
-            ref={imageRef}
-            type="file"
-            hidden
-          />
-          {!isPhotoValid && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              Image required*
-            </motion.p>
-          )}
-        </div>
-        <h2>3 - Site Links:</h2>
+          <div className="step-image">
+            <label>Pick an image</label>
+            <div className="image-select">
+              <button
+                type="button"
+                className="prf-file"
+                onClick={handleClick}
+              >
+                <IoImageOutline size={75} />
+                <p>{image ? 'Image loaded...' : ''}</p>
+              </button>
+              {image && (
+                <img
+                  width={150}
+                  src={URL.createObjectURL(image)}
+                  alt="Image loaded"
+                  className="preview-image"
+                />
+              )}
+            </div>
+            <input
+              onChange={handleImageChange}
+              ref={imageRef}
+              type="file"
+              hidden
+            />
+            {!isPhotoValid && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                Image required*
+              </motion.p>
+            )}
+          </div>
+          <h3>3 - Site Links:</h3>
 
-     
+
           <div className="input-container">
             <input
               type="text"
@@ -283,26 +288,39 @@ const Create = () => {
             />
             <label>Contact Link</label>
           </div>
-        
 
-        <div className="cient-text">
-          <p>By ticking this box you agree to receive communications from SitePromote.</p>
-          <input
-            type="checkbox"
-            checked={agree}
-            onChange={(e) => setAgree(e.target.checked)}
-            required
-          />
-        </div>
 
-        <div className="buttons-register-wrapper">
-          <div className="button-register-wrapper">
-            <button type="submit" disabled={isLoading}>
-              {isLoading ? <LoadingSpinner /> : 'Submit'}
-            </button>
+          <div className="cient-text">
+            <p>By ticking this box you agree to receive communications from SitePromote.</p>
+            <input
+              type="checkbox"
+              checked={agree}
+              onChange={(e) => setAgree(e.target.checked)}
+              required
+            />
           </div>
+
+          <div className="buttons-register-wrapper">
+            <div className="button-register-wrapper">
+              <button type="submit" disabled={isLoading}>
+                {isLoading ? <LoadingSpinner /> : 'Submit'}
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div className="right-content">
+          <h2>Want to skip the waiting line?</h2>
+          <p>With the recent increase in traffic and model submissions, we now have a waiting list.
+            Currently, you can expect your template to be added within 5-7 weeks of submission. If you want your model added early or on a specific date, you can pay to skip the queue, and you'll have it on the site's main slider and in the hot category (this will also help keep this site running).</p>
+          <Link
+            to="/sites/blog"
+            className="sticky-right-content-button"
+          >
+            Take me where I do this
+          </Link>
         </div>
-      </form>
+      </div>
       <AnimatePresence>
         {showModal && <Modal onClose={() => setShowModal(false)} />}
       </AnimatePresence>
@@ -329,7 +347,7 @@ const Modal = ({ onClose }) => (
     >
       <button className="close-button" onClick={onClose}><IoCloseOutline size={32} /></button>
       <h3>Form submitted successfully!</h3>
-      <p>Please note that it may take 5 to 7 days for us to review your submission.</p>
+      <p>Please note that it may take 5 to 7 weeks for us to review your submission.</p>
     </motion.div>
   </motion.div>
 );

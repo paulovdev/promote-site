@@ -54,45 +54,56 @@
         align-items: center;
         gap: 3rem;
 
-        a {
+        .home-button-1,
+        .home-button-2 {
             width: 200px;
             height: 50px;
-
             outline: none;
             border: none;
-
-            background-color: var(--bg);
             border: 1px solid var(--p);
             border-radius: 2rem;
-
-            color: var(--p);
-
             font-size: 16px;
             font-weight: 600;
-
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-            &:hover {
-                background-color: var(--p);
-                color: var(--p-2);
-            }
-
-            &:nth-child(2) {
-                background-color: var(--p);
-                color: var(--p-2);
-
-                &:hover {
-                    background-color: var(--btn-2);
-                    color: var(--fixed-c);
-                }
-            }
         }
 
+        .home-button-1 {
+            background-color: var(--p);
+            color: var(--p-2);
+        }
+
+        .home-button-1.other-hovered {
+            background-color: var(--bg);
+            color: var(--p);
+        }
+
+        .home-button-1.hovered {
+            background-color: var(--bg);
+            color: var(--p);
+        }
+
+
+        .home-button-2 {
+            background-color: var(--bg);
+            color: var(--p);
+        }
+
+        .home-button-2.hovered {
+            background-color: var(--p);
+            color: var(--p-2);
+        }
+
+
+        .home-button-2.other-hovered {
+            background-color: var(--p);
+            color: var(--p-2);
+        }
     }
+
 
     .right-container {
         position: relative;
@@ -306,6 +317,7 @@
 
     #home-sites {
         padding: 15px !important;
+
         .site-container {
             flex-direction: column;
             gap: 1rem;

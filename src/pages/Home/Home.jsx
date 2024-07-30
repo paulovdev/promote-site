@@ -11,6 +11,7 @@ import Skeleton from "react-loading-skeleton";
 const Home = () => {
     const [sites, setSites] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [hoveredButton, setHoveredButton] = useState(null);
     useEffect(() => {
         const fetchSites = async () => {
 
@@ -39,8 +40,21 @@ const Home = () => {
                 <h1>Discover the latest <img src="/world-img.jpg" alt="" /> sites & resources.</h1>
                 <p>Launch your <span>website</span> in minutes with the latest sites & resources created by the community.</p>
                 <div className="home-buttons">
-                    <Link to="/sites/blog">
+                    <Link
+                        to="/sites/blog"
+                        className={`home-button-1 ${hoveredButton === 'button1' ? 'hovered' : ''} ${hoveredButton === 'button2' ? 'other-hovered' : ''}`}
+                        onMouseEnter={() => setHoveredButton('button1')}
+                        onMouseLeave={() => setHoveredButton(null)}
+                    >
                         Explore sites
+                    </Link>
+                    <Link
+                        to="/create"
+                        className={`home-button-2 ${hoveredButton === 'button2' ? 'hovered' : ''} ${hoveredButton === 'button1' ? 'other-hovered' : ''}`}
+                        onMouseEnter={() => setHoveredButton('button2')}
+                        onMouseLeave={() => setHoveredButton(null)}
+                    >
+                        Submit your site
                     </Link>
                 </div>
             </section>

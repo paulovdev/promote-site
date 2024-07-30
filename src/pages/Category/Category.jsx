@@ -110,7 +110,7 @@ const Category = () => {
             <section id='category'>
                 <h1>Explore in the {displayCategoryName} and search the best site for you!</h1>
                 {loading &&
-                    Array.from({ length: 3 }).map((_, index) => (
+                    Array.from({ length: 6 }).map((_, index) => (
                         <div key={index} className='skeleton-wrapper'>
                             <Skeleton height={225} width={450} />
                             <Skeleton height={20} width={`60%`} style={{ marginTop: '10px' }} />

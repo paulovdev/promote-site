@@ -9,6 +9,7 @@ import ScrollTop from './utils/ScrollTop/ScrollTop';
 import SiteDetail from './pages/SiteDetail/SiteDetail';
 import Category from './pages/Category/Category';
 import SecureForm from './crip/SecureForm';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/sites/:tool" element={<Category />} />
           <Route path="/CNOYMulmOdU0bwORZLxS1sDQs14heCNOYMulmOdU0bwORZLxS" element={<SecureForm />} />
         </Routes>
+        <Footer />
       </Router>
     </SkeletonTheme>
   );

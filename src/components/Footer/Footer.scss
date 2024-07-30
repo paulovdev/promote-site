@@ -6,7 +6,7 @@
 
     background-color: var(--bg);
     border-top: 1px solid var(--border);
-    padding: 2rem 0;
+    padding: 100px;
 
     .container {
         position: relative;
@@ -59,6 +59,41 @@
                 }
             }
         }
+    }
+}
 
+@media (max-width:809px) {
+    .footer {
+        position: relative;
+        width: 100%;
+
+        background-color: var(--bg);
+        border-top: 1px solid var(--border);
+        padding: 15px;
+
+        .container {
+            position: relative;
+            width: 100%;
+
+
+            .footer-content {
+                position: relative;
+                width: 100%;
+
+                display: flex;
+                justify-content: start;
+                align-items: start;
+                flex-direction: column;
+                margin-bottom: 2rem;
+
+                h4,
+                h5 {
+                    font-size: 32px;
+                    font-weight: bold;
+                    margin: 1.5rem;
+                }
+            }
+
+        }
     }
 }

@@ -43,17 +43,14 @@ const Navbar = () => {
 
                 <nav>
                     <ThemeChange />
-
-                    <kbd>Shift + M</kbd>
-
                     <Menu
                         right
                         width={400}
                         isOpen={menuOpen}
                         onStateChange={({ isOpen }) => setMenuOpen(isOpen)}
                     >
-                        <div className="menu-text" >
-                            <span><kbd>Shift + M</kbd></span>
+                        <div className="menu-text">
+                            <span>NAVIGATE</span>
                             <div className="border-bottom"></div>
                         </div>
                         <div className="nav-text" onClick={menuOpen}>

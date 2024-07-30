@@ -3,12 +3,15 @@ import { db } from '../../firebase/Firebase';
 import { doc, getDoc, collection, query, where, limit, getDocs, updateDoc, increment } from 'firebase/firestore';
 import { Link, useParams } from 'react-router-dom';
 import { FaArrowRightLong } from "react-icons/fa6";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import './SiteDetail.scss';
 
 const SiteDetail = () => {
     const { id } = useParams();
     const [site, setSite] = useState(null);
     const [relatedSites, setRelatedSites] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchSite = async () => {
@@ -36,76 +39,109 @@ const SiteDetail = () => {
             } else {
                 console.error('No such document!');
             }
+            setLoading(false);
         };
 
         fetchSite();
     }, [id]);
 
-    if (!site) return <p>Loading...</p>;
-
     return (
         <>
-            <section id="site-detail">
-                <div className="header-text">
-                    <h1>{site.siteName}</h1>
-                    <p>{site.description}</p>
-                </div>
+            {loading && <>
+                <section id="site-detail">
 
-                <div className="sub-header-text">
-                    <div className="sub-text">
-                        <strong>Created by: </strong>
-                        <a href={site.profileLink} target="_blank" rel="noopener noreferrer">
-                            {site.myName}
-                        </a>
+                    <div className="header-text">
+                        <h1><Skeleton width={350} height={50} /></h1>
+                        <p><Skeleton width={`100%`} height={20} /></p>
                     </div>
 
-                    <div className="sub-text">
-                        <strong>Category: </strong>
-                        <Link to={`/sites/${site.category}`}>
-                            {site.category}
-                        </Link>
+                    <div className="sub-header-text">
+                        <div className="sub-text">
+                            <Skeleton width={150} height={10} />
+                        </div>
+
+                        <div className="sub-text">
+                            <Skeleton width={150} height={10} />
+                        </div>
+
+                        <div className="sub-text">
+                            <Skeleton width={150} height={10} />
+                        </div>
+
+                        <div className="site-buttons">
+                            <Skeleton width={200} height={40} borderRadius={200} />
+                        </div>
+
+                        <div className="site-buttons">
+                            <Skeleton width={200} height={40} borderRadius={200} />
+                        </div>
                     </div>
 
-                    <div className="sub-text">
-                        <strong>Tool: </strong>
-                        <Link to={`/sites/${site.tool}`}>
-                            {site.tool}
-                        </Link>
+                    <Skeleton width={1400} height={500} />
+                </section>
+            </>}
+            {!loading && <>
+                <section id="site-detail">
+                    <div className="header-text">
+                        <h1>{site.siteName}</h1>
+                        <p>{site.description}</p>
                     </div>
 
+                    <div className="sub-header-text">
+                        <div className="sub-text">
+                            <strong>Created by: </strong>
+                            <a href={site.profileLink} target="_blank" rel="noopener noreferrer">
+                                {site.myName}
+                            </a>
+                        </div>
 
-                    <div className="site-buttons">
-                        <a href={site.livePreview} target="_blank" rel="noopener noreferrer">See this site</a>
-                    </div>
-
-                    <div className="site-buttons">
-                        <a href={site.buyLink} target="_blank" rel="noopener noreferrer">Want to buy this site?</a>
-                    </div>
-                </div>
-
-                <img src={site.imageURL} alt={site.siteName} />
-            </section>
-
-            <section id='site-more-category'>
-                <div className="sub-header-text">
-                    <h2>More from <strong>{site.category}</strong></h2>
-                    <Link to={`/sites/${site.category}`}>View all <FaArrowRightLong /></Link>
-                </div>
-
-                <div className="related-sites">
-                    {relatedSites.map(relatedSite => (
-                        <div key={relatedSite.id} className="related-site">
-                            <Link to={`/site/${relatedSite.id}`} onClick={() => scrollTo({ top: 0, behavior: "smooth" })}>
-                                <img src={relatedSite.imageURL} alt={relatedSite.siteName} />
-                                <span>{site.category} | {site.tool}</span>
-                                <h1>{relatedSite.siteName}</h1>
-                                <p>{relatedSite.description}</p>
-                                <p>Created by: {relatedSite.myName}</p>
+                        <div className="sub-text">
+                            <strong>Category: </strong>
+                            <Link to={`/sites/${site.category}`}>
+                                {site.category}
                             </Link>
                         </div>
-                    ))}
-                </div>
-            </section>
+
+                        <div className="sub-text">
+                            <strong>Tool: </strong>
+                            <Link to={`/sites/${site.tool}`}>
+                                {site.tool}
+                            </Link>
+                        </div>
+
+                        <div className="site-buttons">
+                            <a href={site.livePreview} target="_blank" rel="noopener noreferrer">See this site</a>
+                        </div>
+
+                        <div className="site-buttons">
+                            <a href={site.buyLink} target="_blank" rel="noopener noreferrer">Want to buy this site?</a>
+                        </div>
+                    </div>
+
+                    <img src={site.imageURL} alt={site.siteName} />
+                </section>
+
+                <section id='site-more-category'>
+                    <div className="sub-header-text">
+                        <h2>More from <strong>{site.category}</strong></h2>
+                        <Link to={`/sites/${site.category}`}>View all <FaArrowRightLong /></Link>
+                    </div>
+
+                    <div className="related-sites">
+                        {relatedSites.map(relatedSite => (
+                            <div key={relatedSite.id} className="related-site">
+                                <Link to={`/site/${relatedSite.id}`} onClick={() => scrollTo({ top: 0, behavior: "smooth" })}>
+                                    <img src={relatedSite.imageURL} alt={relatedSite.siteName} />
+                                    <span>{site.category} | {site.tool}</span>
+                                    <h1>{relatedSite.siteName}</h1>
+                                    <p>{relatedSite.description}</p>
+                                    <p>Created by: {relatedSite.myName}</p>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </>}
         </>
     );
 };

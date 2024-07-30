@@ -1,191 +1,185 @@
  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
- 
-$s: #828282;
 
-$bg: #868686;
+ :root {
+   --p: #111111;
+   --p-2: #ffffff;
 
-$bg-2: #343434;
+   --bg: #f3f3f3;
+   --bg-2: #2c2c2c;
+   --bg-3: #f3f3f3;
 
-:root {
-  --p: #111111;
-  --p-2: #ffffff;
+   --border: #e0e0e0;
+   --border-2: #dadada;
 
-  --bg: #f3f3f3;
-  --bg-2: #2c2c2c;
-  --bg-3: #f3f3f3;
+   --p-i: #111;
 
-  --border: #e0e0e0;
-  --border-2: #dadada;
+   --btn: #111;
+   --btn-2: #333;
 
-  --p-i: #111;
+   --accent: #e28315;
+   --fixed-c: #f3f3f3;
+ }
 
-  --btn: #111;
-  --btn-2: #333;
+ .dark {
+   --p: #fefefe;
+   --p-2: #111111;
 
-  --accent: #e28315;
-  --fixed-c: #f3f3f3;
-}
+   --bg: #1d1d1d;
+   --bg-3: #141414;
 
-.dark {
-  --p: #fefefe;
-  --p-2: #111111;
+   --border: #262626;
+   --border-2: #3a3a3a;
 
-  --bg: #1d1d1d;
-  --bg-3: #141414;
+   --p-i: #111;
 
-  --border: #262626;
-  --border-2: #3a3a3a;
+   --btn: #242424;
+   --btn-2: #404040;
+ }
 
-  --p-i: #fff;
+ * {
+   font-family: "Manrope", sans-serif;
 
-  --btn: #242424;
-  --btn-2: #404040;
-}
+   list-style: none;
+   text-decoration: none;
 
-* {
-     font-family: "Manrope", sans-serif; 
+   padding: 0;
+   margin: 0;
+   word-spacing: 1px;
+   font-size: 16px;
+   box-sizing: border-box;
 
-  list-style: none;
-  text-decoration: none;
+   font-synthesis: none;
+   text-rendering: optimizeLegibility;
+   touch-action: manipulation;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
 
-  padding: 0;
-  margin: 0;
-  word-spacing: 1px;
-  font-size: 16px;
-  box-sizing: border-box;
+ body {
+   background-color: var(--bg);
+   color: var(--p);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  touch-action: manipulation;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+   margin: 0 auto;
+   max-width: 1600px;
 
-body {
-  background-color: var(--bg);
-  color: var(--p);
+ }
 
-  margin: 0 auto;
-  max-width: 1600px;
+ button {
+   outline: none;
+   background: transparent;
+   border: none;
+   cursor: pointer;
+ }
 
-}
+ .loading-container {
+   position: relative;
+   width: 100%;
+   height: 100%;
 
-button {
-  outline: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
+   bottom: 0;
 
-.loading-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 
-  bottom: 0;
+   .loading {
+     width: 24px;
+     height: 24px;
+     border-radius: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+     border: 4px solid;
 
-  .loading {
-    width: 24px;
-    height: 24px;
-    border-radius: 100%;
+     border-color: var(--fixed-c);
+     border-right-color: var(--btn);
+     animation: spinner-d3wgkg 1s infinite linear;
+   }
 
-    border: 4px solid;
+   button {
+     width: 40px;
+     height: 40px;
 
-    border-color: var(--fixed-c);
-    border-right-color: var(--btn);
-    animation: spinner-d3wgkg 1s infinite linear;
-  }
+     outline: none;
+     border: none;
 
-  button {
-    width: 40px;
-    height: 40px;
+     background-color: var(--btn);
+     border: 1px solid var(--border);
+     border-radius: 100%;
+     color: var(--fixed-c);
 
-    outline: none;
-    border: none;
-
-    background-color: var(--btn);
-    border: 1px solid var(--border);
-    border-radius: 100%;
-    color: var(--fixed-c);
-
-    font-size: 14px;
-    font-weight: 500;
+     font-size: 14px;
+     font-weight: 500;
 
 
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+     cursor: pointer;
+     transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
-    &:hover {
-      background-color: var(--btn-2);
-    }
-  }
-}
+     &:hover {
+       background-color: var(--btn-2);
+     }
+   }
+ }
 
-.loading-container.initial {
-  width: 100%;
-  height: 100vh;
+ .loading-container.initial {
+   width: 100%;
+   height: 100vh;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 
-  .loading.initial {
-    width: 50px;
-    height: 50px;
+   .loading.initial {
+     width: 50px;
+     height: 50px;
 
-    border: 6px solid;
+     border: 6px solid;
 
-    border-color: var(--fixed-c);
-    border-right-color: var(--btn);
-    animation: spinner-d3wgkg 1s infinite linear;
-  }
-}
+     border-color: var(--fixed-c);
+     border-right-color: var(--btn);
+     animation: spinner-d3wgkg 1s infinite linear;
+   }
+ }
 
-@keyframes spinner-d3wgkg {
-  to {
-    transform: rotate(1turn);
-  }
-}
+ @keyframes spinner-d3wgkg {
+   to {
+     transform: rotate(1turn);
+   }
+ }
 
-::selection {
-  background-color: var(--p);
-  color: var(--p-2);
-}
+ ::selection {
+   background-color: var(--p);
+   color: var(--p-2);
+ }
 
-::-webkit-scrollbar {
-  width: 3px;
-  height: 1px;
-  background-color: var(--border);
-}
+ ::-webkit-scrollbar {
+   width: 3px;
+   height: 1px;
+   background-color: var(--border);
+ }
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--p);
-  border-radius: 0.5rem;
-}
+ ::-webkit-scrollbar-thumb {
+   background-color: var(--p);
+   border-radius: 0.5rem;
+ }
 
-.Toastify__toast-theme--light {
-  color: var(--bg-2);
-  font-weight: 600;
+ .Toastify__toast-theme--light {
+   color: var(--bg-2);
+   font-weight: 600;
 
-  .Toastify__close-button--light {
-    color: var(--bg-2);
+   .Toastify__close-button--light {
+     color: var(--bg-2);
 
-  }
-}
+   }
+ }
 
-.swiper {
-  width: 100%;
-  height: 100%;
-}
+ .swiper {
+   width: 100%;
+   height: 100%;
+ }
 
-.react-loading-skeleton {
-  background-color: var(--border);
+ .react-loading-skeleton {
+   background-color: var(--border);
 
-  &.react-loading-skeleton::after {
-    background-image: linear-gradient(90deg, var(--border-2), var(--border-2), var(--border-2));
-  }
-}
+   &.react-loading-skeleton::after {
+     background-image: linear-gradient(90deg, var(--border-2), var(--border-2), var(--border-2));
+   }
+ }

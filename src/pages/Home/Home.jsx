@@ -43,7 +43,7 @@ const Home = () => {
     return (
         <>
             <section id="home-hero">
-                <h1>Boost your website  <img src="/world-img.jpg" alt="" /> and stand out!</h1>
+                <h1>Sell your website  <img src="/world-img.jpg" alt="" /> and stand out!</h1>
                 <p>Launch your website with us and gain more notoriety! Sell ​​your website faster and more easily.</p>
                 <div className="home-button">
                     <Link
@@ -118,76 +118,81 @@ const Home = () => {
                 </section>
             }
 
-            <section id="home-sub-hero">
-                <div className="left-content">
-                    <div className="how-it-work">
-                        <h2>How does it work?</h2>
-                        <p>
-                            As you might know, most streaming services recommend tracks based on what similar people are listening to. If someone similar to me listens and likes “Fred Again”, chances are I’ll be recommended “Fred Again”.
-                            <br /><br />
-                            That obviously works well for artists that are already being heard. But what about all of the songs that don’t have any plays yet? Well, that’s exactly the problem with most music algorithms. They simply can’t recommend tracks with zero plays. If no one has listened yet, they’ve got no signals.
-                            <br /><br />
-                            Our new Next Pro feature “First Fans” changes the game. Using AI, we can quickly analyze tracks and surface them to listeners who are likely to enjoy it. Even if they’re just uploaded and have zero plays.
-                        </p>
-                        <div className="about-button">
-                            <Link
-                                to="/create"
-                                className="about-button-content"
-                            >
-                                Submit your site <div className="ball-button">
-                                    <RiArrowRightDownLine />
-                                </div>
-                            </Link>
+            <section id="home-features">
+                <div className="features-content">
+                    <div className="card">
+                        <div className="icon-card">
+                            <AiOutlineSelect />
                         </div>
+                        <h3>SELECT YOUR SITE</h3>
+                        <p>Select your best website or template.</p>
 
                     </div>
-                    <div className="faq">
-                        <h2>FAQ</h2>
-                        <h3>How do I get this?</h3>
-                        <p>
-                            Only Next Pro Artists members have access to this premium First Fans feature.
-                            Subscribe to Next Pro to enable First Fans feature.
-                        </p>
-                        <h3>Do all tracks qualify?</h3>
-                        <p>First Fans is currently only available for music tracks which are under 10 minutes, uploaded by Next Pro subscribers.</p>
+
+                    <div className="card">
+                        <div className="icon-card">
+                            <FaWpforms />
+                        </div>
+                        <h3>FILL OUT THE FORM AND PUBLISH</h3>
+                        <p>Fill in all the information on the form and submit.</p>
+
+                    </div>
+
+                    <div className="card">
+                        <div className="icon-card">
+                            <IoTimeOutline />
+                        </div>
+                        <h3>WAIT FOR YOUR WEBSITE TO BE REVIEWED</h3>
+                        <p>Of course, you can skip the queue and be highlighted at the top of the page.</p>
+
                     </div>
                 </div>
+            </section>
+
+            <section id="home-faqs">
+                <div className="left-content">
+
+                    <h2>How does it work?</h2>
+
+                </div>
+
                 <div className="right-content">
-                    <div className="card">
-                        <div className="left-content">
-                            <div className="icon-card">
-                                <AiOutlineSelect />
+                    <p>
+                        As you might know, most streaming services recommend tracks based on what similar people are listening to. If someone similar to me listens and likes “Fred Again”, chances are I’ll be recommended “Fred Again”.
+                        <br /><br />
+                        That obviously works well for artists that are already being heard. But what about all of the songs that don’t have any plays yet? Well, that’s exactly the problem with most music algorithms. They simply can’t recommend tracks with zero plays. If no one has listened yet, they’ve got no signals.
+                        <br /><br />
+                        Our new Next Pro feature “First Fans” changes the game. Using AI, we can quickly analyze tracks and surface them to listeners who are likely to enjoy it. Even if they’re just uploaded and have zero plays.
+                    </p>
+                    <div className="about-button">
+                        <Link
+                            to="/create"
+                            className="about-button-content"
+                        >
+                            Submit your site <div className="ball-button">
+                                <RiArrowRightDownLine />
                             </div>
-                        </div>
-                        <div className="right-content">
-                            <h3>SELECT YOUR SITE</h3>
-                            <p>Select your best website or template.</p>
-                        </div>
+                        </Link>
                     </div>
+                </div>
 
-                    <div className="card">
-                        <div className="left-content">
-                            <div className="icon-card">
-                                <FaWpforms />
-                            </div>
-                        </div>
-                        <div className="right-content">
-                            <h3>FILL OUT THE FORM AND PUBLISH</h3>
-                            <p>Fill in all the information on the form and submit.</p>
-                        </div>
-                    </div>
+            </section>
 
-                    <div className="card">
-                        <div className="left-content">
-                            <div className="icon-card">
-                                <IoTimeOutline />
-                            </div>
-                        </div>
-                        <div className="right-content">
-                            <h3>WAIT FOR YOUR WEBSITE TO BE REVIEWED</h3>
-                            <p>Of course, you can skip the queue and be highlighted at the top of the page.</p>
-                        </div>
-                    </div>
+            <section id="home-faqs">
+                <div className="left-content">
+
+                    <h2>Frequently asked questions!</h2>
+
+                </div>
+
+                <div className="right-content">
+                    <h3>How do I get this?</h3>
+                    <p>
+                        Only Next Pro Artists members have access to this premium First Fans feature.
+                        Subscribe to Next Pro to enable First Fans feature.
+                    </p>
+                    <h3>Do all tracks qualify?</h3>
+                    <p>First Fans is currently only available for music tracks which are under 10 minutes, uploaded by Next Pro subscribers.</p>
                 </div>
 
             </section>

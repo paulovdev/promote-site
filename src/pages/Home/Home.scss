@@ -249,11 +249,89 @@
     }
 }
 
-#home-sub-hero {
+#home-features {
     position: relative;
     width: 100%;
     height: fit-content;
-    margin: 10rem 0;
+
+
+    padding: 50px 100px !important;
+
+    background-color: var(--bg);
+
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .features-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        gap: 5rem;
+
+        .card {
+            position: relative;
+            width: 100%;
+            height: 350px;
+
+            padding: 1rem;
+
+            border-radius: 0.5rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+
+
+            .icon-card {
+                position: relative;
+                width: 150px;
+                height: 150px;
+
+                background-color: var(--p);
+                border-radius: 100%;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    font-size: 32px;
+                    color: var(--p-2);
+                }
+            }
+
+            h3 {
+                min-height: 50px;
+                font-size: 24px;
+                font-weight: 800;
+                text-align: center;
+            }
+
+            p {
+                min-height: 50px;
+                font-size: 18px;
+                font-weight: 400;
+                color: var(--p);
+                text-align: center;
+                word-wrap: break-word !important;
+            }
+        }
+
+    }
+}
+
+#home-faqs {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    margin: 5rem 0;
 
     padding: 0 100px !important;
 
@@ -278,172 +356,15 @@
         flex-direction: column;
         gap: 2rem;
 
-        .how-it-work {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        h2 {
+            font-size: 38px;
+            font-weight: 600;
+            letter-spacing: -1px;
 
-            border-bottom: 1px solid var(--border);
-
-            display: flex;
-            align-items: start;
-            justify-content: center;
-            flex-direction: column;
-            gap: 2rem;
-
-            h2 {
-                font-size: 38px;
-                font-weight: 600;
-                letter-spacing: -1px;
-
-                color: var(--p);
-                text-align: start;
-            }
-
-            p {
-                font-size: 18px;
-                font-weight: 400;
-                color: var(--p);
-                word-wrap: break-word !important;
-            }
-
-
-            .about-button {
-                display: flex;
-                align-items: center;
-                gap: 3rem;
-
-                .about-button-content {
-                    width: fit-content;
-                    height: 50px;
-                    padding: 0 .5rem 0 1.2rem;
-                    margin: 0 0 3rem 0;
-                    outline: none;
-
-                    border: 1px solid var(--p);
-                    border-radius: 2rem;
-
-                    font-size: 16px;
-                    font-weight: 600;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    gap: 1rem;
-                    cursor: pointer;
-
-                    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-                }
-
-                .about-button-content {
-                    background-color: var(--p);
-                    color: var(--p-2);
-                }
-
-
-                .ball-button {
-                    width: 30px;
-                    height: 30px;
-                    padding: 0.5rem;
-                    background-color: var(--p-2);
-                    border-radius: 100%;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    svg {
-                        color: var(--p);
-                        font-size: 24px;
-                    }
-                }
-            }
+            color: var(--p);
+            text-align: start;
         }
 
-        .faq {
-            position: relative;
-            width: 100%;
-            height: 100%;
-
-            display: flex;
-            align-items: start;
-            justify-content: center;
-            flex-direction: column;
-            gap: 2rem;
-
-            h2 {
-                font-size: 38px;
-                font-weight: 600;
-                letter-spacing: -1px;
-
-                color: var(--p);
-                text-align: start;
-            }
-
-            h3 {
-                font-size: 24px;
-                font-weight: 600;
-            }
-
-            p {
-                font-size: 18px;
-                font-weight: 400;
-                color: var(--p);
-                word-wrap: break-word !important;
-            }
-
-
-            .about-button {
-                display: flex;
-                align-items: center;
-                gap: 3rem;
-
-                .about-button-content {
-                    width: fit-content;
-                    height: 50px;
-                    padding: 0 .5rem 0 1.2rem;
-                    margin: 0 0 3rem 0;
-                    outline: none;
-
-                    border: 1px solid var(--p);
-                    border-radius: 2rem;
-
-                    font-size: 16px;
-                    font-weight: 600;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    gap: 1rem;
-                    cursor: pointer;
-
-                    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-                }
-
-                .about-button-content {
-                    background-color: var(--p);
-                    color: var(--p-2);
-                }
-
-
-                .ball-button {
-                    width: 30px;
-                    height: 30px;
-                    padding: 0.5rem;
-                    background-color: var(--p-2);
-                    border-radius: 100%;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    svg {
-                        color: var(--p);
-                        font-size: 24px;
-                    }
-                }
-            }
-        }
     }
 
     .right-content {
@@ -461,68 +382,69 @@
         flex-direction: column;
         gap: 3rem;
 
-        .card {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        p {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--p);
+            word-wrap: break-word !important;
+        }
 
-            border-bottom: 1px solid var(--border);
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -1px;
 
+            color: var(--p);
+            text-align: start;
+        }
+
+        .about-button {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
+            gap: 3rem;
 
-            .left-content {
-                width: 100%;
-                height: 100%;
+            .about-button-content {
+                width: fit-content;
+                height: 50px;
+                padding: 0 .5rem 0 1.2rem;
+                margin: 0 0 3rem 0;
+                outline: none;
+
+                border: 1px solid var(--p);
+                border-radius: 2rem;
+
+                font-size: 16px;
+                font-weight: 600;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+                cursor: pointer;
+
+                transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            }
+
+            .about-button-content {
+                background-color: var(--p);
+                color: var(--p-2);
+            }
+
+
+            .ball-button {
+                width: 30px;
+                height: 30px;
+                padding: 0.5rem;
+                background-color: var(--p-2);
+                border-radius: 100%;
 
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
-                margin-bottom: 2rem;
-
-                .icon-card {
-                    position: relative;
-                    width: 150px;
-                    height: 150px;
-
-                    background-color: var(--p);
-                    border-radius: 100%;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    svg {
-                        font-size: 32px;
-                        color: var(--p-2);
-                    }
-                }
-            }
-
-            .right-content {
-                width: 100%;
-                height: 100%;
-
-                display: flex;
-                align-items: start;
-                justify-content: start;
-                gap: 1rem;
-                margin-bottom: 2rem;
-
-                h3 {
-                    font-size: 24px;
-                    font-weight: 600;
-
-                }
-
-                p {
-                    font-size: 18px;
-                    font-weight: 400;
+                svg {
                     color: var(--p);
-                    word-wrap: break-word !important;
+                    font-size: 24px;
                 }
             }
         }
@@ -531,8 +453,6 @@
     span {
         font-weight: 700;
     }
-
-
 
 }
 
@@ -591,25 +511,25 @@
         }
     }
 
-
-
-    #home-sub-hero {
+    #home-features {
         margin: 5rem 0;
         padding: 15px !important;
 
         flex-direction: column;
 
-        .right-content {
-            .card {
-                flex-direction: column;
-                text-align: center;
+        .features-content {
 
-                .right-content {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-            }
+            flex-direction: column;
+            gap: 2rem;
+
         }
+    }
+
+    #home-faqs {
+        margin: 5rem 0;
+        padding: 15px !important;
+
+        flex-direction: column;
+
     }
 }

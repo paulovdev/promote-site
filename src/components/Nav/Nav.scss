@@ -154,9 +154,9 @@ header {
     border: none;
 
     color: var(--p);
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 1px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    line-height: 140%;
     opacity: 1;
 
     display: flex;
@@ -199,8 +199,9 @@ header {
 
     color: var(--p-2);
     font-size: 16px;
-    font-weight: 900;
-    letter-spacing: 1px;
+    font-weight: 600;
+    letter-spacing: -.25px;
+    line-height: 120%;
 
     opacity: 1;
 

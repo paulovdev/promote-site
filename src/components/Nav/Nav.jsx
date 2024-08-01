@@ -37,7 +37,7 @@ const Navbar = () => {
             <header>
                 <div className="logo">
                     <Link to="/">
-                        <IoMdGlobe size={32} />
+                        Quimplo
                     </Link>
                 </div>
 

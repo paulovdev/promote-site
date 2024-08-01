@@ -40,7 +40,7 @@ const Home = () => {
     return (
         <>
             <section id="home-hero">
-                <h1>Sell your website <img src="/world-img.jpg" alt="" /> and get noticed!</h1>
+                <h1>Boost your website and get noticed!</h1>
                 <p>Launch your website on Quimplo and gain visibility! Sell your site faster and easier.</p>
                 <div className="home-button">
                     <Link
@@ -96,7 +96,7 @@ const Home = () => {
                                     <div className="site-container">
                                         <div className="site-left-content">
                                             <img src={site.imageURL} alt={site.siteName} />
-                                            <div className="featured"><IoMdStar /> <p>FEATURED SITE</p></div>
+                                            <div className="featured"><IoMdStar /> <p>FEATURED WEBSITE</p></div>
                                         </div>
                                         <div className="site-right-content">
 
@@ -114,7 +114,7 @@ const Home = () => {
             }
 
             <section id="home-features">
-                <h1>How does Quimplo work?</h1>
+                <h1>How does <span>Quimplo</span> work?</h1>
                 <div className="features-content">
                     <div className="card">
                         <div className="icon-card">
@@ -143,20 +143,19 @@ const Home = () => {
             </section>
 
             <section id="home-benefits">
-                <h1>Why choose Quimplo?</h1>
                 <div className="benefits-content">
                     <div className="benefit-card">
-                        <h3>Optimized for SEO</h3>
+                        <h1>Save 30+ Hours on Every Research</h1>
                         <p>Your listings are optimized for search engines, ensuring maximum visibility.</p>
                     </div>
 
                     <div className="benefit-card">
-                        <h3>Easy to Use</h3>
+                        <h1>Easy to Use</h1>
                         <p>Our platform is designed to be user-friendly, making the listing process simple and efficient.</p>
                     </div>
 
                     <div className="benefit-card">
-                        <h3>Secure Transactions</h3>
+                        <h1>Secure Transactions</h1>
                         <p>All transactions on Quimplo are secure, giving you peace of mind while you sell.</p>
                     </div>
                 </div>
@@ -170,33 +169,74 @@ const Home = () => {
                         disableOnInteraction: false,
                     }}
                     modules={[Autoplay, Pagination, Navigation]}
-                    slidesPerView={3}
+                    slidesPerView={4}
                     spaceBetween={50}
                     className="testimonials-slides"
                 >
                     <SwiperSlide>
                         <div className="testimonial-card">
-                            <img src="/world-img.jpg" alt="" />
+                            <div className="top-testimonial-card">
+                                <img src="/world-img.jpg" alt="" />
+                                <h3>Jane Doe</h3>
+                                <span>•</span>
+                                <p>1mo ago</p>
+                            </div>
                             <p>"Quimplo has completely transformed the way I sell websites. The exposure and speed of sales are unmatched!"</p>
-                            <h3>- Jane Doe, Web Designer</h3>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="testimonial-card"> <img src="/world-img.jpg" alt="" />
-                            <p>"The best platform for selling templates! Easy to use and gets my work in front of the right audience."</p>
-                            <h3>- John Smith, Developer</h3>
+                        <div className="testimonial-card">
+                            <div className="top-testimonial-card">
+                                <img src="/world-img.jpg" alt="" />
+                                <h3>Jane Doe</h3>
+                                <span>•</span>
+                                <p>1mo ago</p>
+                            </div>
+                            <p>"Quimplo has completely transformed the way I sell websites. The exposure and speed of sales are unmatched!"</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="testimonial-card"> <img src="/world-img.jpg" alt="" />
-                            <p>"I love the featured listing option. It gave my site the boost it needed to stand out."</p>
-                            <h3>- Mary Johnson, Freelancer</h3>
+                        <div className="testimonial-card">
+                            <div className="top-testimonial-card">
+                                <img src="/world-img.jpg" alt="" />
+                                <h3>Jane Doe</h3>
+                                <span>•</span>
+                                <p>1mo ago</p>
+                            </div>
+                            <p>"Quimplo has completely transformed the way I sell websites. The exposure and speed of sales are unmatched!"</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div className="testimonial-card"> <img src="/world-img.jpg" alt="" />
-                            <p>"I love the featured listing option. It gave my site the boost it needed to stand out."</p>
-                            <h3>- Mary Johnson, Freelancer</h3>
+                        <div className="testimonial-card">
+                            <div className="top-testimonial-card">
+                                <img src="/world-img.jpg" alt="" />
+                                <h3>Jane Doe</h3>
+                                <span>•</span>
+                                <p>1mo ago</p>
+                            </div>
+                            <p>"Quimplo has completely transformed the way I sell websites. The exposure and speed of sales are unmatched!"</p>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="testimonial-card">
+                            <div className="top-testimonial-card">
+                                <img src="/world-img.jpg" alt="" />
+                                <h3>Jane Doe</h3>
+                                <span>•</span>
+                                <p>1mo ago</p>
+                            </div>
+                            <p>"Quimplo has completely transformed the way I sell websites. The exposure and speed of sales are unmatched!"</p>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="testimonial-card">
+                            <div className="top-testimonial-card">
+                                <img src="/world-img.jpg" alt="" />
+                                <h3>Jane Doe</h3>
+                                <span>•</span>
+                                <p>1mo ago</p>
+                            </div>
+                            <p>"Quimplo has completely transformed the way I sell websites. The exposure and speed of sales are unmatched!"</p>
                         </div>
                     </SwiperSlide>
                 </Swiper>
@@ -240,7 +280,23 @@ const Home = () => {
                     </p>
                     <h3>Can I feature my site?</h3>
                     <p>Yes, you can choose to have your site featured at the top of relevant categories to gain more visibility.</p>
+
+                    <h3>How do I list my site?</h3>
+                    <p>
+                        Simply sign up, complete the listing form, and submit your site for review. Once approved, it will go live on our platform.
+                    </p>
+                    <h3>Can I feature my site?</h3>
+                    <p>Yes, you can choose to have your site featured at the top of relevant categories to gain more visibility.</p>
+
+                    <h3>How do I list my site?</h3>
+                    <p>
+                        Simply sign up, complete the listing form, and submit your site for review. Once approved, it will go live on our platform.
+                    </p>
+                    <h3>Can I feature my site?</h3>
+                    <p>Yes, you can choose to have your site featured at the top of relevant categories to gain more visibility.</p>
                 </div>
+
+
             </section>
         </>
     );

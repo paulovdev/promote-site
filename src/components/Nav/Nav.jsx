@@ -6,7 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import ThemeChange from './../ThemeChange/ThemeChange';
 import { IoMdGlobe } from "react-icons/io";
-
+import { IoIosSearch } from "react-icons/io";
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -53,6 +53,20 @@ const Navbar = () => {
                             <span>NAVIGATE</span>
                             <div className="border-bottom"></div>
                         </div>
+
+                        <div className="search-input">
+                            <div className="search-input">
+                                <button className="bt1">
+                                    <IoIosSearch size={22} />
+                                </button>
+                                <input
+                                    type="text"
+                                    placeholder="Search"
+
+                                />
+                            </div>
+                        </div>
+
                         <div className="nav-text" onClick={menuOpen}>
                             <Link to="/">Home <FaArrowRightLong /> </Link>
                         </div>

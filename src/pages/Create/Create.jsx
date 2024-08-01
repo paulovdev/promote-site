@@ -107,7 +107,7 @@ const Create = () => {
 
   return (
     <div id='create'>
-      <h1>Submit your website for promotion</h1>
+      <h1>Submit your website</h1>
       <p>Submit your Framer template for free below to share it with the Frameplate community. It'll be added to the Frameplate website and posted on our Twitter account.
         We're only adding one website template per weekday to Frameplate as we want each template to get all the visibility it deserves.</p>
       <div className="sticky-container">

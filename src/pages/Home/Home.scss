@@ -124,8 +124,11 @@
     width: 100%;
     height: 100%;
 
+    background-color: var(--p);
+
     padding: 100px !important;
     border-bottom: 1px solid var(--border);
+    border-radius: 5rem 5rem 0 0;
 
     .site-container {
         position: relative;
@@ -160,6 +163,7 @@
                 width: 100%;
                 height: 450px;
                 border-radius: 0.5rem;
+                
 
                 background-color: var(--bg-3);
                 border: 1px solid var(--border);
@@ -167,30 +171,18 @@
                 aspect-ratio: 2;
                 transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             }
-        }
-
-        .site-right-content {
-            position: relative;
-            width: 100%;
-            flex: 1 0 0;
-
-            margin-top: 1rem;
-
-            display: flex;
-            align-items: start;
-            flex-direction: column;
-            gap: 1.5rem;
 
             .featured {
-                position: relative;
+                position: absolute;
                 width: fit-content;
                 height: 30px;
+                top: 25px;
+                left: 25px;
                 padding: 0 1.4rem 0 1rem;
                 margin-bottom: 1.5rem;
 
-                background: linear-gradient(90deg, rgba(163, 163, 163, 1) 0%, rgba(77, 77, 77, 1) 51%, rgba(55, 55, 55, 1) 100%);
-                border-radius: 2rem;
-                border: 1px solid var(--border);
+                background: linear-gradient(90deg, rgb(87, 87, 87) 0%, rgb(48, 48, 48) 51%, rgb(26, 26, 26) 100%);
+                border-radius: 0.5rem;
 
                 display: flex;
                 align-items: center;
@@ -209,9 +201,24 @@
                     color: var(--fixed-c);
                 }
             }
+        }
+
+        .site-right-content {
+            position: relative;
+            width: 100%;
+            flex: 1 0 0;
+
+            margin-top: 1rem;
+
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            gap: 1.5rem;
+
+
 
             span {
-                color: var(--p);
+                color: var(--p-2);
 
                 font-size: 14px;
                 font-weight: 900;
@@ -224,19 +231,19 @@
 
             h1 {
                 font-size: 64px;
-                font-weight: 500;
+                font-weight: 400;
                 line-height: 1.2;
 
                 letter-spacing: -3px;
 
-                color: var(--p);
+                color: var(--p-2);
                 word-wrap: break-word !important;
             }
 
             p {
                 font-size: 20px;
                 font-weight: 500;
-                color: var(--p);
+                color: var(--p-2);
                 word-wrap: break-word !important;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -253,53 +260,64 @@
     position: relative;
     width: 100%;
     height: fit-content;
-
-
-    padding: 50px 100px !important;
-
+    padding: 100px !important;
     background-color: var(--bg);
+    border-bottom: 1px solid var(--border);
 
     display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+
+    h1 {
+        font-size: 52px;
+        font-weight: 400;
+        letter-spacing: -2px;
+        color: var(--p);
+        text-align: center;
+        margin-bottom: 3rem;
+    }
 
     .features-content {
         position: relative;
         width: 100%;
-        height: 100%;
 
         display: flex;
-        align-items: start;
-        justify-content: center;
-        gap: 5rem;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
 
         .card {
             position: relative;
             width: 100%;
-            height: 350px;
-
-            padding: 1rem;
-
-            border-radius: 0.5rem;
-
+            max-width: 450px; // Define um tamanho máximo para os cards
+            height: 300px; // Ajusta a altura automaticamente
+            padding: 2rem; // Aumenta o padding para mais espaço interno
+            border-radius: 12px; // Borda arredondada mais suave
+            background-color: var(--p-2); // Fundo com cor de destaque mais suave
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); // Sombra mais pronunciada
+            transition: transform 0.3s ease, box-shadow 0.3s ease; // Efeito de transição suave
             display: flex;
             align-items: center;
-            justify-content: space-between;
             flex-direction: column;
+            text-align: center;
 
+            &:hover {
+                transform: translateY(-10px); // Efeito de elevação ao passar o mouse
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); // Intensifica a sombra ao passar o mouse
+            }
 
             .icon-card {
-                position: relative;
-                width: 150px;
-                height: 150px;
-
+                width: 80px; // Reduz o tamanho do ícone para uma aparência mais compacta
+                height: 80px;
                 background-color: var(--p);
-                border-radius: 100%;
-
+                border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                margin-bottom: 1.5rem; // Adiciona margem inferior ao ícone
 
                 svg {
                     font-size: 32px;
@@ -308,22 +326,126 @@
             }
 
             h3 {
-                min-height: 50px;
-                font-size: 24px;
-                font-weight: 800;
-                text-align: center;
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--p);
+                margin-bottom: 1rem;
             }
 
             p {
-                min-height: 50px;
-                font-size: 18px;
+                font-size: 16px;
                 font-weight: 400;
                 color: var(--p);
-                text-align: center;
-                word-wrap: break-word !important;
+                line-height: 1.5;
+                margin: 0;
+                padding: 0 1rem;
             }
         }
+    }
+}
 
+#home-benefits {
+    width: 100%;
+    height: 100%;
+    padding: 100px;
+    background: var(--bg);
+
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+
+
+    h1 {
+        font-size: 52px;
+        font-weight: 400;
+        letter-spacing: -2px;
+
+        color: var(--p);
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .benefits-content {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+        gap: 2rem;
+
+        .benefit-card {
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            padding: 2rem;
+            background: var(--p-2);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+            h3 {
+                margin-bottom: 1rem;
+                color: var(--p);
+            }
+
+            p {
+                color: var(--p);
+            }
+        }
+    }
+}
+
+#home-testimonials {
+    width: 100%;
+    height: 100%;
+
+    padding: 100px;
+    background: var(--bg);
+    text-align: center;
+
+    h1 {
+        font-size: 52px;
+        font-weight: 400;
+        letter-spacing: -2px;
+
+        color: var(--p);
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .testimonials-slides {
+        .testimonial-card {
+            width: 450px;
+            height: 400px;
+            padding: 2rem;
+            background: var(--p-2);
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2rem;
+
+            p {
+                font-size: 1.1rem;
+                color: var(--p);
+                margin-bottom: 1.5rem;
+            }
+
+            h3 {
+                color: var(--p);
+                font-weight: 600;
+            }
+
+            img {
+                width: 150px;
+                height: 150px;
+
+                border-radius: 100%;
+            }
+        }
     }
 }
 
@@ -480,6 +602,7 @@
     #home-sites {
         padding: 15px !important;
 
+        border-radius: 2rem 2rem 0 0;
 
         .site-container {
             flex-direction: column;
@@ -490,7 +613,7 @@
                 img {
 
                     width: 100%;
-                    height: 300px;
+                    height: 250px;
                 }
             }
 
@@ -531,5 +654,26 @@
 
         flex-direction: column;
 
+    }
+}
+
+@media (max-width: 809px) {
+    #home-features {
+        padding: 30px 20px !important;
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 2rem;
+        }
+
+        .features-content {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            max-width: 100%;
+            padding: 1.5rem;
+        }
     }
 }

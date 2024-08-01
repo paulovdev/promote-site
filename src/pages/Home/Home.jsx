@@ -11,8 +11,6 @@ import { IoMdStar } from "react-icons/io";
 import { AiOutlineSelect } from "react-icons/ai";
 import { FaWpforms } from "react-icons/fa6";
 import { IoTimeOutline } from "react-icons/io5";
-
-
 import Skeleton from "react-loading-skeleton";
 
 const Home = () => {
@@ -21,7 +19,6 @@ const Home = () => {
 
     useEffect(() => {
         const fetchSites = async () => {
-
             try {
                 setLoading(true);
                 const q = query(collection(db, "sites"), limit(5), orderBy("views", "desc"));
@@ -43,14 +40,14 @@ const Home = () => {
     return (
         <>
             <section id="home-hero">
-                <h1>Sell your website  <img src="/world-img.jpg" alt="" /> and stand out!</h1>
-                <p>Launch your website with us and gain more notoriety! Sell ​​your website faster and more easily.</p>
+                <h1>Sell your website <img src="/world-img.jpg" alt="" /> and get noticed!</h1>
+                <p>Launch your website on Quimplo and gain visibility! Sell your site faster and easier.</p>
                 <div className="home-button">
                     <Link
                         to="/sites/blog"
                         className="home-button-content"
                     >
-                        Explore sites <div className="ball-button">
+                        Explore websites <div className="ball-button">
                             <TbArrowNarrowRight />
                         </div>
                     </Link>
@@ -77,9 +74,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </Link>
-
                     </div>
-
                     <Skeleton width={80} height={10} />
                 </section>
             }
@@ -101,10 +96,10 @@ const Home = () => {
                                     <div className="site-container">
                                         <div className="site-left-content">
                                             <img src={site.imageURL} alt={site.siteName} />
+                                            <div className="featured"><IoMdStar /> <p>FEATURED SITE</p></div>
                                         </div>
-
                                         <div className="site-right-content">
-                                            <div className="featured">< IoMdStar /> <p>FEATURED SITE</p></div>
+
                                             <span>{site.category} | {site.tool}</span>
                                             <h1>{site.siteName}</h1>
                                             <p>{site.description}</p>
@@ -119,50 +114,106 @@ const Home = () => {
             }
 
             <section id="home-features">
+                <h1>How does Quimplo work?</h1>
                 <div className="features-content">
                     <div className="card">
                         <div className="icon-card">
                             <AiOutlineSelect />
                         </div>
-                        <h3>SELECT YOUR SITE</h3>
-                        <p>Select your best website or template.</p>
-
+                        <h3>Select your site</h3>
+                        <p>Choose the best website or template you want to sell.</p>
                     </div>
 
                     <div className="card">
                         <div className="icon-card">
                             <FaWpforms />
                         </div>
-                        <h3>FILL OUT THE FORM AND PUBLISH</h3>
-                        <p>Fill in all the information on the form and submit.</p>
-
+                        <h3>Fill out the form and publish</h3>
+                        <p>Complete all the necessary information and submit your site for review.</p>
                     </div>
 
                     <div className="card">
                         <div className="icon-card">
                             <IoTimeOutline />
                         </div>
-                        <h3>WAIT FOR YOUR WEBSITE TO BE REVIEWED</h3>
-                        <p>Of course, you can skip the queue and be highlighted at the top of the page.</p>
-
+                        <h3>Wait for review</h3>
+                        <p>Once submitted, your website will be reviewed. You can also opt for a featured listing to get highlighted at the top.</p>
                     </div>
                 </div>
             </section>
 
+            <section id="home-benefits">
+                <h1>Why choose Quimplo?</h1>
+                <div className="benefits-content">
+                    <div className="benefit-card">
+                        <h3>Optimized for SEO</h3>
+                        <p>Your listings are optimized for search engines, ensuring maximum visibility.</p>
+                    </div>
+
+                    <div className="benefit-card">
+                        <h3>Easy to Use</h3>
+                        <p>Our platform is designed to be user-friendly, making the listing process simple and efficient.</p>
+                    </div>
+
+                    <div className="benefit-card">
+                        <h3>Secure Transactions</h3>
+                        <p>All transactions on Quimplo are secure, giving you peace of mind while you sell.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="home-testimonials">
+                <h1>What our users say</h1>
+                <Swiper
+                    autoplay={{
+                        delay: 10000,
+                        disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    slidesPerView={3}
+                    spaceBetween={50}
+                    className="testimonials-slides"
+                >
+                    <SwiperSlide>
+                        <div className="testimonial-card">
+                            <img src="/world-img.jpg" alt="" />
+                            <p>"Quimplo has completely transformed the way I sell websites. The exposure and speed of sales are unmatched!"</p>
+                            <h3>- Jane Doe, Web Designer</h3>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="testimonial-card"> <img src="/world-img.jpg" alt="" />
+                            <p>"The best platform for selling templates! Easy to use and gets my work in front of the right audience."</p>
+                            <h3>- John Smith, Developer</h3>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="testimonial-card"> <img src="/world-img.jpg" alt="" />
+                            <p>"I love the featured listing option. It gave my site the boost it needed to stand out."</p>
+                            <h3>- Mary Johnson, Freelancer</h3>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div className="testimonial-card"> <img src="/world-img.jpg" alt="" />
+                            <p>"I love the featured listing option. It gave my site the boost it needed to stand out."</p>
+                            <h3>- Mary Johnson, Freelancer</h3>
+                        </div>
+                    </SwiperSlide>
+                </Swiper>
+            </section>
+
+
+
             <section id="home-faqs">
                 <div className="left-content">
-
-                    <h2>How does it work?</h2>
-
+                    <h2>What is Quimplo?</h2>
                 </div>
 
                 <div className="right-content">
                     <p>
-                        As you might know, most streaming services recommend tracks based on what similar people are listening to. If someone similar to me listens and likes “Fred Again”, chances are I’ll be recommended “Fred Again”.
+                        Quimplo is a marketplace designed to help developers and designers sell their websites and templates. We focus on helping you gain visibility and accelerate your sales process.
                         <br /><br />
-                        That obviously works well for artists that are already being heard. But what about all of the songs that don’t have any plays yet? Well, that’s exactly the problem with most music algorithms. They simply can’t recommend tracks with zero plays. If no one has listened yet, they’ve got no signals.
-                        <br /><br />
-                        Our new Next Pro feature “First Fans” changes the game. Using AI, we can quickly analyze tracks and surface them to listeners who are likely to enjoy it. Even if they’re just uploaded and have zero plays.
+                        Our platform is optimized for SEO and performance, ensuring that your listings get the attention they deserve. Whether you're a freelancer or a design agency, Quimplo is here to help you reach your audience faster and more efficiently.
                     </p>
                     <div className="about-button">
                         <Link
@@ -175,26 +226,21 @@ const Home = () => {
                         </Link>
                     </div>
                 </div>
-
             </section>
 
             <section id="home-faqs">
                 <div className="left-content">
-
-                    <h2>Frequently asked questions!</h2>
-
+                    <h2>Frequently Asked Questions</h2>
                 </div>
 
                 <div className="right-content">
-                    <h3>How do I get this?</h3>
+                    <h3>How do I list my site?</h3>
                     <p>
-                        Only Next Pro Artists members have access to this premium First Fans feature.
-                        Subscribe to Next Pro to enable First Fans feature.
+                        Simply sign up, complete the listing form, and submit your site for review. Once approved, it will go live on our platform.
                     </p>
-                    <h3>Do all tracks qualify?</h3>
-                    <p>First Fans is currently only available for music tracks which are under 10 minutes, uploaded by Next Pro subscribers.</p>
+                    <h3>Can I feature my site?</h3>
+                    <p>Yes, you can choose to have your site featured at the top of relevant categories to gain more visibility.</p>
                 </div>
-
             </section>
         </>
     );

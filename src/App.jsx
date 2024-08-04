@@ -10,21 +10,32 @@ import SiteDetail from './pages/SiteDetail/SiteDetail';
 import Category from './pages/Category/Category';
 import SecureForm from './crip/SecureForm';
 import Footer from './components/Footer/Footer';
+import { CategoryProvider } from './context/CategoryContext';
+import { SitesProvider } from './context/SitesHomeContext';
+import { SiteDetailProvider } from './context/SiteDetailContext';
 
 const App = () => {
+
+
   return (
     <SkeletonTheme>
       <Router>
         <ScrollTop />
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/create" element={<Create />} />
-          <Route path="/site/:id" element={<SiteDetail />} />
-          <Route path="/sites/:category" element={<Category />} />
-          <Route path="/sites/:tool" element={<Category />} />
-          <Route path="/CNOYMulmOdU0bwORZLxS1sDQs14heCNOYMulmOdU0bwORZLxS" element={<SecureForm />} />
-        </Routes>
+        <CategoryProvider>
+          <SitesProvider>
+            <SiteDetailProvider>
+              <Routes>
+                <Route path="/" exact element={<Home />} />
+                <Route path="/create" element={<Create />} />
+                <Route path="/site/:id" element={<SiteDetail />} />
+                <Route path="/sites/:category" element={<Category />} />
+                <Route path="/sites/:tool" element={<Category />} />
+                <Route path="/CNOYMulmOdU0bwORZLxS1sDQs14heCNOYMulmOdU0bwORZLxS" element={<SecureForm />} />
+              </Routes>
+            </SiteDetailProvider>
+          </SitesProvider>
+        </CategoryProvider>
         <Footer />
       </Router>
     </SkeletonTheme>

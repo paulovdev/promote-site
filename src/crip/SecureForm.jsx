@@ -20,6 +20,7 @@ const SecureForm = () => {
   const [image, setImage] = useState(null);
   const [imageURL, setImageURL] = useState('');
   const [isPhotoValid, setIsPhotoValid] = useState(true);
+  const [sitePrice, setSitePrice] = useState(0);
 
   const imageRef = useRef();
 
@@ -45,6 +46,7 @@ const SecureForm = () => {
         description,
         category,
         tool,
+        price: sitePrice,
         livePreview,
         buyLink,
         contactLink,
@@ -61,6 +63,7 @@ const SecureForm = () => {
       setProfileLink('');
       setSiteName('');
       setDescription('');
+      setSitePrice(0);
       setCategory('Blog');
       setTool('');
       setLivePreview('');
@@ -209,6 +212,23 @@ const SecureForm = () => {
             </span>
           )}
         </div>
+
+        <div className="input-container">
+          <label>Site Price</label>
+          <div className="range">
+            <input
+              type="range"
+              id="range1"
+              min="0"
+              max="300"
+              step="5"
+              value={sitePrice}
+              onChange={(e) => setSitePrice(Number(e.target.value))}
+            />
+          </div>
+          <p>{sitePrice === 0 ? 'Free' : `$${sitePrice}`}</p>
+        </div>
+
         <div className="step-image">
           <label>Pick an image</label>
           <div className="image-select">

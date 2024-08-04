@@ -1,0 +1,87 @@
+@import '../../../index.scss';
+
+
+
+#home-sites {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .slider-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .slider {
+            display: flex;
+            width: 200%;
+            height: 100%;
+            margin: 1rem 0;
+            animation: slide 30s linear infinite;
+
+            &:hover {
+                animation-play-state: paused;
+            }
+
+            .site-slide {
+                flex: 0 0 auto;
+                width: 500px;
+                margin-right: 1rem;
+
+                .site-container {
+                    position: relative;
+                    display: flex;
+                    align-items: start;
+                    justify-content: start;
+                    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+                    &:hover {
+                        transform: scale(1.01) translateY(-5px);
+
+                        img {
+                            border: 1px solid var(--p);
+                        }
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 1rem;
+                        border: 1px solid var(--border);
+                        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    }
+
+                    .featured {
+                        position: absolute;
+                        width: 30px;
+                        height: 30px;
+                        top: 10px;
+                        left: 10px;
+                        background: #3f3f3f;
+                        border-radius: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        svg {
+                            font-size: 20px;
+                            color: #fffb00;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

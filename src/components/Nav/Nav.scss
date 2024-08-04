@@ -4,31 +4,30 @@ header {
   position: absolute;
   width: 100%;
   top: 0;
-  right: 10px;
-  padding: 1rem 50px;
-
-
-  background-color: var(--bg);
-  border-bottom: 1px solid var(--border);
+  padding: 1.5rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  z-index: 1000;
+  gap: 2rem;
+
 
   .logo>a {
     position: relative;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 100%;
+
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-left: 1rem;
+    color: var(--p);
+
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: -2px;
-    color: var(--p);
     cursor: pointer;
+
 
     svg {
       font-size: 24px;
@@ -36,44 +35,71 @@ header {
     }
   }
 
-  nav {
-    position: relative;
-    width: 100%;
-    list-style: none;
-
+  .desktop-menu {
     display: flex;
     align-items: center;
-    justify-content: end;
     gap: 1.5rem;
 
     li {
-      a {
-        color: var(--p);
-        font-size: 12px;
-        font-weight: 900;
-        line-height: 48px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+      .feature-nav {
+        padding: .6rem .9rem;
+        border-radius: 2rem;
+        border: 1px solid var(--border-2);
 
-        opacity: 0.5;
-        text-align: center;
+        color: var(--p);
+
+        font-size: 16px;
+        font-weight: 600;
+
         cursor: pointer;
-        transition: opacity 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
         &:hover,
         &.active {
-          opacity: 1;
+          background-color: var(--p);
+          color: var(--p-2);
+        }
+      }
+
+      .explore-nav {
+        padding: .5rem 1.1rem;
+
+        border-radius: 2rem;
+        color: var(--p);
+
+        font-size: 16px;
+        font-weight: 600;
+
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+        &:hover,
+        &.active {
+          backdrop-filter: blur(25px);
+          background-color: #42424217;
         }
       }
     }
   }
-}
 
+  nav {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    left: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
 
 .bm-burger-button {
   position: relative;
   width: 25px;
-  height: 15px;
+  height: 10px;
+  display: none;
 }
 
 .bm-burger-bars {
@@ -93,6 +119,7 @@ header {
   position: fixed;
   height: 100vh !important;
   top: 0;
+  display: none;
 }
 
 /* General sidebar styles */
@@ -100,6 +127,8 @@ header {
   background: var(--bg-3);
   font-size: 16px;
   border: 1px solid var(--border);
+
+  display: none;
 }
 
 .bm-item-list {
@@ -135,6 +164,8 @@ header {
   height: 100vh;
   inset: 0;
   background-color: var(--bg);
+
+  display: none;
 }
 
 .nav-text {
@@ -267,16 +298,14 @@ header {
 
 .search-input {
   width: 100%;
-  height: 40px;
+  height: 50px;
 
-  background-color: var(--bg);
   border: 1px solid var(--border);
   border-radius: 2rem;
   display: flex;
   align-items: center;
   justify-content: end;
   transition: width 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
 
   button {
     width: 50px;
@@ -308,30 +337,33 @@ header {
   }
 }
 
-/* 
-kbd {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  color: var(--p);
-  font-size: 100%;
-  font-family: monospace, sans-serif;
-  vertical-align: baseline;
-  background: transparent;
-  border-color: var(--border);
-  border-style: solid;
-  border-width: 1px 3px 4px;
-  padding: 0 5px;
-  background-color: var(--bg);
-  background-color: var(--bg-3);
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-} */
 
 @media (max-width:809px) {
   header {
     padding: 25px;
+  }
+
+  ul.desktop-menu {
+    display: none;
+  }
+
+  .bm-burger-button {
+    display: block;
+  }
+
+  .bm-menu-wrap {
+    display: block;
+  }
+
+  .bm-menu {
+    display: block;
+  }
+
+  .bm-overlay {
+    display: block;
+  }
+
+  .bm-cross {
+    display: block;
   }
 }

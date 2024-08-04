@@ -1,27 +1,18 @@
 @import "../../index.scss";
 
-.footer {
-    position: relative;
+footer {
+    position: sticky;
+    top: 0;
     width: 100%;
+    max-width: 1700px;
+    margin: 0 auto;
 
     background-color: var(--bg);
-    border-top: 1px solid var(--border);
-    padding: 100px;
+    padding: 50px;
 
     .container {
         position: relative;
         width: 100%;
-
-
-        .footer-content {
-            position: relative;
-            width: 100%;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 2rem;
-        }
 
         h4,
         h5 {
@@ -31,23 +22,28 @@
         }
 
         .footer-links {
+            width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
 
-            .footer-link-group {
+            ul {
                 list-style: none;
                 padding: 0;
                 margin: 0 1.5rem;
 
-                .footer-link-title {
-                    font-weight: bold;
-                    margin-bottom: 1rem;
+                li {
+                    font-size: 20px;
+                    font-weight: 900;
+                    margin-bottom: 1.5rem;
                 }
 
                 .footer-link-item {
-                    margin-bottom: 0.5rem;
+                    margin-bottom: 1rem;
 
-                    .footer-link {
+                    a {
+                        font-weight: 500;
+                        font-size: 18px;
+                        opacity: .5;
                         color: var(--p);
                         text-decoration: none;
                         transition: color 0.3s;
@@ -98,11 +94,11 @@
     }
 }
 
-@media (max-width:809px){
-    .footer{
-        .container{
-            .footer-content{
-                flex-direction:column;
+@media (max-width:809px) {
+    .footer {
+        .container {
+            .footer-content {
+                flex-direction: column;
             }
         }
     }

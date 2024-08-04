@@ -1,12 +1,13 @@
  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
  :root {
-   --p: #111111;
+   --p: #333333;
    --p-2: #ffffff;
 
-   --bg: #eeeeee;
+   --bg: #f3f3f3;
    --bg-2: #f0f0f0;
    --bg-3: #f3f3f3;
+   --bg-4: #202020;
 
    --border: #e0e0e0;
    --border-2: #dadada;
@@ -17,7 +18,7 @@
    --btn-2: #333;
 
    --accent: #e28315;
-   --fixed-c: #f3f3f3;
+   --fixed-c: #fff;
  }
 
  .dark {
@@ -25,8 +26,9 @@
    --p-2: #111111;
 
    --bg: #1d1d1d;
-   --bg-2: #2c2c2c;
+   --bg-2: #252525;
    --bg-3: #141414;
+   --bg-4: #f3f3f3;
 
    --border: #262626;
    --border-2: #3a3a3a;
@@ -45,7 +47,6 @@
 
    padding: 0;
    margin: 0;
-   word-spacing: 1px;
    font-size: 16px;
    box-sizing: border-box;
 
@@ -59,10 +60,6 @@
  body {
    background-color: var(--bg);
    color: var(--p);
-
-   margin: 0 auto;
-   max-width: 1350px;
-
  }
 
  button {

@@ -1,0 +1,122 @@
+@import '../../../index.scss';
+
+#home-features {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+
+    padding: 150px 0 !important;
+    max-width: 1700px !important;
+    margin: 0 auto !important;
+
+    background-color: var(--bg);
+
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+
+    h1,
+    span {
+        font-size: 52px;
+        font-style: normal;
+        font-weight: 600;
+
+        letter-spacing: -2px;
+        line-height: 100%;
+
+        text-decoration: none;
+        margin-bottom: 3rem;
+    }
+
+    span {
+        background: #959595;
+        background: linear-gradient(to right, #959595 0%, #7e7e7e 54%, #4b4b4b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .features-content {
+        position: relative;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .card {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            height: 500px;
+
+            padding: 2rem;
+
+            border-radius: 2rem;
+            background-color: var(--bg-2);
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+            transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            flex-direction: column;
+            text-align: start;
+
+            &:hover {
+                transform: translateY(-10px);
+                background-color: var(--bg);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            }
+
+            .icon-card {
+                width: 80px;
+                height: 80px;
+                background-color: var(--p);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 1.5rem;
+
+                svg {
+                    font-size: 32px;
+                    color: var(--p-2);
+                }
+            }
+
+            h3 {
+                position: relative;
+                height: 200px;
+
+                font-size: 24px;
+                font-weight: 600;
+                color: var(--p);
+            }
+
+            .bottom-text {
+                position: relative;
+                width: 100%;
+                min-height: 100px;
+
+
+                display: flex;
+                align-items: start;
+                justify-content: start;
+
+                p {
+                    font-size: 18px;
+                    font-weight: 400;
+                    color: var(--p);
+                    line-height: 1.5;
+                    margin: 0;
+
+                }
+            }
+        }
+    }
+}

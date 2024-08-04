@@ -1,0 +1,149 @@
+@import "../../../index.scss";
+
+#nav-category {
+    width: 350px;
+    padding: 50px 0;
+
+    nav {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            height: 40px;
+            font-size: 18px;
+            font-weight: 400;
+            margin: 1rem 0;
+
+            padding: 0 1.3rem;
+            border-radius: 2rem;
+
+            border: 1px solid var(--border);
+            color: var(--p);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+
+            svg {
+                font-size: 22px;
+                color: var(--p);
+                transition: all .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            }
+
+            cursor: pointer;
+            user-select: none;
+
+        }
+
+        ul {
+            width: 100%;
+            list-style: none;
+            margin: 0;
+
+            padding: 2rem .3rem;
+            border-radius: 1rem;
+
+            border: 1px solid var(--border);
+
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            gap: 2rem;
+
+            li {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                a {
+                    position: relative;
+                    width: 100%;
+
+                    text-decoration: none;
+
+                    color: var(--p);
+                    padding: 0.2rem 1.3rem;
+                    border-radius: 2rem;
+                    opacity: 0.6;
+                    font-size: 16px;
+                    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+                    &:hover {
+                        font-weight: 900;
+                        opacity: 1;
+                        color: var(--p);
+                    }
+
+                    &.active {
+                        font-weight: 900;
+                        opacity: 1;
+                        color: var(--p);
+                        background-color: var(--bg);
+                    }
+
+                }
+            }
+        }
+
+        #filters {
+            padding: 2rem .3rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            label {
+                text-decoration: none;
+                color: var(--p);
+
+                padding: 0.2rem 1.3rem;
+                border-radius: 2rem;
+
+                opacity: 0.6;
+                font-size: 16px;
+                transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+                &:hover {
+                    font-weight: 900;
+                    opacity: 1;
+                    color: var(--p);
+                }
+
+                &::before {
+                    content: '✔';
+                    display: inline-block;
+                    margin-right: 0.7rem;
+                    width: 1rem;
+                    height: 1rem;
+                    border-radius: 2rem;
+                    border: 1px solid var(--p);
+                    font-size: 12px;
+                    text-align: center;
+                    line-height: 1rem;
+                    color: transparent;
+                    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                }
+            }
+
+            input[type='checkbox'] {
+                display: none;
+
+                &:checked+label {
+                    font-weight: 900;
+                    opacity: 1;
+                    color: var(--p);
+                    background-color: var(--bg);
+
+                    &::before {
+                        color: var(--p);
+                    }
+                }
+            }
+        }
+
+    }
+}

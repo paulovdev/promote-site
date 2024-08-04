@@ -3,6 +3,11 @@ import emailjs from 'emailjs-com';
 import { IoCloseOutline, IoImageOutline } from "react-icons/io5";
 import { AnimatePresence, motion } from 'framer-motion';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
+import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
+import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
+
+
 import { storage } from '../../firebase/Firebase';
 import "./Create.scss";
 import { Link } from 'react-router-dom';
@@ -16,6 +21,7 @@ const Create = () => {
   const [profileLink, setProfileLink] = useState('');
   const [siteName, setSiteName] = useState('');
   const [description, setDescription] = useState('');
+  const [sitePrice, setSitePrice] = useState(0);
   const [category, setCategory] = useState('');
   const [tool, setTool] = useState('');
   const [livePreview, setLivePreview] = useState('');
@@ -52,6 +58,7 @@ const Create = () => {
         tool: tool,
         siteName: siteName,
         description: description,
+        sitePrice: sitePrice === 0 ? 'Free' : `$${sitePrice}`,
         livePreview: livePreview,
         buyLink: buyLink,
         contactLink: contactLink,
@@ -61,7 +68,6 @@ const Create = () => {
       // Send email
       await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
 
-      // Reset form fields
       setMyName('');
       setEmail('');
       setProfileLink('');
@@ -70,6 +76,7 @@ const Create = () => {
       setCategory('Blog');
       setLivePreview('');
       setBuyLink('');
+      setSitePrice(0);
       setAgree(false);
       setImage(null);
       setImageURL('');
@@ -107,117 +114,155 @@ const Create = () => {
 
   return (
     <div id='create'>
-      <h1>Submit your website</h1>
-      <p>Submit your Framer template for free below to share it with the Frameplate community. It'll be added to the Frameplate website and posted on our Twitter account.
-        We're only adding one website template per weekday to Frameplate as we want each template to get all the visibility it deserves.</p>
+
+
+      <div className="head-text">
+        <h1>Submit your <span>website</span></h1>
+      </div>
+
+
       <div className="sticky-container">
 
         <form onSubmit={handleSubmit}>
           <h3>1 - Your info:</h3>
 
+
+          <div className="border-top-form"></div>
           <div className="input-container">
+            <label>Your Name<span>*</span></label>
             <input
               type="text"
-              placeholder=""
+              placeholder="Paulo*"
               value={myName}
               onChange={(e) => setMyName(e.target.value)}
               required
             />
-            <label>Your Name</label>
           </div>
+          <div className="border-bottom-form"></div>
 
           <div className="input-container">
+            <label>Profile Link<span>*</span></label>
             <input
               type="text"
-              placeholder=""
+              placeholder="https://example.com"
               value={profileLink}
               onChange={(e) => setProfileLink(e.target.value)}
             />
-            <label>Profile Link</label>
           </div>
+          <div className="border-bottom-form"></div>
+
+
+
 
 
           <h3>2 - Site Info:</h3>
 
-          <div className="input-container">
+          <div className="border-top-form"></div>
+
+          <div className="input-container ">
+            <label>Site Name<span>*</span></label>
             <input
               type="text"
-              placeholder=""
+              placeholder="Example Name"
               value={siteName}
               onChange={(e) => setSiteName(e.target.value)}
               required
             />
-            <label>Site Name</label>
+
           </div>
-          <div className="step-category">
-            <div className="input-container">
-              <label>Pick a Category</label>
-              <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                required
-              >
-                <option value="" disabled>Select</option>
-                <option value="blog">Blog</option>
-                <option value="business">Business</option>
-                <option value="creative">Creative</option>
-                <option value="educational">Educational</option>
-                <option value="e-commerce">E-commerce</option>
-                <option value="event">Event</option>
-                <option value="health-wellness">Health & Wellness</option>
-                <option value="landing-page">Landing Page</option>
-                <option value="non-profit">Non-Profit</option>
-                <option value="photography">Photography</option>
-                <option value="portfolio">Portfolio</option>
-                <option value="restaurant">Restaurant</option>
-                <option value="saas">Saas</option>
-                <option value="technology">Technology</option>
-                <option value="travel">Travel</option>
-              </select>
-            </div>
+          
+          <div className="border-bottom-form"></div>
+
+          <div className="input-container">
+            <label>Pick a Category<span>*</span></label>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+            >
+              <option value="" disabled>Select</option>
+              <option value="blog">Blog</option>
+              <option value="business">Business</option>
+              <option value="creative">Creative</option>
+              <option value="educational">Educational</option>
+              <option value="e-commerce">E-commerce</option>
+              <option value="event">Event</option>
+              <option value="health-wellness">Health & Wellness</option>
+              <option value="landing-page">Landing Page</option>
+              <option value="non-profit">Non-Profit</option>
+              <option value="photography">Photography</option>
+              <option value="portfolio">Portfolio</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="saas">Saas</option>
+              <option value="technology">Technology</option>
+              <option value="travel">Travel</option>
+            </select>
           </div>
 
-          <div className="step-category">
-            <div className="input-container">
-              <label>Pick a Tool</label>
-              <select
-                value={tool}
-                onChange={(e) => setTool(e.target.value)}
-                required
-              >
-                <option value="" disabled>Select</option>
-                <option value="drupal">Drupal</option>
-                <option value="elementor">Elementor</option>
-                <option value="framer">Framer</option>
-                <option value="ghost">Ghost</option>
-                <option value="html-css-js">HTML + CSS + JS</option>
-                <option value="next">Next</option>
-                <option value="react">React</option>
-                <option value="webflow">Webflow</option>
-                <option value="wix">Wix</option>
-                <option value="wordpress">WordPress</option>
-              </select>
-            </div>
+          <div className="border-bottom-form"></div>
+
+          <div className="input-container">
+            <label>Pick a Tool<span>*</span></label>
+            <select
+              value={tool}
+              onChange={(e) => setTool(e.target.value)}
+              required
+            >
+              <option value="" disabled>Select</option>
+              <option value="drupal">Drupal</option>
+              <option value="elementor">Elementor</option>
+              <option value="framer">Framer</option>
+              <option value="ghost">Ghost</option>
+              <option value="html-css-js">HTML + CSS + JS</option>
+              <option value="next">Next</option>
+              <option value="react">React</option>
+              <option value="webflow">Webflow</option>
+              <option value="wix">Wix</option>
+              <option value="wordpress">WordPress</option>
+            </select>
           </div>
+
+          <div className="border-bottom-form"></div>
 
 
           <div className="input-container text-input">
+            <label>Description<span>*</span></label>
             <textarea
               type="text"
-              placeholder=""
+              placeholder="This website contains..."
               value={description}
               maxLength={250}
               onChange={(e) => setDescription(e.target.value)}
             />
-            <label>Description</label>
             {description && (
               <span onClick={() => clearInput("description")}>
                 <IoCloseOutline size={24} />
               </span>
             )}
           </div>
+
+          <div className="border-bottom-form"></div>
+
+          <div className="input-container">
+            <label>Site Price</label>
+            <div className="range">
+              <input
+                type="range"
+                id="range1"
+                min="0"
+                max="300"
+                step="5"
+                value={sitePrice}
+                onChange={(e) => setSitePrice(Number(e.target.value))}
+              />
+            </div>
+            <p>{sitePrice === 0 ? 'Free' : `$${sitePrice}`}</p>
+          </div>
+
+          <div className="border-bottom-form"></div>
+
           <div className="step-image">
-            <label>Pick an image</label>
+            <label>Pick an image<span>*</span></label>
             <div className="image-select">
               <button
                 type="button"
@@ -253,41 +298,57 @@ const Create = () => {
               </motion.p>
             )}
           </div>
+
+          <div className="border-bottom-form"></div>
+
+
+
+
+
           <h3>3 - Site Links:</h3>
 
+          <div className="border-top-form"></div>
 
           <div className="input-container">
+            <label>Live Preview Link<span>*</span></label>
             <input
               type="text"
-              placeholder=""
+              placeholder="https://preview-link.com"
               value={livePreview}
               onChange={(e) => setLivePreview(e.target.value)}
               required
             />
-            <label>Live Preview Link</label>
           </div>
 
+          <div className="border-bottom-form"></div>
+
+
           <div className="input-container">
+            <label>Buy Link<span>*</span></label>
             <input
               type="text"
-              placeholder=""
+              placeholder="https://buy-link.com"
               value={buyLink}
               onChange={(e) => setBuyLink(e.target.value)}
               required
             />
-            <label>Buy Link</label>
           </div>
 
+
+          <div className="border-bottom-form"></div>
+
           <div className="input-container">
+            <label>Contact Link<span>*</span></label>
             <input
               type="text"
-              placeholder=""
+              placeholder="https://link-to-contact.com"
               value={contactLink}
               onChange={(e) => setContactLink(e.target.value)}
               required
             />
-            <label>Contact Link</label>
           </div>
+
+          <div className="border-bottom-form"></div>
 
 
           <div className="cient-text">

@@ -1,0 +1,90 @@
+@import "../../../index.scss";
+
+.site-card {
+    width: 600px;
+    height: fit-content;
+
+    transition: transform 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+    img {
+        width: 100%;
+        height: 325px;
+        border-radius: 8px;
+
+        margin-bottom: 1rem;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    .several-content {
+        width: fit-content;
+
+        margin-bottom: 1rem;
+
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        p {
+            font-size: 14px;
+            font-weight: 900 !important;
+            color: var(--p);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                color: var(--fixed-c);
+                padding: 0.3rem;
+            }
+        }
+
+    }
+
+    h1 {
+        font-size: 36px;
+        font-weight: 700;
+        margin: 1rem 0;
+        color: var(--p);
+    }
+
+    p {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 1rem 0;
+        color: var(--p);
+    }
+
+    &:hover {
+        transform: scale(1.01);
+    }
+}
+
+.site-image {
+    transition: opacity 0.3s ease;
+}
+
+.site-image.loading {
+    opacity: 0;
+}
+
+.site-image.loaded {
+    opacity: 1;
+}
+
+.placeholder {
+    width: 100%;
+    height: 200px;
+    background: var(--border-2);
+}

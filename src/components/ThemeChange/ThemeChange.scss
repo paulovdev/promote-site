@@ -29,9 +29,10 @@
             right: 0;
             bottom: 0;
 
+            backdrop-filter: blur(25px);
             background-color: var(--bg);
             border: 1px solid var(--border);
-            transition: 0.4s;
+            transition: 0.3s;
             border-radius: 2rem;
 
             .icon {

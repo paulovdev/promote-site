@@ -1,0 +1,55 @@
+@import "../../index.scss";
+
+.cookie-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    padding: 1rem 100px;
+    background-color: var(--bg-4);
+
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+
+    p,
+    a {
+        color: var(--p-2);
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    button {
+        width: 150px;
+        height: 40px;
+
+        outline: none;
+        border: none;
+
+        background-color: var(--bg);
+        border: 1px solid var(--p);
+        border-radius: 2rem;
+
+        color: var(--p);
+
+        font-size: 16px;
+        font-weight: 600;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+        &:hover {
+            background-color: var(--p);
+            color: var(--p-2);
+        }
+    }
+}

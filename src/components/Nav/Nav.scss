@@ -10,16 +10,16 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-
+  z-index: 999;
 
   .logo>a {
     position: relative;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 100%;
 
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 900;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
     margin-left: 1rem;
     color: var(--p);
 

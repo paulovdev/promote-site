@@ -13,7 +13,7 @@ import Footer from './components/Footer/Footer';
 import { CategoryProvider } from './context/CategoryContext';
 import { SitesProvider } from './context/SitesHomeContext';
 import { SiteDetailProvider } from './context/SiteDetailContext';
-
+import Cookies from './components/Cookies/Cookies';
 const App = () => {
 
 
@@ -22,6 +22,7 @@ const App = () => {
       <Router>
         <ScrollTop />
         <Navbar />
+        <Cookies />
         <CategoryProvider>
           <SitesProvider>
             <SiteDetailProvider>

@@ -12,11 +12,11 @@
    --border: #e0e0e0;
    --border-2: #dadada;
 
-   --p-i: #111;
+   --p-i: #000;
 
    --btn: #111;
    --btn-2: #333;
-
+   --btn-3: rgb(230, 230, 230);
    --accent: #e28315;
    --fixed-c: #fff;
  }
@@ -33,10 +33,9 @@
    --border: #262626;
    --border-2: #3a3a3a;
 
-   --p-i: #111;
-
    --btn: #242424;
    --btn-2: #404040;
+   --btn-3: rgb(44, 44, 44);
  }
 
  * {
@@ -60,6 +59,7 @@
  body {
    background-color: var(--bg);
    color: var(--p);
+   
  }
 
  button {

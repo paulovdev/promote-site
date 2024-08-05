@@ -16,9 +16,11 @@ const RelatedSites = ({ relatedSites, category }) => {
                     <div key={relatedSite.id} className="related-site">
                         <Link to={`/site/${relatedSite.id}`} onClick={() => scrollTo({ top: 0, behavior: "smooth" })}>
                             <img src={relatedSite.imageURL} alt={relatedSite.siteName} />
-                            <h1>{relatedSite.siteName}</h1>
-                            <p>{relatedSite.description}</p>
-                            <p>Created by: {relatedSite.myName}</p>
+                            <div className="related-site-text">
+                                <h1>{relatedSite.siteName}</h1>
+                                <p>{relatedSite.description}</p>
+                                <p>Created by: {relatedSite.myName}</p>
+                            </div>
                         </Link>
                     </div>
                 ))}

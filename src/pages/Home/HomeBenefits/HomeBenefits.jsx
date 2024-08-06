@@ -20,6 +20,12 @@ const benefits = [
         image: "images/customer-insights.svg",
         alt: "Customer Insights"
     },
+    {
+        title: "Seamless Template Integration",
+        description: "Easily integrate your templates into a variety of platforms with our seamless integration tools, ensuring compatibility and reducing your workload.",
+        image: "images/template-integration.svg",
+        alt: "Template Integration"
+    }
 ];
 
 const HomeBenefits = () => {
@@ -27,7 +33,7 @@ const HomeBenefits = () => {
         <section id="home-benefits">
             <div className="benefits-content">
                 {benefits.map((benefit, index) => (
-                    <div className="benefit-card" key={index}>
+                    <div className={`benefit-card ${index % 5 === 3 ? 'full-width' : ''}`} key={index}>
                         <div className="left-content">
                             <h1>{benefit.title}</h1>
                             <p>{benefit.description}</p>

@@ -1,10 +1,11 @@
 import React, { useState, useRef } from 'react';
 import emailjs from 'emailjs-com';
-import { IoCloseOutline, IoImageOutline } from "react-icons/io5";
+import { IoCloseOutline } from "react-icons/io5";
 import { AnimatePresence, motion } from 'framer-motion';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
+import { GoUpload } from "react-icons/go";
 
 import { storage } from '../../firebase/Firebase';
 import "./Create.scss";
@@ -384,17 +385,20 @@ const Create = () => {
                           className="prf-file"
                           onClick={handleClick}
                         >
-                          <IoImageOutline size={75} />
+                          <GoUpload size={75} />
+                          <span>Drag and Drop or Choose a Local File </span>
+                          <p>Supported formats: .png, .jpg, .svg </p>
                           <p>{image ? 'Image loaded...' : ''}</p>
                         </button>
                         {image && (
-                          <img
-                            width={150}
-                            src={URL.createObjectURL(image)}
-                            alt="Image loaded"
-                            className="preview-image"
-                          />
-                        )}
+                          <>
+                            <img
+                              width={150}
+                              src={URL.createObjectURL(image)}
+                              alt="Image loaded"
+                              className="preview-image"
+                            />
+                          </>)}
                       </div>
                       <input
                         onChange={handleImageChange}
@@ -532,8 +536,8 @@ const Create = () => {
     ];
 
     return steps.map((stepObj) => (
-      <div key={stepObj.id} className="step-wrapper">
-        <div className={`step-item ${step >= stepObj.id ? 'active' : ''}`}>
+      <div key={stepObj.id} className="step-wrapper" >
+        <div className={`step-item ${step >= stepObj.id ? 'active' : ''}`} onClick={() => setStep(stepObj.id)}>
           {stepObj.id}
         </div>
         <div className="step-name">

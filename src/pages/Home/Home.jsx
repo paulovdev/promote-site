@@ -14,9 +14,9 @@ const Home = () => {
             <HomeHero />
             <HomeSites />
             <HomeFeatures />
+            <HomeWhatIs />
             <HomeBenefits />
             <HomeTestimonials />
-            <HomeWhatIs />
             <HomeFAQs />
         </div>
     );

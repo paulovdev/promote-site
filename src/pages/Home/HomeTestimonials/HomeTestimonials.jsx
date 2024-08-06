@@ -9,8 +9,27 @@ const testimonials = [
         name: "Jane Doe",
         title: "SOFTWARE ENGINEER",
         image: "/world-img.jpg"
+    }, {
+        text: "Quimplo has completely transformed the way I sell websites and promote them. The exposure and speed of sales are unmatched!",
+        name: "Jane Doe",
+        title: "SOFTWARE ENGINEER",
+        image: "/world-img.jpg"
+    }, {
+        text: "Quimplo has completely transformed the way I sell websites and promote them. The exposure and speed of sales are unmatched!",
+        name: "Jane Doe",
+        title: "SOFTWARE ENGINEER",
+        image: "/world-img.jpg"
+    }, {
+        text: "Quimplo has completely transformed the way I sell websites and promote them. The exposure and speed of sales are unmatched!",
+        name: "Jane Doe",
+        title: "SOFTWARE ENGINEER",
+        image: "/world-img.jpg"
+    }, {
+        text: "Quimplo has completely transformed the way I sell websites and promote them. The exposure and speed of sales are unmatched!",
+        name: "Jane Doe",
+        title: "SOFTWARE ENGINEER",
+        image: "/world-img.jpg"
     },
-    // Add more testimonials here...
 ];
 
 const HomeTestimonials = () => {

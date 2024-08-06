@@ -54,10 +54,10 @@
             height: 50px;
 
             margin-bottom: 3rem;
-            padding: 0 .5rem 0 1.5rem;
+            padding: 0 1.5rem;
 
             border: 1px solid var(--p);
-            border-radius: 2rem;
+            border-radius: .5rem;
 
             font-size: 16px;
             font-weight: 600;
@@ -76,22 +76,7 @@
             color: var(--p-2);
         }
 
-        .ball-button {
-            width: 30px;
-            height: 30px;
-            padding: 0.3rem;
-            background-color: var(--p-2);
-            border-radius: 100%;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            svg {
-                color: var(--p);
-                font-size: 20px;
-            }
-        }
     }
 
     .right-container {

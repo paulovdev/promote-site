@@ -42,7 +42,7 @@
             outline: none;
 
             border: 1px solid var(--p);
-            border-radius: .5rem;
+            border-radius: 2rem;
             background-color: var(--p);
 
             color: var(--p-2);
@@ -103,7 +103,7 @@
             outline: none;
 
             border: 1px solid var(--p);
-            border-radius: .5rem;
+            border-radius: 2rem;
             background-color: var(--p);
 
             color: var(--p-2);
@@ -188,7 +188,7 @@
 
             svg {
                 transition: all .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-                border-radius: .5rem;
+                border-radius: 100%;
 
                 &:hover {
                     color: var(--p);
@@ -403,7 +403,7 @@
                     border-radius: .5rem;
 
                     font-size: 18px;
-                    font-weight: 800;
+                    font-weight: 500;
 
                     display: flex;
                     align-items: center;
@@ -688,7 +688,7 @@
 
                 background-color: var(--p);
                 border: 1px solid var(--border);
-                border-radius: .5rem;
+                border-radius: 2rem;
 
                 color: var(--p-2);
                 font-size: 16px;
@@ -815,7 +815,7 @@
 
     svg {
         transition: all .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-        border-radius: .5rem;
+        border-radius: 100%;
 
         &:hover {
             background-color: var(--bg-2);

@@ -35,20 +35,28 @@ const testimonials = [
 const HomeTestimonials = () => {
     return (
         <section id="home-testimonials">
-            <h1>What our <span>users</span> say</h1>
+            <div className="testimonials-header">
+                <span>what our customers say</span>
+                <div className="swiper-arrows">
+                    <div className="swiper-button-prev"></div>
+                    <div className="swiper-button-next"></div>
+                </div>
+            </div>
             <Swiper
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
                 modules={[Autoplay, Pagination, Navigation]}
-                slidesPerView={4}
-                spaceBetween={250}
+                slidesPerView={1}
+                navigation={{
+                    prevEl: '.swiper-button-prev',
+                    nextEl: '.swiper-button-next',
+                }}
+                spaceBetween={500}
                 className="testimonials-slides"
             >
                 {testimonials.map((testimonial, index) => (
                     <SwiperSlide key={index}>
                         <div className="testimonial-card">
-                            <div className="top-testimonial-card">
-                                <p>"{testimonial.text}"</p>
-                            </div>
+                            <p>"{testimonial.text}"</p>
                             <div className="bottom-testimonial-card">
                                 <img src={testimonial.image} alt={testimonial.name} />
                                 <div className="profile-text">
@@ -63,5 +71,6 @@ const HomeTestimonials = () => {
         </section>
     );
 };
+
 
 export default HomeTestimonials;

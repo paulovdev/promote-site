@@ -13,10 +13,11 @@ const Home = () => {
         <div id="home">
             <HomeHero />
             <HomeSites />
-            <HomeFeatures />
             <HomeWhatIs />
-            <HomeBenefits />
+            <HomeFeatures />
             <HomeTestimonials />
+            <HomeBenefits />
+
             <HomeFAQs />
         </div>
     );

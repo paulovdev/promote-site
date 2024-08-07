@@ -6,6 +6,7 @@ import "./HomeHero.scss";
 const HomeHero = () => {
   return (
     <section id="home-hero">
+      <span>HI </span>
       <h1>Boost your website and get noticed!</h1>
       <p>Launch your website on Quimplo and gain visibility! Sell your site faster and easier.</p>
       <div className="home-button" onClick={() => scrollTo({ top: 0 })}>

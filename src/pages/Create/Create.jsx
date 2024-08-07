@@ -497,9 +497,10 @@ const Create = () => {
                     <h3>Terms and Conditions</h3>
                     <p>Please read and agree to the terms and conditions before submitting. Your submission indicates acceptance of these terms.</p>
                     <div className="terms-container">
-                      <label>I agree to the terms and conditions</label>
+                      <label for="terms">I agree to the terms and conditions</label>
                       <input
                         type="checkbox"
+                        id='terms'
                         checked={agree}
                         onChange={(e) => setAgree(e.target.checked)}
                         required

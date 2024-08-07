@@ -31,22 +31,22 @@ const features = [
 const HomeFeatures = () => {
     return (
         <section id="home-features">
-            <h1>How does <span>Quimplo</span> work?</h1>
+            <span>HOW IT'S</span>
             <div className="features-content">
                 {features.map((feature, index) => (
                     <React.Fragment key={index}>
                         <div className="card">
                             <div className="icon-card">{feature.icon}</div>
                             <h3>{feature.title}</h3>
-                            <div className="bottom-text">
-                                <p>{feature.description}</p>
-                            </div>
+
+                            <p>{feature.description}</p>
+
                         </div>
-                        {index < features.length - 1 && (
+                     {/*    {index < features.length - 1 && (
                             <div className="more">
                                 <MdKeyboardArrowRight size={42} />
                             </div>
-                        )}
+                        )} */}
                     </React.Fragment>
                 ))}
             </div>

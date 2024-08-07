@@ -2,7 +2,9 @@
 
 #home-what-is {
     position: relative;
-    max-width: 1800px;
+
+    padding: 100px 0;
+    max-width: 1650px;
 
     margin: 0 auto !important;
 
@@ -10,39 +12,83 @@
 
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-between;
     gap: 1rem;
 
-    h2,
-    span {
-        font-size: 52px;
-        font-weight: 600;
+    .left-content {
+        width: 100%;
+        height: 100%;
+        flex: 3 0 0;
 
-        letter-spacing: -2px;
-        line-height: 100%;
 
-        text-decoration: none;
-        margin-bottom: 1rem;
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+
+        span {
+            font-weight: 800;
+            font-size: 10px;
+            padding: .4rem 1.5rem;
+
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 1rem;
+
+        }
+
+        h1 {
+            max-width: 75%;
+            font-size: 62px;
+            font-weight: 500;
+
+            letter-spacing: -3px;
+            line-height: 1.2;
+
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
     }
 
-    span {
-        background: #959595;
-        background: linear-gradient(to right, #959595 0%, #7e7e7e 54%, #4b4b4b 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    .right-content {
+        width: 100%;
+        height: 100%;
+        flex: 2 0 0;
+
+        p {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--p);
+            opacity: .8;
+            margin-bottom: 3rem;
+        }
     }
 
-    p {
-        max-width: 75%;
-        font-size: 26px;
-        font-weight: 400;
-        letter-spacing: 0px;
-        line-height: 160%;
-        color: var(--p);
-        opacity: .8;
-        margin-bottom: 3rem;
-        text-align: center;
-    }
+}
 
+@media (max-width:809px) {
+    #home-what-is {
+        padding: 15px;
+
+        margin: 0 auto !important;
+        flex-direction: column;
+
+        .left-content {
+            h1 {
+                max-width: 100%;
+                font-size: 52px !important;
+                font-weight: 500;
+
+                letter-spacing: -3px;
+                line-height: 1.2;
+
+                text-decoration: none;
+                margin-bottom: 1rem;
+            }
+        }
+    }
 }

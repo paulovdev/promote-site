@@ -1,22 +1,19 @@
 import React from 'react';
 import './Footer.scss';
 
-const links = [{
-    title: "Quimplo",
-    items: []
-},
-{
-    title: "Product",
-    items: ["Overview", "Features", "Solutions", "Tutorials"],
-},
-{
-    title: "Company",
-    items: ["About us", "Careers", "Press", "News"],
-},
-{
-    title: "Resource",
-    items: ["Blog", "Newsletter", "Events", "Help center"],
-}
+const links = [
+    {
+        title: "Product",
+        items: ["Overview", "Features", "Solutions", "Tutorials"],
+    },
+    {
+        title: "Company",
+        items: ["About us", "Careers", "Press", "News"],
+    },
+    {
+        title: "Resource",
+        items: ["Blog", "Newsletter", "Events", "Help center"],
+    }
 
 ];
 

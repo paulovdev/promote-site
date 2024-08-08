@@ -8,7 +8,6 @@
     margin: 8rem 0;
 
     .head-text {
-
         h1,
         span {
             max-width: 35%;
@@ -54,7 +53,43 @@
                 justify-content: space-between !important;
                 flex-wrap: wrap;
                 gap: 2rem;
+            }
+        }
+    }
+}
 
+@media (max-width: 1200px) {
+    #category-head {
+        padding: 0 50px;
+
+        .head-text h1, 
+        .head-text span {
+            font-size: 42px;
+            max-width: 50%;
+        }
+    }
+}
+
+@media (max-width: 809px) {
+    #category-head {
+        padding: 15px;
+
+        .head-text h1, 
+        .head-text span {
+            font-size: 36px;
+            max-width: 100%;
+        }
+
+        #category-layout {
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        #category {
+            margin: 3rem 0;
+
+            .site-grid {
+                gap: 1.5rem;
             }
         }
     }

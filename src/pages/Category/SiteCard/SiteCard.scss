@@ -1,10 +1,10 @@
 @import "../../../index.scss";
 
 .site-card {
-    width: 390px;
-    height: fit-content;
-
-    border-radius: .5rem;
+    width: 100%;
+    max-width: 390px;
+    
+    border-radius: 0.5rem;
     border: 1px solid var(--border);
 
     transition: transform 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -12,7 +12,7 @@
     img {
         width: 100%;
         height: 250px;
-        border-radius: .5rem .5rem 0 0;
+        border-radius: 0.5rem 0.5rem 0 0;
     }
 
     .text-card {
@@ -21,10 +21,9 @@
         .several-content {
             width: fit-content;
             margin-bottom: 1rem;
-
             display: flex;
             align-items: center;
-            gap: .5rem;
+            gap: 0.5rem;
 
             p {
                 font-size: 12px;
@@ -48,7 +47,6 @@
                     padding: 0.3rem;
                 }
             }
-
         }
 
         h1 {
@@ -64,12 +62,39 @@
             margin: 1rem 0;
             color: var(--p);
         }
-
     }
-
 
     &:hover {
         transform: scale(1.01);
+    }
+}
+
+@media (max-width: 1200px) {
+    .site-card h1 {
+        font-size: 28px;
+    }
+
+    .site-card p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 809px) {
+    .site-card {
+        width: 100%;
+        max-width: none;
+
+        img {
+            height: 225px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 14px;
+        }
     }
 }
 

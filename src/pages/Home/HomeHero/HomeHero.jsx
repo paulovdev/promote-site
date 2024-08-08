@@ -1,17 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { TbArrowNarrowRight } from "react-icons/tb";
+
 import "./HomeHero.scss";
 
 const HomeHero = () => {
   return (
     <section id="home-hero">
-      <span>HI </span>
-      <h1>Boost your website and get noticed!</h1>
-      <p>Launch your website on Quimplo and gain visibility! Sell your site faster and easier.</p>
+      <span>Welcome to Quimplo!</span>
+      <h1>Enhance your website and make an impact!</h1>
+      <p>
+        Launch your website on Quimplo and significantly boost your online
+        visibility. Showcase your site effortlessly to attract more visitors
+        and achieve faster sales.
+      </p>
       <div className="home-button" onClick={() => scrollTo({ top: 0 })}>
         <Link to="/sites/all" className="home-button-content">
-          Explore websites 
+          Explore All Websites
         </Link>
       </div>
     </section>

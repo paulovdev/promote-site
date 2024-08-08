@@ -2,7 +2,7 @@ import React from "react";
 import { AiOutlineSelect } from "react-icons/ai";
 import { FaWpforms } from "react-icons/fa6";
 import { IoTimeOutline } from "react-icons/io5";
-import { MdDone, MdKeyboardArrowRight } from "react-icons/md";
+import { MdDone } from "react-icons/md";
 import "./HomeFeatures.scss";
 
 const features = [
@@ -31,7 +31,7 @@ const features = [
 const HomeFeatures = () => {
     return (
         <section id="home-features">
-            <span>HOW IT'S</span>
+            <span>how quimplo's work?</span>
             <div className="features-content">
                 {features.map((feature, index) => (
                     <React.Fragment key={index}>
@@ -42,7 +42,7 @@ const HomeFeatures = () => {
                             <p>{feature.description}</p>
 
                         </div>
-                     {/*    {index < features.length - 1 && (
+                        {/*    {index < features.length - 1 && (
                             <div className="more">
                                 <MdKeyboardArrowRight size={42} />
                             </div>

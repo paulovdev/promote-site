@@ -553,19 +553,27 @@ const Create = () => {
 
   return (
     <div id='create'>
-      <div className="head">
-        <h1>Submit your site</h1>
-        <button onClick={() => setShowModal(true)}>Submit</button>
-      </div>
+      <div className="head-container">
+        <div className="head">
+          <span>Submit Your Website to Us</span>
+          <h1>Ready to Showcase Your Website and Reach More Visitors?</h1>
+          <p>
+            Take this opportunity to present your website on our platform. By submitting, you can connect with a larger audience and even sell your site to interested buyers. Click below to get started and maximize your online presence.
+          </p>
+          <button onClick={() => setShowModal(true)}>Submit Your Site</button>
+        </div>
 
-      <div className='sub-head'>
-        <h2>Want to skip the waiting line?</h2>
-        <p>With the recent increase in traffic and model submissions, we now have a waiting list. Currently, you can expect your template to be added within 5-7 weeks of submission. If you want your model added early or on a specific date, you can skip the waiting line by subscribing to Quimplo Premium or by clicking the button below.</p>
-        <Link to='/create'>
-          <button>Skip the Line</button>
-        </Link>
+        <div className='sub-head'>
+          <span>Want to Bypass the Waiting List?</span>
+          <h1>We’re experiencing high traffic and have a waiting list for new submissions.</h1>
+          <p>
+            Normally, your site will be reviewed and added within 1-2 weeks. To speed up the process and get your site live sooner, consider subscribing to Quimplo Premium or use the option below to skip the line.
+          </p>
+          <Link to='/create'>
+            <button>Skip the Line</button>
+          </Link>
+        </div>
       </div>
-
 
       <AnimatePresence>
         {showModal && (

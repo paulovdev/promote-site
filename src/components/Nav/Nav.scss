@@ -19,7 +19,7 @@ header {
 
     font-size: 26px;
     font-weight: 900;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
     margin-left: 1rem;
     color: var(--p);
 
@@ -28,11 +28,7 @@ header {
     gap: 0.3rem;
     cursor: pointer;
 
-
-    svg {
-      font-size: 24px;
-      color: var(--p);
-    }
+    mix-blend-mode: difference;
   }
 
   .desktop-menu {
@@ -349,7 +345,7 @@ header {
     }
 
     nav {
-      left:0;
+      left: 0;
 
     }
   }

@@ -38,15 +38,9 @@ const HomeFeatures = () => {
                         <div className="card">
                             <div className="icon-card">{feature.icon}</div>
                             <h3>{feature.title}</h3>
-
                             <p>{feature.description}</p>
-
                         </div>
-                        {/*    {index < features.length - 1 && (
-                            <div className="more">
-                                <MdKeyboardArrowRight size={42} />
-                            </div>
-                        )} */}
+
                     </React.Fragment>
                 ))}
             </div>

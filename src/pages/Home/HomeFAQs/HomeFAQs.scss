@@ -4,7 +4,8 @@
     position: relative;
 
     padding: 100px 0 !important;
-    max-width: 1650px;
+
+    max-width: 1400px;
     margin: 0 auto !important;
 
     border-radius: .5rem .5rem 0 0;
@@ -30,8 +31,7 @@
         flex-direction: column;
         gap: 2rem;
 
-        h1,
-        span {
+        h1 {
             color: var(--p);
             font-size: 52px;
             font-weight: 600;
@@ -41,13 +41,6 @@
 
             text-decoration: none;
             margin-bottom: 1rem;
-        }
-
-        span {
-            background: #959595;
-            background: linear-gradient(to right, #959595 0%, #7e7e7e 54%, #4b4b4b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
     }
@@ -68,9 +61,11 @@
 
 
         .faq-card {
+            padding: 1.5rem;
+
             border: 1px solid var(--border);
-            border-radius: .5rem;
-            padding: 1rem;
+            border-radius: 1rem;
+            background-color: var(--p-2);
 
             h3 {
                 font-size: 28px;

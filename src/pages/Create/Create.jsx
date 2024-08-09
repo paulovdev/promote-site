@@ -433,7 +433,7 @@ const Create = () => {
                     <input
                       type="range"
                       min="0"
-                      max="300"
+                      max="10000"
                       step="5"
                       value={sitePrice}
                       onChange={(e) => setSitePrice(Number(e.target.value))}
@@ -560,7 +560,7 @@ const Create = () => {
           <p>
             Take this opportunity to present your website on our platform. By submitting, you can connect with a larger audience and even sell your site to interested buyers. Click below to get started and maximize your online presence.
           </p>
-          <button onClick={() => setShowModal(true)}>Submit Your Site</button>
+          <button onClick={() => setShowModal(true)}>Submit</button>
         </div>
 
         <div className='sub-head'>

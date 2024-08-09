@@ -6,7 +6,7 @@
     height: fit-content;
 
     padding: 50px 0;
-    max-width: 1650px;
+    max-width: 1400px;
     margin: 0 auto;
 
     display: flex;
@@ -27,7 +27,6 @@
         text-transform: uppercase;
 
         margin-bottom: 1rem;
-
     }
 
     .features-content {
@@ -36,18 +35,19 @@
 
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        flex-wrap: wrap;
         gap: 1rem;
 
         .card {
             position: relative;
-            width: 100%;
-            height: 275px;
+            height: 350px;
+            padding: 1.5rem;
 
-            padding: 1rem;
-
-            border-radius: 1rem;
+            border-radius: 2rem;
             border: 1px solid var(--border);
+
+            background-color: var(--p-2);
 
             transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
@@ -57,10 +57,10 @@
             flex-direction: column;
 
             .icon-card {
-                width: 50px;
-                height: 50px;
+                width: 75px;
+                height: 75px;
 
-                border: 1px solid var(--border);
+                border: 1px solid var(--border-2);
                 border-radius: 100%;
 
                 display: flex;
@@ -69,17 +69,16 @@
                 margin-bottom: 1.5rem;
 
                 svg {
-                    font-size: 24px;
+                    font-size: 28px;
                     color: var(--p);
                 }
-
-
 
             }
 
             &:nth-child(4) {
                 .icon-card {
                     background-color: #27cc3d;
+                    border: none;
 
                     svg {
                         color: var(--fixed-c);
@@ -89,14 +88,12 @@
 
             h3 {
                 position: relative;
-                height: 60px;
+                height: 70px;
                 font-size: 26px;
                 font-weight: 600;
                 color: var(--p);
-
                 letter-spacing: -1px;
             }
-
 
             p {
                 height: 60px;
@@ -106,11 +103,30 @@
                 line-height: 1.5;
                 margin: 0;
                 text-align: start;
-
             }
+        }
+
+
+
+        /* Estilos específicos para o layout dos cartões */
+        .card:nth-child(1) {
+            flex-basis: 70%;
+        }
+
+        .card:nth-child(2) {
+            flex-basis: 28%;
+        }
+
+        .card:nth-child(3) {
+            flex-basis: 28%;
+        }
+
+        .card:nth-child(4) {
+            flex-basis: 70%;
         }
     }
 }
+
 
 @media (max-width:809px) {
     #home-features {

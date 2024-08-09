@@ -40,7 +40,7 @@ const HomeFAQs = () => {
     return (
         <section id="home-faqs">
             <div className="text-content">
-                <h1>Frequently <span>asked questions</span></h1>
+                <h1>Frequently asked questions</h1>
             </div>
             <div className="faqs">
                 {faqs.map((faq, index) => (

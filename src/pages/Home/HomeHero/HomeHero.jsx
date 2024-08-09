@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { FaArrowRightLong } from "react-icons/fa6";
 import "./HomeHero.scss";
 
 const HomeHero = () => {
@@ -15,7 +15,7 @@ const HomeHero = () => {
       </p>
       <div className="home-button" onClick={() => scrollTo({ top: 0 })}>
         <Link to="/sites/all" className="home-button-content">
-          Explore All Websites
+          Explore  <FaArrowRightLong />
         </Link>
       </div>
     </section>

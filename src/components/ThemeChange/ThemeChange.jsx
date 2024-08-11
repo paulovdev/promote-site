@@ -12,14 +12,14 @@ function ThemeChange() {
     };
 
     return (
-        <div id="change-theme">
-            <div className="toggle-switch" onClick={handleToggle}>
+        <div id="change-theme"  >
+            <div className="toggle-switch" onClick={handleToggle} >
                 <input
                     type="checkbox"
                     checked={theme === "dark"}
                     onChange={handleToggle}
                 />
-                <span className="slider">
+                <span className="slider"   >
                     <FaMoon className="icon moon" />
                     <FaSun className="icon sun" />
                 </span>

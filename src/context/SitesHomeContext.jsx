@@ -13,7 +13,7 @@ export const SitesProvider = ({ children }) => {
   useEffect(() => {
     const fetchSites = async () => {
       try {
-        const q = query(collection(db, "sites"), limit(5), orderBy("views", "desc"));
+        const q = query(collection(db, "sites"), limit(15), orderBy("views", "desc"));
         const querySnapshot = await getDocs(q);
         const sitesData = querySnapshot.docs.map((doc) => ({
           id: doc.id,

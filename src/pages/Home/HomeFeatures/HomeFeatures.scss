@@ -84,6 +84,10 @@
                         color: var(--fixed-c);
                     }
                 }
+
+                &:hover {
+                    border: 1px solid #27cc3d;
+                }
             }
 
             h3 {
@@ -103,6 +107,10 @@
                 line-height: 1.5;
                 margin: 0;
                 text-align: start;
+            }
+
+            &:hover {
+                border: 1px solid var(--border-2);
             }
         }
 

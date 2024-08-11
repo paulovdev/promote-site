@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { motion } from "framer-motion";
 import "./HomeHero.scss";
 
 const HomeHero = () => {
@@ -13,11 +14,16 @@ const HomeHero = () => {
         visibility. Showcase your site effortlessly to attract more visitors
         and achieve faster sales.
       </p>
-      <div className="home-button" onClick={() => scrollTo({ top: 0 })}>
+      <motion.div
+        className="home-button"
+        whileHover={{ scale: 1.05, }}
+        transition={{ type: "spring", stiffness: 300, damping: 10 }}
+        onClick={() => scrollTo({ top: 0 })}
+      >
         <Link to="/sites/all" className="home-button-content">
           Explore  <FaArrowRightLong />
         </Link>
-      </div>
+      </motion.div>
     </section>
   );
 };

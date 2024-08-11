@@ -18,7 +18,7 @@
   justify-content: center;
 
   user-select: none;
-  z-index: 1000;
+  z-index: 999;
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
   mix-blend-mode: exclusion;
@@ -30,7 +30,7 @@
 
 .not {
   opacity: 0;
-  z-index: 1000;
+  z-index: 999;
 }
 
 .show {

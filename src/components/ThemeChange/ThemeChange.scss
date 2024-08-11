@@ -29,8 +29,6 @@
             right: 0;
             bottom: 0;
 
-            backdrop-filter: blur(25px);
-            background-color: var(--bg);
             border: 1px solid var(--border);
             transition: 0.3s;
             border-radius: 2rem;
@@ -71,7 +69,7 @@
         }
 
         input:checked+.slider {
-            background-color: var(--bg);
+            background-color: var(--p-2);
         }
 
         input:checked+.slider:before {

@@ -4,6 +4,7 @@ import SiteHeader from './SiteHeader/SiteHeader';
 import RelatedSites from './RelatedSites/RelatedSites';
 import SiteDetailSkeleton from './SiteDetailSkeleton/SiteDetailSkeleton';
 import { useSiteDetail } from '../../context/SiteDetailContext';
+import Transition from '../../utils/Transition/Transition';
 
 const SiteDetail = () => {
     const { id } = useParams();
@@ -25,4 +26,4 @@ const SiteDetail = () => {
     );
 };
 
-export default SiteDetail;
+export default Transition(SiteDetail, { text: 'Barkly' });

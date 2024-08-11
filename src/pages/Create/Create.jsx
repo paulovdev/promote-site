@@ -10,6 +10,7 @@ import { GoUpload } from "react-icons/go";
 import { storage } from '../../firebase/Firebase';
 import "./Create.scss";
 import { Link } from 'react-router-dom';
+import Transition from '../../utils/Transition/Transition';
 
 const Create = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -604,7 +605,8 @@ const Create = () => {
   );
 };
 
-export default Create;
+
+export default Transition(Create, { text: 'Submit your website' });
 
 const LoadingSpinner = () => (
   <div className="spinner"></div>

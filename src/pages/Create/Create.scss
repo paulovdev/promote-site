@@ -13,8 +13,11 @@
     flex-direction: column;
 
     .head-container {
+        max-width: 1500px;
+
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 3rem;
 
         .head {
@@ -26,7 +29,6 @@
             justify-content: center;
             flex-direction: column;
 
-            background-color: var(--bg-4);
 
             span {
                 font-size: 10px;
@@ -40,7 +42,7 @@
                 text-transform: uppercase;
 
                 margin-bottom: 1rem;
-                color: var(--p-2);
+                color: var(--p);
             }
 
             h1 {
@@ -53,7 +55,7 @@
                 text-decoration: none;
                 margin-bottom: 1rem;
 
-                color: var(--p-2);
+                color: var(--p);
             }
 
             p {
@@ -61,7 +63,7 @@
                 font-weight: 500;
                 letter-spacing: 0px;
                 line-height: 1.5;
-                color: var(--p-2);
+                color: var(--p);
                 opacity: .8;
                 text-wrap: pretty;
 
@@ -179,15 +181,12 @@
     }
 
 
-
-
     .step-content {
         position: fixed;
         width: 100vw;
         height: 100vh;
 
-        background: var(--bg-3);
-
+        background-color: var(--p-2);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -237,15 +236,15 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--p-2);
+            color: var(--p);
 
             svg {
                 transition: all .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
                 border-radius: 100%;
 
                 &:hover {
-                    color: var(--p);
-                    background-color: var(--bg-2);
+                    color: var(--p-2);
+                    background-color: var(--bg-4);
                 }
             }
         }
@@ -880,11 +879,10 @@
 
 .step-progress {
     position: relative;
-    height: 95vh;
-    flex: 1 0 0;
-    margin: 1rem;
-    border-radius: .5rem;
-    background-color: var(--bg-4);
+    height: 100vh;
+    flex: 2 0 0;
+
+    background-color: var(--bg);
 
     display: flex;
     align-items: center;
@@ -905,11 +903,11 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            border: 1px solid var(--p-2);
+            border: 1px solid var(--p);
 
             font-weight: 800;
             font-size: 14px;
-            color: var(--p-2);
+            color: var(--p);
 
             display: flex;
             align-items: center;
@@ -920,9 +918,9 @@
 
             &.active,
             &:hover {
-                background-color: var(--p-2);
+                background-color: var(--p);
                 transform: scale(1.2);
-                color: var(--p);
+                color: var(--p-2);
                 cursor: pointer;
             }
         }
@@ -934,7 +932,7 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--p-2);
+            color: var(--p);
             white-space: nowrap;
         }
     }

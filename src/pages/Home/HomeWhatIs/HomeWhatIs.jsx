@@ -1,18 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import './HomeWhatIs.scss';
 
 const HomeWhatIs = () => {
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1 },
-    };
+    const animation = {
+        initial: { y: "100%" },
+        enter: i => ({ y: "0", transition: { duration: 1, ease: [0.33, 1, 0.68, 1], delay: 0.075 * i } })
+    }
 
-    const textVariants = {
-        hidden: { opacity: 0, y: '100%' },
-        visible: { opacity: 1, y: '0%' },
-    };
+    const { ref, inView, entry } = useInView({
+        threshold: 0.75,
+        triggerOnce: true
+    });
 
     const textPhrases = [
         "Do you need to highlight and",
@@ -21,29 +22,17 @@ const HomeWhatIs = () => {
     ];
 
     return (
-        <section id="home-what-is">  
-        <span>What is Quimplo?</span>
-            <div className="home-what-is-content">
+        <section id="home-what-is">
+            <span>What is Quimplo?</span>
+            <div className="home-what-is-content" ref={ref} >
                 <div className="left-content">
-                    <h1>
-                        {textPhrases.map((phrase, index) => (
-                            <motion.div
-                                className="text-phrase"
-                                key={index}
-                                initial="hidden"
-                                animate="visible"
-                                variants={containerVariants}
-                                transition={{ duration: 0.5, delay: index * 0.2 }}
-                            >
-                                <motion.h1
-                                    variants={textVariants}
-                                    transition={{ duration: 0.5 }}
-                                >
-                                    {phrase}
-                                </motion.h1>
-                            </motion.div>
-                        ))}
-                    </h1>
+                    {
+                        textPhrases.map((phrase, index) => {
+                            return <div key={index} className='line-mask'>
+                                <motion.h1 custom={index} variants={animation} initial="initial" animate={inView ? "enter" : ""}>{phrase}</motion.h1>
+                            </div>
+                        })
+                    }
                 </div>
                 <div className="right-content">
                     <p>Quimplo is a marketplace designed to help developers and designers sell their websites and templates. We focus on helping you gain visibility and accelerate your sales process.</p>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
 import "./SiteHeader.scss";
+import { motion } from 'framer-motion';
 
 const SiteHeader = ({ site }) => {
   return (
@@ -51,13 +52,28 @@ const SiteHeader = ({ site }) => {
           </Link>
         </div>
 
-        <div className="site-buttons">
-          <a href={site.livePreview} target="_blank" rel="noopener noreferrer">See this site</a>
-        </div>
+        <motion.div
+          whileHover={{ scale: 1.03, }}
+          transition={{ type: "spring", stiffness: 400, damping: 8 }}
+          className="site-buttons">
+          <a
+            href={site.livePreview}
+            target="_blank"
+            rel="noopener noreferrer"
+          >See this site</a>
+        </motion.div>
 
-        <div className="site-buttons">
-          <a href={site.buyLink} target="_blank" rel="noopener noreferrer">Want to buy this site?</a>
-        </div>
+        <motion.div
+          whileHover={{ scale: 1.03, }}
+          transition={{ type: "spring", stiffness: 400, damping: 8 }}
+          className="site-buttons">
+
+          <a
+            href={site.buyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >Want to buy this site?</a>
+        </motion.div>
       </div>
 
       <img src={site.imageURL} alt={site.siteName} />

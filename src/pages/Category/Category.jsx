@@ -4,6 +4,8 @@ import CategoryFilters from './CategoryFilters/CategoryFilters';
 import CategorySkeleton from './CategorySkeleton/CategorySkeleton';
 import SiteCard from './SiteCard/SiteCard';
 import { useCategory } from '../../context/CategoryContext';
+
+import Transition from "../../utils/Transition/Transition"
 import './Category.scss';
 
 const Category = () => {
@@ -43,7 +45,7 @@ const Category = () => {
     return (
         <section id="category-head">
             <div className="head-text">
-                <h1>Explore <span>{category}</span> and find the best site for you!</h1>
+                <h1>Explore {category} and find the best site for you!</h1>
             </div>
             <div id='category-layout'>
                 <CategoryFilters
@@ -66,4 +68,4 @@ const Category = () => {
     );
 };
 
-export default Category;
+export default Transition(Category, { text: 'Explore websites' });

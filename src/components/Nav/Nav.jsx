@@ -1,4 +1,3 @@
-
 import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { PiTargetBold } from "react-icons/pi";
@@ -23,12 +22,12 @@ const Navbar = () => {
 
                     <ul className='desktop-menu' onClick={() => scrollTo({ top: 0 })}>
                         <li><ThemeChange onClick={() => scrollTo({ top: 0 })} /></li>
-                        <li><NavLink className='explore-nav' to="/stories">News</NavLink></li>
+                        <li><NavLink className='explore-nav' to="/stories">Stories</NavLink></li>
                         <li><NavLink className='explore-nav' to="/sites/all">Explore</NavLink></li>
                         <motion.li
                             whileHover={{ scale: 1.03, }}
                             transition={{ type: "spring", stiffness: 150, damping: 8 }}
-                            onClick={() => scrollTo({ top: 0 })}><NavLink className='feature-nav' to="/create">Submit your site</NavLink></motion.li>
+                            onClick={() => scrollTo({ top: 0 })}><NavLink className='feature-nav' to="/create">Start sell</NavLink></motion.li>
                     </ul>
 
                 </nav>

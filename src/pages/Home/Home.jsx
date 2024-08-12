@@ -3,7 +3,7 @@ import React from "react";
 import HomeHero from "./HomeHero/HomeHero";
 import HomeSites from "./HomeSites/HomeSites";
 import HomeFeatures from "./HomeFeatures/HomeFeatures";
-import HomeBenefits from "./HomeBenefits/HomeBenefits";
+/* import HomeBenefits from "./HomeBenefits/HomeBenefits"; */
 import HomeTestimonials from "./HomeTestimonials/HomeTestimonials";
 import HomeWhatIs from "./HomeWhatIs/HomeWhatIs";
 import HomeFAQs from "./HomeFAQs/HomeFAQs";
@@ -19,7 +19,7 @@ const Home = () => {
             <HomeWhatIs />
             <HomeFeatures />
             <HomeTestimonials />
-            <HomeBenefits />
+           {/*  <HomeBenefits /> */}
             <HomeFAQs />
         </div>
     );

@@ -1,0 +1,18 @@
+#price-step {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+
+    input[type="range"] {
+        accent-color: var(--p);
+        margin-bottom: 2rem;
+    }
+
+    .price-text {
+        font-size: 26px;
+        font-weight: 900;
+    }
+}

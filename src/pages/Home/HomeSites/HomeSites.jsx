@@ -18,7 +18,6 @@ const HomeSites = () => {
   const { sites, loading } = useSites();
   const sliderRef = useRef(null);
 
-  // Motion values and transformations for the first slider (moving to the left)
   const x1 = useMotionValue(0);
   const { scrollY } = useScroll();
   const velocity1 = useVelocity(scrollY);
@@ -30,18 +29,16 @@ const HomeSites = () => {
     x1.set(springX1.get() + moveBy1);
   });
 
-  // Motion values and transformations for the second slider (moving to the right)
   const x2 = useMotionValue(0);
   const velocity2 = useVelocity(scrollY);
   const springX2 = useSpring(x2, { stiffness: 500, damping: 5 });
-  const scrollToX2 = useTransform(scrollY, [0, 1500], [0, 500]); // Note the positive value
+  const scrollToX2 = useTransform(scrollY, [0, 1500], [0, 500]);
 
   useAnimationFrame(() => {
     const moveBy2 = velocity2.get() * 0.10;
     x2.set(springX2.get() + moveBy2);
   });
 
-  // Common component for loading state
   const LoadingSkeleton = () => (
     <motion.div className="site-slide">
       <Link className="site-container">
@@ -50,7 +47,6 @@ const HomeSites = () => {
     </motion.div>
   );
 
-  // Common component for site slide
   const SiteSlide = ({ site, x }) => (
     <motion.div className="site-slide" key={site.id} ref={sliderRef} style={{ x }}>
       <Link
@@ -64,20 +60,24 @@ const HomeSites = () => {
     </motion.div>
   );
 
+  // Split the sites into two arrays
+  const firstSetOfSites = sites.slice(0, 6);
+  const secondSetOfSites = sites.slice(6, 11);
+
   return (
     <section id="home-sites">
       <motion.div className="slider-container">
         <motion.div className="slider">
           {loading
-            ? Array.from({ length: 5 }).map((_, index) => <LoadingSkeleton key={index} />)
-            : sites.concat(sites).map(site => (
+            ? Array.from({ length: 8 }).map((_, index) => <LoadingSkeleton key={index} />)
+            : firstSetOfSites.concat(firstSetOfSites).map(site => (
               <SiteSlide key={site.id} site={site} x={scrollToX1} />
             ))}
         </motion.div>
         <motion.div className="slider">
           {loading
-            ? Array.from({ length: 5 }).map((_, index) => <LoadingSkeleton key={index} />)
-            : sites.concat(sites).map(site => (
+            ? Array.from({ length: 8 }).map((_, index) => <LoadingSkeleton key={index} />)
+            : secondSetOfSites.concat(secondSetOfSites).map(site => (
               <SiteSlide key={site.id} site={site} x={scrollToX2} />
             ))}
         </motion.div>

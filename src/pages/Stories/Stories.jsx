@@ -67,4 +67,4 @@ const Stories = () => {
     );
 };
 
-export default Transition(Stories, { text: "New Websites" });
+export default Transition(Stories, { text: "Website stories" });

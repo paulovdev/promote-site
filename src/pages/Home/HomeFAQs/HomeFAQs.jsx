@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "./HomeFAQs.scss";
+
 const faqs = [
     {
         question: "How can Quimplo help me sell my website?",
@@ -35,19 +37,38 @@ const faqs = [
     },
 ];
 
-
 const HomeFAQs = () => {
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const handleClick = (index) => {
+        setActiveIndex(activeIndex === index ? null : index);
+    };
+
     return (
         <section id="home-faqs">
             <div className="text-content">
-                <h1>Frequently asked questions</h1>
+                <h1>Frequently Asked Questions</h1>
             </div>
             <div className="faqs">
                 {faqs.map((faq, index) => (
-                    <div className="faq-card" key={index}>
+                    <motion.div
+                        key={index}
+                        className="faq-card"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.2, ease: "easeOut" }}
+                        whileHover={{ scale: 1.03, boxShadow: "0 1px 2px rgba(0, 0, 0, 0.2)" }}
+                        onClick={() => handleClick(index)}
+                    >
                         <h3>{faq.question}</h3>
-                        <p>{faq.answer}</p>
-                    </div>
+                        <motion.p
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: activeIndex === index ? "auto" : 0, opacity: activeIndex === index ? 1 : 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                        >
+                            {faq.answer}
+                        </motion.p>
+                    </motion.div>
                 ))}
             </div>
         </section>

@@ -67,6 +67,9 @@
             border-radius: 1rem;
             background-color: var(--p-2);
 
+            user-select: none;
+            cursor: pointer;
+
             h3 {
                 font-size: 28px;
                 font-weight: 600;

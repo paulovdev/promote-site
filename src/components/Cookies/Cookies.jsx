@@ -29,7 +29,10 @@ const CookiesComponent = () => {
                     transition={{ duration: 0.3 }}
                 >
                     <p>We use cookies to ensure you get the best experience on our website. <a href="#">Cookies policy.</a></p>
-                    <button onClick={handleAccept}>Got it!</button>
+                    <motion.button
+                        whileHover={{ scale: 1.03, }}
+                        transition={{ type: "spring", stiffness: 1000, damping: 5 }}
+                        onClick={handleAccept}>Accept</motion.button>
                 </motion.div>
             )}
         </AnimatePresence>

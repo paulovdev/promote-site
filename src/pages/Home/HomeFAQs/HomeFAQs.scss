@@ -102,19 +102,55 @@
 
 }
 
+@media (max-width:1400px) {
+    #home-faqs {
+
+        padding: 20px !important;
+        margin: 0 auto !important;
+
+        .text-content {
+
+            h1 {
+
+                font-size: 42px;
+
+            }
+
+        }
+
+        .faqs {
+            gap: 1rem;
+
+        }
+
+
+
+    }
+}
+
 @media (max-width:809px) {
     #home-faqs {
 
         padding: 15px !important;
         margin: 0 auto !important;
 
-
         .text-content {
-
             position: relative;
 
+            h1 {
+
+                font-size: 42px;
+
+            }
 
         }
+
+        .faqs {
+            gap: 1rem;
+
+        }
+
+
 
     }
 }

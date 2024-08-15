@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import './SiteCard.scss';
 import { useInView } from 'react-intersection-observer';
 
-const SiteCard = ({ site, size = 'medium' }) => {
+const SiteCard = ({ site}) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     const { ref, inView } = useInView({

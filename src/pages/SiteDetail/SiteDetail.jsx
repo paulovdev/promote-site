@@ -1,29 +1,37 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import SiteHeader from './SiteHeader/SiteHeader';
 import RelatedSites from './RelatedSites/RelatedSites';
 import SiteDetailSkeleton from './SiteDetailSkeleton/SiteDetailSkeleton';
-import { useSiteDetail } from '../../context/SiteDetailContext';
-import Transition from '../../utils/Transition/Transition';
+import { useSiteDetail } from '../../hooks/UseSiteDetail';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const SiteDetail = () => {
     const { id } = useParams();
-    const { site, relatedSites, loading, fetchSiteData } = useSiteDetail();
+    const { data, isLoading, error } = useSiteDetail(id);
 
-    useEffect(() => {
-        fetchSiteData(id);
-    }, [id, fetchSiteData]);
-
-    if (loading) {
+    if (isLoading) {
         return <SiteDetailSkeleton />;
     }
 
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+
     return (
-        <>
-            {site && <SiteHeader site={site} />}
-            <RelatedSites relatedSites={relatedSites} category={site?.category} />
-        </>
+        <AnimatePresence mode="wait">
+            <motion.div
+                initial={{ opacity: 0, }}
+                animate={{ opacity: 1, }}
+                exit={{ opacity: 0, }}
+                transition={{ duration: 0.5, ease: 'backIn' }}
+                key={id}
+            >
+                {data.site && <SiteHeader site={data.site} />}
+                <RelatedSites relatedSites={data.relatedSites} category={data.site?.category} />
+            </motion.div>
+        </AnimatePresence>
     );
 };
 
-export default Transition(SiteDetail, { text: 'Barkly' });
+export default SiteDetail;

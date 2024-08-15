@@ -1,13 +1,11 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { useSites } from '../../context/SitesHomeContext';
+import { useSites } from '../../hooks/useSites';
 import { Link } from 'react-router-dom';
-import { BsArrowLeft } from "react-icons/bs";
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
 import { IoCloseOutline } from "react-icons/io5";
-
 import Transition from "../../utils/Transition/Transition"
 import './Stories.scss';
 
@@ -67,4 +65,4 @@ const Stories = () => {
     );
 };
 
-export default Transition(Stories, { text: "Website stories" });
+export default Transition(Stories, { text: "Stories" });

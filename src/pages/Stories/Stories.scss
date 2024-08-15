@@ -144,6 +144,41 @@
     height: 100%;
 }
 
+@media(max-width:1400px) {
+    .stories-container {
+        .back-button {
+            top: 15px;
+            left: 50px;
+        }
+    }
+
+    .story-background {
+
+        .text-content {
+            position: absolute;
+            bottom: 100px;
+            left: 25px;
+
+            h1 {
+                font-size: 52px;
+
+            }
+
+            p {
+                max-width: 65%;
+                padding: .5rem;
+            }
+        }
+
+    }
+
+
+    .swiper-pagination {
+        bottom: 30px !important;
+        left: 25px !important;
+    }
+}
+
 @media(max-width:809px) {
     .stories-container {
         .back-button {

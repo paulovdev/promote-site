@@ -4,11 +4,12 @@ import { PiTargetBold } from 'react-icons/pi';
 import { useLocation } from 'react-router-dom';
 import './Transition.scss';
 
-const Transition = (OgComponent, { text }) => {
-    return () => {
+const Transition = (OgComponent, additionalProps) => {
+    return (props) => {
         const [animationComplete, setAnimationComplete] = useState(false);
         const location = useLocation();
-        const showLogo = location.pathname === '/'; // Change this to your home route
+        const showLogo = location.pathname === '/';
+        const { text } = additionalProps || {};
 
         useEffect(() => {
             document.body.classList.add('no-scroll');
@@ -24,7 +25,7 @@ const Transition = (OgComponent, { text }) => {
 
         return (
             <>
-                <OgComponent />
+                <OgComponent {...props} />
 
                 <motion.div
                     className='slide-in'
@@ -49,7 +50,7 @@ const Transition = (OgComponent, { text }) => {
                     {showLogo ? (
                         <motion.div
                             className='quimplo-logo-container'
-                            initial={{ opacity: 0, y: -100, }}
+                            initial={{ opacity: 0, y: -100 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -75 }}
                             transition={{ duration: 0.3, ease: 'easeOut' }}

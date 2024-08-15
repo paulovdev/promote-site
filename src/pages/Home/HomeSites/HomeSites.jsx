@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
+import { useSites } from '../../../hooks/useSites';
 import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import { IoMdStar } from 'react-icons/io';
-import { useSites } from '../../../context/SitesHomeContext';
 import {
   motion,
   useScroll,
@@ -15,9 +15,9 @@ import {
 import './HomeSites.scss';
 
 const HomeSites = () => {
-  const { sites, loading } = useSites();
-  const sliderRef = useRef(null);
+  const { sites, loading, error } = useSites();
 
+  const sliderRef = useRef(null);
   const x1 = useMotionValue(0);
   const { scrollY } = useScroll();
   const velocity1 = useVelocity(scrollY);
@@ -60,9 +60,12 @@ const HomeSites = () => {
     </motion.div>
   );
 
-  // Split the sites into two arrays
   const firstSetOfSites = sites.slice(0, 6);
   const secondSetOfSites = sites.slice(6, 11);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <section id="home-sites">

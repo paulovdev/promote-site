@@ -149,25 +149,40 @@ const Create = () => {
     <>
       <div id="create">
         <div className="head-container">
-          <div className="head">
-            <span>Submit Your Website to Us</span>
-            <h1>Ready to Showcase Your Website and Reach More Visitors?</h1>
-            <p>
-              Take this opportunity to present your website on our platform. By submitting, you can connect with a larger audience and even sell your site to interested buyers. Click below to get started and maximize your online presence.
-            </p>
-            <motion.button whileHover={{ scale: 1.05, }} transition={{ type: "spring", stiffness: 550, damping: 3 }} onClick={() => setShowModal(true)}>Submit</motion.button >
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: 'easeIn' }}
+          >
+            <div className="head">
+              <span>Submit Your Website to Us</span>
+              <h1>Ready to Showcase Your Website and Reach More Visitors?</h1>
+              <p>
+                Take this opportunity to present your website on our platform. By submitting, you can connect with a larger audience and even sell your site to interested buyers. Click below to get started and maximize your online presence.
+              </p>
+              <motion.button whileHover={{ scale: 1.05, }} transition={{ type: "spring", stiffness: 550, damping: 3 }} onClick={() => setShowModal(true)}>Submit</motion.button >
+            </div>
+          </motion.div>
 
-          <div className="sub-head">
-            <span>Want to Bypass the Waiting List?</span>
-            <h1>We’re experiencing high traffic and have a waiting list for new submissions.</h1>
-            <p>
-              Normally, your site will be reviewed and added within 1-2 weeks. To speed up the process and get your site live sooner, consider subscribing to Quimplo Premium or use the option below to skip the line.
-            </p>
-            <Link to="/create">
-              <motion.button whileHover={{ scale: 1.05, }} transition={{ type: "spring", stiffness: 550, damping: 3 }}>Skip the Line</motion.button>
-            </Link>
-          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: 'easeIn', delay: 0.5 }}
+          >
+            <div className="sub-head">
+              <span>Want to Bypass the Waiting List?</span>
+              <h1>We’re experiencing high traffic and have a waiting list for new submissions.</h1>
+              <p>
+                Normally, your site will be reviewed and added within 1-2 weeks. To speed up the process and get your site live sooner, consider subscribing to Quimplo Premium or use the option below to skip the line.
+              </p>
+              <Link to="/create">
+                <motion.button whileHover={{ scale: 1.05, }} transition={{ type: "spring", stiffness: 550, damping: 3 }}>Skip the Line</motion.button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
 
         <AnimatePresence>

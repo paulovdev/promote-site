@@ -16,7 +16,7 @@ const CategoryFilters = ({
     <div id='nav-category'>
         <nav>
             <h2 onClick={categoriesAnim}>Categories <IoIosArrowDown style={{ transform: arrowAnim ? "rotate(180deg)" : "rotate(0)" }} /></h2>
-            {isCategoryOpen && (
+            {!isCategoryOpen && (
                 <ul onClick={() => scrollTo({ top: 0, behavior: "smooth" })}>
                     <li><NavLink to="/sites/all">All</NavLink></li>
                     <li><NavLink to="/sites/hot">Hot</NavLink></li>
@@ -38,7 +38,7 @@ const CategoryFilters = ({
                 </ul>
             )}
             <h2 onClick={toolAnim}>Tools<IoIosArrowDown style={{ transform: arrowAnim2 ? "rotate(180deg)" : "rotate(0)" }} /></h2>
-            {isToolsOpen && (
+            {!isToolsOpen && (
                 <div id='filters'>
                     {toolFilters.map(tool => (
                         <React.Fragment key={tool.id}>

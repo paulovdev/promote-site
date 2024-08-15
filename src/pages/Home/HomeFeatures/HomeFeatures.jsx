@@ -41,7 +41,7 @@ const HomeFeatures = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
-                            duration: 0.4,
+                            duration: 0.2,
                             delay: index * 0.1,
                             ease: "easeOut"
                         }}

@@ -18,9 +18,9 @@ const HomeHero = () => {
         className="home-button"
         whileHover={{ scale: 1.05, }}
         transition={{ type: "spring", stiffness: 300, damping: 10 }}
-        onClick={() => scrollTo({ top: 0 })}
+
       >
-        <Link to="/sites/all" className="home-button-content">
+        <Link to="/sites/all" className="home-button-content" onClick={() => scrollTo({ top: 0 })}>
           Explore  <FaArrowRightLong />
         </Link>
       </motion.div>

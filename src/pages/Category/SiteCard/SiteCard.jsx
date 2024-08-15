@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import './SiteCard.scss';
 import { useInView } from 'react-intersection-observer';
 
-const SiteCard = ({ site}) => {
+const SiteCard = ({ site }) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     const { ref, inView } = useInView({
@@ -27,13 +27,13 @@ const SiteCard = ({ site}) => {
                 <img
                     src={site.imageURL}
                     alt={site.siteName}
-                    className={`site-image ${isLoaded ? 'loaded' : 'loading'}`}
+                    className="site-image"
                     onLoad={() => setIsLoaded(true)}
                 />
                 {!isLoaded && <div className="placeholder" />}
                 <div className="text-card">
                     <div className="several-content">
-                       
+
                         <span>
                             {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
                             {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}

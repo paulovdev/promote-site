@@ -79,14 +79,16 @@
         #category-layout {
             flex-direction: column;
             gap: 3rem;
-        }
 
-        #category {
-            margin: 3rem 0;
+            #category {
+                margin: 0;
 
-            .site-grid {
-                gap: 1.5rem;
+                .site-grid {
+                    gap: 1.5rem;
+                }
             }
         }
+
+
     }
 }

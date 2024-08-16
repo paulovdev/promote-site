@@ -8,7 +8,7 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
       <p>Provide your name, email, and profile link to get started.</p>
 
       <div className="input-container">
-        <label>Your name<span>*</span></label>
+        <label>Name<span>*</span></label>
         <input
           type="text"
           placeholder="Paulo*"
@@ -19,7 +19,7 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
       </div>
 
       <div className="input-container">
-        <label>Your e-mail<span>*</span></label>
+        <label>E-mail<span>*</span></label>
         <input
           type="text"
           placeholder="paulo@gmail.com"

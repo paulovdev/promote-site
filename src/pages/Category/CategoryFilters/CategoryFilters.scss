@@ -4,10 +4,10 @@
     position: relative;
     width: 300px;
     padding: 50px 0;
+    display: flex;
+    flex-direction: column;
 
     nav {
-        display: flex;
-        flex-direction: column;
 
         h2 {
             height: 40px;
@@ -149,14 +149,44 @@
         width: 100%;
         padding: 20px 0;
 
+        display: flex;
+        flex-direction: row;
+
+        nav {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+        }
+
         nav h2 {
+            width: 100%;
             font-size: 16px;
             padding: 0 1rem;
         }
 
         ul {
+            position: absolute;
+            top: 65px;
+
+            background-color: var(--bg);
             padding: 1.5rem 0.3rem;
             gap: 1.5rem;
+
+            z-index: 99999;
+        }
+
+        #filters {
+            position: absolute;
+            width: 100%;
+            top: 65px;
+
+            background-color: var(--bg);
+            padding: 1.5rem 0.3rem;
+            gap: 1.5rem;
+
+            z-index: 99999;
         }
 
         #filters label {

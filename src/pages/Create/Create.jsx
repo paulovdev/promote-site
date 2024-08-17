@@ -119,6 +119,7 @@ const Create = () => {
           transition={{ ease: 'easeInOut', duration: 0.3 }}
           className='animate-render-step-wrapper'
         >
+          <span className='span-txt'>fill the form</span>
           {(() => {
             switch (step) {
               case 1:
@@ -184,6 +185,7 @@ const Create = () => {
 
         <AnimatePresence>
           {showModal && (
+
             <motion.div
               className="step-content"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -191,7 +193,7 @@ const Create = () => {
               exit={{ opacity: 0, scale: 0.8 }}
             >
               {renderStepProgress()}
-              <div className="border-dotted"></div>
+
               {renderStep()}
 
               <button className="close-button" onClick={() => setShowModal(false)}>

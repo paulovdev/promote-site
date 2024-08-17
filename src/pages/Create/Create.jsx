@@ -2,12 +2,12 @@ import React, { useState, useRef } from 'react';
 import emailjs from 'emailjs-com';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { Link } from 'react-router-dom';
+import { MdOutlineCloudUpload } from "react-icons/md";
+
 import { IoCloseOutline } from 'react-icons/io5';
 
 import { storage } from '../../firebase/Firebase';
 import YourInfoStep from './YourInfoStep/YourInfoStep';
-import SiteInfoStep from './SiteInfoStep/SiteInfoStep';
 import CategoryStep from './CategoryStep/CategoryStep';
 import ToolStep from './ToolStep/ToolStep';
 import ImageStep from './ImageStep/ImageStep';
@@ -122,18 +122,16 @@ const Create = () => {
           {(() => {
             switch (step) {
               case 1:
-                return <YourInfoStep myName={myName} setMyName={setMyName} email={email} setEmail={setEmail} profileLink={profileLink} setProfileLink={setProfileLink} setStep={setStep} />;
+                return <YourInfoStep myName={myName} setMyName={setMyName} email={email} setEmail={setEmail} profileLink={profileLink} setProfileLink={setProfileLink} siteName={siteName} setSiteName={setSiteName} description={description} setDescription={setDescription} setStep={setStep} />;
               case 2:
-                return <SiteInfoStep siteName={siteName} setSiteName={setSiteName} description={description} setDescription={setDescription} setStep={setStep} />;
-              case 3:
                 return <CategoryStep category={category} setCategory={setCategory} setStep={setStep} />;
-              case 4:
+              case 3:
                 return <ToolStep tool={tool} setTool={setTool} setStep={setStep} />;
-              case 5:
+              case 4:
                 return <ImageStep image={image} setImage={setImage} isPhotoValid={isPhotoValid} setIsPhotoValid={setIsPhotoValid} imageRef={imageRef} handleImageChange={handleImageChange} setStep={setStep} />;
-              case 6:
+              case 5:
                 return <PriceStep price={price} setPrice={setPrice} setStep={setStep} />;
-              case 7:
+              case 6:
                 return <SiteLinksStep livePreview={livePreview} setLivePreview={setLivePreview} buyLink={buyLink} setBuyLink={setBuyLink} contactLink={contactLink} setContactLink={setContactLink} setStep={setStep} handleSubmit={handleSubmit} />;
               default:
                 return null;
@@ -156,7 +154,7 @@ const Create = () => {
             transition={{ duration: 0.3, ease: 'easeIn' }}
           >
             <div className="head">
-              <span>Submit Your Website to Us</span>
+              <span><MdOutlineCloudUpload />Submit Your Website to Us</span>
               <h1>Ready to Showcase Your Website and Reach More Visitors?</h1>
               <p>
                 Take this opportunity to present your website on our platform. By submitting, you can connect with a larger audience and even sell your site to interested buyers. Click below to get started and maximize your online presence.
@@ -165,14 +163,13 @@ const Create = () => {
             </div>
           </motion.div>
 
-
           <motion.div
             initial={{ opacity: 0, y: -25 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: 'easeIn', delay: 0.5 }}
           >
-            <div className="sub-head">
+            {/*  <div className="sub-head">
               <span>Want to Bypass the Waiting List?</span>
               <h1>We’re experiencing high traffic and have a waiting list for new submissions.</h1>
               <p>
@@ -181,7 +178,7 @@ const Create = () => {
               <Link to="/create">
                 <motion.button whileHover={{ scale: 1.05, }} transition={{ type: "spring", stiffness: 550, damping: 3 }}>Skip the Line</motion.button>
               </Link>
-            </div>
+            </div> */}
           </motion.div>
         </div>
 
@@ -194,7 +191,7 @@ const Create = () => {
               exit={{ opacity: 0, scale: 0.8 }}
             >
               {renderStepProgress()}
-
+              <div className="border-dotted"></div>
               {renderStep()}
 
               <button className="close-button" onClick={() => setShowModal(false)}>

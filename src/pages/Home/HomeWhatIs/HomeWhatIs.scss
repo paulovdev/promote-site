@@ -13,6 +13,7 @@
 
     span {
         position: relative;
+        width: fit-content;
 
         font-weight: 800;
         font-size: 10px;
@@ -24,6 +25,13 @@
         letter-spacing: 2px;
         text-transform: uppercase;
 
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        svg {
+            font-size: 14px;
+        }
     }
 
     .home-what-is-content {

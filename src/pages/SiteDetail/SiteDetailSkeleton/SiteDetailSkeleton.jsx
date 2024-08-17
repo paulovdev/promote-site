@@ -32,7 +32,7 @@ const SiteDetailSkeleton = () => {
                 </div>
             </div>
 
-            <Skeleton width={1200} height={500} borderRadius={30} />
+            <Skeleton width={1200} height={700} borderRadius={30} />
         </section>
     );
 };

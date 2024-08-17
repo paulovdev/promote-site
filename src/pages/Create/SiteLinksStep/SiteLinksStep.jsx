@@ -6,28 +6,30 @@ const SiteLinksStep = ({ livePreview, setLivePreview, buyLink, setBuyLink, conta
       <h3>Site Links</h3>
       <p>Provide the links where users can preview, buy, or contact you about your site.</p>
 
-      <div className="input-container">
-        <label>Live Preview Link<span>*</span></label>
-        <input
-          type="text"
-          placeholder="https://preview-link.com"
-          value={livePreview}
-          onChange={(e) => setLivePreview(e.target.value)}
-          required
-        />
-      </div>
+      <div className="input-grid">
+        <div className="input-container">
+          <label>Live Preview Link<span>*</span></label>
+          <input
+            type="text"
+            placeholder="https://preview-link.com"
+            value={livePreview}
+            onChange={(e) => setLivePreview(e.target.value)}
+            required
+          />
+        </div>
 
-      <div className="input-container">
-        <label>Buy Link<span>*</span></label>
-        <input
-          type="text"
-          placeholder="https://buy-link.com"
-          value={buyLink}
-          onChange={(e) => setBuyLink(e.target.value)}
-          required
-        />
+        <div className="input-container">
+          <label>Buy Link<span>*</span></label>
+          <input
+            type="text"
+            placeholder="https://buy-link.com"
+            value={buyLink}
+            onChange={(e) => setBuyLink(e.target.value)}
+            required
+          />
+        </div>
       </div>
-
+      
       <div className="input-container">
         <label>Contact Link<span>*</span></label>
         <input

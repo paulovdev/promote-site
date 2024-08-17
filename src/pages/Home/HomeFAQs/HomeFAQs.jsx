@@ -38,7 +38,6 @@ const faqs = [
 ];
 
 const HomeFAQs = () => {
-    // Set the first FAQ as active by default
     const [activeIndex, setActiveIndex] = useState(0);
 
     const handleClick = (index) => {

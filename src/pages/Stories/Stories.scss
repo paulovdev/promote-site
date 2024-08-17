@@ -15,16 +15,15 @@
 
     .back-button {
         position: absolute;
-        width: fit-content;
-        height: 40px;
+        width: 50px;
+        height: 50px;
 
         top: 15px;
         left: 100px;
 
         padding: 0 1.2rem;
 
-        background-color: #cecece1e;
-        border-radius: 2rem;
+        border-radius: .5rem;
 
         display: flex;
         align-items: center;
@@ -38,7 +37,7 @@
         }
 
         &:hover {
-            background-color: #cecece3d;
+            background-color: #cecece67;
         }
     }
 }

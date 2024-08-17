@@ -1,27 +1,71 @@
 @import "../../../index.scss";
 
 #nav-category {
-    position: relative;
-    width: 300px;
-    padding: 50px 0;
+    position: sticky;
+    width: 400px;
+    top: 100px;
+
+
     display: flex;
     flex-direction: column;
+    z-index: 998;
+
+    .search {
+        padding: 10px 1.3rem;
+        margin: 0 0 1rem 0;
+
+        font-size: 18px;
+        font-weight: 400;
+
+        border-radius: 2rem;
+        border: 1px solid var(--border);
+        background-color: var(--bg);
+
+        display: flex;
+        align-items: center;
+
+        svg {
+            margin-right: 0.5rem;
+
+            color: var(--bg-4);
+            font-size: 20px;
+        }
+
+        input {
+            width: 100%;
+
+            border: none;
+            background: transparent;
+
+            color: var(--p);
+            font-size: 16px;
+            font-weight: 500;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
 
     nav {
 
         h2 {
-            height: 40px;
-            font-size: 18px;
-            font-weight: 400;
-            margin: 1rem 0;
-            padding: 0 1.3rem;
+            padding: 10px 1.3rem;
+            margin: 0 0 1rem 0;
+
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--p);
+
             border-radius: 2rem;
             border: 1px solid var(--border);
-            color: var(--p);
+            background-color: var(--bg);
+
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 1rem;
+
             cursor: pointer;
             user-select: none;
 
@@ -37,10 +81,11 @@
             list-style: none;
             margin: 0;
 
-            padding: 2rem .3rem;
+            padding: 10px 1.3rem;
             border-radius: 1rem;
 
             border: 1px solid var(--border);
+            background-color: var(--bg);
 
             display: flex;
             align-items: start;
@@ -140,7 +185,6 @@
 @media (max-width: 1200px) {
     #nav-category {
         width: 300px;
-        padding: 40px 0;
     }
 }
 
@@ -148,9 +192,16 @@
     #nav-category {
         width: 100%;
         padding: 20px 0;
+        top: 35px;
 
         display: flex;
         flex-direction: row;
+
+        .search {
+            position: relative;
+            top: -50px;
+            width: 100%;
+        }
 
         nav {
             position: absolute;

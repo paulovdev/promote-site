@@ -16,21 +16,11 @@ const Category = () => {
     const [isToolsOpen, setIsToolsOpen] = useState(true);
     const [arrowAnim, setArrowAnim] = useState(false);
     const [arrowAnim2, setArrowAnim2] = useState(false);
+    const [searchQuery, setSearchQuery] = useState(''); 
 
     useEffect(() => {
         setCategory(category);
     }, [category, setCategory]);
-
-    const categoriesAnim = () => {
-        setArrowAnim(!arrowAnim);
-        setIsCategoryOpen(!isCategoryOpen);
-    };
-
-    const toolAnim = () => {
-        setArrowAnim2(!arrowAnim2);
-        setIsToolsOpen(!isToolsOpen);
-    };
-
     const toolFilters = [
         { id: 'react', label: 'React', checked: filters.tools?.includes('react') },
         { id: 'wordpress', label: 'WordPress', checked: filters.tools?.includes('wordpress') },
@@ -42,10 +32,19 @@ const Category = () => {
         { id: 'webflow', label: 'Webflow', checked: filters.tools?.includes('webflow') },
         { id: 'wix', label: 'Wix', checked: filters.tools?.includes('wix') },
     ];
+    const categoriesAnim = () => {
+        setArrowAnim(!arrowAnim);
+        setIsCategoryOpen(!isCategoryOpen);
+    };
 
-    if (error) {
-        return <div>Error loading sites: {error.message}</div>;
-    }
+    const toolAnim = () => {
+        setArrowAnim2(!arrowAnim2);
+        setIsToolsOpen(!isToolsOpen);
+    };
+
+    const filteredSites = sites.filter(site =>
+        site.siteName.toLowerCase().includes(searchQuery.toLowerCase())
+    ); 
 
     return (
         <section id="category-head">
@@ -62,10 +61,11 @@ const Category = () => {
                     toolAnim={toolAnim}
                     toolFilters={toolFilters}
                     handleToolFilterChange={handleToolFilterChange}
+                    setSearchQuery={setSearchQuery} // Pass setSearchQuery
                 />
                 <section id="category">
                     <div className="site-grid">
-                        {loading ? <CategorySkeleton /> : sites.map((site) => <SiteCard key={site.id} site={site} />)}
+                        {loading ? <CategorySkeleton /> : filteredSites.map((site) => <SiteCard key={site.id} site={site} />)}
                     </div>
                 </section>
             </div>

@@ -2,8 +2,8 @@ import React from "react";
 import { AiOutlineSelect } from "react-icons/ai";
 import { FaWpforms } from "react-icons/fa6";
 import { IoTimeOutline } from "react-icons/io5";
-import { MdDone } from "react-icons/md";
-import { motion } from "framer-motion";
+import { MdDone, MdOutlineWorkOutline } from "react-icons/md";
+
 import "./HomeFeatures.scss";
 
 const features = [
@@ -32,25 +32,18 @@ const features = [
 const HomeFeatures = () => {
     return (
         <section id="home-features">
-            <span>How Quimplo's work?</span>
+            <span><MdOutlineWorkOutline /> How Quimplo's work?</span>
             <div className="features-content">
                 {features.map((feature, index) => (
-                    <motion.div
+                    <div
                         key={index}
                         className="card"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 0.2,
-                            delay: index * 0.1,
-                            ease: "easeOut"
-                        }}
-                        whileHover={{ scale: 1.05 }}
                     >
                         <div className="icon-card">{feature.icon}</div>
                         <h3>{feature.title}</h3>
                         <p>{feature.description}</p>
-                    </motion.div>
+                        <img src={feature.photo} alt="" />
+                    </div>
                 ))}
             </div>
         </section>

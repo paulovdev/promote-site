@@ -84,17 +84,12 @@
             a {
                 position: relative;
                 text-decoration: underline;
+
                 color: var(--p);
+
                 font-size: 16px;
                 font-weight: 500;
-
-            }
-
-            &:nth-child(2) {
-                a {
-                    text-transform: uppercase;
-                    font-weight: 700;
-                }
+                text-transform: uppercase;
             }
 
             span {
@@ -121,9 +116,7 @@
 
             a {
                 width: 225px;
-                height: 50px;
-
-                padding: 0 1.5rem;
+                padding: 10px 1.3rem;
 
                 border-radius: 2rem;
 

@@ -6,16 +6,16 @@ import "./ToolStep.scss"
 
 const ToolStep = ({ tool, setTool, setStep }) => {
   const tools = [
-    { name: 'drupal', icon: <FaDrupal /> },
-    { name: 'elementor', icon: <FaElementor /> },
-    { name: 'framer', icon: <SiFramer /> },
-    { name: 'ghost', icon: <SiGhost /> },
-    { name: 'html-css-js', icon: <FaHtml5 /> },
-    { name: 'next', icon: <SiNextdotjs /> },
-    { name: 'react', icon: <FaReact /> },
-    { name: 'webflow', icon: <SiWebflow /> },
-    { name: 'wix', icon: <SiWix /> },
-    { name: 'wordpress', icon: <FaWordpress /> },
+    { name: 'Drupal', icon: <FaDrupal /> },
+    { name: 'Elementor', icon: <FaElementor /> },
+    { name: 'Framer', icon: <SiFramer /> },
+    { name: 'Ghost', icon: <SiGhost /> },
+    { name: 'HTML/CSS/JS', icon: <FaHtml5 /> },
+    { name: 'Next.js', icon: <SiNextdotjs /> },
+    { name: 'React', icon: <FaReact /> },
+    { name: 'Webflow', icon: <SiWebflow /> },
+    { name: 'Wix', icon: <SiWix /> },
+    { name: 'WordPress', icon: <FaWordpress /> },
   ];
 
   return (
@@ -26,10 +26,11 @@ const ToolStep = ({ tool, setTool, setStep }) => {
         {tools.map(({ name, icon }) => (
           <div
             key={name}
-            onClick={() => setTool(name)}
-            className={tool === name ? 'selected' : 'tool-card'}
+            onClick={() => setTool(name.toLowerCase())}
+            className={tool === name.toLowerCase() ? 'selected' : 'tool-card'}
           >
-            {icon}
+            <div className="icon">{icon}</div>
+            <div className="tool-name">{name}</div>
           </div>
         ))}
       </div>

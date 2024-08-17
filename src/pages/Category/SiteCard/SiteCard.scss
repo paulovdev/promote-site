@@ -2,10 +2,11 @@
 
 .site-card {
     position: relative;
-    max-width: 100%;
-    
-    width: clamp(300px, 45%, 800px);
-    border-radius: .5rem;
+
+    width: 90%;
+    padding: 0 0 1rem 0;
+
+    border-radius: 1rem;
     border: 1px solid var(--border);
     overflow: hidden;
 
@@ -16,10 +17,10 @@
 
     img {
         width: 100%;
-        height: auto;
-        border-radius: .5rem .5rem 0 0;
+        height: 100%;
+        border-radius: 1rem 1rem 0 0;
         z-index: 998;
-        object-fit: cover;
+
     }
 
     .text-card {
@@ -82,9 +83,9 @@
         opacity: 0;
         content: 'VIEW';
         position: absolute;
-        width: 150px;
-        height: 150px;
-        top: 15%;
+        width: 125px;
+        height: 125px;
+        top: 25%;
         background-color: #ffffffef;
         backdrop-filter: blur(10px);
         border-radius: 100%;
@@ -152,17 +153,6 @@
     }
 }
 
-.site-image {
-    transition: opacity 0.3s ease;
-}
-
-.site-image.loading {
-    opacity: 0;
-}
-
-.site-image.loaded {
-    opacity: 1;
-}
 
 .placeholder {
     width: 100%;

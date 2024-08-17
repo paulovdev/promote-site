@@ -1,7 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { PiTargetBold } from "react-icons/pi";
-
+import { PiTargetBold } from 'react-icons/pi';
 import ThemeChange from './../ThemeChange/ThemeChange';
 import "./Nav.scss";
 import { useState } from "react";

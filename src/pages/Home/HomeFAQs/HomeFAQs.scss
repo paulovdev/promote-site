@@ -32,15 +32,16 @@
         gap: 2rem;
 
         h1 {
-            color: var(--p);
-            font-size: 52px;
+            max-width: 75%;
+            font-size: 72px;
             font-weight: 600;
 
-            letter-spacing: -3px;
-            line-height: 100%;
+            letter-spacing: -2px;
+            line-height: 1.2;
 
             text-decoration: none;
             margin-bottom: 1rem;
+            color: var(--p);
         }
 
     }
@@ -71,8 +72,8 @@
             cursor: pointer;
 
             h3 {
-                font-size: 28px;
-                font-weight: 600;
+                font-size: 26px;
+                font-weight: 700;
                 letter-spacing: -1px;
 
                 color: var(--p);
@@ -81,7 +82,7 @@
             }
 
             p {
-                font-size: 18px;
+                font-size: 16px;
                 font-weight: 500;
                 letter-spacing: 0px;
                 line-height: 1.5;

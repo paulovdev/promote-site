@@ -25,7 +25,7 @@
             padding: 2rem;
 
             display: flex;
-            align-items: start;
+            align-items: center;
             justify-content: center;
             flex-direction: column;
 
@@ -43,10 +43,19 @@
 
                 margin-bottom: 1rem;
                 color: var(--p);
+
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                svg {
+                    font-size: 14px;
+                }
             }
 
             h1 {
-                font-size: 52px;
+                max-width: 80%;
+                font-size: 72px;
                 font-weight: 600;
 
                 letter-spacing: -2px;
@@ -54,13 +63,16 @@
 
                 text-decoration: none;
                 margin-bottom: 1rem;
-
+                text-align: center;
                 color: var(--p);
             }
 
             p {
-                font-size: 20px;
+                max-width: 60%;
+                text-align: center;
+                font-size: 18px;
                 font-weight: 500;
+
                 letter-spacing: 0px;
                 line-height: 1.5;
                 color: var(--p);
@@ -72,9 +84,7 @@
 
             button {
                 width: 150px;
-                height: 45px;
-
-                padding: 0 1.5rem;
+                padding: 10px;
 
                 border-radius: 2rem;
 
@@ -82,7 +92,7 @@
                 color: var(--p);
 
                 font-size: 16px;
-                font-weight: 700;
+                font-weight: 600;
 
                 display: flex;
                 align-items: center;
@@ -188,13 +198,12 @@
         }
     }
 
-
     .step-content {
         position: fixed;
         width: 100vw;
         height: 100vh;
 
-        background: var(--bg-3);
+        background: var(--bg);
 
         display: flex;
         align-items: center;
@@ -204,20 +213,33 @@
 
         .animate-render-step-wrapper {
             width: 100%;
-            max-width: 650px;
+            max-width: 600px;
+        }
+
+        .border-dotted {
+            max-width: 600px;
+            width: 100%;
+            height: 1px;
+
+            margin: 2rem 0;
+
+            border-bottom: 4px dotted var(--border);
+
         }
 
         h3 {
-            font-size: 46px;
-            text-align: start;
+            margin-top: 0;
+            margin-bottom: 1rem;
+
+            font-size: 26px;
             font-weight: 600;
-            line-height: 1.5;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
+            line-height: 1.4;
             color: var(--p);
         }
 
         p {
-            font-size: 18px;
+            font-size: 16px;
             opacity: .8;
             color: var(--p);
             margin-bottom: 3rem;
@@ -229,17 +251,18 @@
             left: 30px;
             background: none;
             border: none;
+
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--p);
 
             svg {
                 transition: all .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-                border-radius: 100%;
+                border-radius: .5rem;
 
                 &:hover {
-                    color: var(--p-2);
-                    background-color: var(--bg-4);
+
+                    background-color: var(--border);
                 }
             }
         }
@@ -251,9 +274,8 @@
 
             button {
                 width: 150px;
-                height: 50px;
+                padding: 10px;
                 margin: 2rem 0;
-                padding: 0 2rem;
 
                 outline: none;
                 border: none;
@@ -264,7 +286,7 @@
 
                 color: var(--p-2);
                 font-size: 16px;
-                font-weight: 700;
+                font-weight: 600;
 
                 display: flex;
                 align-items: center;
@@ -397,15 +419,17 @@
 
 }
 
+
+
 .step-progress {
     position: relative;
-    max-width: 650px;
+    max-width: 600px;
+
     width: 100%;
     height: 10px;
-    margin: 2rem 0;
 
     background-color: var(--bg);
-    border-radius: 1rem;
+
 
 
     .progress-bar {
@@ -417,6 +441,8 @@
         border-radius: 1rem;
     }
 }
+
+
 
 @media (max-width: 1400px) {
     #create {
@@ -470,13 +496,6 @@
         }
 
         .step-content {
-            position: fixed;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-
-            background: var(--bg-3);
-
             display: flex;
             align-items: center;
             justify-content: center;
@@ -609,12 +628,11 @@
     }
 }
 
-
 @media (max-width: 809px) {
     #create {
 
         padding: 15px;
-        margin: 10rem 0 !important;
+        margin: 0 !important;
         height: 100vh;
 
         .head-container {
@@ -625,21 +643,25 @@
             gap: 3rem;
 
             .head {
-                height: 100%;
-                padding: 1rem;
-                border-radius: 1rem;
+                height: fit-content;
+                padding: 2rem;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
 
                 h1 {
-                    font-size: 42px;
+                    max-width: 100%;
+                    font-size: 52px !important;
+
                 }
 
                 p {
+                    max-width: 100%;
+                    text-align: center;
                     font-size: 16px;
-                }
-
-                button {
-                    width: fit-content;
-
+                    font-weight: 500;
                 }
             }
 
@@ -664,12 +686,7 @@
 
 
         .step-content {
-            position: fixed;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
             padding: 15px;
-            background: var(--bg-3);
 
             display: flex;
             align-items: center;

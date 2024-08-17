@@ -1,6 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+import { RiSpeakLine } from "react-icons/ri";
 import "./HomeTestimonials.scss";
 
 const testimonials = [
@@ -36,7 +38,7 @@ const HomeTestimonials = () => {
     return (
         <section id="home-testimonials">
             <div className="testimonials-header">
-                <span>what our customers say</span>
+                <span><RiSpeakLine />what our customers say</span>
                 <div className="swiper-arrows">
                     <div className="swiper-button-prev"></div>
                     <div className="swiper-button-next"></div>

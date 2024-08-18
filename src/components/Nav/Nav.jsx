@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { PiTargetBold } from 'react-icons/pi';
+import { FaStarOfLife } from "react-icons/fa6";
+
 import ThemeChange from './../ThemeChange/ThemeChange';
 import "./Nav.scss";
 import { useState } from "react";
@@ -21,7 +22,7 @@ const Navbar = () => {
                 <nav>
                     <div className="logo">
                         <Link to="/">
-                            <PiTargetBold /> Quimplo
+                            <FaStarOfLife  /> Quimplo
                         </Link>
                     </div>
 

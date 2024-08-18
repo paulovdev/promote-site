@@ -43,29 +43,31 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 1.5rem;
 
         .card {
             position: relative;
-            width: 400px;
-            height: 350px;
-            padding: 1.5rem;
+            width: 700px;
+            height: 275px;
+            padding: 2rem;
 
-
-            border-radius: .5rem;
-            transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            background-color: var(--p-2);
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
 
             display: flex;
             align-items: start;
             justify-content: start;
             flex-direction: column;
 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+
             .icon-card {
                 width: 50px;
                 height: 50px;
 
-                border: 1px solid var(--border-2);
                 border-radius: 100%;
 
                 display: flex;
@@ -74,7 +76,7 @@
                 margin-bottom: 1.5rem;
 
                 svg {
-                    font-size: 28px;
+                    font-size: 32px;
                     color: var(--p);
                 }
 
@@ -82,22 +84,15 @@
 
             &:nth-child(4) {
                 .icon-card {
-                    background-color: #27cc3d;
-                    border: none;
-
                     svg {
-                        color: var(--fixed-c);
+                        color: #27cc3d;
                     }
-                }
-
-                &:hover {
-                    border: 1px solid #27cc3d;
                 }
             }
 
             h3 {
                 position: relative;
-                height: 80px;
+                height: 50px;
                 font-size: 24px;
                 font-weight: 700;
                 color: var(--p);
@@ -105,7 +100,7 @@
             }
 
             p {
-                height: 60px;
+                height: 80px;
                 font-size: 18px;
                 font-weight: 400;
                 color: var(--p);
@@ -114,8 +109,32 @@
                 text-align: start;
             }
 
+            button {
+                font-size: 14px;
+                font-weight: 700;
+
+                letter-spacing: 2px;
+                color: var(--p);
+
+                display: flex;
+                align-items: center;
+                gap: .3rem;
+
+                cursor: pointer;
+                transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+                svg {
+                    font-size: 24px;
+                    transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                }
+            }
+
             &:hover {
-                border: 1px solid var(--border-2);
+                background-color: var(--bg-2);
+
+                .button-icon {
+                    transform: translateX(10px);
+                }
             }
         }
 

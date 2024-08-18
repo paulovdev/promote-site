@@ -4,7 +4,6 @@ import "./YourInfoStep.scss"
 const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProfileLink, siteName, setSiteName, description, setDescription, setStep }) => {
   return (
     <section id="your-info-step">
- 
       <h3>Your info & Site Info</h3>
       <p>Provide your name, email, profile link, name and description of your site. This helps users understand what your site is about.</p>
 

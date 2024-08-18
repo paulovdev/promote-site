@@ -192,15 +192,16 @@
     #nav-category {
         width: 100%;
         padding: 20px 0;
-        top: 35px;
+        top: 40px;
 
         display: flex;
         flex-direction: row;
 
         .search {
             position: relative;
-            top: -50px;
+            top: -55px;
             width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
         }
 
         nav {
@@ -214,15 +215,18 @@
         nav h2 {
             width: 100%;
             font-size: 16px;
-           
+
+            box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
         }
 
         ul {
             position: absolute;
             top: 65px;
 
+            height: 500px;
+            overflow-y: scroll;
             background-color: var(--bg);
-           
+
             gap: 1.5rem;
 
             z-index: 99999;
@@ -234,7 +238,7 @@
             top: 65px;
 
             background-color: var(--bg);
-           
+
             gap: 1.5rem;
 
             z-index: 99999;

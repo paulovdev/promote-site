@@ -48,6 +48,7 @@ const HomeFAQs = () => {
         <section id="home-faqs">
             <div className="text-content">
                 <h1>Frequently Asked Questions</h1>
+                <p>In case you missed anything, we answered some frequently asked questions. </p>
             </div>
             <div className="faqs">
                 {faqs.map((faq, index) => (

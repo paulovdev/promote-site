@@ -102,7 +102,7 @@ const Create = () => {
         <motion.div
           className="progress-bar"
           initial={{ width: 0 }}
-          animate={{ width: `${step * 14.5}%` }}
+          animate={{ width: `${step * 16.6}%` }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
         />
       </div>

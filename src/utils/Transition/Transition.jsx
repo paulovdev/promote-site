@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { PiTargetBold } from 'react-icons/pi';
+import { FaStarOfLife } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import './Transition.scss';
 
@@ -56,8 +56,7 @@ const Transition = (OgComponent, additionalProps) => {
                             transition={{ duration: 0.3, ease: 'easeOut' }}
                         >
                             <div className="quimplo-logo">
-                                <PiTargetBold />
-                                Quimplo
+                                <FaStarOfLife /> Quimplo
                             </div>
                         </motion.div>
                     ) : (

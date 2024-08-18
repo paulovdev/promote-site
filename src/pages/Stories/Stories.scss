@@ -15,11 +15,11 @@
 
     .back-button {
         position: absolute;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
 
         top: 15px;
-        left: 100px;
+        right: 100px;
 
         padding: 0 1.2rem;
 
@@ -32,7 +32,7 @@
         transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
         svg {
-            font-size: 32px;
+            font-size: 38px;
             color: #fff;
         }
 

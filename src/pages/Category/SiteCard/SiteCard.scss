@@ -85,19 +85,23 @@
         position: absolute;
         width: 125px;
         height: 125px;
-        top: 25%;
+
         background-color: #ffffffef;
         backdrop-filter: blur(10px);
         border-radius: 100%;
+
         color: var(--p-i);
         font-size: 12px;
         font-weight: 900;
         letter-spacing: 1px;
+
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 999;
+
+        transform: translate(0%, -50%);
         transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        z-index: 999;
     }
 
     &:hover::before {

@@ -18,8 +18,8 @@ const PriceStep = ({ price, setPrice, setStep }) => {
       <span className='price-text'>{price === 0 ? 'Free' : `$${price}`}</span>
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} className="back-button">Back</button>
-        <button onClick={() => setStep((prev) => prev + 1)}>Continue</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
+        <button onClick={() => setStep((prev) => prev + 1)} type='button' >Continue</button>
       </div>
     </section>
   );

@@ -12,15 +12,13 @@ const Category = () => {
     const {
         sites, loading, error, filters, handleToolFilterChange, setCategory,
     } = useCategorySites();
-    const [isCategoryOpen, setIsCategoryOpen] = useState(true);
-    const [isToolsOpen, setIsToolsOpen] = useState(true);
-    const [arrowAnim, setArrowAnim] = useState(false);
-    const [arrowAnim2, setArrowAnim2] = useState(false);
-    const [searchQuery, setSearchQuery] = useState(''); 
+    const [activeMenu, setActiveMenu] = useState('category'); // State to track which menu is open
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         setCategory(category);
     }, [category, setCategory]);
+
     const toolFilters = [
         { id: 'react', label: 'React', checked: filters.tools?.includes('react') },
         { id: 'wordpress', label: 'WordPress', checked: filters.tools?.includes('wordpress') },
@@ -32,33 +30,24 @@ const Category = () => {
         { id: 'webflow', label: 'Webflow', checked: filters.tools?.includes('webflow') },
         { id: 'wix', label: 'Wix', checked: filters.tools?.includes('wix') },
     ];
-    const categoriesAnim = () => {
-        setArrowAnim(!arrowAnim);
-        setIsCategoryOpen(!isCategoryOpen);
-    };
 
-    const toolAnim = () => {
-        setArrowAnim2(!arrowAnim2);
-        setIsToolsOpen(!isToolsOpen);
+    const handleMenuToggle = (menu) => {
+        setActiveMenu(activeMenu === menu ? '' : menu); // Toggle the active menu
     };
 
     const filteredSites = sites.filter(site =>
         site.siteName.toLowerCase().includes(searchQuery.toLowerCase())
-    ); 
+    );
 
     return (
         <section id="category-head">
             <div className="head-text">
-                <h1>Explore {category} and find the best site for you!</h1>
+                <h1>Explore <span> "{category}" </span> and find the best site for you!</h1>
             </div>
             <div id="category-layout">
                 <CategoryFilters
-                    categoriesAnim={categoriesAnim}
-                    isCategoryOpen={isCategoryOpen}
-                    isToolsOpen={isToolsOpen}
-                    arrowAnim={arrowAnim}
-                    arrowAnim2={arrowAnim2}
-                    toolAnim={toolAnim}
+                    activeMenu={activeMenu} // Pass the activeMenu state
+                    handleMenuToggle={handleMenuToggle} // Pass the menu toggle handler
                     toolFilters={toolFilters}
                     handleToolFilterChange={handleToolFilterChange}
                     setSearchQuery={setSearchQuery} // Pass setSearchQuery

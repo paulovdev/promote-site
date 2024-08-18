@@ -1,29 +1,41 @@
-import React from 'react';
-import { FaBlog, FaBusinessTime, FaPalette, FaGraduationCap, FaShoppingCart, FaHeartbeat, FaPlane, FaRegCopyright  } from 'react-icons/fa';
-import { MdEvent,  MdOutlineWeb, MdPhotoCamera } from 'react-icons/md';
+import React, { useState } from 'react';
+import { FaBlog, FaBusinessTime, FaPalette, FaGraduationCap, FaShoppingCart, FaHeartbeat, FaPlane, FaRegCopyright } from 'react-icons/fa';
+import { MdEvent, MdOutlineWeb, MdPhotoCamera } from 'react-icons/md';
 import { AiOutlineFundProjectionScreen, AiOutlineBarChart } from 'react-icons/ai';
 import { GiMeal } from 'react-icons/gi';
 import { IoMdGlobe } from 'react-icons/io';
 import "./CategoryStep.scss";
 
 const CategoryStep = ({ category, setCategory, setStep }) => {
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+
   const categories = [
     { name: 'blog', icon: <FaBlog /> },
     { name: 'business', icon: <FaBusinessTime /> },
-    { name: 'creative', icon: <FaPalette /> },  // Ícone para 'creative'
+    { name: 'creative', icon: <FaPalette /> },
     { name: 'educational', icon: <FaGraduationCap /> },
     { name: 'e-commerce', icon: <FaShoppingCart /> },
     { name: 'event', icon: <MdEvent /> },
-    { name: 'health-wellness', icon: <FaHeartbeat /> },  // Ícone para 'health-wellness'
-    { name: 'landing-page', icon: <MdOutlineWeb /> },  // Ícone para 'landing-page'
-    { name: 'non-profit', icon: <FaRegCopyright  /> },
+    { name: 'health-wellness', icon: <FaHeartbeat /> },
+    { name: 'landing-page', icon: <MdOutlineWeb /> },
+    { name: 'non-profit', icon: <FaRegCopyright /> },
     { name: 'photography', icon: <MdPhotoCamera /> },
     { name: 'portfolio', icon: <AiOutlineFundProjectionScreen /> },
     { name: 'restaurant', icon: <GiMeal /> },
-    { name: 'saas', icon: <AiOutlineBarChart /> },  // Ícone para 'saas'
-    { name: 'technology', icon: <AiOutlineBarChart /> },  // Ícone genérico para 'technology'
+    { name: 'saas', icon: <AiOutlineBarChart /> },
+    { name: 'technology', icon: <AiOutlineBarChart /> },
     { name: 'travel', icon: <FaPlane /> }
   ];
+
+  const handleContinue = () => {
+    setSubmitted(true);
+    if (category) {
+      setStep((prev) => prev + 1);
+    } else {
+      setError('Please select a category.');
+    }
+  };
 
   return (
     <section id='category-step'>
@@ -43,9 +55,15 @@ const CategoryStep = ({ category, setCategory, setStep }) => {
         ))}
       </div>
 
+      {submitted && !category && (
+        <div className="error-message">
+          <p>{error}</p>
+        </div>
+      )}
+
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} className="back-button">Back</button>
-        <button onClick={() => setStep((prev) => prev + 1)}>Continue</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
+        <button onClick={handleContinue} type='button' >Continue</button>
       </div>
     </section>
   );

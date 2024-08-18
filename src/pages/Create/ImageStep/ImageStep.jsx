@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GoUpload } from "react-icons/go";
 import { motion } from 'framer-motion';
 
 import "./ImageStep.scss";
 
 const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, handleImageChange, setStep }) => {
+  const [submitted, setSubmitted] = useState(false);
+
   const handleClick = () => {
     imageRef.current.click();
+  };
+
+  const handleContinue = () => {
+    setSubmitted(true);
+    if (isPhotoValid) {
+      setStep((prev) => prev + 1);
+    } else {
+      setIsPhotoValid(false); // Update to reflect validation state
+    }
   };
 
   return (
@@ -31,17 +42,21 @@ const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, h
           )}
         </div>
         <input
-          onChange={handleImageChange}
+          onChange={(e) => {
+            handleImageChange(e);
+            setIsPhotoValid(e.target.files.length > 0);
+          }}
           ref={imageRef}
           type="file"
           hidden
         />
-        {!isPhotoValid && (
+        {submitted && !isPhotoValid && (
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
+            className="error-message"
           >
             Image required*
           </motion.p>
@@ -49,8 +64,8 @@ const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, h
       </div>
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} className="back-button">Back</button>
-        <button onClick={() => setStep((prev) => prev + 1)}>Continue</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
+        <button onClick={handleContinue} type='button' >Continue</button>
       </div>
     </section>
   );

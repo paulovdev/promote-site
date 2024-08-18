@@ -93,7 +93,7 @@
             }
 
             .selected {
-                width: 250px;
+                width: clamp(200px, 45%, 400px);
                 height: 125px;
             }
         }

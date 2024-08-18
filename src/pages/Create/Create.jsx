@@ -1,12 +1,13 @@
 import React, { useState, useRef } from 'react';
+
 import emailjs from 'emailjs-com';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { MdOutlineCloudUpload } from "react-icons/md";
+import { storage } from '../../firebase/Firebase';
 
+import { MdOutlineCloudUpload } from "react-icons/md";
 import { IoCloseOutline } from 'react-icons/io5';
 
-import { storage } from '../../firebase/Firebase';
 import YourInfoStep from './YourInfoStep/YourInfoStep';
 import CategoryStep from './CategoryStep/CategoryStep';
 import ToolStep from './ToolStep/ToolStep';

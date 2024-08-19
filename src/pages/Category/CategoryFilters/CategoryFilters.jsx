@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoIosArrowDown } from "react-icons/io";
-import { IoMdSearch } from "react-icons/io";
+import { FaBorderAll, FaBlog, FaBusinessTime, FaPalette, FaGraduationCap, FaShoppingCart, FaHeartbeat, FaRegCopyright, FaPlane } from "react-icons/fa";
+import { MdEvent, MdOutlineWeb, MdPhotoCamera } from "react-icons/md";
+import { AiOutlineFundProjectionScreen, AiOutlineBarChart } from "react-icons/ai";
+import { GiMeal } from "react-icons/gi";
 
 import './CategoryFilters.scss';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -12,7 +15,27 @@ const CategoryFilters = ({
     toolFilters,
     handleToolFilterChange,
     setSearchQuery,
+
 }) => {
+    const categories = [
+        { name: 'All', icon: <FaBorderAll />, path: "/sites/all" },
+        { name: 'Hot', icon: <AiOutlineBarChart />, path: "/sites/hot" },
+        { name: 'Blog', icon: <FaBlog />, path: "/sites/blog" },
+        { name: 'Business', icon: <FaBusinessTime />, path: "/sites/business" },
+        { name: 'Creative', icon: <FaPalette />, path: "/sites/creative" },
+        { name: 'Educational', icon: <FaGraduationCap />, path: "/sites/educational" },
+        { name: 'E-commerce', icon: <FaShoppingCart />, path: "/sites/e-commerce" },
+        { name: 'Event', icon: <MdEvent />, path: "/sites/event" },
+        { name: 'Health & Wellness', icon: <FaHeartbeat />, path: "/sites/health-wellness" },
+        { name: 'Landing Page', icon: <MdOutlineWeb />, path: "/sites/landing-page" },
+        { name: 'Non-Profit', icon: <FaRegCopyright />, path: "/sites/non-profit" },
+        { name: 'Photography', icon: <MdPhotoCamera />, path: "/sites/photography" },
+        { name: 'Portfolio', icon: <AiOutlineFundProjectionScreen />, path: "/sites/portfolio" },
+        { name: 'Restaurant', icon: <GiMeal />, path: "/sites/restaurant" },
+        { name: 'Saas', icon: <AiOutlineBarChart />, path: "/sites/saas" },
+        { name: 'Technology', icon: <AiOutlineBarChart />, path: "/sites/technology" },
+        { name: 'Travel', icon: <FaPlane />, path: "/sites/travel" }
+    ];
     const [searchInput, setSearchInput] = useState('');
     const [isDesktop, setIsDesktop] = useState(window.innerWidth > 809); // Define desktop breakpoint
 
@@ -33,15 +56,7 @@ const CategoryFilters = ({
 
     return (
         <div id='nav-category'>
-            <div className="search">
-                <IoMdSearch />
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    value={searchInput}
-                    onChange={handleSearchChange}
-                />
-            </div>
+
             <nav>
                 <h2 onClick={() => handleMenuToggle('category')}>
                     Categories <IoIosArrowDown style={{ transform: activeMenu === 'category' ? "rotate(180deg)" : "rotate(0)" }} />
@@ -56,23 +71,13 @@ const CategoryFilters = ({
                             transition={{ duration: 0.3, ease: "easeIn" }}
                         >
                             <ul onClick={() => handleMenuToggle('category')}>
-                                <li><NavLink to="/sites/all">All</NavLink></li>
-                                <li><NavLink to="/sites/hot">Hot</NavLink></li>
-                                <li><NavLink to="/sites/blog">Blog</NavLink></li>
-                                <li><NavLink to="/sites/business">Business</NavLink></li>
-                                <li><NavLink to="/sites/creative">Creative</NavLink></li>
-                                <li><NavLink to="/sites/educational">Educational</NavLink></li>
-                                <li><NavLink to="/sites/e-commerce">E-commerce</NavLink></li>
-                                <li><NavLink to="/sites/event">Event</NavLink></li>
-                                <li><NavLink to="/sites/health-wellness">Health & Wellness</NavLink></li>
-                                <li><NavLink to="/sites/landing-page">Landing Page</NavLink></li>
-                                <li><NavLink to="/sites/non-profit">Non-Profit</NavLink></li>
-                                <li><NavLink to="/sites/photography">Photography</NavLink></li>
-                                <li><NavLink to="/sites/portfolio">Portfolio</NavLink></li>
-                                <li><NavLink to="/sites/restaurant">Restaurant</NavLink></li>
-                                <li><NavLink to="/sites/saas">Saas</NavLink></li>
-                                <li><NavLink to="/sites/technology">Technology</NavLink></li>
-                                <li><NavLink to="/sites/travel">Travel</NavLink></li>
+                                {categories.map((category, index) => (
+                                    <li key={index}>
+                                        <NavLink to={category.path}>
+                                            {category.icon} {category.name}
+                                        </NavLink>
+                                    </li>
+                                ))}
                             </ul>
                         </motion.div>
                     )}

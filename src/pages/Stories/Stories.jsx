@@ -8,6 +8,7 @@ import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si
 import { IoCloseOutline } from "react-icons/io5";
 import Transition from "../../utils/Transition/Transition"
 import './Stories.scss';
+import { DiCss3, DiJavascript1 } from 'react-icons/di';
 
 const Stories = () => {
     const { sites, loading } = useSites();
@@ -45,7 +46,11 @@ const Stories = () => {
                                             {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
                                             {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
                                             {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
-                                            {site.tool === 'html-css-js' && <FaHtml5 style={{ background: '#e34c26' }} />}
+                                            {site.tool === 'html-css-js' && <>
+                                                <FaHtml5 style={{ background: '#e34c26' }} />
+                                                <DiCss3 style={{ background: '#264de4' }} />
+                                                <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
+                                            </>}
                                             {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
                                             {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
                                             {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}

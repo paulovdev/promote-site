@@ -4,6 +4,7 @@ import CategoryFilters from './CategoryFilters/CategoryFilters';
 import CategorySkeleton from './CategorySkeleton/CategorySkeleton';
 import SiteCard from './SiteCard/SiteCard';
 import { useCategorySites } from '../../hooks/useCategorySites';
+import { IoMdSearch } from "react-icons/io"; // Adicionei o ícone de busca
 
 import './Category.scss';
 
@@ -12,12 +13,20 @@ const Category = () => {
     const {
         sites, loading, error, filters, handleToolFilterChange, setCategory,
     } = useCategorySites();
-    const [activeMenu, setActiveMenu] = useState('category'); // State to track which menu is open
-    const [searchQuery, setSearchQuery] = useState('');
+    const [activeMenu, setActiveMenu] = useState('category');
+    const [searchInput, setSearchInput] = useState('');
 
     useEffect(() => {
         setCategory(category);
     }, [category, setCategory]);
+
+    const handleSearchChange = (e) => {
+        setSearchInput(e.target.value);
+    };
+
+    const filteredSites = sites.filter(site =>
+        site.siteName.toLowerCase().includes(searchInput.toLowerCase())
+    );
 
     const toolFilters = [
         { id: 'react', label: 'React', checked: filters.tools?.includes('react') },
@@ -32,26 +41,35 @@ const Category = () => {
     ];
 
     const handleMenuToggle = (menu) => {
-        setActiveMenu(activeMenu === menu ? '' : menu); // Toggle the active menu
+        setActiveMenu(activeMenu === menu ? '' : menu);
     };
-
-    const filteredSites = sites.filter(site =>
-        site.siteName.toLowerCase().includes(searchQuery.toLowerCase())
-    );
 
     return (
         <section id="category-head">
-            <div className="head-text">
-                <h1>Explore <span> "{category}" </span> and find the best site for you!</h1>
-            </div>
+            <CategoryFilters
+                activeMenu={activeMenu}
+                handleMenuToggle={handleMenuToggle}
+                toolFilters={toolFilters}
+                handleToolFilterChange={handleToolFilterChange}
+                setSearchQuery={setSearchInput} // Passa a função para atualizar a busca
+            />
+
             <div id="category-layout">
-                <CategoryFilters
-                    activeMenu={activeMenu} // Pass the activeMenu state
-                    handleMenuToggle={handleMenuToggle} // Pass the menu toggle handler
-                    toolFilters={toolFilters}
-                    handleToolFilterChange={handleToolFilterChange}
-                    setSearchQuery={setSearchQuery} // Pass setSearchQuery
-                />
+                <div className="head-text">
+                    <span>{category}</span>
+                    <h1>Explore and find the best site for you!</h1>
+                    <p>Browse, clone, and customize thousands of websites #MadeinQuimplo. Looking for templates?</p>
+                    <div className="search">
+                        <IoMdSearch />
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            value={searchInput}
+                            onChange={handleSearchChange}
+                        />
+                    </div>
+
+                </div>
                 <section id="category">
                     <div className="site-grid">
                         {loading ? <CategorySkeleton /> : filteredSites.map((site) => <SiteCard key={site.id} site={site} />)}

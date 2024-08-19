@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
 import "./ToolStep.scss";
+import { DiCss3, DiJavascript1 } from 'react-icons/di';
 
 const ToolStep = ({ tool, setTool, setStep }) => {
   const [submitted, setSubmitted] = useState(false);
@@ -12,7 +13,13 @@ const ToolStep = ({ tool, setTool, setStep }) => {
     { name: 'Elementor', icon: <FaElementor /> },
     { name: 'Framer', icon: <SiFramer /> },
     { name: 'Ghost', icon: <SiGhost /> },
-    { name: 'HTML/CSS/JS', icon: <FaHtml5 /> },
+    {
+      name: 'HTML/CSS/JS', icons: [
+        <FaHtml5 />,
+        <DiCss3 />,
+        <DiJavascript1 />,
+      ]
+    },
     { name: 'Next.js', icon: <SiNextdotjs /> },
     { name: 'React', icon: <FaReact /> },
     { name: 'Webflow', icon: <SiWebflow /> },
@@ -35,13 +42,15 @@ const ToolStep = ({ tool, setTool, setStep }) => {
       <p>Select the tool or platform you used to create your site. This will help users understand the technologies involved.</p>
 
       <div className="tool-cards">
-        {tools.map(({ name, icon }) => (
+        {tools.map(({ name, icon, icons }) => (
           <div
             key={name}
             onClick={() => setTool(name.toLowerCase())}
             className={tool === name.toLowerCase() ? 'selected' : 'tool-card'}
           >
-            <div className="icon">{icon}</div>
+            <div className="icon">
+              {icons ? icons : icon}
+            </div>
             <div className="tool-name">{name}</div>
           </div>
         ))}
@@ -55,7 +64,7 @@ const ToolStep = ({ tool, setTool, setStep }) => {
 
       <div className="step-buttons">
         <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
-        <button onClick={handleContinue} type='button' >Continue</button>
+        <button onClick={handleContinue} type='button'>Continue</button>
       </div>
     </section>
   );

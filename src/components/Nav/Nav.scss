@@ -16,7 +16,7 @@ header {
 
   .logo>a {
     font-size: 24px;
-    font-weight: 900;
+    font-weight: 600;
     letter-spacing: -2px;
 
     color: var(--p);
@@ -24,9 +24,11 @@ header {
     display: flex;
     align-items: center;
     gap: 0.3rem;
+    z-index: 999;
 
     svg {
-      font-size: 24px;
+      font-size: 20px;
+      color: var(--bg-4);
     }
   }
 
@@ -48,7 +50,7 @@ header {
         color: var(--p);
 
         font-size: 16px;
-        font-weight: 700;
+        font-weight: 600;
 
         display: flex;
         align-items: center;
@@ -96,9 +98,8 @@ header {
   }
 
   .mobile-menu {
-
-    width: 50px;
-    height: 50px;
+    width: fit-content;
+    height: fit-content;
 
     display: none;
     align-items: end;
@@ -141,24 +142,37 @@ header {
     width: 100vw;
     height: 75vh;
 
+    padding: 0 2rem 0 2rem;
 
     background-color: var(--bg-2);
     border-radius: 0 0 2rem 2rem;
     border: 1px solid var(--border);
 
     display: none;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     flex-direction: column;
     gap: 3rem;
     z-index: 997;
 
     li {
+      width: 100%;
+
       a {
+
         color: var(--p);
-        font-size: 32px;
+        font-size: 24px;
         font-weight: 600;
         letter-spacing: -1px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        svg {
+          font-size: 22px;
+          color: var(--p);
+        }
       }
     }
 
@@ -168,9 +182,11 @@ header {
 
   nav {
     position: relative;
+    max-width: 1200px;
     width: 100%;
 
-    padding: 1rem 1.2rem;
+    padding: 25px 0;
+
     list-style: none;
     left: 15px;
 
@@ -195,7 +211,7 @@ header {
 
     nav {
       left: 0;
-
+      padding: 15px;
     }
 
     .mobile-menu {

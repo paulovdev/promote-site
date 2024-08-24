@@ -64,22 +64,21 @@ const CategoryFilters = ({
 
                 <AnimatePresence mode='wait'>
                     {(isDesktop || activeMenu === 'category') && (
-                        <motion.div
+
+                        <motion.ul
                             initial={{ opacity: 0 }}
                             animate={{ opacity: activeMenu === 'category' || isDesktop ? 1 : 0 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeIn" }}
-                        >
-                            <ul onClick={() => handleMenuToggle('category')}>
-                                {categories.map((category, index) => (
-                                    <li key={index}>
-                                        <NavLink to={category.path}>
-                                            {category.icon} {category.name}
-                                        </NavLink>
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
+                            onClick={() => handleMenuToggle('category')}>
+                            {categories.map((category, index) => (
+                                <li key={index}>
+                                    <NavLink to={category.path}>
+                                        {category.icon} {category.name}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </motion.ul>
                     )}
                 </AnimatePresence>
 
@@ -88,26 +87,27 @@ const CategoryFilters = ({
                 </h2>
                 <AnimatePresence mode='wait'>
                     {(isDesktop || activeMenu === 'tools') && (
+
+
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: activeMenu === 'tools' || isDesktop ? 1 : 0 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeIn" }}
-                        >
-                            <div id='filters'>
-                                {toolFilters.map(tool => (
-                                    <React.Fragment key={tool.id}>
-                                        <input
-                                            type='checkbox'
-                                            id={tool.id}
-                                            checked={tool.checked}
-                                            onChange={() => handleToolFilterChange(tool.id)}
-                                        />
-                                        <label htmlFor={tool.id}>{tool.label}</label>
-                                    </React.Fragment>
-                                ))}
-                            </div>
+                            id='filters'>
+                            {toolFilters.map(tool => (
+                                <React.Fragment key={tool.id}>
+                                    <input
+                                        type='checkbox'
+                                        id={tool.id}
+                                        checked={tool.checked}
+                                        onChange={() => handleToolFilterChange(tool.id)}
+                                    />
+                                    <label htmlFor={tool.id}>{tool.label}</label>
+                                </React.Fragment>
+                            ))}
                         </motion.div>
+
                     )}
                 </AnimatePresence>
 

@@ -164,7 +164,7 @@
         position: sticky;
 
         width: 100%;
-        padding: 20px 0;
+        padding: 10px 0;
         top: 0;
 
         display: flex;
@@ -199,10 +199,15 @@
             svg {
                 display: block;
             }
+
+            .h2-animate {
+                width: 100%;
+            }
         }
 
         ul {
             position: absolute;
+            width: 100%;
             padding: 0.2rem 1.3rem;
             top: 65px;
             left: 0;

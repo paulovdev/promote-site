@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 import "./HomeFAQs.scss";
 
 const faqs = [
@@ -38,11 +37,7 @@ const faqs = [
 ];
 
 const HomeFAQs = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
 
-    const handleClick = (index) => {
-        setActiveIndex(activeIndex === index ? 1 : index);
-    };
 
     return (
         <section id="home-faqs">
@@ -52,24 +47,15 @@ const HomeFAQs = () => {
             </div>
             <div className="faqs">
                 {faqs.map((faq, index) => (
-                    <motion.div
+                    <div
                         key={index}
                         className="faq-card"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.2, ease: "easeOut" }}
-                        whileHover={{ scale: 1.03, boxShadow: "0 1px 2px rgba(0, 0, 0, 0.2)" }}
-                        onClick={() => handleClick(index)}
                     >
                         <h3>{faq.question}</h3>
-                        <motion.p
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: activeIndex === index ? "auto" : 0, opacity: activeIndex === index ? 1 : 0 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
-                        >
+                        <p >
                             {faq.answer}
-                        </motion.p>
-                    </motion.div>
+                        </p>
+                    </div>
                 ))}
             </div>
         </section>

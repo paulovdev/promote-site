@@ -2,7 +2,7 @@ import React from "react";
 import { AiOutlineSelect } from "react-icons/ai";
 import { FaWpforms } from "react-icons/fa6";
 import { IoTimeOutline } from "react-icons/io5";
-import { MdDone, MdOutlineWorkOutline } from "react-icons/md";
+import { MdDone } from "react-icons/md";
 import { MdOutlineArrowRight } from "react-icons/md";
 
 import "./HomeFeatures.scss";
@@ -34,7 +34,7 @@ const features = [
 const HomeFeatures = () => {
     return (
         <section id="home-features">
-            <span><MdOutlineWorkOutline /> How Quimplo's work?</span>
+            <span>How Quimplo's work?</span>
             <div className="features-content">
                 {features.map((feature, index) => (
                     <Link to='/create' onClick={() => scrollTo({ top: 0, behavior: "smooth" })}>

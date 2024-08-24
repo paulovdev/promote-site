@@ -83,14 +83,6 @@
 
             }
 
-            &:nth-child(4) {
-                .icon-card {
-                    svg {
-                        color: #27cc3d;
-                    }
-                }
-            }
-
             h3 {
                 position: relative;
                 height: 50px;
@@ -115,7 +107,7 @@
                 font-weight: 900;
 
                 letter-spacing: 2px;
-                color: var(--p);
+                color: var(--accent);
 
                 display: flex;
                 align-items: center;
@@ -138,9 +130,10 @@
                 }
             }
         }
-
     }
 }
+
+
 
 @media (max-width:1400px) {
     #home-features {

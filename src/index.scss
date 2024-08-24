@@ -17,7 +17,7 @@
    --btn: #111;
    --btn-2: #333;
    --btn-3: rgb(230, 230, 230);
-   --accent: #feff66;
+   --accent: #1492f8;
    --fixed-c: #fff;
  }
 
@@ -51,9 +51,10 @@
 
    font-synthesis: none;
    text-rendering: optimizeLegibility;
-   touch-action: manipulation;
+   touch-action: none;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
+   outline: none;
  }
 
  body {

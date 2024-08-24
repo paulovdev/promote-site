@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import "./HomeHero.scss";
-import { GoHome } from "react-icons/go";
-
 
 const HomeHero = () => {
   return (
     <section id="home-hero">
-      <span> < GoHome /> Welcome to Quimplo!</span>
+      <span> Welcome to Quimplo!</span>
       <h1>Elevate your website and make a lasting impact!</h1>
       <p>
         Launch your site on Quimplo and dramatically increase your online

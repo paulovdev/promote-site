@@ -2,8 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './HomeWhatIs.scss';
-import { BsQuestionLg } from 'react-icons/bs';
-
 const HomeWhatIs = () => {
 
     const animation = {
@@ -24,7 +22,7 @@ const HomeWhatIs = () => {
 
     return (
         <section id="home-what-is">
-            <span> What is Quimplo<BsQuestionLg /></span>
+            <span> What is Quimplo</span>
             <div className="home-what-is-content" ref={ref} >
                 <div className="left-content">
                     {

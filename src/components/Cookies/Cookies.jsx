@@ -28,6 +28,7 @@ const CookiesComponent = () => {
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ duration: 0.3 }}
                 >
+                    <h1>This site uses cookies</h1>
                     <p>We use cookies to ensure you get the best experience on our website. <a href="#">Cookies policy.</a></p>
                     <motion.button
                         whileHover={{ scale: 1.03, }}

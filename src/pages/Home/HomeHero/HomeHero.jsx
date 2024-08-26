@@ -7,12 +7,10 @@ import "./HomeHero.scss";
 const HomeHero = () => {
   return (
     <section id="home-hero">
-      <span> Welcome to Quimplo!</span>
-      <h1>Elevate your website and make a lasting impact!</h1>
+      <h1>Eleve seu <span>site</span> e cause um impacto duradouro!</h1>
       <p>
-        Launch your site on Quimplo and dramatically increase your online
-        visibility. Showcase your site effortlessly to attract more visitors and
-        accelerate your sales.
+        Lance seu site no Quimplo e aumente drasticamente sua visibilidade online.
+        Mostre seu site com facilidade para atrair mais visitantes e acelerar suas vendas.
       </p>
       <motion.div
         className="home-button"

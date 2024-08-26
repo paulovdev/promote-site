@@ -1,169 +1,115 @@
 @import '../../../index.scss';
 
 #home-faqs {
-    position: relative;
-
-    padding: 100px 0 !important;
-
-    max-width: 1400px;
+    padding: 50px 0 !important;
+    background-color: var(--bg-2);
     margin: 0 auto !important;
-
     border-radius: .5rem .5rem 0 0;
 
-
     display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
 
     .text-content {
-        width: 100%;
-        height: 100%;
-        top: 50px;
-        flex: 2 0 0;
-        position: sticky;
-
-        border-radius: 0.5rem;
+        text-align: center;
 
         display: flex;
-        align-items: start;
+        align-items: center;
         justify-content: center;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
+        span {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
 
         h1 {
             max-width: 75%;
-            letter-spacing: -3px;
-            font-size: 52px;
+            font-size: 42px;
             font-weight: 700;
-            line-height: 1.2;
-
-            text-decoration: none;
-            margin-bottom: 1rem;
             color: var(--p);
-        }
-
-        p {
-            font-size: 18px;
-            font-weight: 500;
-
-            line-height: 1.5;
-
-            color: var(--p);
-            opacity: .8;
-
-
             margin-bottom: 2rem;
         }
-
     }
 
     .faqs {
         position: relative;
         width: 100%;
-        height: 100%;
-
-        flex: 1.5 0 0;
-        border-radius: 0.5rem;
 
         display: flex;
-        align-items: start;
-        justify-content: center;
+        align-items: center;
         flex-direction: column;
-        gap: 3rem;
 
+        gap: 1.5rem;
 
         .faq-card {
+            position: relative;
+            width: 800px;
+
             padding: 1.5rem;
 
             border: 1px solid var(--border);
-            border-radius: 1rem;
-            background-color: var(--p-2);
+            border-radius: .5rem;
+         
 
-            user-select: none;
             cursor: pointer;
+            user-select: none;
 
-            h3 {
-                font-size: 26px;
-                font-weight: 700;
-                letter-spacing: -1px;
+            .faq-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
 
-                color: var(--p);
-                text-align: start;
-                margin-bottom: 1rem;
+                h3 {
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: var(--p);
+                }
+
+                svg {
+                    font-size: 20px;
+                    color: var(--accent);
+                }
             }
 
-            p {
-                font-size: 16px;
-                font-weight: 500;
-                letter-spacing: 0px;
-                line-height: 1.5;
-                color: var(--p);
-                opacity: .8;
-
-
-
+            .faq-content {
+                p {
+                    margin-top: 1rem;
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: var(--p);
+                    line-height: 1.5;
+                }
             }
-
-
-        }
-
-        span {
-            font-weight: 700;
         }
     }
-
 }
 
 @media (max-width:1400px) {
     #home-faqs {
-
         padding: 20px !important;
-        margin: 0 auto !important;
 
-        .text-content {
-
-            h1 {
-
-                font-size: 42px;
-
-            }
-
+        .text-content h1 {
+            font-size: 36px;
         }
-
-        .faqs {
-            gap: 1rem;
-
-        }
-
-
-
     }
 }
 
 @media (max-width:809px) {
     #home-faqs {
-
         padding: 15px !important;
-        margin: 0 auto !important;
 
-        .text-content {
-            position: relative;
-
-            h1 {
-
-                font-size: 42px;
-
-            }
-
+        .text-content h1 {
+            font-size: 30px;
         }
 
-        .faqs {
-            gap: 1rem;
-
+        .faqs .faq-card {
+            padding: 1rem;
         }
-
-
-
     }
 }

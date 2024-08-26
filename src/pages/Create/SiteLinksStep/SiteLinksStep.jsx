@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./SiteLinksStep.scss";
 
 const SiteLinksStep = ({ livePreview, setLivePreview, buyLink, setBuyLink, contactLink, setContactLink, step, setStep, handleSubmit }) => {
-  // State for validation errors
+  // Estado para validação de erros
   const [errors, setErrors] = useState({
     livePreview: '',
     buyLink: '',
@@ -14,9 +14,9 @@ const SiteLinksStep = ({ livePreview, setLivePreview, buyLink, setBuyLink, conta
 
   const validate = () => {
     const newErrors = {};
-    if (!urlRegex.test(livePreview)) newErrors.livePreview = 'Valid Live Preview Link is required';
-    if (!urlRegex.test(buyLink)) newErrors.buyLink = 'Valid Buy Link is required';
-    if (!urlRegex.test(contactLink)) newErrors.contactLink = 'Valid Contact Link is required';
+    if (!urlRegex.test(livePreview)) newErrors.livePreview = 'É necessário um link válido para a Visualização ao Vivo';
+    if (!urlRegex.test(buyLink)) newErrors.buyLink = 'É necessário um link válido para Compra';
+    if (!urlRegex.test(contactLink)) newErrors.contactLink = 'É necessário um link válido para Contato';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -32,15 +32,14 @@ const SiteLinksStep = ({ livePreview, setLivePreview, buyLink, setBuyLink, conta
 
   return (
     <section id="site-links-step">
-      <h3>Site Links</h3>
-      <p>Provide the links where users can preview, buy, or contact you about your site.</p>
+      <p>Forneça os links onde os usuários podem visualizar, comprar ou entrar em contato sobre seu site.</p>
 
       <div className="input-grid">
         <div className="input-container">
-          <label>Live Preview Link<span>*</span></label>
+          <label>Link para Visualização ao Vivo<span>*</span></label>
           <input
             type="text"
-            placeholder="https://preview-link.com"
+            placeholder="https://link-de-visualizacao.com"
             value={livePreview}
             onChange={(e) => setLivePreview(e.target.value)}
           />
@@ -50,10 +49,10 @@ const SiteLinksStep = ({ livePreview, setLivePreview, buyLink, setBuyLink, conta
         </div>
 
         <div className="input-container">
-          <label>Buy Link<span>*</span></label>
+          <label>Link de Compra<span>*</span></label>
           <input
             type="text"
-            placeholder="https://buy-link.com"
+            placeholder="https://link-de-compra.com"
             value={buyLink}
             onChange={(e) => setBuyLink(e.target.value)}
           />
@@ -64,10 +63,10 @@ const SiteLinksStep = ({ livePreview, setLivePreview, buyLink, setBuyLink, conta
       </div>
 
       <div className="input-container">
-        <label>Contact Link<span>*</span></label>
+        <label>Link de Contato<span>*</span></label>
         <input
           type="text"
-          placeholder="https://link-to-contact.com"
+          placeholder="https://link-de-contato.com"
           value={contactLink}
           onChange={(e) => setContactLink(e.target.value)}
         />
@@ -77,8 +76,8 @@ const SiteLinksStep = ({ livePreview, setLivePreview, buyLink, setBuyLink, conta
       </div>
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
-        <button onClick={handleSubmitWithValidation} type='button' >Submit</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Voltar</button>
+        <button onClick={handleSubmitWithValidation} type='button' >Enviar</button>
       </div>
     </section>
   );

@@ -70,4 +70,4 @@ const Stories = () => {
     );
 };
 
-export default Transition(Stories, { text: "Stories" });
+export default Transition(Stories, { text: "Histórias" });

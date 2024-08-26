@@ -1,12 +1,10 @@
 @import "../../index.scss";
 
-
-
 .slide-in {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: var(--p-2);
 
@@ -21,7 +19,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: var(--p-2);
 
@@ -41,19 +39,22 @@
     }
 
     .quimplo-logo {
-        font-size: 32px;
-        font-weight: 600;
-        letter-spacing: -2px;
+        font-family: "Raleway", sans-serif;
+        font-size: 36px;
+        letter-spacing: -1px;
+
         color: var(--p);
-    
+
         display: flex;
         align-items: center;
         gap: 0.3rem;
-    
+        z-index: 999;
+
         svg {
-          font-size: 24px;
-          color: var(--bg-4);
+            font-size: 28px;
+            color: var(--accent);
         }
+
     }
 
     .text {

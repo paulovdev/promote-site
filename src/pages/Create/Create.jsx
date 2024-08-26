@@ -116,7 +116,6 @@ const Create = () => {
         transition={{ ease: 'easeInOut', duration: 0.3 }}
         className='animate-render-step-wrapper'
       >
-        <span className='span-txt'>Fill the form</span>
         <form>
           {(() => {
             switch (step) {
@@ -151,12 +150,17 @@ const Create = () => {
           transition={{ duration: 0.3, ease: 'easeIn' }}
         >
           <div className="head">
-            <span><MdOutlineCloudUpload />Submit Your Website to Us</span>
-            <h1>Ready to Showcase Your Website and Reach More Visitors?</h1>
+            <h1>Pronto para mostrar seu site?</h1>
             <p>
-              Take this opportunity to present your website on our platform. By submitting, you can connect with a larger audience and even sell your site to interested buyers. Click below to get started and maximize your online presence.
+              Aproveite esta oportunidade para apresentar seu site em nossa plataforma. Ao enviar, você pode se conectar com um público maior e até vender seu site para compradores interessados. Clique abaixo para começar e maximizar sua presença online.
             </p>
-            <motion.button whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 550, damping: 3 }} onClick={() => setShowModal(true)}>Submit</motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 550, damping: 3 }}
+              onClick={() => setShowModal(true)}
+            >
+              Enviar
+            </motion.button>
           </div>
         </motion.div>
       </div>
@@ -209,8 +213,8 @@ const SuccessModal = ({ onClose }) => (
       <button className="close-btn" onClick={onClose}>
         <IoCloseOutline size={32} />
       </button>
-      <h3>Form submitted successfully!</h3>
-      <p>Please note that it may take 1 to 2 weeks for us to review your submission.</p>
+      <h3>Formulário enviado com sucesso!</h3>
+      <p>Observe que pode levar de 1 a 2 semanas para que revisemos sua submissão.</p>
     </motion.div>
   </motion.div>
 );

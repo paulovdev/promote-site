@@ -3,7 +3,7 @@ import './YourInfoStep.scss';
 import { IoCloseOutline } from 'react-icons/io5';
 
 const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProfileLink, siteName, setSiteName, description, setDescription, setStep }) => {
-  // State for validation errors
+  // Estado para erros de validação
   const [errors, setErrors] = useState({
     myName: '',
     email: '',
@@ -20,11 +20,11 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
   const validate = () => {
     const newErrors = {};
 
-    if (!myName) newErrors.myName = 'Name is required';
-    if (!email || !emailRegex.test(email)) newErrors.email = 'Valid email is required';
-    if (!profileLink || !profileLinkRegex.test(profileLink)) newErrors.profileLink = 'Valid profile link is required';
-    if (!siteName) newErrors.siteName = 'Site Name is required';
-    if (description.length > 250) newErrors.description = 'Description should be under 250 characters';
+    if (!myName) newErrors.myName = 'O nome é obrigatório';
+    if (!email || !emailRegex.test(email)) newErrors.email = 'Um e-mail válido é obrigatório';
+    if (!profileLink || !profileLinkRegex.test(profileLink)) newErrors.profileLink = 'Um link de perfil válido é obrigatório';
+    if (!siteName) newErrors.siteName = 'O nome do site é obrigatório';
+    if (description.length > 250) newErrors.description = 'A descrição deve ter menos de 250 caracteres';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -39,15 +39,14 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
 
   return (
     <section id="your-info-step">
-      <h3>Your info & Site Info</h3>
-      <p>Provide your name, email, profile link, name and description of your site. This helps users understand what your site is about.</p>
+      <p>Forneça seu nome, e-mail, link de perfil, nome e descrição do seu site. Isso ajuda os usuários a entenderem sobre o que é o seu site.</p>
 
       <div className="input-grid">
         <div className="input-container">
-          <label>Name<span>*</span></label>
+          <label>Nome<span>*</span></label>
           <input
             type="text"
-            placeholder="Paulo*"
+            placeholder="Ex: Paulo"
             value={myName}
             onChange={(e) => setMyName(e.target.value)}
           />
@@ -60,7 +59,7 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
           <label>E-mail<span>*</span></label>
           <input
             type="email"
-            placeholder="paulo@gmail.com"
+            placeholder="example@gmail.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -68,12 +67,11 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
             {submitted && errors.email && <p>{errors.email}</p>}
           </div>
         </div>
-
       </div>
 
       <div className="input-grid">
         <div className="input-container">
-          <label>Profile link<span>*</span></label>
+          <label>Link do Perfil<span>*</span></label>
           <input
             type="text"
             placeholder="https://example.com"
@@ -86,10 +84,10 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
         </div>
 
         <div className="input-container">
-          <label>Site Name<span>*</span></label>
+          <label>Nome do Site<span>*</span></label>
           <input
             type="text"
-            placeholder="Example Name"
+            placeholder="Ex: Quimplo"
             value={siteName}
             onChange={(e) => setSiteName(e.target.value)}
           />
@@ -100,9 +98,9 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
       </div>
 
       <div className="input-container text-input">
-        <label>Description<span>*</span></label>
+        <label>Descrição<span>*</span></label>
         <textarea
-          placeholder="This website contains..."
+          placeholder="Este site contém..."
           value={description}
           maxLength={250}
           onChange={(e) => setDescription(e.target.value)}
@@ -118,8 +116,8 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
       </div>
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' disabled={true} className="back-button">Back</button>
-        <button onClick={handleContinue} type='button' >Continue</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' disabled={true} className="back-button">Voltar</button>
+        <button onClick={handleContinue} type='button'>Continuar</button>
       </div>
     </section>
   );

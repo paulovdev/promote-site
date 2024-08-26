@@ -46,28 +46,22 @@ const Category = () => {
 
     return (
         <section id="category-head">
-            <CategoryFilters
-                activeMenu={activeMenu}
-                handleMenuToggle={handleMenuToggle}
-                toolFilters={toolFilters}
-                handleToolFilterChange={handleToolFilterChange}
-                setSearchQuery={setSearchInput} // Passa a função para atualizar a busca
-            />
+
 
             <div id="category-layout">
                 <div className="head-text">
-                    <span>{category}</span>
-                    <h1>Explore and find the best site for you!</h1>
-                    <p>Browse, clone, and customize thousands of websites #MadeinQuimplo. Looking for templates?</p>
+                    <h1>Explore e encontre o melhor <span>site</span> para você!</h1>
+                    <p>Navegue, clone e personalize milhares de sites #FeitoNoQuimplo. Procurando por templates?</p>
                     <div className="search">
                         <IoMdSearch />
                         <input
                             type="text"
-                            placeholder="Search..."
+                            placeholder="Buscar..."
                             value={searchInput}
                             onChange={handleSearchChange}
                         />
                     </div>
+
 
                 </div>
                 <section id="category">
@@ -76,6 +70,14 @@ const Category = () => {
                     </div>
                 </section>
             </div>
+
+            <CategoryFilters
+                activeMenu={activeMenu}
+                handleMenuToggle={handleMenuToggle}
+                toolFilters={toolFilters}
+                handleToolFilterChange={handleToolFilterChange}
+                setSearchQuery={setSearchInput} // Passa a função para atualizar a busca
+            />
         </section>
     );
 };

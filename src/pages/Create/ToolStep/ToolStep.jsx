@@ -32,14 +32,13 @@ const ToolStep = ({ tool, setTool, setStep }) => {
     if (tool) {
       setStep((prev) => prev + 1);
     } else {
-      setError('Please select a tool.');
+      setError('Por favor, selecione uma ferramenta.');
     }
   };
 
   return (
     <section id='tool-step'>
-      <h3>Select Tool</h3>
-      <p>Select the tool or platform you used to create your site. This will help users understand the technologies involved.</p>
+      <p>Selecione a ferramenta ou plataforma que você usou para criar seu site. Isso ajudará os usuários a entender as tecnologias envolvidas.</p>
 
       <div className="tool-cards">
         {tools.map(({ name, icon, icons }) => (
@@ -63,8 +62,8 @@ const ToolStep = ({ tool, setTool, setStep }) => {
       )}
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
-        <button onClick={handleContinue} type='button'>Continue</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Voltar</button>
+        <button onClick={handleContinue} type='button'>Continuar</button>
       </div>
     </section>
   );

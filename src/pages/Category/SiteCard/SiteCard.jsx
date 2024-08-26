@@ -55,7 +55,7 @@ const SiteCard = ({ site }) => {
                     </div>
                     <h1>{site.siteName}</h1>
                     <p>{site.description}</p>
-                    <p>Created by: {site.myName}</p>
+                    <span>{site.myName}</span>
                 </div>
             </motion.div>
         </Link>

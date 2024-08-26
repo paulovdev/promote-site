@@ -22,21 +22,20 @@ const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, h
 
   return (
     <section id='image-step'>
-      <h3>Select an Image</h3>
-      <p>Upload an image that represents your site. This image will be used for previews and listings.</p>
+      <p>Faça upload de uma imagem que represente o seu site. Essa imagem será usada para pré-visualizações e listagens.</p>
       <div className="step-image">
         <div className="image-select">
           <button type="button" className="prf-file" onClick={handleClick}>
             <GoUpload size={75} />
-            <span>Drag and Drop or Choose a Local File </span>
-            <p>Supported formats: .png, .jpg, .svg </p>
-            <p>{image ? 'Image loaded...' : ''}</p>
+            <span>Arraste e Solte ou Escolha um Arquivo Local</span>
+            <p>Formatos suportados: .png, .jpg, .svg</p>
+            <p>{image ? 'Imagem carregada...' : ''}</p>
           </button>
           {image && (
             <img
               width={150}
               src={URL.createObjectURL(image)}
-              alt="Image loaded"
+              alt="Imagem carregada"
               className="preview-image"
             />
           )}
@@ -58,16 +57,17 @@ const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, h
             transition={{ duration: 0.5 }}
             className="error-message"
           >
-            Image required*
+            Imagem obrigatória*
           </motion.p>
         )}
       </div>
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
-        <button onClick={handleContinue} type='button' >Continue</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Voltar</button>
+        <button onClick={handleContinue} type='button'>Continuar</button>
       </div>
     </section>
+
   );
 };
 

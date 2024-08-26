@@ -9,10 +9,6 @@ import { DiCss3, DiJavascript1 } from 'react-icons/di';
 const SiteHeader = ({ site }) => {
   return (
     <section id="site-detail">
-      <div className="left-content">
-        <img src={site.imageURL} alt={site.siteName} />
-      </div>
-
 
       <div className="right-content">
 
@@ -48,17 +44,17 @@ const SiteHeader = ({ site }) => {
         <div className="header-text">
           <div className="title">
             <h1>{site.siteName}</h1>
-            <p>
-              {site.price === "free" ? "Free" : `$${site.price}`}
-            </p>
+            <p>{site.description}</p>
           </div>
 
-          <p>{site.description}</p>
+        
+          <p>
+            {site.price === "free" ? "Grátis" : `R$${site.price}`}
+          </p>
         </div>
 
-
         <div className="sub-text">
-          By
+          Feito por
           <a href={site.profileLink} target="_blank" rel="noopener noreferrer">
             {site.myName}
           </a>
@@ -66,18 +62,18 @@ const SiteHeader = ({ site }) => {
 
         <div className="site-buttons">
           <motion.div
-            whileHover={{ scale: 1.03, }}
+            whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 400, damping: 8 }}
             className="site-buttons">
             <a
               href={site.livePreview}
               target="_blank"
               rel="noopener noreferrer"
-            >See this site</a>
+            >Veja este site</a>
           </motion.div>
 
           <motion.div
-            whileHover={{ scale: 1.03, }}
+            whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 400, damping: 8 }}
             className="site-buttons">
 
@@ -85,12 +81,15 @@ const SiteHeader = ({ site }) => {
               href={site.buyLink}
               target="_blank"
               rel="noopener noreferrer"
-            >Want to buy this site?</a>
+            >Quer comprar este site?</a>
           </motion.div>
 
         </div>
       </div>
 
+      <div className="left-content">
+        <img src={site.imageURL} alt={site.siteName} />
+      </div>
 
     </section>
   );

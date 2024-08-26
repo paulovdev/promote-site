@@ -3,7 +3,6 @@ import { AiOutlineSelect } from "react-icons/ai";
 import { FaWpforms } from "react-icons/fa6";
 import { IoTimeOutline } from "react-icons/io5";
 import { MdDone } from "react-icons/md";
-import { MdOutlineArrowRight } from "react-icons/md";
 
 import "./HomeFeatures.scss";
 import { Link } from "react-router-dom";
@@ -11,41 +10,38 @@ import { Link } from "react-router-dom";
 const features = [
     {
         icon: <AiOutlineSelect />,
-        title: "Select your site",
-        description: "Choose the best website or template you want to sell."
+        title: "Selecione seu site",
+        description: "Escolha o melhor site ou template que deseja vender."
     },
     {
         icon: <FaWpforms />,
-        title: "Fill out the form and publish",
-        description: "Complete all the necessary information and submit your site for review."
+        title: "Preencha o formulário e publique",
+        description: "Complete todas as informações necessárias e envie seu site para revisão."
     },
     {
         icon: <IoTimeOutline />,
-        title: "Wait for review",
-        description: "Once submitted, your website will be reviewed. You can also opt for a featured listing to get highlighted at the top."
+        title: "Aguarde a revisão",
+        description: "Uma vez enviado, seu site será revisado. Você também pode optar por um destaque para aparecer no topo."
     },
     {
         icon: <MdDone />,
-        title: "Done!",
-        description: "Your website is being set up and will be live shortly!"
+        title: "Feito!",
+        description: "Seu site está sendo configurado e estará no ar em breve!"
     },
 ];
 
 const HomeFeatures = () => {
     return (
         <section id="home-features">
-            <span>How Quimplo's work?</span>
+            <span>Como funciona o Quimplo?</span>
+            <h1>É fácil publicar no Quimplo!</h1>
             <div className="features-content">
                 {features.map((feature, index) => (
-                    <Link to='/create' onClick={() => scrollTo({ top: 0, behavior: "smooth" })}>
-                        <div
-                            key={index}
-                            className="card"
-                        >
+                    <Link to='/create' onClick={() => scrollTo({ top: 0, behavior: "smooth" })} key={index}>
+                        <div className="card">
                             <div className="icon-card">{feature.icon}</div>
                             <h3>{feature.title}</h3>
                             <p>{feature.description}</p>
-                            <button>SUBMIT YOUR WEBSITE<MdOutlineArrowRight className="button-icon" /></button>
                         </div>
                     </Link>
                 ))}

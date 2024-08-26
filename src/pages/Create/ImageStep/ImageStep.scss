@@ -46,7 +46,12 @@
             cursor: pointer;
 
             &:hover {
-                border: 2px dashed var(--p);
+                border: 2px dashed var(--accent);
+
+                svg {
+                    color: var(--accent);
+
+                }
             }
 
             svg {

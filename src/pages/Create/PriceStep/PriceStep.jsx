@@ -3,25 +3,25 @@ import "./PriceStep.scss"
 
 const PriceStep = ({ price, setPrice, setStep }) => {
   return (
-    <section id="price-step">
-      <h3>Set a Price</h3>
-      <p>Determine the price for your site. You can choose to set it for free or assign a specific amount.</p>
+<section id="price-step">
+  <p>Determine o preço para o seu site. Você pode optar por deixá-lo gratuito ou definir um valor específico.</p>
 
-      <input
-        type="range"
-        min="0"
-        max="1000"
-        step="5"
-        value={price}
-        onChange={(e) => setPrice(Number(e.target.value))}
-      />
-      <span className='price-text'>{price === 0 ? 'Free' : `$${price}`}</span>
+  <input
+    type="range"
+    min="0"
+    max="1000"
+    step="5"
+    value={price}
+    onChange={(e) => setPrice(Number(e.target.value))}
+  />
+  <span className='price-text'>{price === 0 ? 'Gratuito' : `R$${price}`}</span>
 
-      <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
-        <button onClick={() => setStep((prev) => prev + 1)} type='button' >Continue</button>
-      </div>
-    </section>
+  <div className="step-buttons">
+    <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Voltar</button>
+    <button onClick={() => setStep((prev) => prev + 1)} type='button'>Continuar</button>
+  </div>
+</section>
+
   );
 };
 

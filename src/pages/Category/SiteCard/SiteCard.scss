@@ -3,11 +3,10 @@
 .site-card {
     position: relative;
 
-    width: 100%;
+    width: 350px;
+    height: 500px;
     padding: 0 0 1rem 0;
 
-    border-radius: 1rem;
-    border: 1px solid var(--border);
     overflow: hidden;
 
     display: flex;
@@ -16,48 +15,51 @@
     transition: all .13s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
     img {
-        width: 100%;
-        height: 100%;
-        border-radius: 1rem 1rem 0 0;
+        width: 350px;
+        height: 200px;
+
+        border-radius: .5rem;
+        border: 1px solid var(--border);
+
+        margin-bottom: 1rem;
+
         z-index: 998;
 
     }
 
     .text-card {
-        padding: 1rem;
         transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
         z-index: 999;
 
         .several-content {
             width: fit-content;
-            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.7rem;
+            margin-bottom: 1rem;
 
             p {
+                height: fit-content !important;
                 font-size: 10px;
                 font-weight: 900;
-                padding: 0.2rem 1.1rem;
-                background-color: var(--p-2);
                 color: var(--p);
-                border-radius: 2rem;
+
                 letter-spacing: 2px;
                 text-transform: uppercase;
                 margin: 0;
-                opacity: 1;
             }
 
             span {
-                opacity: 1;
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 0.5rem;
+                margin: 0;
 
                 svg {
-                    width: 32px;
-                    height: 32px;
+                    width: 22px;
+                    height: 22px;
                     border-radius: 100%;
                     color: #fff;
                     padding: 0.3rem;
@@ -66,23 +68,31 @@
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 26px;
             font-weight: 700;
-            margin: 1rem 0;
+            margin-bottom: 1rem;
             color: var(--p);
         }
 
         p {
-            font-size: 1rem;
+            height: 75px;
+            font-size: 16px;
             font-weight: 400;
-            margin: 1rem 0;
+            margin-bottom: 1rem;
+            color: var(--p);
+        }
+
+        span {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 1rem;
             color: var(--p);
         }
     }
 
     &::before {
         opacity: 0;
-        content: 'VIEW';
+        content: 'VER';
         position: absolute;
         width: 125px;
         height: 125px;
@@ -113,8 +123,6 @@
         img {
             filter: brightness(80%) blur(10px);
         }
-
-        transform: scale(1.01);
     }
 }
 

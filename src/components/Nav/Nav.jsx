@@ -8,13 +8,14 @@ import { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 
 const Navbar = () => {
-    // Correctly initialize state using useState
+    // Inicializa corretamente o estado usando useState
     const [showMenu, setShowMenu] = useState(false);
-    const [hmRotate, setHmRotate] = useState(false)
-    // Toggle mobile menu visibility
+    const [hmRotate, setHmRotate] = useState(false);
+    
+    // Alterna a visibilidade do menu móvel
     function toggleMenu() {
         setShowMenu(prevState => !prevState);
-        setHmRotate(prevState => !prevState)
+        setHmRotate(prevState => !prevState);
     }
 
     return (
@@ -23,22 +24,20 @@ const Navbar = () => {
                 <nav>
                     <div className="logo">
                         <Link to="/">
-                            <FaStarOfLife /> Quimplo
+                            <FaStarOfLife />Quimplo
                         </Link>
                     </div>
 
                     <ul className='desktop-menu' onClick={() => scrollTo({ top: 0 })}>
-                        <li><ThemeChange onClick={() => scrollTo({ top: 0 })} /></li>
-                        <li><NavLink className='explore-nav' to="/stories">Stories </NavLink></li>
-                        <li><NavLink className='explore-nav' to="/sites/all">Explore</NavLink></li>
+                        <li><NavLink className='explore-nav' to="/stories">Histórias </NavLink></li>
+                        <li><NavLink className='explore-nav' to="/sites/all">Explorar</NavLink></li>
                         <motion.li
                             whileHover={{ scale: 1.03 }}
                             transition={{ type: "spring", stiffness: 150, damping: 8 }}
-                            onClick={() => scrollTo({ top: 0 })}>
-                            <NavLink className='feature-nav' to="/create">Start sell</NavLink>
+                            onClick={() => scrollTo({ top: 0 })}
+                        >
+                            <NavLink className='feature-nav' to="/create">Comece a vender</NavLink>
                         </motion.li>
-
-
                     </ul>
 
                     <div className="mobile-menu" onClick={toggleMenu}>
@@ -55,10 +54,9 @@ const Navbar = () => {
                                 exit={{ opacity: 0, y: -50 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <li><NavLink to="/stories">Stories <BsArrowRight /></NavLink></li>
-                                <li><NavLink to="/sites/all">Explore <BsArrowRight /></NavLink></li>
-                                <li><NavLink to="/create">Start sell <BsArrowRight /></NavLink></li>
-                                <li><ThemeChange /></li>
+                                <li><NavLink to="/stories">Histórias <BsArrowRight /></NavLink></li>
+                                <li><NavLink to="/sites/all">Explorar <BsArrowRight /></NavLink></li>
+                                <li><NavLink to="/create">Comece a vender <BsArrowRight /></NavLink></li>
                             </motion.ul>
                         )}
                     </AnimatePresence>

@@ -55,11 +55,12 @@
 
             padding: 1rem;
 
-            border: 2px solid var(--p);
+            border: 2px solid var(--accent);
             border-radius: .5rem;
 
             font-size: 14px;
             font-weight: 700;
+            color: var(--accent);
 
             display: flex;
             align-items: start;
@@ -68,9 +69,8 @@
             gap: 1rem;
             transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
-            &:hover {
-                border: 1px solid var(--p);
-                border-radius: .5rem;
+            svg {
+                color: var(--accent);
             }
         }
     }

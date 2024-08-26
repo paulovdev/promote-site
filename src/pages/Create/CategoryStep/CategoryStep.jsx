@@ -12,20 +12,20 @@ const CategoryStep = ({ category, setCategory, setStep }) => {
 
   const categories = [
     { name: 'blog', icon: <FaBlog /> },
-    { name: 'business', icon: <FaBusinessTime /> },
-    { name: 'creative', icon: <FaPalette /> },
-    { name: 'educational', icon: <FaGraduationCap /> },
+    { name: 'negócios', icon: <FaBusinessTime /> },
+    { name: 'criativo', icon: <FaPalette /> },
+    { name: 'educacional', icon: <FaGraduationCap /> },
     { name: 'e-commerce', icon: <FaShoppingCart /> },
-    { name: 'event', icon: <MdEvent /> },
-    { name: 'health-wellness', icon: <FaHeartbeat /> },
+    { name: 'evento', icon: <MdEvent /> },
+    { name: 'saúde-bem-estar', icon: <FaHeartbeat /> },
     { name: 'landing-page', icon: <MdOutlineWeb /> },
-    { name: 'non-profit', icon: <FaRegCopyright /> },
-    { name: 'photography', icon: <MdPhotoCamera /> },
-    { name: 'portfolio', icon: <AiOutlineFundProjectionScreen /> },
-    { name: 'restaurant', icon: <GiMeal /> },
+    { name: 'não-lucrativo', icon: <FaRegCopyright /> },
+    { name: 'fotografia', icon: <MdPhotoCamera /> },
+    { name: 'portfólio', icon: <AiOutlineFundProjectionScreen /> },
+    { name: 'restaurante', icon: <GiMeal /> },
     { name: 'saas', icon: <AiOutlineBarChart /> },
-    { name: 'technology', icon: <AiOutlineBarChart /> },
-    { name: 'travel', icon: <FaPlane /> }
+    { name: 'tecnologia', icon: <AiOutlineBarChart /> },
+    { name: 'viagem', icon: <FaPlane /> }
   ];
 
   const handleContinue = () => {
@@ -33,14 +33,13 @@ const CategoryStep = ({ category, setCategory, setStep }) => {
     if (category) {
       setStep((prev) => prev + 1);
     } else {
-      setError('Please select a category.');
+      setError('Por favor, selecione uma categoria.');
     }
   };
 
   return (
     <section id='category-step'>
-      <h3>Select Category</h3>
-      <p>Choose the category that best fits your site. This helps in organizing and finding your site.</p>
+      <p>Escolha a categoria que melhor se encaixa no seu site. Isso ajuda a organizar e encontrar seu site.</p>
 
       <div className="category-cards">
         {categories.map((cat) => (
@@ -62,8 +61,8 @@ const CategoryStep = ({ category, setCategory, setStep }) => {
       )}
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
-        <button onClick={handleContinue} type='button' >Continue</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Voltar</button>
+        <button onClick={handleContinue} type='button' >Continuar</button>
       </div>
     </section>
   );

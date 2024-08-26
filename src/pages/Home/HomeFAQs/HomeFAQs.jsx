@@ -1,60 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import "./HomeFAQs.scss";
 
 const faqs = [
     {
-        question: "How can Quimplo help me sell my website?",
-        answer: "Quimplo offers a platform where you can list and showcase your site, increasing its visibility to potential buyers and making the sale process easier."
+        question: "Como o Quimplo pode me ajudar a vender meu site?",
+        answer: "O Quimplo oferece uma plataforma onde você pode listar e exibir seu site, aumentando sua visibilidade para compradores em potencial e facilitando o processo de venda."
     },
     {
-        question: "What fees are associated with selling on Quimplo?",
-        answer: "Quimplo takes a small commission from each sale, which supports the platform's upkeep and helps in promoting your listings to a wider audience."
+        question: "Quais taxas estão associadas à venda no Quimplo?",
+        answer: "O Quimplo cobra uma pequena comissão de cada venda, o que ajuda na manutenção da plataforma e na promoção dos seus anúncios para um público mais amplo."
     },
     {
-        question: "What advantages does Quimplo offer for selling my site?",
-        answer: "By listing your site on Quimplo, you gain access to a marketplace designed to connect you with buyers, simplifying the selling process and boosting your site's exposure."
+        question: "Quais vantagens o Quimplo oferece para vender meu site?",
+        answer: "Ao listar seu site no Quimplo, você tem acesso a um marketplace projetado para conectar você com compradores, simplificando o processo de venda e aumentando a exposição do seu site."
     },
     {
-        question: "Are there any costs involved with using Quimplo?",
-        answer: "Yes, Quimplo applies a modest fee on each transaction. This fee ensures the platform remains maintained and helps fund the promotion of your website."
+        question: "Há custos envolvidos no uso do Quimplo?",
+        answer: "Sim, o Quimplo aplica uma taxa modesta em cada transação. Essa taxa garante a manutenção da plataforma e ajuda a financiar a promoção do seu site."
     },
     {
-        question: "Can Quimplo help me reach more buyers?",
-        answer: "Absolutely. Quimplo's platform is designed to give your site maximum exposure, connecting you with a broader audience of potential buyers."
+        question: "O Quimplo pode me ajudar a alcançar mais compradores?",
+        answer: "Absolutamente. A plataforma do Quimplo é projetada para dar ao seu site a máxima exposição, conectando você com um público mais amplo de compradores potenciais."
     },
     {
-        question: "Is there a listing fee on Quimplo?",
-        answer: "Quimplo does not charge a fee to list your website. Instead, a small fee is taken from successful sales to support platform operations and marketing efforts."
+        question: "Há taxa para listar um site no Quimplo?",
+        answer: "O Quimplo não cobra taxa para listar seu site. Em vez disso, uma pequena taxa é retirada das vendas bem-sucedidas para apoiar as operações da plataforma e os esforços de marketing."
     },
     {
-        question: "How does Quimplo enhance my site's visibility?",
-        answer: "Quimplo uses targeted marketing and a user-friendly interface to make your site stand out, attracting more interest from potential buyers."
+        question: "Como o Quimplo melhora a visibilidade do meu site?",
+        answer: "O Quimplo usa marketing direcionado e uma interface amigável para destacar seu site, atraindo mais interesse de compradores potenciais."
     },
     {
-        question: "What support does Quimplo provide during the selling process?",
-        answer: "Quimplo offers tools and resources to help you create a compelling listing, and our support team is available to assist with any questions you may have."
+        question: "Que suporte o Quimplo oferece durante o processo de venda?",
+        answer: "O Quimplo oferece ferramentas e recursos para ajudar você a criar um anúncio atraente, e nossa equipe de suporte está disponível para ajudar com qualquer dúvida que você possa ter."
     },
 ];
 
 const HomeFAQs = () => {
+    const [selected, setSelected] = useState(null);
 
+    const toggleFAQ = (index) => {
+        setSelected(selected === index ? null : index);
+    };
 
     return (
         <section id="home-faqs">
             <div className="text-content">
-                <h1>Frequently Asked Questions</h1>
-                <p>In case you missed anything, we answered some frequently asked questions. </p>
+                <span>Perguntas Frequentes</span>
+                <h1>Se você perdeu algo, respondemos algumas perguntas frequentes.</h1>
             </div>
             <div className="faqs">
                 {faqs.map((faq, index) => (
                     <div
                         key={index}
                         className="faq-card"
+                        onClick={() => toggleFAQ(index)}
                     >
-                        <h3>{faq.question}</h3>
-                        <p >
-                            {faq.answer}
-                        </p>
+                        <div className="faq-header">
+                            <h3>{faq.question}</h3>
+                            {selected === index ? (
+                                <FaChevronUp />
+                            ) : (
+                                <FaChevronDown />
+                            )}
+                        </div>
+                        <AnimatePresence>
+                            {selected === index && (
+                                <motion.div
+                                    className="faq-content"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <p>{faq.answer}</p>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 ))}
             </div>

@@ -7,8 +7,8 @@ const RelatedSites = ({ relatedSites, category }) => {
     return (
         <section id='site-more-category'>
             <div className="sub-header-text" onClick={() => scrollTo({ top: 0 })}>
-                <h2>More from <strong>{category}</strong></h2>
-                <Link to={`/sites/${category}`}>View all <FaArrowRightLong /></Link>
+                <h2>Veja mais de <strong>{category}</strong></h2>
+                <Link to={`/sites/${category}`}>Ver tudo <FaArrowRightLong /></Link>
             </div>
 
             <div className="related-sites">
@@ -19,7 +19,7 @@ const RelatedSites = ({ relatedSites, category }) => {
                             <div className="related-site-text">
                                 <h1>{relatedSite.siteName}</h1>
                                 <p>{relatedSite.description}</p>
-                                <p>Created by: {relatedSite.myName}</p>
+                                <p>Feito por: {relatedSite.myName}</p>
                             </div>
                         </Link>
                     </div>

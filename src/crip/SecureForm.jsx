@@ -16,7 +16,6 @@ const SecureForm = () => {
   const [livePreview, setLivePreview] = useState('');
   const [buyLink, setBuyLink] = useState('');
   const [contactLink, setContactLink] = useState('');
-  const [agree, setAgree] = useState(false);
   const [image, setImage] = useState(null);
   const [imageURL, setImageURL] = useState('');
   const [isPhotoValid, setIsPhotoValid] = useState(true);
@@ -50,10 +49,10 @@ const SecureForm = () => {
         livePreview,
         buyLink,
         contactLink,
-        agree,
         imageURL: downloadURL,
         createdAt: serverTimestamp(),
         views: 0,
+        hot: 0,
       });
 
       alert('Form submitted successfully!');
@@ -69,7 +68,6 @@ const SecureForm = () => {
       setLivePreview('');
       setBuyLink('');
       setContactLink('');
-      setAgree(false);
       setImage(null);
       setImageURL('');
       setIsPhotoValid(true);
@@ -101,7 +99,15 @@ const SecureForm = () => {
   };
 
   return (
-    <div id='secure-form'>
+    <div id='secure-form' style={{
+      margin: "10rem 0",
+      width: "800px",
+      height: "100%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+
+    }}>
       <br />
       <br />
       <br />
@@ -112,6 +118,8 @@ const SecureForm = () => {
         <h2>1 - Your info:</h2>
         <div className="grid-1">
           <div className="input-container">
+            <label>Your Name</label>
+            <br />
             <input
               type="text"
               placeholder=""
@@ -119,23 +127,32 @@ const SecureForm = () => {
               onChange={(e) => setMyName(e.target.value)}
               required
             />
-            <label>Your Name</label>
+
           </div>
+          <br />
 
           <div className="input-container">
+            <label>Profile Link</label>
+            <br />
+
             <input
               type="text"
               placeholder=""
               value={profileLink}
               onChange={(e) => setProfileLink(e.target.value)}
             />
-            <label>Profile Link</label>
+
           </div>
         </div>
+
+        <br />
 
         <h2>2 - Site Info:</h2>
         <div className="grid-1">
           <div className="input-container">
+            <label>Site Name</label>
+            <br />
+
             <input
               type="text"
               placeholder=""
@@ -143,11 +160,18 @@ const SecureForm = () => {
               onChange={(e) => setSiteName(e.target.value)}
               required
             />
-            <label>Site Name</label>
+
           </div>
+
+          <br />
+
+
+
           <div className="step-category">
             <div className="input-container">
               <label>Pick a Category</label>
+              <br />
+
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
@@ -172,10 +196,12 @@ const SecureForm = () => {
               </select>
             </div>
           </div>
-
+          <br />
           <div className="step-category">
             <div className="input-container">
               <label>Pick a Tool</label>
+              <br />
+
               <select
                 value={tool}
                 onChange={(e) => setTool(e.target.value)}
@@ -196,8 +222,12 @@ const SecureForm = () => {
             </div>
           </div>
         </div>
-
+        <br />
         <div className="input-container text-input">
+          <label>Description</label>
+
+          <br />
+
           <textarea
             type="text"
             placeholder=""
@@ -205,13 +235,9 @@ const SecureForm = () => {
             maxLength={250}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <label>Description</label>
-          {description && (
-            <span onClick={() => clearInput("description")}>
-              <IoCloseOutline size={24} />
-            </span>
-          )}
+
         </div>
+        <br />
 
         <div className="input-container">
           <label>Site Price</label>
@@ -220,7 +246,7 @@ const SecureForm = () => {
               type="range"
               id="range1"
               min="0"
-              max="300"
+              max="1000"
               step="5"
               value={sitePrice}
               onChange={(e) => setSitePrice(Number(e.target.value))}
@@ -228,6 +254,7 @@ const SecureForm = () => {
           </div>
           <p>{sitePrice === 0 ? 'Free' : `$${sitePrice}`}</p>
         </div>
+        <br />
 
         <div className="step-image">
           <label>Pick an image</label>
@@ -266,10 +293,13 @@ const SecureForm = () => {
             </motion.p>
           )}
         </div>
+        <br />
         <h2>3 - Site Links:</h2>
 
         <div className="grid-1">
           <div className="input-container">
+            <label>Live Preview Link</label>
+            <br />
             <input
               type="text"
               placeholder=""
@@ -277,10 +307,12 @@ const SecureForm = () => {
               onChange={(e) => setLivePreview(e.target.value)}
               required
             />
-            <label>Live Preview Link</label>
-          </div>
 
+          </div>
+          <br />
           <div className="input-container">
+            <label>Buy Link</label>
+            <br />
             <input
               type="text"
               placeholder=""
@@ -288,10 +320,12 @@ const SecureForm = () => {
               onChange={(e) => setBuyLink(e.target.value)}
               required
             />
-            <label>Buy Link</label>
-          </div>
 
+          </div>
+          <br />
           <div className="input-container">
+            <label>Contact Link</label>
+            <br />
             <input
               type="text"
               placeholder=""
@@ -299,23 +333,14 @@ const SecureForm = () => {
               onChange={(e) => setContactLink(e.target.value)}
               required
             />
-            <label>Contact Link</label>
+
           </div>
         </div>
-
-        <div className="client-text">
-          <p>By ticking this box you agree to receive communications from SitePromote.</p>
-          <input
-            type="checkbox"
-            checked={agree}
-            onChange={(e) => setAgree(e.target.checked)}
-            required
-          />
-        </div>
-
+        <br />
+        <br />
         <div className="buttons-register-wrapper">
           <div className="button-register-wrapper">
-            <button type="submit">Submit</button>
+            <button type="submit" style={{ width: 250, background: "#000", padding: "16px", color: "#fff" }}>Submit</button>
           </div>
         </div>
       </form>

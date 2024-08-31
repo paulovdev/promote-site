@@ -50,11 +50,6 @@ const SiteHeader = ({ site }) => {
             <h1>{site.siteName}</h1>
             <p>{site.description}</p>
           </div>
-
-
-          <p>
-            {site.price === "free" ? "Grátis" : `R$${site.price}`}
-          </p>
         </div>
 
         <div className="sub-text">
@@ -85,7 +80,7 @@ const SiteHeader = ({ site }) => {
               href={site.buyLink}
               target="_blank"
               rel="noopener noreferrer"
-            >Quer comprar este site?</a>
+            >Comprar este site?  {site.price === "free" ? "Grátis" : `R$${site.price}`}</a>
           </motion.div>
 
         </div>

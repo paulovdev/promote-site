@@ -177,6 +177,11 @@
                 a {
                     background-color: var(--p);
                     color: var(--p-2);
+
+                    &:hover {
+                        box-shadow: inset -150px 0 0 0 var(--accent);
+                        color: var(--p-2);
+                    }
                 }
             }
         }

@@ -14,6 +14,7 @@ import PriceStep from './PriceStep/PriceStep';
 import SiteLinksStep from './SiteLinksStep/SiteLinksStep';
 
 import "./Create.scss";
+import Price from '../../components/Price/Price';
 
 const Create = () => {
   const [step, setStep] = useState(1);
@@ -158,17 +159,13 @@ const Create = () => {
           transition={{ duration: 0.3, ease: 'easeIn' }}
         >
           <div className="head">
-            <h1>Pronto para mostrar seu site?</h1>
+            <h1>Pronto para publicar seu <span>template</span>?</h1>
             <p>
-              Aproveite esta oportunidade para apresentar seu site em nossa plataforma. Ao enviar, você pode se conectar com um público maior e até vender seu site para compradores interessados. Clique abaixo para começar e maximizar sua presença online.
+              Aproveite esta oportunidade para apresentar seu site no Quimplo. Ao enviar, você pode obter um público maior e até vender seu site para compradores interessados.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 550, damping: 3 }}
-              onClick={() => setShowModal(true)}
-            >
-              Enviar
-            </motion.button>
+
+
+            <Price onClick={() => setShowModal(true)} />
           </div>
         </motion.div>
       </div>

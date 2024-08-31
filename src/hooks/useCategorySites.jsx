@@ -6,7 +6,9 @@ import { useQuery } from '@tanstack/react-query';
 const fetchSites = async (category, filters) => {
   let categoryQuery = collection(db, 'sites');
 
-  if (category !== 'all') {
+  if (category === 'hot') {
+    categoryQuery = query(categoryQuery, where('hot', '==', 1));
+  } else if (category !== 'all') {
     categoryQuery = query(categoryQuery, where('category', '==', category));
   }
 

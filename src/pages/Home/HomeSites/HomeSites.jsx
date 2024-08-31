@@ -5,8 +5,7 @@ import './HomeSites.scss';
 
 const HomeSites = () => {
   const { sites, loading, error } = useSites();
-  const staggeredSites = sites.concat(sites); // Double the sites to create the loop
-
+  const staggeredSites = sites.concat(sites);
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -23,11 +22,6 @@ const HomeSites = () => {
               <div className="site-slide" key={index}>
                 <Link className="site-container" to={`/site/${site.id}`}>
                   <img src={site.imageURL} alt={site.siteName} />
-                  {/* <div className="featured">
-                    <p>
-                      Em destaque
-                    </p>
-                  </div> */}
                 </Link>
               </div>
             ))}
@@ -38,3 +32,13 @@ const HomeSites = () => {
 };
 
 export default HomeSites;
+
+
+
+
+
+{/*                  <div className="featured">
+                    <p>
+                      Em destaque
+                    </p>
+                  </div>  */}

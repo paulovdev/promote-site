@@ -11,7 +11,7 @@ const features = [
     {
         icon: <PiHandTapThin />,
         title: "Selecione seu template",
-        description: "Escolha o melhor template ou template que deseja vender."
+        description: "Escolha o melhor template que deseja vender."
     },
     {
         icon: <CiFileOn />,

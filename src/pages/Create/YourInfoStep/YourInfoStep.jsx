@@ -46,6 +46,7 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
             type="text"
             placeholder="Ex: Paulo"
             value={myName}
+            autocomplete="name"
             onChange={(e) => setMyName(e.target.value)}
           />
           <div className="error-message">
@@ -74,6 +75,7 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
             type="text"
             placeholder="https://example.com"
             value={profileLink}
+            autocomplete="link"
             onChange={(e) => setProfileLink(e.target.value)}
           />
           <div className="error-message">
@@ -103,11 +105,6 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
           maxLength={250}
           onChange={(e) => setDescription(e.target.value)}
         />
-        {description && (
-          <span onClick={() => setDescription('')}>
-            <IoCloseOutline size={24} />
-          </span>
-        )}
         <div className="error-message">
           {submitted && errors.description && <p>{errors.description}</p>}
         </div>

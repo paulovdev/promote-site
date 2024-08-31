@@ -25,8 +25,8 @@ const CookiesComponent = () => {
                     className="cookie-popup"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ duration: 0.3, delay: 1.8 }}
+                    exit={{ opacity: 0, y: 20, }}
+                    transition={{ duration: 0.3, delay: 1.7 }}
                 >
                     <h1>Este site usa cookies</h1>
                     <p>Utilizamos cookies para garantir que você tenha a melhor experiência em nosso site. <a href="#">Política de Cookies.</a></p>

@@ -11,7 +11,7 @@ import './CategoryFilters.scss';
 const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
     const categories = [
         { name: 'Todos', icon: <FaBorderAll />, path: "/sites/all" },
-        { name: 'Popular', icon: <AiOutlineBarChart />, path: "/sites/hot" },
+        { name: 'Em destaque', icon: <AiOutlineBarChart />, path: "/sites/hot" },
         { name: 'Blog', icon: <FaBlog />, path: "/sites/blog" },
         { name: 'Negócios', icon: <FaBusinessTime />, path: "/sites/business" },
         { name: 'Criativo', icon: <FaPalette />, path: "/sites/creative" },

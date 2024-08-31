@@ -14,8 +14,10 @@
 
         .slider {
             display: flex;
-            animation: scroll 75s linear infinite;
-            width: max-content;
+            width: calc(150% + 2.5rem);
+            /* Ajuste o tamanho para duas vezes o conteúdo mais a margem */
+            animation: scroll-infinite 35s linear infinite;
+            transition: .3s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
             .site-slide {
                 flex: 0 0 auto;
@@ -40,45 +42,17 @@
 
             .site-container {
                 position: relative;
-
                 display: flex;
                 align-items: center;
                 justify-content: center;
-
                 transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
                 img {
                     width: 450px;
                     height: 275px;
-
                     border: .1rem solid var(--border);
                     border-radius: 1rem;
-
                     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                }
-
-                .featured {
-                    position: absolute;
-                    width: fit-content;
-                    height: 25px;
-                    top: 15px;
-                    left: 15px;
-                    padding: .5rem;
-
-                    background: var(--accent);
-                    border-radius: .8rem;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-                    p {
-                        font-size: 14px;
-                        font-weight: 700;
-                        color: var(--fixed-c);
-                    }
                 }
 
                 &::before {
@@ -87,21 +61,17 @@
                     position: absolute;
                     width: 125px;
                     height: 125px;
-
                     background-color: #ffffffef;
                     backdrop-filter: blur(20px);
                     border-radius: 100%;
-
                     color: var(--p-i);
                     font-size: 12px;
                     font-weight: 700;
                     letter-spacing: 2px;
-
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     z-index: 999;
-
                     transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
                 }
 
@@ -115,19 +85,19 @@
                     }
 
                     transform: scale(1.01);
-
                 }
             }
         }
     }
 
-    @keyframes scroll {
+    @keyframes scroll-infinite {
         0% {
             transform: translateX(0);
         }
 
         100% {
             transform: translateX(-50%);
+            /* Move uma largura completa do slider */
         }
     }
 }

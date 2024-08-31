@@ -5,32 +5,32 @@ import "./HomeFAQs.scss";
 
 const faqs = [
     {
-        question: "Como o Quimplo pode me ajudar a vender meu site?",
-        answer: "O Quimplo oferece uma plataforma onde você pode listar e exibir seu site, aumentando sua visibilidade para compradores em potencial e facilitando o processo de venda."
+        question: "Como o Quimplo pode me ajudar a vender meu template?",
+        answer: "O Quimplo oferece uma plataforma onde você pode listar e exibir seu template, aumentando sua visibilidade para compradores em potencial e facilitando o processo de venda."
     },
     {
         question: "Quais taxas estão associadas à venda no Quimplo?",
         answer: "O Quimplo cobra uma pequena comissão de cada venda, o que ajuda na manutenção da plataforma e na promoção dos seus anúncios para um público mais amplo."
     },
     {
-        question: "Quais vantagens o Quimplo oferece para vender meu site?",
-        answer: "Ao listar seu site no Quimplo, você tem acesso a um marketplace projetado para conectar você com compradores, simplificando o processo de venda e aumentando a exposição do seu site."
+        question: "Quais vantagens o Quimplo oferece para vender meu template?",
+        answer: "Ao listar seu template no Quimplo, você tem acesso a um marketplace projetado para conectar você com compradores, simplificando o processo de venda e aumentando a exposição do seu template."
     },
     {
         question: "Há custos envolvidos no uso do Quimplo?",
-        answer: "Sim, o Quimplo aplica uma taxa modesta em cada transação. Essa taxa garante a manutenção da plataforma e ajuda a financiar a promoção do seu site."
+        answer: "Sim, o Quimplo aplica uma taxa modesta em cada transação. Essa taxa garante a manutenção da plataforma e ajuda a financiar a promoção do seu template."
     },
     {
         question: "O Quimplo pode me ajudar a alcançar mais compradores?",
-        answer: "Absolutamente. A plataforma do Quimplo é projetada para dar ao seu site a máxima exposição, conectando você com um público mais amplo de compradores potenciais."
+        answer: "Absolutamente. A plataforma do Quimplo é projetada para dar ao seu template a máxima exposição, conectando você com um público mais amplo de compradores potenciais."
     },
     {
-        question: "Há taxa para listar um site no Quimplo?",
-        answer: "O Quimplo não cobra taxa para listar seu site. Em vez disso, uma pequena taxa é retirada das vendas bem-sucedidas para apoiar as operações da plataforma e os esforços de marketing."
+        question: "Há taxa para listar um template no Quimplo?",
+        answer: "O Quimplo não cobra taxa para listar seu template. Em vez disso, uma pequena taxa é retirada das vendas bem-sucedidas para apoiar as operações da plataforma e os esforços de marketing."
     },
     {
-        question: "Como o Quimplo melhora a visibilidade do meu site?",
-        answer: "O Quimplo usa marketing direcionado e uma interface amigável para destacar seu site, atraindo mais interesse de compradores potenciais."
+        question: "Como o Quimplo melhora a visibilidade do meu template?",
+        answer: "O Quimplo usa marketing direcionado e uma interface amigável para destacar seu template, atraindo mais interesse de compradores potenciais."
     },
     {
         question: "Que suporte o Quimplo oferece durante o processo de venda?",

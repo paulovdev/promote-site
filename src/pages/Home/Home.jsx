@@ -9,6 +9,7 @@ import HomeFAQs from "./HomeFAQs/HomeFAQs";
 import Transition from "../../utils/Transition/Transition";
 import "./Home.scss";
 import HomeNewsLetter from "./HomeNewsLetter/HomeNewsLetter";
+import HomeLogos from "./HomeLogos/HomeLogos";
 
 const Home = () => {
     return (
@@ -17,7 +18,7 @@ const Home = () => {
             <HomeSites />
 
             <HomeFeatures />
-
+            <HomeLogos />
             <HomeFAQs />
             <HomeNewsLetter />
         </div>

@@ -19,18 +19,18 @@ header {
 
   .logo>a {
     font-family: "Raleway", sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: -1px;
 
     color: var(--p);
 
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.1rem;
     z-index: 999;
 
     svg {
-      font-size: 18px;
+      font-size: 26px;
       color: var(--accent);
     }
   }
@@ -42,14 +42,13 @@ header {
 
     li {
       .feature-nav {
-        width: fit-content;
-        height: 40px;
-
-        padding: 10px 1.1rem;
+        width: 175px;
+        padding: 10px;
 
         border-radius: 2rem;
-        background-color: var(--accent);
+
         border: 1px solid var(--border);
+        background-color: var(--accent);
         color: var(--fixed-c);
 
         font-size: 14px;
@@ -63,7 +62,7 @@ header {
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
-        box-shadow: inset 0 0 0 0 var(--bg);
+        box-shadow: inset 0 0 0 0 var(--p);
         -webkit-transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
         -moz-transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
         transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
@@ -72,8 +71,7 @@ header {
         &.active {
           box-shadow: inset 0 -150px 0 0 var(--p);
           color: var(--p-2);
-
-          border: none;
+          gap: 1rem;
         }
       }
 

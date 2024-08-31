@@ -39,8 +39,6 @@ const CategoryStep = ({ category, setCategory, setStep }) => {
 
   return (
     <section id='category-step'>
-      <p>Escolha a categoria que melhor se encaixa no seu site. Isso ajuda a organizar e encontrar seu site.</p>
-
       <div className="category-cards">
         {categories.map((cat) => (
           <div

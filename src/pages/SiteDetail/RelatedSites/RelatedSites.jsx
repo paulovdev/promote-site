@@ -19,7 +19,7 @@ const RelatedSites = ({ relatedSites, category }) => {
                             <div className="related-site-text">
                                 <h1>{relatedSite.siteName}</h1>
                                 <p>{relatedSite.description}</p>
-                                <p>Feito por: {relatedSite.myName}</p>
+                                <span>{relatedSite.myName}</span>
                             </div>
                         </Link>
                     </div>

@@ -38,7 +38,6 @@ const ToolStep = ({ tool, setTool, setStep }) => {
 
   return (
     <section id='tool-step'>
-      <p>Selecione a ferramenta ou plataforma que você usou para criar seu site. Isso ajudará os usuários a entender as tecnologias envolvidas.</p>
 
       <div className="tool-cards">
         {tools.map(({ name, icon, icons }) => (

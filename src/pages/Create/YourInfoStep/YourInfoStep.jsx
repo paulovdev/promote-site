@@ -39,11 +39,9 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
 
   return (
     <section id="your-info-step">
-      <p>Forneça seu nome, e-mail, link de perfil, nome e descrição do seu site. Isso ajuda os usuários a entenderem sobre o que é o seu site.</p>
-
       <div className="input-grid">
         <div className="input-container">
-          <label>Nome<span>*</span></label>
+          <label>Nome</label>
           <input
             type="text"
             placeholder="Ex: Paulo"
@@ -56,7 +54,7 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
         </div>
 
         <div className="input-container">
-          <label>E-mail<span>*</span></label>
+          <label>E-mail</label>
           <input
             type="email"
             placeholder="example@gmail.com"
@@ -71,7 +69,7 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
 
       <div className="input-grid">
         <div className="input-container">
-          <label>Link do Perfil<span>*</span></label>
+          <label>Link do Perfil</label>
           <input
             type="text"
             placeholder="https://example.com"
@@ -84,7 +82,7 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
         </div>
 
         <div className="input-container">
-          <label>Nome do Site<span>*</span></label>
+          <label>Nome do Site</label>
           <input
             type="text"
             placeholder="Ex: Quimplo"
@@ -98,7 +96,7 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
       </div>
 
       <div className="input-container text-input">
-        <label>Descrição<span>*</span></label>
+        <label>Descrição</label>
         <textarea
           placeholder="Este site contém..."
           value={description}

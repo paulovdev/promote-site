@@ -2,9 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
-import "./SiteHeader.scss";
-import { motion } from 'framer-motion';
 import { DiCss3, DiJavascript1 } from 'react-icons/di';
+
+import { motion } from 'framer-motion';
+import { Tooltip } from 'react-tooltip'
+
+import "./SiteHeader.scss";
 
 const SiteHeader = ({ site }) => {
   return (
@@ -35,8 +38,9 @@ const SiteHeader = ({ site }) => {
           </div>
 
           <div className="category-text">
-            <Link to={`/sites/${site.category}`}>
+            <Link to={`/sites/${site.category}`} data-tooltip-id="my-tooltip" data-tooltip-content={`Veja mais de ${site.category}`}>
               {site.category}
+
             </Link>
           </div>
         </div>
@@ -47,7 +51,7 @@ const SiteHeader = ({ site }) => {
             <p>{site.description}</p>
           </div>
 
-        
+
           <p>
             {site.price === "free" ? "Grátis" : `R$${site.price}`}
           </p>
@@ -91,6 +95,7 @@ const SiteHeader = ({ site }) => {
         <img src={site.imageURL} alt={site.siteName} />
       </div>
 
+      <Tooltip id="my-tooltip" />
     </section>
   );
 };

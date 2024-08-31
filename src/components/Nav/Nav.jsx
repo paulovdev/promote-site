@@ -1,8 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaStarOfLife } from "react-icons/fa6";
 
-import ThemeChange from './../ThemeChange/ThemeChange';
+import { BiLastPage } from "react-icons/bi";
+
 import "./Nav.scss";
 import { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
@@ -11,7 +11,7 @@ const Navbar = () => {
     // Inicializa corretamente o estado usando useState
     const [showMenu, setShowMenu] = useState(false);
     const [hmRotate, setHmRotate] = useState(false);
-    
+
     // Alterna a visibilidade do menu móvel
     function toggleMenu() {
         setShowMenu(prevState => !prevState);
@@ -24,7 +24,7 @@ const Navbar = () => {
                 <nav>
                     <div className="logo">
                         <Link to="/">
-                            <FaStarOfLife />Quimplo
+                            <BiLastPage />Quimplo
                         </Link>
                     </div>
 

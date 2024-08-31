@@ -2,20 +2,18 @@
 
 #site-more-category {
     position: relative;
-
     max-width: 1400px;
     width: 100%;
     height: fit-content;
 
-    margin: 2rem auto;
+    margin: 8rem auto;
 
     background-color: var(--bg);
 
 
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    flex-direction: column;
+    width: 100%;
+
+
 
     .sub-header-text {
         width: 100%;
@@ -29,9 +27,9 @@
 
         h2,
         strong {
-            font-size: 42px;
-            font-weight: 600;
-            letter-spacing: -2px;
+            font-size: 26px;
+            font-weight: 500;
+            letter-spacing: -1px;
 
             color: var(--p);
             text-align: start;
@@ -44,31 +42,30 @@
         a {
             color: var(--p);
 
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 500;
             letter-spacing: -1px;
 
             display: flex;
             align-items: center;
-            gap: .5rem;
+            gap: .8rem;
 
         }
     }
 
     .related-sites {
         position: relative;
-        width: 100%;
-        height: 100%;
+        max-width: 1400px;
 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 2rem;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1.5rem;
 
         a {
             position: relative;
 
-            width: 350px;
+            width: 100%;
             height: 500px;
             padding: 0 0 1rem 0;
 
@@ -81,7 +78,7 @@
             transition: all .13s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
             img {
-                width: 350px;
+                width: 325px;
                 height: 200px;
 
                 border-radius: .5rem;
@@ -96,42 +93,6 @@
             .related-site-text {
                 transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
                 z-index: 999;
-
-                .several-content {
-                    width: fit-content;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.7rem;
-                    margin-bottom: 1rem;
-
-                    p {
-                        height: fit-content !important;
-                        font-size: 10px;
-                        font-weight: 900;
-                        color: var(--p);
-
-                        letter-spacing: 2px;
-                        text-transform: uppercase;
-                        margin: 0;
-                    }
-
-                    span {
-
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 0.5rem;
-                        margin: 0;
-
-                        svg {
-                            width: 22px;
-                            height: 22px;
-                            border-radius: 100%;
-                            color: #fff;
-                            padding: 0.3rem;
-                        }
-                    }
-                }
 
                 h1 {
                     font-size: 26px;
@@ -159,7 +120,7 @@
 
             &::before {
                 opacity: 0;
-                content: 'VIEW';
+                content: 'VER';
                 position: absolute;
                 width: 100px;
                 height: 100px;
@@ -171,7 +132,7 @@
 
                 color: var(--p-i);
                 font-size: 12px;
-                font-weight: 900;
+                font-weight: 600;
                 letter-spacing: 1px;
 
                 display: flex;

@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { IoIosArrowDown } from "react-icons/io";
 import { FaBorderAll, FaBlog, FaBusinessTime, FaPalette, FaGraduationCap, FaShoppingCart, FaHeartbeat, FaRegCopyright, FaPlane } from "react-icons/fa";
 import { MdEvent, MdOutlineWeb, MdPhotoCamera } from "react-icons/md";
 import { AiOutlineFundProjectionScreen, AiOutlineBarChart } from "react-icons/ai";
 import { GiMeal } from "react-icons/gi";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import './CategoryFilters.scss';
-import { AnimatePresence, motion } from 'framer-motion';
 
-const CategoryFilters = ({
-    activeMenu,
-    handleMenuToggle,
-    toolFilters,
-    handleToolFilterChange,
-    setSearchQuery,
-}) => {
+const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
     const categories = [
         { name: 'Todos', icon: <FaBorderAll />, path: "/sites/all" },
         { name: 'Popular', icon: <AiOutlineBarChart />, path: "/sites/hot" },
@@ -35,14 +28,8 @@ const CategoryFilters = ({
         { name: 'Tecnologia', icon: <AiOutlineBarChart />, path: "/sites/technology" },
         { name: 'Viagem', icon: <FaPlane />, path: "/sites/travel" }
     ];
-    const [searchInput, setSearchInput] = useState('');
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 809); // Define desktop breakpoint
 
-    const handleSearchChange = (e) => {
-        const query = e.target.value;
-        setSearchInput(query);
-        setSearchQuery(query);
-    };
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 809);
 
     const handleResize = () => {
         setIsDesktop(window.innerWidth > 809);
@@ -56,29 +43,42 @@ const CategoryFilters = ({
     return (
         <div id='nav-category'>
             <nav>
-                <h2 onClick={() => handleMenuToggle('category')}>
-                    Categorias <IoIosArrowDown style={{ transform: activeMenu === 'category' ? "rotate(180deg)" : "rotate(0)" }} />
-                </h2>
+                {(isDesktop || activeMenu === 'category') && (
+                    <Swiper
+                        spaceBetween={10}
+                        slidesPerView={'auto'}
 
-                <AnimatePresence mode='wait'>
-                    {(isDesktop || activeMenu === 'category') && (
-                        <motion.ul
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: activeMenu === 'category' || isDesktop ? 1 : 0 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "easeIn" }}
-                            onClick={() => handleMenuToggle('category')}>
-                            {categories.map((category, index) => (
-                                <li key={index}>
-                                    <NavLink to={category.path}>
-                                        {category.icon} {category.name}
-                                    </NavLink>
-                                </li>
-                            ))}
-                        </motion.ul>
-                    )}
-                </AnimatePresence>
+                    >
+                        {categories.map((category, index) => (
+                            <SwiperSlide key={index}>
+                                <NavLink to={category.path}>
+                                    {category.name}
+                                </NavLink>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                )}
+            </nav>
+        </div>
+    );
+};
 
+export default CategoryFilters;
+
+
+
+
+
+{/* 
+import { AnimatePresence, motion } from 'framer-motion';
+import { IoIosArrowDown } from "react-icons/io";
+    const CategoryFilters = ({
+    activeMenu,
+    handleMenuToggle,
+    toolFilters,
+    handleToolFilterChange,
+    setSearchQuery,
+}) => {
                 <h2 onClick={() => handleMenuToggle('tools')}>
                     Ferramentas <IoIosArrowDown style={{ transform: activeMenu === 'tools' ? "rotate(180deg)" : "rotate(0)" }} />
                 </h2>
@@ -103,10 +103,4 @@ const CategoryFilters = ({
                             ))}
                         </motion.div>
                     )}
-                </AnimatePresence>
-            </nav>
-        </div>
-    );
-};
-
-export default CategoryFilters;
+                </AnimatePresence> */}

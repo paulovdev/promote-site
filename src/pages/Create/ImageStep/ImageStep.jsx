@@ -22,7 +22,7 @@ const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, h
 
   return (
     <section id='image-step'>
-      <p>Faça upload de uma imagem que represente o seu site. Essa imagem será usada para pré-visualizações e listagens.</p>
+ 
       <div className="step-image">
         <div className="image-select">
           <button type="button" className="prf-file" onClick={handleClick}>
@@ -57,7 +57,7 @@ const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, h
             transition={{ duration: 0.5 }}
             className="error-message"
           >
-            Imagem obrigatória*
+            Imagem obrigatória
           </motion.p>
         )}
       </div>

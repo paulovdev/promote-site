@@ -7,10 +7,9 @@ import "./HomeHero.scss";
 const HomeHero = () => {
   return (
     <section id="home-hero">
-      <h1>Eleve seu <span>site</span> e cause um impacto duradouro!</h1>
-      <p>
-        Lance seu site no Quimplo e aumente drasticamente sua visibilidade online.
-        Mostre seu site com facilidade para atrair mais visitantes e acelerar suas vendas.
+      <h1>Eleve seu template e cause um impacto duradouro!</h1>
+      <p>Lance seu template no Quimplo com facilidade para atrair mais visitantes e acelerar suas vendas.
+        Você nem precisa ter uma conta!
       </p>
       <motion.div
         className="home-button"
@@ -18,9 +17,10 @@ const HomeHero = () => {
         transition={{ type: "spring", stiffness: 300, damping: 10 }}
       >
         <Link to="/sites/all" className="home-button-content" onClick={() => scrollTo({ top: 0 })}>
-          Explore <FaArrowRightLong />
+          Explorar <FaArrowRightLong />
         </Link>
       </motion.div>
+
     </section>
   );
 };

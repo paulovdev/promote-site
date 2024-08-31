@@ -19,7 +19,7 @@ const fetchSiteData = async (id) => {
     const relatedQuery = query(
         collection(db, 'sites'),
         where('category', '==', siteData.category),
-        limit(3)
+        limit(4)
     );
     const relatedSnap = await getDocs(relatedQuery);
 

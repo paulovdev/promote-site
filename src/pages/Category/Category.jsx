@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import CategoryFilters from './CategoryFilters/CategoryFilters';
 import CategorySkeleton from './CategorySkeleton/CategorySkeleton';
 import SiteCard from './SiteCard/SiteCard';
 import { useCategorySites } from '../../hooks/useCategorySites';
-import { IoMdSearch } from "react-icons/io"; // Adicionei o ícone de busca
+import { IoSearchOutline } from "react-icons/io5";
 
 import './Category.scss';
 
@@ -50,10 +50,10 @@ const Category = () => {
 
             <div id="category-layout">
                 <div className="head-text">
-                    <h1>Explore e encontre o melhor <span>site</span> para você!</h1>
-                    <p>Navegue, clone e personalize milhares de sites #FeitoNoQuimplo. Procurando por templates?</p>
+                    <h1>Descubra e encontre o <span>template</span> perfeito para você!</h1>
+                    <p>Explore nossa coleção de templates, ou, se preferir, <Link to={"/create"}>Clique aqui</Link> para enviar o seu próprio!</p>
                     <div className="search">
-                        <IoMdSearch />
+                        <IoSearchOutline />
                         <input
                             type="text"
                             placeholder="Buscar..."
@@ -61,9 +61,15 @@ const Category = () => {
                             onChange={handleSearchChange}
                         />
                     </div>
-
-
+                    <CategoryFilters
+                        activeMenu={activeMenu}
+                        handleMenuToggle={handleMenuToggle}
+                        toolFilters={toolFilters}
+                        handleToolFilterChange={handleToolFilterChange}
+                        setSearchQuery={setSearchInput} // Passa a função para atualizar a busca
+                    />
                 </div>
+
                 <section id="category">
                     <div className="site-grid">
                         {loading ? <CategorySkeleton /> : filteredSites.map((site) => <SiteCard key={site.id} site={site} />)}
@@ -71,13 +77,6 @@ const Category = () => {
                 </section>
             </div>
 
-            <CategoryFilters
-                activeMenu={activeMenu}
-                handleMenuToggle={handleMenuToggle}
-                toolFilters={toolFilters}
-                handleToolFilterChange={handleToolFilterChange}
-                setSearchQuery={setSearchInput} // Passa a função para atualizar a busca
-            />
         </section>
     );
 };

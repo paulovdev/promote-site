@@ -32,11 +32,10 @@ const SiteLinksStep = ({ livePreview, setLivePreview, buyLink, setBuyLink, conta
 
   return (
     <section id="site-links-step">
-      <p>Forneça os links onde os usuários podem visualizar, comprar ou entrar em contato sobre seu site.</p>
 
       <div className="input-grid">
         <div className="input-container">
-          <label>Link para Visualização ao Vivo<span>*</span></label>
+          <label>Link para Visualização ao Vivo</label>
           <input
             type="text"
             placeholder="https://link-de-visualizacao.com"
@@ -49,7 +48,7 @@ const SiteLinksStep = ({ livePreview, setLivePreview, buyLink, setBuyLink, conta
         </div>
 
         <div className="input-container">
-          <label>Link de Compra<span>*</span></label>
+          <label>Link de Compra</label>
           <input
             type="text"
             placeholder="https://link-de-compra.com"
@@ -63,7 +62,7 @@ const SiteLinksStep = ({ livePreview, setLivePreview, buyLink, setBuyLink, conta
       </div>
 
       <div className="input-container">
-        <label>Link de Contato<span>*</span></label>
+        <label>Link de Contato</label>
         <input
           type="text"
           placeholder="https://link-de-contato.com"

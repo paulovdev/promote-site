@@ -4,7 +4,6 @@ import "./PriceStep.scss"
 const PriceStep = ({ price, setPrice, setStep }) => {
   return (
 <section id="price-step">
-  <p>Determine o preço para o seu site. Você pode optar por deixá-lo gratuito ou definir um valor específico.</p>
 
   <input
     type="range"

@@ -4,7 +4,6 @@ import emailjs from 'emailjs-com';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../firebase/Firebase';
-import { MdOutlineCloudUpload } from "react-icons/md";
 import { IoCloseOutline } from 'react-icons/io5';
 
 import YourInfoStep from './YourInfoStep/YourInfoStep';
@@ -140,6 +139,15 @@ const Create = () => {
     </AnimatePresence>
   );
 
+  const stepContent = {
+    1: { span: "1/6", h1: "Suas informações", p: "Forneça seu nome, e-mail, link de perfil, nome e descrição do seu site. Isso ajuda os usuários a entenderem sobre o que é o seu site." },
+    2: { span: "2/6", h1: "Categoria", p: "Escolha a categoria que melhor se encaixa no seu site. Isso ajuda a organizar e encontrar seu site." },
+    3: { span: "3/6", h1: "Ferramenta", p: "Selecione a ferramenta que você usou para criar o seu site." },
+    4: { span: "4/6", h1: "Imagem", p: "Adicione uma imagem representativa do seu site." },
+    5: { span: "5/6", h1: "Preço", p: "Defina o preço de venda do seu site." },
+    6: { span: "6/6", h1: "Links do Site", p: "Forneça links adicionais para o seu site, como links de compra e contato." }
+  };
+
   return (
     <div id="create">
       <div className="head-container">
@@ -168,17 +176,31 @@ const Create = () => {
       <AnimatePresence>
         {showModal && (
           <motion.div
-            className="step-content"
+            className="form-container"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
           >
-            {renderStepProgress()}
-            {renderStep()}
+            <div className="form-wrapper">
+              <div className="left-content">
+
+                <div className="step-info">
+                  <span>{stepContent[step].span} </span>
+                  <h1>{stepContent[step].h1} </h1>
+                  <p>{stepContent[step].p}</p>
+                </div>
+                {renderStepProgress()}
+              </div>
+
+              <div className="right-content">
+                {renderStep()}
+              </div>
+            </div>
             <button className="close-button" onClick={() => setShowModal(false)}>
               <IoCloseOutline size={35} />
             </button>
           </motion.div>
+
         )}
       </AnimatePresence>
 
@@ -190,13 +212,6 @@ const Create = () => {
     </div>
   );
 };
-
-export default Create;
-
-const LoadingSpinner = () => (
-  <div className="spinner"></div>
-);
-
 const SuccessModal = ({ onClose }) => (
   <motion.div
     className="modal-overlay"
@@ -218,3 +233,5 @@ const SuccessModal = ({ onClose }) => (
     </motion.div>
   </motion.div>
 );
+
+export default Create;

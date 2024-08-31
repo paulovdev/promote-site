@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSites } from '../../../hooks/useSites';
 import { Link } from 'react-router-dom';
-import { IoMdStar } from 'react-icons/io';
 import './HomeSites.scss';
 
 const HomeSites = () => {

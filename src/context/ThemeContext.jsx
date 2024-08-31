@@ -12,7 +12,7 @@ export const ThemeProvider = ({ children }) => {
         }
         // Check for system theme preference
         const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        return prefersDarkScheme ? "dark" : "light";
+        return prefersDarkScheme ? "light" : "dark";
     };
 
     const [theme, setTheme] = useState(getInitialTheme);
@@ -28,7 +28,7 @@ export const ThemeProvider = ({ children }) => {
         // Listen for system theme preference changes
         const mediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
         const handleChange = (e) => {
-            setTheme(e.matches ? "dark" : "light");
+            setTheme(e.matches ? "light" : "dark");
         };
 
         mediaQueryList.addEventListener("change", handleChange);

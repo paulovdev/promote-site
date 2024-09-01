@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../firebase/Firebase';
 import { IoCloseOutline } from 'react-icons/io5';
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 import YourInfoStep from './YourInfoStep/YourInfoStep';
 import CategoryStep from './CategoryStep/CategoryStep';
@@ -13,8 +14,11 @@ import ImageStep from './ImageStep/ImageStep';
 import PriceStep from './PriceStep/PriceStep';
 import SiteLinksStep from './SiteLinksStep/SiteLinksStep';
 
-import "./Create.scss";
+
 import Price from '../../components/Price/Price';
+import { Link } from 'react-router-dom';
+
+import "./Create.scss";
 
 const Create = () => {
   const [step, setStep] = useState(1);
@@ -107,44 +111,36 @@ const Create = () => {
   );
 
   const renderStep = () => (
-    <AnimatePresence mode='wait'>
-      <motion.section
-        key={step}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ ease: 'easeInOut', duration: 0.3 }}
-        className='animate-render-step-wrapper'
-      >
-        <form>
-          {(() => {
-            switch (step) {
-              case 1:
-                return <YourInfoStep myName={myName} setMyName={setMyName} email={email} setEmail={setEmail} profileLink={profileLink} setProfileLink={setProfileLink} siteName={siteName} setSiteName={setSiteName} description={description} setDescription={setDescription} setStep={debouncedSetStep} />;
-              case 2:
-                return <CategoryStep category={category} setCategory={setCategory} setStep={debouncedSetStep} />;
-              case 3:
-                return <ToolStep tool={tool} setTool={setTool} setStep={debouncedSetStep} />;
-              case 4:
-                return <ImageStep image={image} setImage={setImage} isPhotoValid={isPhotoValid} setIsPhotoValid={setIsPhotoValid} imageRef={imageRef} handleImageChange={handleImageChange} setStep={debouncedSetStep} />;
-              case 5:
-                return <PriceStep price={price} setPrice={setPrice} setStep={debouncedSetStep} />;
-              case 6:
-                return <SiteLinksStep livePreview={livePreview} setLivePreview={setLivePreview} buyLink={buyLink} setBuyLink={setBuyLink} contactLink={contactLink} setContactLink={setContactLink} setStep={debouncedSetStep} handleSubmit={handleSubmit} />;
-              default:
-                return null;
-            }
-          })()}
-        </form>
-      </motion.section>
-    </AnimatePresence>
+
+    <form>
+      {(() => {
+        switch (step) {
+          case 1:
+            return <YourInfoStep myName={myName} setMyName={setMyName} email={email} setEmail={setEmail} profileLink={profileLink} setProfileLink={setProfileLink} siteName={siteName} setSiteName={setSiteName} description={description} setDescription={setDescription} setStep={debouncedSetStep} />;
+          case 2:
+            return <CategoryStep category={category} setCategory={setCategory} setStep={debouncedSetStep} />;
+          case 3:
+            return <ToolStep tool={tool} setTool={setTool} setStep={debouncedSetStep} />;
+          case 4:
+            return <ImageStep image={image} setImage={setImage} isPhotoValid={isPhotoValid} setIsPhotoValid={setIsPhotoValid} imageRef={imageRef} handleImageChange={handleImageChange} setStep={debouncedSetStep} />;
+          case 5:
+            return <PriceStep price={price} setPrice={setPrice} setStep={debouncedSetStep} />;
+          case 6:
+            return <SiteLinksStep livePreview={livePreview} setLivePreview={setLivePreview} buyLink={buyLink} setBuyLink={setBuyLink} contactLink={contactLink} setContactLink={setContactLink} setStep={debouncedSetStep} handleSubmit={handleSubmit} />;
+          default:
+            return null;
+        }
+      })()}
+    </form>
   );
 
   const stepContent = {
-    1: { span: "1/6", h1: "Suas informações", p: "Forneça seu nome, e-mail, link de perfil, nome e descrição do seu site. Isso ajuda os usuários a entenderem sobre o que é o seu site." },
+    1: {
+      span: "1/6", h1: "Suas informações", p: "Forneça seu nome, e-mail, link de perfil, nome e descrição do seu template. Isso ajuda os usuários a entenderem sobre o que é o seu site."
+    },
     2: { span: "2/6", h1: "Categoria", p: "Escolha a categoria que melhor se encaixa no seu site. Isso ajuda a organizar e encontrar seu site." },
     3: { span: "3/6", h1: "Ferramenta", p: "Selecione a ferramenta que você usou para criar o seu site." },
-    4: { span: "4/6", h1: "Imagem", p: "Adicione uma imagem representativa do seu site." },
+    4: { span: "4/6", h1: "Imagem", p: "Adicione uma imagem representativa do seu site.", v: "Tamanho 1000px x 500px", c: "Tamanho máximo do arquivo 1MB" },
     5: { span: "5/6", h1: "Preço", p: "Defina o preço de venda do seu site." },
     6: { span: "6/6", h1: "Links do Site", p: "Forneça links adicionais para o seu site, como links de compra e contato." }
   };
@@ -152,25 +148,31 @@ const Create = () => {
   return (
     <div id="create">
       <div className="head-container">
+        <div className="top-nav">
+          <Link to={"/"}>
+            Página Inicial
+          </Link>
+          <MdKeyboardArrowRight />
+          <Link>
+            Publicar
+          </Link>
+        </div>
         <motion.div
           initial={{ opacity: 0, y: -25 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: 'easeIn' }}
         >
-          <div className="head">
-            <h1>Pronto para publicar seu <span>template</span>?</h1>
-            <p>
-              Aproveite esta oportunidade para apresentar seu site no Quimplo. Ao enviar, você pode obter um público maior e até vender seu site para compradores interessados.
-            </p>
-
-
-            <Price onClick={() => setShowModal(true)} />
-          </div>
+          <h1>Pronto para publicar seu <span>template</span>?</h1>
+          <p>
+            Aproveite esta oportunidade para apresentar seu site no Quimplo. Ao enviar, você pode obter um público maior e até vender seu site para compradores interessados.
+          </p>
         </motion.div>
       </div>
 
-      <AnimatePresence>
+      <Price onClick={() => setShowModal(true)} />
+
+      <AnimatePresence mode='wait'>
         {showModal && (
           <motion.div
             className="form-container"
@@ -178,21 +180,36 @@ const Create = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
           >
-            <div className="form-wrapper">
-              <div className="left-content">
 
-                <div className="step-info">
-                  <span>{stepContent[step].span} </span>
-                  <h1>{stepContent[step].h1} </h1>
-                  <p>{stepContent[step].p}</p>
+
+            <AnimatePresence mode='wait'>
+              <motion.section
+                key={step}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ ease: 'easeInOut', duration: 0.3 }}
+                className='animate-render-step-wrapper'
+              >
+                <div className="form-wrapper">
+                  <div className="left-content">
+
+                    <div className="step-info">
+                      <span>{stepContent[step].span} </span>
+                      <h1>{stepContent[step].h1} </h1>
+                      <p>{stepContent[step].p}</p>
+                      <p style={{ display: step == 4 ? "flex" : "none" }} className='other-p'><div className="border"></div>{stepContent[step].v}</p>
+                      <p style={{ display: step == 4 ? "flex" : "none" }} className='other-p' ><div className="border"></div>{stepContent[step].c}</p>
+                    </div>
+                    {renderStepProgress()}
+                  </div>
+
+                  <div className="right-content">
+                    {renderStep()}
+                  </div>
                 </div>
-                {renderStepProgress()}
-              </div>
+              </motion.section></AnimatePresence>
 
-              <div className="right-content">
-                {renderStep()}
-              </div>
-            </div>
             <button className="close-button" onClick={() => setShowModal(false)}>
               <IoCloseOutline size={35} />
             </button>

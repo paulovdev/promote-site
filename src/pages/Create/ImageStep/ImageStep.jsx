@@ -16,13 +16,13 @@ const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, h
     if (isPhotoValid) {
       setStep((prev) => prev + 1);
     } else {
-      setIsPhotoValid(false); // Update to reflect validation state
+      setIsPhotoValid(false);
     }
   };
 
   return (
     <section id='image-step'>
- 
+
       <div className="step-image">
         <div className="image-select">
           <button type="button" className="prf-file" onClick={handleClick}>

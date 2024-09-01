@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
+import { DiCss3, DiJavascript1 } from 'react-icons/di';
+import { RiArrowRightUpLine } from "react-icons/ri";
 
 import { motion } from 'framer-motion';
-import './SiteCard.scss';
 import { useInView } from 'react-intersection-observer';
-import { DiCss3, DiJavascript1 } from 'react-icons/di';
+
+import './SiteCard.scss';
 
 const SiteCard = ({ site }) => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -22,7 +24,6 @@ const SiteCard = ({ site }) => {
                 ref={ref}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.95 }}
-                whileHover={{ scale: 1.01, }}
                 transition={{ type: "spring", stiffness: 50, damping: 5 }}
             >
                 <img
@@ -55,7 +56,9 @@ const SiteCard = ({ site }) => {
                     </div>
                     <h1>{site.siteName}</h1>
                     <p>{site.description}</p>
-                    <span>{site.myName}</span>
+                    <span>Feito por {site.myName}</span>
+
+                    <div className="view"><RiArrowRightUpLine /></div>
                 </div>
             </motion.div>
         </Link>

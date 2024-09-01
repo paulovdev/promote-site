@@ -28,6 +28,7 @@ const SiteDetail = () => {
                 key={id}
             >
                 {data.site && <SiteHeader site={data.site} />}
+                
                 <RelatedSites relatedSites={data.relatedSites} category={data.site?.category} />
             </motion.div>
         </AnimatePresence>

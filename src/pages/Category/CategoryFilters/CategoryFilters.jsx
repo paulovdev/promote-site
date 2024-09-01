@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { FaBorderAll, FaBlog, FaBusinessTime, FaPalette, FaGraduationCap, FaShoppingCart, FaHeartbeat, FaRegCopyright, FaPlane } from "react-icons/fa";
 import { MdEvent, MdOutlineWeb, MdPhotoCamera } from "react-icons/md";
 import { AiOutlineFundProjectionScreen, AiOutlineBarChart } from "react-icons/ai";
@@ -30,6 +30,8 @@ const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
     ];
 
     const [isDesktop, setIsDesktop] = useState(window.innerWidth > 809);
+    const swiperRef = useRef(null);
+    const location = useLocation();
 
     const handleResize = () => {
         setIsDesktop(window.innerWidth > 809);
@@ -40,6 +42,13 @@ const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    useEffect(() => {
+        const activeCategoryIndex = categories.findIndex(category => category.path === location.pathname);
+        if (swiperRef.current && activeCategoryIndex !== -1) {
+            swiperRef.current.slideTo(activeCategoryIndex);
+        }
+    }, [location, categories]);
+
     return (
         <div id='nav-category'>
             <nav>
@@ -47,7 +56,7 @@ const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
                     <Swiper
                         spaceBetween={10}
                         slidesPerView={'auto'}
-
+                        onSwiper={(swiper) => (swiperRef.current = swiper)}
                     >
                         {categories.map((category, index) => (
                             <SwiperSlide key={index}>
@@ -64,6 +73,7 @@ const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
 };
 
 export default CategoryFilters;
+
 
 
 

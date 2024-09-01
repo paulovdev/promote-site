@@ -95,7 +95,7 @@
                 z-index: 999;
 
                 h1 {
-                    font-size: 26px;
+                    font-size: 22px;
                     font-weight: 700;
                     margin-bottom: 1rem;
                     color: var(--p);
@@ -103,53 +103,55 @@
 
                 p {
                     height: 75px;
-                    font-size: 16px;
+                    font-size: 14px;
                     font-weight: 400;
                     margin-bottom: 1rem;
                     color: var(--p);
                 }
 
                 span {
-                    font-size: 16px;
-                    font-weight: 800;
+                    font-size: 14px;
+                    font-weight: 600;
                     margin-bottom: 1rem;
                     color: var(--p);
                 }
 
             }
 
-            &::before {
-                opacity: 0;
-                content: 'VER';
+            .view {
                 position: absolute;
-                width: 100px;
-                height: 100px;
-                top: 15%;
 
-                background-color: #ffffffef;
-                backdrop-filter: blur(10px);
+                width: 50px;
+                height: 50px;
+
+                top: 70px;
+                left: 20px;
+
                 border-radius: 100%;
-
-                color: var(--p-i);
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: 1px;
+                border: 1px solid var(--border);
+                background-color: var(--fixed-c);
 
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                opacity: 0;
+                transition: all .3s cubic-bezier(1, 0, 0, 1);
                 z-index: 999;
 
-                transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-            }
-
-            &:hover::before {
-                opacity: 1;
+                svg {
+                    font-size: 24px;
+                    color: var(--p-i);
+                }
             }
 
             &:hover {
                 img {
-                    filter: brightness(80%) blur(10px);
+                    filter: brightness(95%);
+                }
+
+                .view {
+                    opacity: 1;
                 }
 
                 transform: scale(1.01);

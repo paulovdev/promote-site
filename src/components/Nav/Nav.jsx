@@ -36,7 +36,7 @@ const Navbar = () => {
                             transition={{ type: "spring", stiffness: 150, damping: 8 }}
                             onClick={() => scrollTo({ top: 0 })}
                         >
-                            <NavLink className='feature-nav' to="/create">Comece a vender</NavLink>
+                            <NavLink className='feature-nav' to="/create">Publicar template</NavLink>
                         </motion.li>
                     </ul>
 

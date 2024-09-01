@@ -5,7 +5,7 @@ const CategorySkeleton = () => (
     <>
         {Array.from({ length: 8 }).map((_, index) => (
             <div key={index} className="skeleton-card">
-                <Skeleton height={400} width={`100%`} borderRadius={10} />
+                <Skeleton height={200} width={`100%`} borderRadius={10} />
                 <Skeleton height={20} width={`60%`} style={{ marginTop: '10px' }} />
                 <Skeleton height={15} width={`80%`} style={{ marginTop: '10px' }} />
                 <Skeleton height={15} width={`40%`} style={{ marginTop: '10px' }} />

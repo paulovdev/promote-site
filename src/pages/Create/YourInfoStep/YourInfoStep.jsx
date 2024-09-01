@@ -98,9 +98,9 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
       </div>
 
       <div className="input-container text-input">
-        <label>Descrição</label>
+        <label>Descrição do template</label>
         <textarea
-          placeholder="Este site contém..."
+          placeholder="Este template contém..."
           value={description}
           maxLength={250}
           onChange={(e) => setDescription(e.target.value)}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRightLong } from "react-icons/fa6";
+import { RiArrowRightUpLine } from "react-icons/ri";
+
 import "./RelatedSites.scss";
 
 const RelatedSites = ({ relatedSites, category }) => {
@@ -13,14 +15,15 @@ const RelatedSites = ({ relatedSites, category }) => {
 
             <div className="related-sites">
                 {relatedSites.map(relatedSite => (
-                    <div key={relatedSite.id} className="related-site">
+                    <div key={relatedSite.id} className="related-site" style={{ content: "asd" }}>
                         <Link to={`/site/${relatedSite.id}`} onClick={() => scrollTo({ top: 0, behavior: "smooth" })}>
                             <img src={relatedSite.imageURL} alt={relatedSite.siteName} />
                             <div className="related-site-text">
                                 <h1>{relatedSite.siteName}</h1>
                                 <p>{relatedSite.description}</p>
-                                <span>{relatedSite.myName}</span>
+                                <span>Feito por {relatedSite.myName}</span>
                             </div>
+                            <div className="view"><RiArrowRightUpLine /></div>
                         </Link>
                     </div>
                 ))}

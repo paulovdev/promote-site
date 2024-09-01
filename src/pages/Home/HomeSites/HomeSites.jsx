@@ -1,6 +1,9 @@
 import React from 'react';
 import { useSites } from '../../../hooks/useSites';
 import { Link } from 'react-router-dom';
+
+import { RiArrowRightUpLine } from "react-icons/ri";
+
 import './HomeSites.scss';
 
 const HomeSites = () => {
@@ -22,6 +25,8 @@ const HomeSites = () => {
               <div className="site-slide" key={index}>
                 <Link className="site-container" to={`/site/${site.id}`}>
                   <img src={site.imageURL} alt={site.siteName} />
+
+                  <div className="view"><RiArrowRightUpLine /></div>
                 </Link>
               </div>
             ))}

@@ -10,11 +10,11 @@
         display: flex;
         align-items: start;
         justify-content: start;
-        gap: 3rem;
+        gap: 2.5rem;
 
         .plan {
             width: 700px;
-            height: 200px;
+            height: 350px;
 
             padding: 1.5rem;
 
@@ -41,8 +41,9 @@
                     margin-bottom: 3rem;
 
                     font-size: 32px;
-                    letter-spacing: -2px;
+                    letter-spacing: -1px;
                     font-weight: 700;
+
                     color: var(--p);
 
                     display: flex;
@@ -92,18 +93,6 @@
                     &:hover {
                         box-shadow: inset -400px 0 0 0 var(--accent);
                         color: var(--fixed-c);
-                    }
-
-                    &:disabled {
-                        background-color: var(--bg-2);
-                        color: var(--p);
-
-                        &:hover {
-                            box-shadow: none;
-                            background-color: none;
-                            border: none;
-                            cursor: not-allowed;
-                        }
                     }
                 }
             }

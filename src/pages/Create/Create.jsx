@@ -13,7 +13,7 @@ import ToolStep from './ToolStep/ToolStep';
 import ImageStep from './ImageStep/ImageStep';
 import PriceStep from './PriceStep/PriceStep';
 import SiteLinksStep from './SiteLinksStep/SiteLinksStep';
-
+import FeaturesStep from './FeaturesStep/FeaturesStep'; // Novo componente
 
 import Price from '../../components/Price/Price';
 import { Link } from 'react-router-dom';
@@ -34,6 +34,7 @@ const Create = () => {
   const [livePreview, setLivePreview] = useState('');
   const [buyLink, setBuyLink] = useState('');
   const [contactLink, setContactLink] = useState('');
+  const [features, setFeatures] = useState([]);
   const [isPhotoValid, setIsPhotoValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,9 +42,8 @@ const Create = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const imageRef = useRef();
 
-  // Debounce the setStep function to prevent rapid clicking
   const debouncedSetStep = useCallback(
-    debounce((newStep) => setStep(newStep), 300), // 300ms delay
+    debounce((newStep) => setStep(newStep), 300),
     []
   );
 
@@ -82,6 +82,7 @@ const Create = () => {
         siteName: siteName,
         description: description,
         sitePrice: price === 0 ? 'Free' : `$${price}`,
+        features: features,
         livePreview: livePreview,
         buyLink: buyLink,
         contactLink: contactLink,
@@ -104,19 +105,18 @@ const Create = () => {
       <motion.div
         className="progress-bar"
         initial={{ width: 0 }}
-        animate={{ width: `${step * 16.6}%` }}
+        animate={{ width: `${step * 14.28}%` }} // Ajustado para 7 passos
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       />
     </div>
   );
 
   const renderStep = () => (
-
     <form>
       {(() => {
         switch (step) {
           case 1:
-            return <YourInfoStep myName={myName} setMyName={setMyName} email={email} setEmail={setEmail} profileLink={profileLink} setProfileLink={setProfileLink} siteName={siteName} setSiteName={setSiteName} description={description} setDescription={setDescription} setStep={debouncedSetStep} />;
+            return <YourInfoStep myName={myName} setMyName={setMyName} email={email} setEmail={setEmail} profileLink={profileLink} setProfileLink={setProfileLink} siteName={siteName} setSiteName={setSiteName} description={description} setDescription={setDescription} setStep={debouncedSetStep} livePreview={livePreview} setLivePreview={setLivePreview} buyLink={buyLink} setBuyLink={setBuyLink} contactLink={contactLink} setContactLink={setContactLink} />;
           case 2:
             return <CategoryStep category={category} setCategory={setCategory} setStep={debouncedSetStep} />;
           case 3:
@@ -124,9 +124,11 @@ const Create = () => {
           case 4:
             return <ImageStep image={image} setImage={setImage} isPhotoValid={isPhotoValid} setIsPhotoValid={setIsPhotoValid} imageRef={imageRef} handleImageChange={handleImageChange} setStep={debouncedSetStep} />;
           case 5:
-            return <PriceStep price={price} setPrice={setPrice} setStep={debouncedSetStep} />;
+            return <FeaturesStep features={features} setFeatures={setFeatures} setStep={debouncedSetStep} />; // Novo case para Features
           case 6:
-            return <SiteLinksStep livePreview={livePreview} setLivePreview={setLivePreview} buyLink={buyLink} setBuyLink={setBuyLink} contactLink={contactLink} setContactLink={setContactLink} setStep={debouncedSetStep} handleSubmit={handleSubmit} />;
+            return <PriceStep price={price} setPrice={setPrice} setStep={debouncedSetStep} />;
+          case 7:
+            return <SiteLinksStep setStep={debouncedSetStep} handleSubmit={handleSubmit} />;
           default:
             return null;
         }
@@ -136,13 +138,43 @@ const Create = () => {
 
   const stepContent = {
     1: {
-      span: "1/6", h1: "Suas informações", p: "Forneça seu nome, e-mail, link de perfil, nome e descrição do seu template. Isso ajuda os usuários a entenderem sobre o que é o seu site."
+      span: "1/7",
+      h1: "Suas informações",
+      p: "Forneça seu nome, e-mail, link de perfil, nome e descrição do seu template. Isso ajuda os usuários a entenderem sobre o que é o seu site."
     },
-    2: { span: "2/6", h1: "Categoria", p: "Escolha a categoria que melhor se encaixa no seu site. Isso ajuda a organizar e encontrar seu site." },
-    3: { span: "3/6", h1: "Ferramenta", p: "Selecione a ferramenta que você usou para criar o seu site." },
-    4: { span: "4/6", h1: "Imagem", p: "Adicione uma imagem representativa do seu site.", v: "Tamanho 1000px x 500px", c: "Tamanho máximo do arquivo 1MB" },
-    5: { span: "5/6", h1: "Preço", p: "Defina o preço de venda do seu site." },
-    6: { span: "6/6", h1: "Links do Site", p: "Forneça links adicionais para o seu site, como links de compra e contato." }
+    2: {
+      span: "2/7",
+      h1: "Categoria",
+      p: "Escolha a categoria que melhor se encaixa no seu site. Isso ajuda a organizar e encontrar seu site."
+    },
+    3: {
+      span: "3/7",
+      h1: "Ferramenta",
+      p: "Selecione a ferramenta que você usou para criar o seu site."
+    },
+    4: {
+      span: "4/7",
+      h1: "Imagem",
+      p: "Adicione uma imagem representativa do seu site.",
+      v: "Tamanho 1000px x 500px",
+      c: "Tamanho máximo do arquivo 1MB"
+    },
+    5: {
+      span: "5/7",
+      h1: "Features",
+      p: "Selecione as funcionalidades que seu site oferece, como responsividade, SEO otimizado, etc."
+    },
+    6: {
+      span: "6/7",
+      h1: "Preço",
+      p: "Defina o preço de venda do seu site."
+    },
+    7: {
+      span: "7/7",
+      h1: "Publique Seu Site",
+      p: "Para finalizar, por favor, aceite os termos e condições. Assim, seu site será revisado e mais tarde estará disponível para o público."
+
+    }
   };
 
   return (
@@ -165,12 +197,17 @@ const Create = () => {
         >
           <h1>Pronto para publicar seu <span>template</span>?</h1>
           <p>
-            Aproveite esta oportunidade para apresentar seu site no Quimplo. Ao enviar, você pode obter um público maior e até vender seu site para compradores interessados.
+            Seu template deve ser de alta qualidade e passar por um processo de verificação rigoroso. Este processo pode levar de 1 a 2 semanas, mas você pode reduzi-lo ao assinar o Quimplo Premium.
           </p>
+          <p>
+            Templates de qualidade superior, que seguem as melhores práticas de design e usabilidade, têm mais chances de serem aceitos e destacados em nossa plataforma. Aproveite esta oportunidade para garantir que seu site seja bem representado!</p>
         </motion.div>
       </div>
 
+
       <Price onClick={() => setShowModal(true)} />
+
+
 
       <AnimatePresence mode='wait'>
         {showModal && (
@@ -226,6 +263,9 @@ const Create = () => {
     </div>
   );
 };
+
+
+
 const SuccessModal = ({ onClose }) => (
   <motion.div
     className="modal-overlay"

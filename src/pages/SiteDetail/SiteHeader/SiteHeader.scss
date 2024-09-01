@@ -27,6 +27,11 @@
 
             color: var(--accent);
 
+
+            &:nth-child(3) {
+                text-transform: capitalize;
+            }
+
             &:nth-child(5) {
                 color: var(--p);
                 cursor: default;
@@ -268,7 +273,7 @@
     }
 }
 
-#more-details {
+#site-features {
     position: relative;
     width: 100%;
     height: fit-content;
@@ -280,6 +285,61 @@
 
     display: flex;
     align-items: start;
+    flex-direction: column;
+    gap: 1rem;
+
+    span {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--accent);
+    }
+
+    h1 {
+        max-width: 75%;
+        font-size: 42px;
+        font-weight: 700;
+        color: var(--p);
+        margin-bottom: 2rem;
+    }
+
+    .features {
+        position: relative;
+        width: 100%;
+
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+
+        gap: 1.5rem;
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--p);
+            margin-bottom: 1rem;
+        }
+
+        svg {
+            font-size: 20px;
+            color: var(--accent);
+        }
+    }
+}
+
+#site-faqs {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+
+    margin: 5rem auto 0 auto;
+    max-width: 1400px;
+
+    background-color: var(--bg);
+
+    display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 1rem;
 
@@ -311,7 +371,8 @@
 
         .faq-card {
             position: relative;
-            width: 800px;
+            max-width: 1400px;
+            width: 100%;
 
             padding: 1rem 0;
 

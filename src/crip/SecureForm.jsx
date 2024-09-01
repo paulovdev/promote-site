@@ -19,10 +19,26 @@ const SecureForm = () => {
   const [image, setImage] = useState(null);
   const [imageURL, setImageURL] = useState('');
   const [isPhotoValid, setIsPhotoValid] = useState(true);
+  const [features, setFeatures] = useState([]);
   const [sitePrice, setSitePrice] = useState(0);
 
   const imageRef = useRef();
 
+  const featuresList = [
+    { id: 1, name: 'Responsivo' },
+    { id: 2, name: 'SEO Otimizado' },
+    { id: 3, name: 'Integração com Redes Sociais' },
+    { id: 4, name: 'Carregamento Rápido' },
+    { id: 5, name: 'Fácil Customização' },
+    { id: 6, name: 'Segurança Avançada' },
+  ];
+  const toggleFeature = (id) => {
+    if (features.includes(id)) {
+      setFeatures(features.filter(featureId => featureId !== id));
+    } else {
+      setFeatures([...features, id]);
+    }
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -47,6 +63,7 @@ const SecureForm = () => {
         tool,
         price: sitePrice,
         livePreview,
+        features: features,
         buyLink,
         contactLink,
         imageURL: downloadURL,
@@ -88,15 +105,6 @@ const SecureForm = () => {
     imageRef.current.click();
   };
 
-  const clearInput = (input) => {
-    switch (input) {
-      case "description":
-        setDescription("");
-        break;
-      default:
-        break;
-    }
-  };
 
   return (
     <div id='secure-form' style={{
@@ -237,6 +245,20 @@ const SecureForm = () => {
           />
 
         </div>
+        <br />
+
+        {featuresList.map(feature => (
+          <div className='features' key={feature.id}>
+            <input
+              type='checkbox'
+              id={feature.id}
+              checked={features.includes(feature.name)}
+              onChange={() => toggleFeature(feature.name)}
+            />
+            <label htmlFor={feature.id}>{feature.name}</label>
+          </div>
+        ))}
+
         <br />
 
         <div className="input-container">

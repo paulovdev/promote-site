@@ -1,30 +1,38 @@
 import React, { useState } from 'react';
 import './YourInfoStep.scss';
-import { IoCloseOutline } from 'react-icons/io5';
 
-const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProfileLink, siteName, setSiteName, description, setDescription, setStep }) => {
-  // Estado para erros de validação
+const YourInfoStep = ({
+  myName, setMyName, email, setEmail, profileLink, setProfileLink,
+  siteName, setSiteName, description, setDescription, livePreview, setLivePreview,
+  buyLink, setBuyLink, contactLink, setContactLink, setStep
+}) => {
   const [errors, setErrors] = useState({
     myName: '',
     email: '',
     profileLink: '',
     siteName: '',
     description: '',
+    livePreview: '',
+    buyLink: '',
+    contactLink: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const profileLinkRegex = /^https?:\/\/.+/;
+  const urlRegex = /^https?:\/\/.+/;
 
   const validate = () => {
     const newErrors = {};
 
     if (!myName) newErrors.myName = 'O nome é obrigatório';
     if (!email || !emailRegex.test(email)) newErrors.email = 'Um e-mail válido é obrigatório';
-    if (!profileLink || !profileLinkRegex.test(profileLink)) newErrors.profileLink = 'Um link de perfil válido é obrigatório';
+    if (!profileLink || !urlRegex.test(profileLink)) newErrors.profileLink = 'Um link de perfil válido é obrigatório';
     if (!siteName) newErrors.siteName = 'O nome do site é obrigatório';
-    if (description.length > 250) newErrors.description = 'A descrição deve ter menos de 250 caracteres';
+    if (description.length < 30) newErrors.description = 'A descrição deve ter mais de 30 caracteres';
+    if (!livePreview || !urlRegex.test(livePreview)) newErrors.livePreview = 'Um link válido para a Visualização ao Vivo é obrigatório';
+    if (!buyLink || !urlRegex.test(buyLink)) newErrors.buyLink = 'Um link válido para Compra é obrigatório';
+    if (!contactLink || !urlRegex.test(contactLink)) newErrors.contactLink = 'Um link válido para Contato é obrigatório';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -40,8 +48,9 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
   return (
     <section id="your-info-step">
       <div className="input-grid">
+
         <div className="input-container">
-          <label>Nome</label>
+          <label>Seu nome</label>
           <input
             type="text"
             placeholder="Ex: Paulo"
@@ -55,7 +64,7 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
         </div>
 
         <div className="input-container">
-          <label>E-mail</label>
+          <label>Seu e-mail</label>
           <input
             type="email"
             placeholder="example@gmail.com"
@@ -70,7 +79,7 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
 
       <div className="input-grid">
         <div className="input-container">
-          <label>Link do Perfil</label>
+          <label>Link do seu perfil</label>
           <input
             type="text"
             placeholder="https://example.com"
@@ -83,17 +92,33 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
           </div>
         </div>
 
+
         <div className="input-container">
-          <label>Nome do Site</label>
+          <label>Link de contato</label>
           <input
             type="text"
-            placeholder="Ex: Quimplo"
-            value={siteName}
-            onChange={(e) => setSiteName(e.target.value)}
+            placeholder="https://link-de-contato.com"
+            value={contactLink}
+            onChange={(e) => setContactLink(e.target.value)}
           />
-          <div className="error-message">
-            {submitted && errors.siteName && <p>{errors.siteName}</p>}
-          </div>
+          {submitted && errors.contactLink && (
+            <div className="error-message"><p>{errors.contactLink}</p></div>
+          )}
+        </div>
+      </div>
+
+      <br />  <br />
+
+      <div className="input-container">
+        <label>Nome do template</label>
+        <input
+          type="text"
+          placeholder="Ex: Quimplo"
+          value={siteName}
+          onChange={(e) => setSiteName(e.target.value)}
+        />
+        <div className="error-message">
+          {submitted && errors.siteName && <p>{errors.siteName}</p>}
         </div>
       </div>
 
@@ -109,6 +134,41 @@ const YourInfoStep = ({ myName, setMyName, email, setEmail, profileLink, setProf
           {submitted && errors.description && <p>{errors.description}</p>}
         </div>
       </div>
+
+      <br />  <br />
+
+      <div className="input-grid">
+        <div className="input-container">
+          <label>Link para visualização ao vivo</label>
+          <input
+            type="text"
+            placeholder="https://link-de-visualizacao.com"
+            value={livePreview}
+            onChange={(e) => setLivePreview(e.target.value)}
+          />
+          {submitted && errors.livePreview && (
+            <div className="error-message"><p>{errors.livePreview}</p></div>
+          )}
+        </div>
+
+        <div className="input-container">
+          <label>Link de compra</label>
+          <input
+            type="text"
+            placeholder="https://link-de-compra.com"
+            value={buyLink}
+            onChange={(e) => setBuyLink(e.target.value)}
+          />
+          {submitted && errors.buyLink && (
+            <div className="error-message"><p>{errors.buyLink}</p></div>
+          )}
+        </div>
+      </div>
+
+
+
+
+
 
       <div className="step-buttons">
         <button onClick={() => setStep((prev) => prev - 1)} type='button' disabled={true} className="back-button">Voltar</button>

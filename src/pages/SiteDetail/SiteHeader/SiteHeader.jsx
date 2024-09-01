@@ -132,8 +132,27 @@ const SiteHeader = ({ site }) => {
       <Tooltip id="my-tooltip" />
     </section>
 
-    <section id='more-details'>
-      <span>DÚVIDAS COMUNS SOBRE ESTE TEMPLATE</span>
+    <section id='site-features'>
+      <div className="features">
+        <span>FEATURES DO TEMPLATE</span>
+        <h1>Este template contém as seguintes features</h1>
+        <ul>
+          {site.features && <>
+            <li><h2>{site.features[1]}</h2></li>
+            <li><h2>{site.features[2]}</h2></li>
+            <li><h2>{site.features[3]}</h2></li>
+            <li><h2>{site.features[4]}</h2></li>
+            <li><h2>{site.features[5]}</h2></li>
+            <li><h2>{site.features[6]}</h2></li>
+            <li><h2>{site.features[7]}</h2></li>
+          </>
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section id='site-faqs'>
+      <span>DÚVIDAS COMUNS SOBRE TEMPLATES</span>
       <h1>Esclareça suas dúvidas sobre o template</h1>
       <div className="faqs">
         {faqs.map((faq, index) => (
@@ -167,6 +186,8 @@ const SiteHeader = ({ site }) => {
         ))}
       </div>
     </section>
+
+
   </>
   );
 };

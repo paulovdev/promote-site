@@ -1,21 +1,24 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import Cookies from 'js-cookie';
 import en from './locales/en.json';
-import ptBR from './locales/pt-BR.json';
+import br from './locales/br.json';
+
+const savedLanguage = Cookies.get('language') || 'en';
 
 i18n.use(initReactI18next).init({
     resources: {
         en: {
             translation: en
         },
-        'br': {
-            translation: ptBR
+        br: {
+            translation: br
         }
     },
-    lng: 'en', // idioma padrão
+    lng: savedLanguage, // Define o idioma inicial com base no cookie ou no padrão
     fallbackLng: 'en', // idioma fallback
     interpolation: {
-        escapeValue: false // react já faz o escaping
+        escapeValue: false
     }
 });
 

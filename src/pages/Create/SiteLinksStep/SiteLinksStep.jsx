@@ -9,9 +9,7 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
   const handleSubmitWithValidation = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    if (validate()) {
-      handleSubmit(e);
-    }
+    handleSubmit(e);
   };
 
   return (

@@ -52,6 +52,7 @@
             border-radius: 2rem;
 
             background-color: var(--accent);
+            border: 1px solid;
             color: var(--fixed-c);
 
             text-align: center;
@@ -74,7 +75,7 @@
             transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
 
             &:hover {
-                border: none;
+
                 box-shadow: inset 0 -150px 0 0 var(--p);
                 color: var(--p-2);
                 gap: 1rem;
@@ -106,7 +107,7 @@
             }
 
             &:hover {
-                border: none;
+               
                 box-shadow: inset 0 -150px 0 0 var(--accent);
                 color: var(--fixed-c);
                 gap: 1rem;

@@ -31,7 +31,7 @@ const Navbar = () => {
                     </div>
 
 
-                    <ul className='desktop-menu' onClick={() => scrollTo({ top: 0 })}>
+                    <ul className='desktop-menu'>
                         <li>  <LanguageSelector /></li>
                         <li><NavLink className='explore-nav' to="/stories">{t('nav.stories')}</NavLink></li>
                         <li><NavLink className='explore-nav' to="/sites/all">{t('nav.explore')}</NavLink></li>

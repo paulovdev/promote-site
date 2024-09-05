@@ -10,7 +10,8 @@ const SecureForm = () => {
   const [email, setEmail] = useState('');
   const [profileLink, setProfileLink] = useState('');
   const [siteName, setSiteName] = useState('');
-  const [description, setDescription] = useState('');
+  const [descriptionBr, setDescriptionBr] = useState('');
+  const [descriptionEn, setDescriptionEn] = useState('');
   const [category, setCategory] = useState('');
   const [tool, setTool] = useState('');
   const [livePreview, setLivePreview] = useState('');
@@ -19,12 +20,13 @@ const SecureForm = () => {
   const [image, setImage] = useState(null);
   const [imageURL, setImageURL] = useState('');
   const [isPhotoValid, setIsPhotoValid] = useState(true);
-  const [features, setFeatures] = useState([]);
+  const [featuresEn, setFeaturesEn] = useState([]);
+  const [featuresBr, setFeaturesBr] = useState([]);
   const [sitePrice, setSitePrice] = useState(0);
 
   const imageRef = useRef();
 
-  const featuresList = [
+  const featuresListBr = [
     { id: 1, name: 'Responsivo' },
     { id: 2, name: 'SEO Otimizado' },
     { id: 3, name: 'Integração com Redes Sociais' },
@@ -32,13 +34,32 @@ const SecureForm = () => {
     { id: 5, name: 'Fácil Customização' },
     { id: 6, name: 'Segurança Avançada' },
   ];
-  const toggleFeature = (id) => {
-    if (features.includes(id)) {
-      setFeatures(features.filter(featureId => featureId !== id));
+
+  const featuresListEn = [
+    { id: 1, name: 'Responsive' },
+    { id: 2, name: 'SEO Optimized' },
+    { id: 3, name: 'Social Media Integration' },
+    { id: 4, name: 'Fast Loading' },
+    { id: 5, name: 'Easy Customization' },
+    { id: 6, name: 'Advanced Security' },
+  ];
+
+  const toggleFeatureBr = (id) => {
+    if (featuresBr.includes(id)) {
+      setFeaturesBr(featuresBr.filter(featureId => featureId !== id));
     } else {
-      setFeatures([...features, id]);
+      setFeaturesBr([...featuresBr, id]);
     }
   };
+
+  const toggleFeatureEn = (id) => {
+    if (featuresEn.includes(id)) {
+      setFeaturesEn(featuresEn.filter(featureId => featureId !== id));
+    } else {
+      setFeaturesEn([...featuresEn, id]);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -58,12 +79,14 @@ const SecureForm = () => {
         email,
         profileLink,
         siteName,
-        description,
+        descriptionBr,
+        descriptionEn,
+        featureBr: featuresBr,
+        featureEn: featuresEn,
         category,
         tool,
         price: sitePrice,
         livePreview,
-        features: features,
         buyLink,
         contactLink,
         imageURL: downloadURL,
@@ -78,7 +101,8 @@ const SecureForm = () => {
       setEmail('');
       setProfileLink('');
       setSiteName('');
-      setDescription('');
+      setDescriptionBr('');
+      setDescriptionEn('');
       setSitePrice(0);
       setCategory('Blog');
       setTool('');
@@ -105,7 +129,6 @@ const SecureForm = () => {
     imageRef.current.click();
   };
 
-
   return (
     <div id='secure-form' style={{
       margin: "10rem 0",
@@ -114,7 +137,6 @@ const SecureForm = () => {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-
     }}>
       <br />
       <br />
@@ -135,21 +157,18 @@ const SecureForm = () => {
               onChange={(e) => setMyName(e.target.value)}
               required
             />
-
           </div>
           <br />
 
           <div className="input-container">
             <label>Profile Link</label>
             <br />
-
             <input
               type="text"
               placeholder=""
               value={profileLink}
               onChange={(e) => setProfileLink(e.target.value)}
             />
-
           </div>
         </div>
 
@@ -160,7 +179,6 @@ const SecureForm = () => {
           <div className="input-container">
             <label>Site Name</label>
             <br />
-
             <input
               type="text"
               placeholder=""
@@ -168,18 +186,13 @@ const SecureForm = () => {
               onChange={(e) => setSiteName(e.target.value)}
               required
             />
-
           </div>
-
           <br />
-
-
 
           <div className="step-category">
             <div className="input-container">
               <label>Pick a Category</label>
               <br />
-
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
@@ -209,7 +222,6 @@ const SecureForm = () => {
             <div className="input-container">
               <label>Pick a Tool</label>
               <br />
-
               <select
                 value={tool}
                 onChange={(e) => setTool(e.target.value)}
@@ -232,92 +244,73 @@ const SecureForm = () => {
         </div>
         <br />
         <div className="input-container text-input">
-          <label>Description</label>
-
+          <label>Description BR</label>
           <br />
-
           <textarea
             type="text"
             placeholder=""
-            value={description}
+            value={descriptionBr}
             maxLength={250}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => setDescriptionBr(e.target.value)}
           />
-
+        </div>
+        <br />
+        <div className="input-container text-input">
+          <label>Description EN</label>
+          <br />
+          <textarea
+            type="text"
+            placeholder=""
+            value={descriptionEn}
+            maxLength={250}
+            onChange={(e) => setDescriptionEn(e.target.value)}
+          />
         </div>
         <br />
 
-        {featuresList.map(feature => (
+        {featuresListBr.map(feature => (
           <div className='features' key={feature.id}>
             <input
               type='checkbox'
-              id={feature.id}
-              checked={features.includes(feature.name)}
-              onChange={() => toggleFeature(feature.name)}
+              id={`br-${feature.id}`}
+              checked={featuresBr.includes(feature.name)}
+              onChange={() => toggleFeatureBr(feature.name)}
             />
-            <label htmlFor={feature.id}>{feature.name}</label>
+            <label htmlFor={`br-${feature.id}`}>{feature.name}</label>
           </div>
         ))}
 
         <br />
+        <br />
 
-        <div className="input-container">
-          <label>Site Price</label>
-          <div className="range">
+        {featuresListEn.map(feature => (
+          <div className='features' key={feature.id}>
             <input
-              type="range"
-              id="range1"
-              min="0"
-              max="1000"
-              step="5"
-              value={sitePrice}
-              onChange={(e) => setSitePrice(Number(e.target.value))}
+              type='checkbox'
+              id={`en-${feature.id}`}
+              checked={featuresEn.includes(feature.name)}
+              onChange={() => toggleFeatureEn(feature.name)}
             />
+            <label htmlFor={`en-${feature.id}`}>{feature.name}</label>
           </div>
-          <p>{sitePrice === 0 ? 'Free' : `$${sitePrice}`}</p>
-        </div>
-        <br />
+        ))}
 
-        <div className="step-image">
-          <label>Pick an image</label>
-          <div className="image-select">
-            <button
-              type="button"
-              className="prf-file"
-              onClick={handleClick}
-            >
-              <IoImageOutline size={75} />
-              <p>{image ? 'Image loaded...' : ''}</p>
-            </button>
-            {image && (
-              <img
-                width={150}
-                src={URL.createObjectURL(image)}
-                alt="Image loaded"
-                className="preview-image"
-              />
-            )}
-          </div>
+        <br />
+        <h2>3 - Price:</h2>
+        <div className="input-container">
+          <label>Site Price ($)</label>
+          <br />
           <input
-            onChange={handleImageChange}
-            ref={imageRef}
-            type="file"
-            hidden
+            type="number"
+            placeholder=""
+            value={sitePrice}
+            onChange={(e) => setSitePrice(Number(e.target.value))}
+            required
           />
-          {!isPhotoValid && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              Image required
-            </motion.p>
-          )}
         </div>
         <br />
-        <h2>3 - Site Links:</h2>
 
+        <h2>4 - Additional Info:</h2>
         <div className="grid-1">
           <div className="input-container">
             <label>Live Preview Link</label>
@@ -327,11 +320,10 @@ const SecureForm = () => {
               placeholder=""
               value={livePreview}
               onChange={(e) => setLivePreview(e.target.value)}
-              required
             />
-
           </div>
           <br />
+
           <div className="input-container">
             <label>Buy Link</label>
             <br />
@@ -340,11 +332,10 @@ const SecureForm = () => {
               placeholder=""
               value={buyLink}
               onChange={(e) => setBuyLink(e.target.value)}
-              required
             />
-
           </div>
           <br />
+
           <div className="input-container">
             <label>Contact Link</label>
             <br />
@@ -353,18 +344,73 @@ const SecureForm = () => {
               placeholder=""
               value={contactLink}
               onChange={(e) => setContactLink(e.target.value)}
+            />
+          </div>
+        </div>
+        <br />
+
+        <div>
+          <h2>5 - Upload an image:</h2>
+          <div className="step-category">
+            <div className="input-container">
+              <label>Upload Image</label>
+              <br />
+              <div className="image-upload">
+                <input
+                  ref={imageRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  hidden
+                />
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleClick}
+                  className="upload-button"
+                >
+                  <IoImageOutline size={50} />
+                  <p>Choose Image</p>
+                </motion.div>
+                {image && (
+                  <div className="image-preview">
+                    <img src={URL.createObjectURL(image)} width={150} alt="preview" />
+                    <button onClick={() => setImage(null)}>
+                      <IoCloseOutline size={20} />
+                    </button>
+                  </div>
+                )}
+                {!isPhotoValid && <p className="error">Image is required!</p>}
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+
+        <div>
+          <h2>6 - Contact Info:</h2>
+          <div className="input-container">
+            <label>Email</label>
+            <br />
+            <input
+              type="email"
+              placeholder=""
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
+          </div>
+          <br />
+        </div>
+        <br />
 
-          </div>
-        </div>
-        <br />
-        <br />
-        <div className="buttons-register-wrapper">
-          <div className="button-register-wrapper">
-            <button type="submit" style={{ width: 250, background: "#000", padding: "16px", color: "#fff" }}>Submit</button>
-          </div>
-        </div>
+        <motion.button
+          type="submit"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          Submit
+        </motion.button>
       </form>
     </div>
   );

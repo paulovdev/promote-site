@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './YourInfoStep.scss';
 
 const YourInfoStep = ({
@@ -6,6 +7,7 @@ const YourInfoStep = ({
   siteName, setSiteName, description, setDescription, livePreview, setLivePreview,
   buyLink, setBuyLink, contactLink, setContactLink, setStep
 }) => {
+  const { t } = useTranslation();
   const [errors, setErrors] = useState({
     myName: '',
     email: '',
@@ -25,14 +27,14 @@ const YourInfoStep = ({
   const validate = () => {
     const newErrors = {};
 
-    if (!myName) newErrors.myName = 'O nome é obrigatório';
-    if (!email || !emailRegex.test(email)) newErrors.email = 'Um e-mail válido é obrigatório';
-    if (!profileLink || !urlRegex.test(profileLink)) newErrors.profileLink = 'Um link de perfil válido é obrigatório';
-    if (!siteName) newErrors.siteName = 'O nome do site é obrigatório';
-    if (description.length < 30) newErrors.description = 'A descrição deve ter mais de 30 caracteres';
-    if (!livePreview || !urlRegex.test(livePreview)) newErrors.livePreview = 'Um link válido para a Visualização ao Vivo é obrigatório';
-    if (!buyLink || !urlRegex.test(buyLink)) newErrors.buyLink = 'Um link válido para Compra é obrigatório';
-    if (!contactLink || !urlRegex.test(contactLink)) newErrors.contactLink = 'Um link válido para Contato é obrigatório';
+    if (!myName) newErrors.myName = t('yourInfoStep.nameRequired');
+    if (!email || !emailRegex.test(email)) newErrors.email = t('yourInfoStep.validEmail');
+    if (!profileLink || !urlRegex.test(profileLink)) newErrors.profileLink = t('yourInfoStep.validProfileLink');
+    if (!siteName) newErrors.siteName = t('yourInfoStep.siteNameRequired');
+    if (description.length < 30) newErrors.description = t('yourInfoStep.descriptionLength');
+    if (!livePreview || !urlRegex.test(livePreview)) newErrors.livePreview = t('yourInfoStep.validLivePreview');
+    if (!buyLink || !urlRegex.test(buyLink)) newErrors.buyLink = t('yourInfoStep.validBuyLink');
+    if (!contactLink || !urlRegex.test(contactLink)) newErrors.contactLink = t('yourInfoStep.validContactLink');
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -48,14 +50,13 @@ const YourInfoStep = ({
   return (
     <section id="your-info-step">
       <div className="input-grid">
-
         <div className="input-container">
-          <label>Seu nome</label>
+          <label>{t('yourInfoStep.nameLabel')}</label>
           <input
             type="text"
-            placeholder="Ex: Paulo"
+            placeholder="e.g., Paulo"
             value={myName}
-            autocomplete="name"
+            autoComplete="name"
             onChange={(e) => setMyName(e.target.value)}
           />
           <div className="error-message">
@@ -64,7 +65,7 @@ const YourInfoStep = ({
         </div>
 
         <div className="input-container">
-          <label>Seu e-mail</label>
+          <label>{t('yourInfoStep.emailLabel')}</label>
           <input
             type="email"
             placeholder="example@gmail.com"
@@ -79,12 +80,12 @@ const YourInfoStep = ({
 
       <div className="input-grid">
         <div className="input-container">
-          <label>Link do seu perfil</label>
+          <label>{t('yourInfoStep.profileLinkLabel')}</label>
           <input
             type="text"
             placeholder="https://example.com"
             value={profileLink}
-            autocomplete="link"
+            autoComplete="link"
             onChange={(e) => setProfileLink(e.target.value)}
           />
           <div className="error-message">
@@ -92,12 +93,11 @@ const YourInfoStep = ({
           </div>
         </div>
 
-
         <div className="input-container">
-          <label>Link de contato</label>
+          <label>{t('yourInfoStep.contactLinkLabel')}</label>
           <input
             type="text"
-            placeholder="https://link-de-contato.com"
+            placeholder="https://contact-link.com"
             value={contactLink}
             onChange={(e) => setContactLink(e.target.value)}
           />
@@ -110,10 +110,10 @@ const YourInfoStep = ({
       <br />  <br />
 
       <div className="input-container">
-        <label>Nome do template</label>
+        <label>{t('yourInfoStep.templateNameLabel')}</label>
         <input
           type="text"
-          placeholder="Ex: Quimplo"
+          placeholder="e.g., Quimplo"
           value={siteName}
           onChange={(e) => setSiteName(e.target.value)}
         />
@@ -123,9 +123,9 @@ const YourInfoStep = ({
       </div>
 
       <div className="input-container text-input">
-        <label>Descrição do template</label>
+        <label>{t('yourInfoStep.templateDescriptionLabel')}</label>
         <textarea
-          placeholder="Este template contém..."
+          placeholder="This template includes..."
           value={description}
           maxLength={250}
           onChange={(e) => setDescription(e.target.value)}
@@ -139,10 +139,10 @@ const YourInfoStep = ({
 
       <div className="input-grid">
         <div className="input-container">
-          <label>Link para visualização ao vivo</label>
+          <label>{t('yourInfoStep.livePreviewLinkLabel')}</label>
           <input
             type="text"
-            placeholder="https://link-de-visualizacao.com"
+            placeholder="https://preview-link.com"
             value={livePreview}
             onChange={(e) => setLivePreview(e.target.value)}
           />
@@ -152,10 +152,10 @@ const YourInfoStep = ({
         </div>
 
         <div className="input-container">
-          <label>Link de compra</label>
+          <label>{t('yourInfoStep.buyLinkLabel')}</label>
           <input
             type="text"
-            placeholder="https://link-de-compra.com"
+            placeholder="https://buy-link.com"
             value={buyLink}
             onChange={(e) => setBuyLink(e.target.value)}
           />
@@ -165,14 +165,9 @@ const YourInfoStep = ({
         </div>
       </div>
 
-
-
-
-
-
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' disabled={true} className="back-button">Voltar</button>
-        <button onClick={handleContinue} type='button'>Continuar</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' disabled={true} className="back-button">{t('yourInfoStep.back')}</button>
+        <button onClick={handleContinue} type='button'>{t('yourInfoStep.continue')}</button>
       </div>
     </section>
   );

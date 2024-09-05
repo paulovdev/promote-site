@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { GoUpload } from "react-icons/go";
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 import "./ImageStep.scss";
 
 const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, handleImageChange, setStep }) => {
+  const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
 
   const handleClick = () => {
@@ -27,15 +29,16 @@ const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, h
         <div className="image-select">
           <button type="button" className="prf-file" onClick={handleClick}>
             <GoUpload size={75} />
-            <span>Arraste e Solte ou Escolha um Arquivo Local</span>
-            <p>Formatos suportados: .png, .jpg, .svg</p>
-            <p>{image ? 'Imagem carregada...' : ''}</p>
+            <span>{t('imageStep.dragAndDropOrChoose')}</span>
+            <p>{t('imageStep.supportedFormats')}</p>
+
+            <p>{image ? t('imageStep.imageLoaded') : ''}</p>
           </button>
           {image && (
             <img
               width={150}
               src={URL.createObjectURL(image)}
-              alt="Imagem carregada"
+              alt={t('imageStep.imageLoaded')}
               className="preview-image"
             />
           )}
@@ -57,17 +60,16 @@ const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, h
             transition={{ duration: 0.5 }}
             className="error-message"
           >
-            Imagem obrigatória
+            {t('imageStep.imageRequired')}
           </motion.p>
         )}
       </div>
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Voltar</button>
-        <button onClick={handleContinue} type='button'>Continuar</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">{t('imageStep.back')}</button>
+        <button onClick={handleContinue} type='button'>{t('imageStep.continue')}</button>
       </div>
     </section>
-
   );
 };
 

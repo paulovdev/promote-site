@@ -2,21 +2,15 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import SiteHeader from './SiteHeader/SiteHeader';
 import RelatedSites from './RelatedSites/RelatedSites';
-import SiteDetailSkeleton from './SiteDetailSkeleton/SiteDetailSkeleton';
+import SiteDetailLoading from './SiteDetailLoading/SiteDetailLoading';
 import { useSiteDetail } from '../../hooks/UseSiteDetail';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const SiteDetail = () => {
     const { id } = useParams();
     const { data, isLoading, error } = useSiteDetail(id);
-
-    if (isLoading) {
-        return <SiteDetailSkeleton />;
-    }
-
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
+    if (isLoading) { return <SiteDetailLoading />; }
+    if (error) { return <div>Error: {error.message}</div>; }
 
     return (
         <AnimatePresence mode="wait">
@@ -28,7 +22,6 @@ const SiteDetail = () => {
                 key={id}
             >
                 {data.site && <SiteHeader site={data.site} />}
-                
                 <RelatedSites relatedSites={data.relatedSites} category={data.site?.category} />
             </motion.div>
         </AnimatePresence>

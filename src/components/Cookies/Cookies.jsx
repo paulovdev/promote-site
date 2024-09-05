@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Cookies from 'js-cookie';
+import { useTranslation } from 'react-i18next';
 import './Cookies.scss';
 
 const CookiesComponent = () => {
+    const { t } = useTranslation();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -25,17 +27,19 @@ const CookiesComponent = () => {
                     className="cookie-popup"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20, }}
+                    exit={{ opacity: 0, y: 20 }}
                     transition={{ duration: 0.3, delay: 1.7 }}
                 >
-                    <h1>Este site usa cookies</h1>
-                    <p>Utilizamos cookies para garantir que você tenha a melhor experiência em nosso site. <a href="#">Política de Cookies.</a></p>
+                    <h1>{t('cookies.cookieNoticeTitle')}</h1>
+                    <p>{t('cookies.cookieNoticeMessage')} <a href="#">{t('cookies.cookiePolicy')}</a></p>
                     <motion.button
                         whileHover={{ scale: 1.03 }}
                         transition={{ type: "spring", stiffness: 1000, damping: 5 }}
-                        onClick={handleAccept}>Aceitar</motion.button>
+                        onClick={handleAccept}
+                    >
+                        {t('cookies.acceptButton')}
+                    </motion.button>
                 </motion.div>
-
             )}
         </AnimatePresence>
     );

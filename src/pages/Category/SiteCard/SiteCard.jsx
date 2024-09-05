@@ -9,23 +9,16 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 import './SiteCard.scss';
+import { useTranslation } from 'react-i18next';
 
 const SiteCard = ({ site }) => {
+    const { t } = useTranslation();
     const [isLoaded, setIsLoaded] = useState(false);
 
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        threshold: 0.1,
-    });
 
     return (
         <Link to={`/site/${site.id}`} key={site.id} className="site-card" onClick={() => scrollTo({ top: 0 })}>
-            <motion.div
-                ref={ref}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.95 }}
-                transition={{ type: "spring", stiffness: 50, damping: 5 }}
-            >
+            <div >
                 <img
                     src={site.imageURL}
                     alt={site.siteName}
@@ -55,12 +48,11 @@ const SiteCard = ({ site }) => {
                         <p>{site.category}</p>
                     </div>
                     <h1>{site.siteName}</h1>
-                    <p>{site.description}</p>
-                    <span>Feito por {site.myName}</span>
+                    <span>{t('made.made-by')} {site.myName}</span>
 
                     <div className="view"><RiArrowRightUpLine /></div>
                 </div>
-            </motion.div>
+            </div>
         </Link>
     );
 };

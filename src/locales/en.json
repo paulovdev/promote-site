@@ -1,0 +1,301 @@
+{
+    "nav": {
+        "logo": "Quimplo",
+        "stories": "Stories",
+        "explore": "Explore",
+        "submitTemplate": "Submit template",
+        "histories": "Histories",
+        "exploreAll": "Explore",
+        "startSelling": "Start selling"
+    },
+    "homeHero": {
+        "title": "Elevate your <span>template</span> and make a lasting impact!",
+        "description": "Launch your template on Quimplo with ease to attract more visitors and boost your sales. You don't even need an account!",
+        "buttonText": "Explore",
+        "buttonText2": "Submit template"
+    },
+    "homeFeatures": {
+        "sectionTitle": "How does Quimplo work?",
+        "sectionSubtitle": "It's easy to publish on Quimplo!",
+        "features": [
+            {
+                "title": "Select your template",
+                "description": "Choose the best template you want to sell."
+            },
+            {
+                "title": "Fill out the form and publish",
+                "description": "Complete all the necessary information and submit your template for review."
+            },
+            {
+                "title": "Wait for review",
+                "description": "Once submitted, your template will be reviewed. You can also opt for a highlight to appear at the top."
+            },
+            {
+                "title": "Done!",
+                "description": "Your template is being set up and will be live soon!"
+            }
+        ]
+    },
+    "homeLogos": {
+        "sectionTitle": "Showcase your templates across various technologies",
+        "sectionSubtitle": "You can have it in every template"
+    },
+    "homeNewsletter": {
+        "titlePart1": "Subscribe to the Quimplo events newsletter to be the first",
+        "titlePart2": "to know about new templates",
+        "buttonText": "Subscribe now"
+    },
+    "homeFAQs": {
+        "sectionTitle": "Frequently Asked Questions",
+        "sectionSubtitle": "If you missed something, we've answered some frequently asked questions.",
+        "faqs": [
+            {
+                "question": "How can Quimplo help me sell my template?",
+                "answer": "Quimplo offers a platform where you can list and showcase your template, increasing its visibility to potential buyers and streamlining the selling process."
+            },
+            {
+                "question": "What fees are associated with selling on Quimplo?",
+                "answer": "Quimplo charges a small commission on each sale, which helps maintain the platform and promote your listings to a broader audience."
+            },
+            {
+                "question": "What advantages does Quimplo offer for selling my template?",
+                "answer": "By listing your template on Quimplo, you gain access to a marketplace designed to connect you with buyers, simplifying the sales process and increasing your template's exposure."
+            },
+            {
+                "question": "Are there any costs involved in using Quimplo?",
+                "answer": "Yes, Quimplo applies a modest fee on each transaction. This fee ensures the platform's maintenance and helps fund the promotion of your template."
+            },
+            {
+                "question": "Can Quimplo help me reach more buyers?",
+                "answer": "Absolutely. Quimplo's platform is designed to give your template maximum exposure, connecting you with a wider audience of potential buyers."
+            },
+            {
+                "question": "Is there a fee to list a template on Quimplo?",
+                "answer": "Quimplo does not charge a fee to list your template. Instead, a small fee is taken from successful sales to support the platform's operations and marketing efforts."
+            },
+            {
+                "question": "How does Quimplo enhance my template's visibility?",
+                "answer": "Quimplo uses targeted marketing and a user-friendly interface to highlight your template, attracting more interest from potential buyers."
+            },
+            {
+                "question": "What support does Quimplo offer during the selling process?",
+                "answer": "Quimplo provides tools and resources to help you create an attractive listing, and our support team is available to assist with any questions you may have."
+            }
+        ]
+    },
+    "categories": {
+        "all": "All",
+        "featured": "Featured",
+        "blog": "Blog",
+        "business": "Business",
+        "creative": "Creative",
+        "educational": "Educational",
+        "ecommerce": "E-commerce",
+        "event": "Event",
+        "health": "Health & Wellness",
+        "landingPage": "Landing Page",
+        "nonProfit": "Non-Profit",
+        "photography": "Photography",
+        "portfolio": "Portfolio",
+        "restaurant": "Restaurant",
+        "saas": "SaaS",
+        "technology": "Technology",
+        "travel": "Travel"
+    },
+    "made": {
+        "made-by": "Made by"
+    },
+    "category": {
+        "header": {
+            "title": "Find the perfect template for you!",
+            "subTitle": "Explore our collection of templates or, if you prefer,",
+            "aTitle": "Click here",
+            "threeTitle": "to submit your own!"
+        },
+        "search": {
+            "placeholder": "Search..."
+        },
+        "madeBy": "Made by"
+    },
+    "relatedSites": {
+        "subHeader": {
+            "title": "See more from",
+            "linkText": "View all"
+        },
+        "madeBy": "Made by"
+    },
+    "siteHeader": {
+        "breadcrumb": {
+            "home": "Home Page",
+            "category": "Category",
+            "siteName": "Site Name"
+        },
+        "toolText": {
+            "tooltip": "See more from {{category}}"
+        },
+        "siteDetails": {
+            "madeBy": "Made by",
+            "viewSite": "View this site",
+            "buySite": "Buy? {{price}}"
+        },
+        "features": {
+            "title": "TEMPLATE FEATURES",
+            "subtitle": "This template contains the following features"
+        },
+        "faqs": {
+            "title": "COMMON QUESTIONS ABOUT TEMPLATES",
+            "subtitle": "Clear your doubts about the template",
+            "questions": [
+                {
+                    "question": "What is this template?",
+                    "answer": "This template is a platform where you can view and purchase templates created with different tools."
+                },
+                {
+                    "question": "How can I buy a template?",
+                    "answer": "To buy a template, click on the 'Buy this template' button, and you will be redirected to the purchase page."
+                },
+                {
+                    "question": "What tools are used?",
+                    "answer": "The templates available here are made with tools like Drupal, Elementor, Framer, Ghost, HTML/CSS/JS, Next.js, React, Webflow, Wix, and WordPress."
+                }
+            ]
+        }
+    },
+    "create": {
+        "header": {
+            "title": "Ready to publish your template?",
+            "description": "Your template needs to be of high quality and undergo a rigorous verification process. This process may take 1 to 2 weeks, but you can shorten it by subscribing to Quimplo Premium."
+        },
+        "steps": {
+            "1": {
+                "span": "1/7",
+                "title": "Your Information",
+                "description": "Provide your name, email, profile link, template name, and description. This helps users understand what your site is about."
+            },
+            "2": {
+                "span": "2/7",
+                "title": "Category",
+                "description": "Choose the category that best fits your site. This helps organize and find your site."
+            },
+            "3": {
+                "span": "3/7",
+                "title": "Tool",
+                "description": "Select the tool you used to create your site."
+            },
+            "4": {
+                "span": "4/7",
+                "title": "Image",
+                "description": "Add a representative image of your site.",
+                "size": "Size 1000px x 500px",
+                "maxSize": "Maximum file size 1MB"
+            },
+            "5": {
+                "span": "5/7",
+                "title": "Features",
+                "description": "Select the features your site offers, such as responsiveness, SEO optimized, etc."
+            },
+            "6": {
+                "span": "6/7",
+                "title": "Price",
+                "description": "Set the sale price of your site."
+            },
+            "7": {
+                "span": "7/7",
+                "title": "Publish Your Site",
+                "description": "To finish, please accept the terms and conditions. Your site will be reviewed and later available to the public."
+            }
+        },
+        "successModal": {
+            "title": "Form submitted successfully!",
+            "description": "Please note that it may take 1 to 2 weeks for us to review your submission."
+        }
+    },
+    "yourInfoStep": {
+        "nameLabel": "Your name",
+        "emailLabel": "Your email",
+        "profileLinkLabel": "Profile link",
+        "contactLinkLabel": "Contact link",
+        "templateNameLabel": "Template name",
+        "templateDescriptionLabel": "Template description",
+        "livePreviewLinkLabel": "Live preview link",
+        "buyLinkLabel": "Buy link",
+        "nameRequired": "Name is required",
+        "validEmail": "A valid email is required",
+        "validProfileLink": "A valid profile link is required",
+        "siteNameRequired": "Site name is required",
+        "descriptionLength": "Description must be more than 30 characters",
+        "validLivePreview": "A valid live preview link is required",
+        "validBuyLink": "A valid buy link is required",
+        "validContactLink": "A valid contact link is required",
+        "continue": "Continue",
+        "back": "Back"
+    },
+    "categoryStep": {
+        "error": "Please select a category.",
+        "back": "Back",
+        "continue": "Continue"
+    },
+    "tools": {
+        "error": "Please select a tool.",
+        "back": "Back",
+        "continue": "Continue"
+    },
+    "imageStep": {
+        "dragAndDropOrChoose": "Drag and Drop or Choose a Local File",
+        "supportedFormats": "Supported formats: .png, .jpg, .svg",
+        "imageLoaded": "Image loaded...",
+        "imageRequired": "Image is required",
+        "back": "Back",
+        "continue": "Continue"
+    },
+    "features": {
+        "responsiveDesign": "Responsive Design",
+        "responsiveNavigation": "Responsive Navigation",
+        "responsiveSlider": "Responsive Slider",
+        "mediaLightbox": "Media Lightbox",
+        "backgroundVideo": "Background Video",
+        "threeDTransformations": "3D Transformations",
+        "interactions": "Interactions",
+        "forms": "Forms",
+        "symbols": "Symbols",
+        "cssGrid": "CSS Grid",
+        "custom404Page": "Custom 404 Page",
+        "webFonts": "Web Fonts",
+        "retinaReady": "Retina Ready",
+        "contentManagementSystem": "Content Management System",
+        "ecommerce": "E-commerce",
+        "cssAnimations": "CSS Animations",
+        "crossBrowserCompatibility": "Cross-browser Compatibility",
+        "socialMediaIntegration": "Social Media Integration",
+        "seoOptimization": "SEO Optimization",
+        "multilingualSupport": "Multilingual Support",
+        "back": "Back",
+        "continue": "Continue"
+    },
+    "agree": {
+        "confirmText": "I confirm that the template complies with the ",
+        "submissionGuidelines": "submission guidelines",
+        "and": "and the",
+        "agreement": "Quimplo agreement.",
+        "back": "Back",
+        "submit": "Submit"
+    },
+    "price": {
+        "basicPlanTitle": "Basic",
+        "fastPlanTitle": "Fast",
+        "free": "Free",
+        "price": "$8",
+        "publishSite": "Publish your site now",
+        "unlimitedTemplateUploads": "Unlimited template uploads",
+        "limitedReviewTime": "Limited review time",
+        "homepageFeature": "Your template on the homepage",
+        "featuredSection": "Your template in the \"Featured\" section",
+        "reducedReviewTime": "Reduced review time"
+    },
+    "cookies": {
+        "cookieNoticeTitle": "This site uses cookies",
+        "cookieNoticeMessage": "We use cookies to ensure you get the best experience on our website.",
+        "cookiePolicy": "Cookie Policy",
+        "acceptButton": "Accept"
+    }
+}

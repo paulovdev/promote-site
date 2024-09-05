@@ -15,7 +15,6 @@
         .slider {
             display: flex;
             width: calc(150% + 2.5rem);
-            /* Ajuste o tamanho para duas vezes o conteúdo mais a margem */
             animation: scroll-infinite 35s linear infinite;
             transition: .3s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
@@ -23,7 +22,7 @@
                 flex: 0 0 auto;
                 width: 450px;
                 height: 260px;
-                margin-right: 2.5rem;
+                margin-right: 1rem;
                 position: relative;
                 transform: translateY(var(--staggered-y));
             }
@@ -50,8 +49,10 @@
                 img {
                     width: 450px;
                     height: 275px;
-                    border: .1rem solid var(--border);
+
+                    border: 3px solid var(--border);
                     border-radius: 1rem;
+                    
                     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 }
 
@@ -65,8 +66,8 @@
                     left: 15px;
 
                     border-radius: 100%;
-                    border: 1px solid var(--border);
                     background-color: var(--fixed-c);
+                    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
                     display: flex;
                     align-items: center;

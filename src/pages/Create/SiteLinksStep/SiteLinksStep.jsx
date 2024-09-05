@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import "./SiteLinksStep.scss";
 
 const SiteLinksStep = ({ setStep, handleSubmit }) => {
+  const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmitWithValidation = (e) => {
@@ -18,14 +20,17 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
         type='checkbox'
         id="terms"
       />
-      <label htmlFor="terms">  Eu confirmo que o template está em conformidade com as <a> diretrizes de submissão</a> e com o acordo do Quimplo.</label>
+      <label htmlFor="terms">
+        {t('agree.confirmText')}
+        <a href="/submission-guidelines">{t('agree.submissionGuidelines')}</a> {t('and')} {t('agree.agreement')}
+      </label>
 
       <div className="step-buttons">
         <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">
-          Voltar
+          {t('agree.back')}
         </button>
         <button onClick={handleSubmitWithValidation} type='button'>
-          Enviar
+          {t('agree.submit')}
         </button>
       </div>
     </section>

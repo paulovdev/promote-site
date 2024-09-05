@@ -6,6 +6,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../firebase/Firebase';
 import { IoCloseOutline } from 'react-icons/io5';
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 
 import YourInfoStep from './YourInfoStep/YourInfoStep';
 import CategoryStep from './CategoryStep/CategoryStep';
@@ -21,6 +22,7 @@ import { Link } from 'react-router-dom';
 import "./Create.scss";
 
 const Create = () => {
+  const { t } = useTranslation();
   const [step, setStep] = useState(1);
   const [myName, setMyName] = useState('');
   const [email, setEmail] = useState('');
@@ -138,76 +140,70 @@ const Create = () => {
 
   const stepContent = {
     1: {
-      span: "1/7",
-      h1: "Suas informações",
-      p: "Forneça seu nome, e-mail, link de perfil, nome e descrição do seu template. Isso ajuda os usuários a entenderem sobre o que é o seu site."
+      span: t('create.steps.1.span'),
+      h1: t('create.steps.1.title'),
+      p: t('create.steps.1.description'),
     },
     2: {
-      span: "2/7",
-      h1: "Categoria",
-      p: "Escolha a categoria que melhor se encaixa no seu site. Isso ajuda a organizar e encontrar seu site."
+      span: t('create.steps.2.span'),
+      h1: t('create.steps.2.title'),
+      p: t('create.steps.2.description'),
     },
     3: {
-      span: "3/7",
-      h1: "Ferramenta",
-      p: "Selecione a ferramenta que você usou para criar o seu site."
+      span: t('create.steps.3.span'),
+      h1: t('create.steps.3.title'),
+      p: t('create.steps.3.description'),
     },
     4: {
-      span: "4/7",
-      h1: "Imagem",
-      p: "Adicione uma imagem representativa do seu site.",
-      v: "Tamanho 1000px x 500px",
-      c: "Tamanho máximo do arquivo 1MB"
+      span: t('create.steps.4.span'),
+      h1: t('create.steps.4.title'),
+      p: t('create.steps.4.description'),
+      v: t('create.steps.4.size'),
+      c: t('create.steps.4.maxSize'),
     },
     5: {
-      span: "5/7",
-      h1: "Features",
-      p: "Selecione as funcionalidades que seu site oferece, como responsividade, SEO otimizado, etc."
+      span: t('create.steps.5.span'),
+      h1: t('create.steps.5.title'),
+      p: t('create.steps.5.description'),
     },
     6: {
-      span: "6/7",
-      h1: "Preço",
-      p: "Defina o preço de venda do seu site."
+      span: t('create.steps.6.span'),
+      h1: t('create.steps.6.title'),
+      p: t('create.steps.6.description'),
     },
     7: {
-      span: "7/7",
-      h1: "Publique Seu Site",
-      p: "Para finalizar, por favor, aceite os termos e condições. Assim, seu site será revisado e mais tarde estará disponível para o público."
-
-    }
+      span: t('create.steps.7.span'),
+      h1: t('create.steps.7.title'),
+      p: t('create.steps.7.description'),
+    },
   };
 
   return (
     <div id="create">
       <div className="head-container">
-        <div className="top-nav">
-          <Link to={"/"}>
-            Página Inicial
-          </Link>
-          <MdKeyboardArrowRight />
-          <Link>
-            Publicar
-          </Link>
-        </div>
         <motion.div
           initial={{ opacity: 0, y: -25 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: 'easeIn' }}
         >
-          <h1>Pronto para publicar seu <span>template</span>?</h1>
+          <div className="top-nav">
+            <Link to={"/"}>
+              Home Page
+            </Link>
+            <MdKeyboardArrowRight />
+            <Link>
+              Publish
+            </Link>
+          </div>
+          <h1>{t('create.header.title')}</h1>
           <p>
-            Seu template deve ser de alta qualidade e passar por um processo de verificação rigoroso. Este processo pode levar de 1 a 2 semanas, mas você pode reduzi-lo ao assinar o Quimplo Premium.
+            {t('create.header.description')}
           </p>
-          <p>
-            Templates de qualidade superior, que seguem as melhores práticas de design e usabilidade, têm mais chances de serem aceitos e destacados em nossa plataforma. Aproveite esta oportunidade para garantir que seu site seja bem representado!</p>
+
+          <Price onClick={() => setShowModal(true)} />
         </motion.div>
       </div>
-
-
-      <Price onClick={() => setShowModal(true)} />
-
-
 
       <AnimatePresence mode='wait'>
         {showModal && (
@@ -217,8 +213,6 @@ const Create = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
           >
-
-
             <AnimatePresence mode='wait'>
               <motion.section
                 key={step}
@@ -230,13 +224,22 @@ const Create = () => {
               >
                 <div className="form-wrapper">
                   <div className="left-content">
-
                     <div className="step-info">
                       <span>{stepContent[step].span} </span>
                       <h1>{stepContent[step].h1} </h1>
                       <p>{stepContent[step].p}</p>
-                      <p style={{ display: step == 4 ? "flex" : "none" }} className='other-p'><div className="border"></div>{stepContent[step].v}</p>
-                      <p style={{ display: step == 4 ? "flex" : "none" }} className='other-p' ><div className="border"></div>{stepContent[step].c}</p>
+                      {step == 4 && (
+                        <>
+                          <p className='other-p'>
+                            <div className="border"></div>
+                            {stepContent[step].v}
+                          </p>
+                          <p className='other-p'>
+                            <div className="border"></div>
+                            {stepContent[step].c}
+                          </p>
+                        </>
+                      )}
                     </div>
                     {renderStepProgress()}
                   </div>
@@ -245,13 +248,13 @@ const Create = () => {
                     {renderStep()}
                   </div>
                 </div>
-              </motion.section></AnimatePresence>
+              </motion.section>
+            </AnimatePresence>
 
             <button className="close-button" onClick={() => setShowModal(false)}>
               <IoCloseOutline size={35} />
             </button>
           </motion.div>
-
         )}
       </AnimatePresence>
 
@@ -264,28 +267,30 @@ const Create = () => {
   );
 };
 
+const SuccessModal = ({ onClose }) => {
+  const { t } = useTranslation();
 
-
-const SuccessModal = ({ onClose }) => (
-  <motion.div
-    className="modal-overlay"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.3 }}
-    onClick={onClose}
-  >
+  return (
     <motion.div
-      className="modal-content"
-      onClick={(e) => e.stopPropagation()}
+      className="modal-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      onClick={onClose}
     >
-      <button className="close-btn" onClick={onClose}>
-        <IoCloseOutline size={32} />
-      </button>
-      <h3>Formulário enviado com sucesso!</h3>
-      <p>Observe que pode levar de 1 a 2 semanas para que revisemos sua submissão.</p>
+      <motion.div
+        className="modal-content"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className="close-btn" onClick={onClose}>
+          <IoCloseOutline size={32} />
+        </button>
+        <h3>{t('create.successModal.title')}</h3>
+        <p>{t('create.successModal.description')}</p>
+      </motion.div>
     </motion.div>
-  </motion.div>
-);
+  );
+};
 
 export default Create;

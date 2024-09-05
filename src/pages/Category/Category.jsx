@@ -7,6 +7,7 @@ import { useCategorySites } from '../../hooks/useCategorySites';
 import { IoSearchOutline } from "react-icons/io5";
 
 import './Category.scss';
+import { useTranslation } from 'react-i18next';
 
 const Category = () => {
     const { category } = useParams();
@@ -15,6 +16,8 @@ const Category = () => {
     } = useCategorySites();
     const [activeMenu, setActiveMenu] = useState('category');
     const [searchInput, setSearchInput] = useState('');
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         setCategory(category);
@@ -46,17 +49,15 @@ const Category = () => {
 
     return (
         <section id="category-head">
-
-
             <div id="category-layout">
                 <div className="head-text">
-                    <h1>Descubra e encontre o <span>template</span> perfeito para você!</h1>
-                    <p>Explore nossa coleção de templates, ou, se preferir, <Link to={"/create"}>Clique aqui</Link> para enviar o seu próprio!</p>
+                    <h1>{t('category.header.title')}</h1>
+                    <p>{t('category.header.subTitle')} <Link to={"/create"}>{t('category.header.aTitle')}</Link> {t('category.header.threeTitle')}  </p>
                     <div className="search">
                         <IoSearchOutline />
                         <input
                             type="text"
-                            placeholder="Buscar..."
+                            placeholder={t('category.search.placeholder')}
                             value={searchInput}
                             onChange={handleSearchChange}
                         />
@@ -66,17 +67,17 @@ const Category = () => {
                         handleMenuToggle={handleMenuToggle}
                         toolFilters={toolFilters}
                         handleToolFilterChange={handleToolFilterChange}
-                        setSearchQuery={setSearchInput} // Passa a função para atualizar a busca
+                        setSearchQuery={setSearchInput}
                     />
                 </div>
-
                 <section id="category">
                     <div className="site-grid">
-                        {loading ? <CategorySkeleton /> : filteredSites.map((site) => <SiteCard key={site.id} site={site} />)}
+                        {loading ? <CategorySkeleton /> : filteredSites.map((site) => (
+                            <SiteCard key={site.id} site={site} />
+                        ))}
                     </div>
                 </section>
             </div>
-
         </section>
     );
 };

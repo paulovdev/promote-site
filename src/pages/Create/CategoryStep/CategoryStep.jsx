@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
-import { FaBlog, FaBusinessTime, FaPalette, FaGraduationCap, FaShoppingCart, FaHeartbeat, FaPlane, FaRegCopyright } from 'react-icons/fa';
+import { FaBlog, FaBusinessTime, FaPalette, FaGraduationCap, FaShoppingCart, FaHeartbeat, FaPlane, FaRegCopyright, FaBorderAll } from 'react-icons/fa';
 import { MdEvent, MdOutlineWeb, MdPhotoCamera } from 'react-icons/md';
 import { AiOutlineFundProjectionScreen, AiOutlineBarChart } from 'react-icons/ai';
 import { GiMeal } from 'react-icons/gi';
-import { IoMdGlobe } from 'react-icons/io';
-import "./CategoryStep.scss";
+import './CategoryStep.scss';
+import { useTranslation } from 'react-i18next';
 
 const CategoryStep = ({ category, setCategory, setStep }) => {
+  const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
   const categories = [
-    { name: 'blog', icon: <FaBlog /> },
-    { name: 'negócios', icon: <FaBusinessTime /> },
-    { name: 'criativo', icon: <FaPalette /> },
-    { name: 'educacional', icon: <FaGraduationCap /> },
-    { name: 'e-commerce', icon: <FaShoppingCart /> },
-    { name: 'evento', icon: <MdEvent /> },
-    { name: 'saúde-bem-estar', icon: <FaHeartbeat /> },
-    { name: 'landing-page', icon: <MdOutlineWeb /> },
-    { name: 'não-lucrativo', icon: <FaRegCopyright /> },
-    { name: 'fotografia', icon: <MdPhotoCamera /> },
-    { name: 'portfólio', icon: <AiOutlineFundProjectionScreen /> },
-    { name: 'restaurante', icon: <GiMeal /> },
-    { name: 'saas', icon: <AiOutlineBarChart /> },
-    { name: 'tecnologia', icon: <AiOutlineBarChart /> },
-    { name: 'viagem', icon: <FaPlane /> }
+    { name: t('categories.all'), icon: <FaBorderAll />, path: "/sites/all" },
+    { name: t('categories.featured'), icon: <AiOutlineBarChart />, path: "/sites/hot" },
+    { name: t('categories.blog'), icon: <FaBlog />, path: "/sites/blog" },
+    { name: t('categories.business'), icon: <FaBusinessTime />, path: "/sites/business" },
+    { name: t('categories.creative'), icon: <FaPalette />, path: "/sites/creative" },
+    { name: t('categories.educational'), icon: <FaGraduationCap />, path: "/sites/educational" },
+    { name: t('categories.ecommerce'), icon: <FaShoppingCart />, path: "/sites/e-commerce" },
+    { name: t('categories.event'), icon: <MdEvent />, path: "/sites/event" },
+    { name: t('categories.health'), icon: <FaHeartbeat />, path: "/sites/health-wellness" },
+    { name: t('categories.landingPage'), icon: <MdOutlineWeb />, path: "/sites/landing-page" },
+    { name: t('categories.nonProfit'), icon: <FaRegCopyright />, path: "/sites/non-profit" },
+    { name: t('categories.photography'), icon: <MdPhotoCamera />, path: "/sites/photography" },
+    { name: t('categories.portfolio'), icon: <AiOutlineFundProjectionScreen />, path: "/sites/portfolio" },
+    { name: t('categories.restaurant'), icon: <GiMeal />, path: "/sites/restaurant" },
+    { name: t('categories.saas'), icon: <AiOutlineBarChart />, path: "/sites/saas" },
+    { name: t('categories.technology'), icon: <AiOutlineBarChart />, path: "/sites/technology" },
+    { name: t('categories.travel'), icon: <FaPlane />, path: "/sites/travel" }
   ];
 
   const handleContinue = () => {
@@ -33,7 +36,7 @@ const CategoryStep = ({ category, setCategory, setStep }) => {
     if (category) {
       setStep((prev) => prev + 1);
     } else {
-      setError('Por favor, selecione uma categoria.');
+      setError(t('categoryStep.error'));
     }
   };
 
@@ -42,12 +45,12 @@ const CategoryStep = ({ category, setCategory, setStep }) => {
       <div className="category-cards">
         {categories.map((cat) => (
           <div
-            key={cat.name}
-            onClick={() => setCategory(cat.name)}
-            className={category === cat.name ? 'selected' : 'category-card'}
+            key={cat.path}
+            onClick={() => setCategory(cat.path)}
+            className={category === cat.path ? 'selected' : 'category-card'}
           >
             <div className="icon">{cat.icon}</div>
-            <div className="category-name">{cat.name.charAt(0).toUpperCase() + cat.name.slice(1)}</div>
+            <div className="category-name">{cat.name}</div>
           </div>
         ))}
       </div>
@@ -59,8 +62,8 @@ const CategoryStep = ({ category, setCategory, setStep }) => {
       )}
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Voltar</button>
-        <button onClick={handleContinue} type='button' >Continuar</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
+        <button onClick={handleContinue} type='button'>Continue</button>
       </div>
     </section>
   );

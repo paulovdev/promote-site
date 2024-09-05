@@ -1,0 +1,301 @@
+{
+    "nav": {
+        "logo": "Quimplo",
+        "stories": "Histórias",
+        "explore": "Explorar",
+        "submitTemplate": "Enviar modelo",
+        "histories": "Histórias",
+        "exploreAll": "Explorar",
+        "startSelling": "Comece a vender"
+    },
+    "homeHero": {
+        "title": "Eleve seu <span>template</span> e cause um impacto duradouro!",
+        "description": "Lance seu template no Quimplo com facilidade para atrair mais visitantes e aumentar suas vendas. Você nem precisa de uma conta!",
+        "buttonText": "Explorar",
+        "buttonText2": "Enviar template"
+    },
+    "homeFeatures": {
+        "sectionTitle": "Como funciona o Quimplo?",
+        "sectionSubtitle": "É fácil publicar no Quimplo!",
+        "features": [
+            {
+                "title": "Selecione seu template",
+                "description": "Escolha o melhor template que você quer vender."
+            },
+            {
+                "title": "Preencha o formulário e publique",
+                "description": "Complete todas as informações necessárias e envie seu template para revisão."
+            },
+            {
+                "title": "Aguarde a revisão",
+                "description": "Após o envio, seu template será revisado. Você também pode optar por um destaque para aparecer no topo."
+            },
+            {
+                "title": "Pronto!",
+                "description": "Seu template está sendo configurado e estará disponível em breve!"
+            }
+        ]
+    },
+    "homeLogos": {
+        "sectionTitle": "Exiba seus templates em várias tecnologias",
+        "sectionSubtitle": "Você pode tê-lo em qualquer template"
+    },
+    "homeNewsletter": {
+        "titlePart1": "Inscreva-se na newsletter de eventos da Quimplo para ser o primeiro",
+        "titlePart2": "a saber sobre novos templates",
+        "buttonText": "Inscreva-se agora"
+    },
+    "homeFAQs": {
+        "sectionTitle": "Perguntas Frequentes",
+        "sectionSubtitle": "Se você perdeu algo, respondemos algumas perguntas frequentes.",
+        "faqs": [
+            {
+                "question": "Como o Quimplo pode me ajudar a vender meu template?",
+                "answer": "O Quimplo oferece uma plataforma onde você pode listar e exibir seu template, aumentando sua visibilidade para potenciais compradores e facilitando o processo de venda."
+            },
+            {
+                "question": "Quais são as taxas associadas à venda no Quimplo?",
+                "answer": "O Quimplo cobra uma pequena comissão em cada venda, que ajuda a manter a plataforma e promover suas listagens para um público mais amplo."
+            },
+            {
+                "question": "Quais vantagens o Quimplo oferece para vender meu template?",
+                "answer": "Ao listar seu template no Quimplo, você tem acesso a um marketplace projetado para conectá-lo com compradores, simplificando o processo de vendas e aumentando a exposição do seu template."
+            },
+            {
+                "question": "Há algum custo envolvido no uso do Quimplo?",
+                "answer": "Sim, o Quimplo aplica uma taxa modesta em cada transação. Essa taxa garante a manutenção da plataforma e ajuda a financiar a promoção do seu template."
+            },
+            {
+                "question": "O Quimplo pode me ajudar a alcançar mais compradores?",
+                "answer": "Com certeza. A plataforma do Quimplo é projetada para dar ao seu template máxima exposição, conectando você com um público mais amplo de potenciais compradores."
+            },
+            {
+                "question": "Há uma taxa para listar um template no Quimplo?",
+                "answer": "O Quimplo não cobra uma taxa para listar seu template. Em vez disso, uma pequena taxa é cobrada das vendas bem-sucedidas para apoiar as operações da plataforma e os esforços de marketing."
+            },
+            {
+                "question": "Como o Quimplo melhora a visibilidade do meu template?",
+                "answer": "O Quimplo utiliza marketing direcionado e uma interface amigável para destacar seu template, atraindo mais interesse de potenciais compradores."
+            },
+            {
+                "question": "Que suporte o Quimplo oferece durante o processo de venda?",
+                "answer": "O Quimplo fornece ferramentas e recursos para ajudar você a criar uma listagem atraente, e nossa equipe de suporte está disponível para ajudar com qualquer dúvida que você possa ter."
+            }
+        ]
+    },
+    "categories": {
+        "all": "Todos",
+        "featured": "Em destaque",
+        "blog": "Blog",
+        "business": "Negócios",
+        "creative": "Criativo",
+        "educational": "Educacional",
+        "ecommerce": "E-commerce",
+        "event": "Evento",
+        "health": "Saúde & Bem-estar",
+        "landingPage": "Landing Page",
+        "nonProfit": "Sem fins lucrativos",
+        "photography": "Fotografia",
+        "portfolio": "Portfólio",
+        "restaurant": "Restaurante",
+        "saas": "SaaS",
+        "technology": "Tecnologia",
+        "travel": "Viagem"
+    },
+    "made": {
+        "made-by": "Feito por"
+    },
+    "category": {
+        "header": {
+            "title": "Encontre o template perfeito para você!",
+            "subTitle": "Explore nossa coleção de templates ou, se preferir,",
+            "aTitle": "Clique aqui",
+            "threeTitle": "para enviar o seu!"
+        },
+        "search": {
+            "placeholder": "Pesquisar..."
+        },
+        "madeBy": "Feito por"
+    },
+    "relatedSites": {
+        "subHeader": {
+            "title": "Veja mais de",
+            "linkText": "Ver todos"
+        },
+        "madeBy": "Feito por"
+    },
+    "siteHeader": {
+        "breadcrumb": {
+            "home": "Página Inicial",
+            "category": "Categoria",
+            "siteName": "Nome do Site"
+        },
+        "toolText": {
+            "tooltip": "Veja mais de {{category}}"
+        },
+        "siteDetails": {
+            "madeBy": "Feito por",
+            "viewSite": "Ver este site",
+            "buySite": "Comprar? {{price}}"
+        },
+        "features": {
+            "title": "ESTRUTURAS DO TEMPLATES",
+            "subtitle": "Este template contém as seguintes características"
+        },
+        "faqs": {
+            "title": "PERGUNTAS FREQUENTES SOBRE TEMPLATES",
+            "subtitle": "Esclareça suas dúvidas sobre o template",
+            "questions": [
+                {
+                    "question": "O que é este template?",
+                    "answer": "Este template é uma plataforma onde você pode visualizar e comprar templates criados com diferentes ferramentas."
+                },
+                {
+                    "question": "Como posso comprar um template?",
+                    "answer": "Para comprar um template, clique no botão 'Comprar este template', e você será redirecionado para a página de compra."
+                },
+                {
+                    "question": "Quais ferramentas são usadas?",
+                    "answer": "Os templates disponíveis aqui são criados com ferramentas como Drupal, Elementor, Framer, Ghost, HTML/CSS/JS, Next.js, React, Webflow, Wix e WordPress."
+                }
+            ]
+        }
+    },
+    "create": {
+        "header": {
+            "title": "Pronto para publicar seu template?",
+            "description": "Seu template precisa ser de alta qualidade e passar por um rigoroso processo de verificação. Esse processo pode levar de 1 a 2 semanas, mas você pode acelerar assinando o Quimplo Premium."
+        },
+        "steps": {
+            "1": {
+                "span": "1/7",
+                "title": "Suas Informações",
+                "description": "Forneça seu nome, email, link do perfil, nome do template e descrição. Isso ajuda os usuários a entenderem sobre o que é o seu site."
+            },
+            "2": {
+                "span": "2/7",
+                "title": "Categoria",
+                "description": "Escolha a categoria que melhor se encaixa para o seu site. Isso ajuda a organizar e encontrar seu site."
+            },
+            "3": {
+                "span": "3/7",
+                "title": "Ferramenta",
+                "description": "Selecione a ferramenta que você usou para criar seu site."
+            },
+            "4": {
+                "span": "4/7",
+                "title": "Imagem",
+                "description": "Adicione uma imagem representativa do seu site.",
+                "size": "Tamanho 1000px x 500px",
+                "maxSize": "Tamanho máximo do arquivo 1MB"
+            },
+            "5": {
+                "span": "5/7",
+                "title": "Características",
+                "description": "Selecione as características que seu site oferece, como responsividade, otimização para SEO, etc."
+            },
+            "6": {
+                "span": "6/7",
+                "title": "Preço",
+                "description": "Defina o preço de venda do seu site."
+            },
+            "7": {
+                "span": "7/7",
+                "title": "Publique Seu Site",
+                "description": "Para finalizar, por favor, aceite os termos e condições. Seu site será revisado e estará disponível ao público posteriormente."
+            }
+        },
+        "successModal": {
+            "title": "Formulário enviado com sucesso!",
+            "description": "Observe que pode levar de 1 a 2 semanas para que revisemos sua submissão."
+        }
+    },
+    "yourInfoStep": {
+        "nameLabel": "Seu nome",
+        "emailLabel": "Seu e-mail",
+        "profileLinkLabel": "Link do perfil",
+        "contactLinkLabel": "Link de contato",
+        "templateNameLabel": "Nome do template",
+        "templateDescriptionLabel": "Descrição do template",
+        "livePreviewLinkLabel": "Link de visualização ao vivo",
+        "buyLinkLabel": "Link de compra",
+        "nameRequired": "Nome é obrigatório",
+        "validEmail": "Um e-mail válido é obrigatório",
+        "validProfileLink": "Um link de perfil válido é obrigatório",
+        "siteNameRequired": "Nome do site é obrigatório",
+        "descriptionLength": "Descrição deve ter mais de 30 caracteres",
+        "validLivePreview": "Um link de visualização ao vivo válido é obrigatório",
+        "validBuyLink": "Um link de compra válido é obrigatório",
+        "validContactLink": "Um link de contato válido é obrigatório",
+        "continue": "Continuar",
+        "back": "Voltar"
+    },
+    "categoryStep": {
+        "error": "Por favor, selecione uma categoria.",
+        "back": "Voltar",
+        "continue": "Continuar"
+    },
+    "tools": {
+        "error": "Por favor, selecione uma ferramenta.",
+        "back": "Voltar",
+        "continue": "Continuar"
+    },
+    "imageStep": {
+        "dragAndDropOrChoose": "Arraste e solte ou escolha um arquivo local",
+        "supportedFormats": "Formatos suportados: .png, .jpg, .svg",
+        "imageLoaded": "Imagem carregada...",
+        "imageRequired": "Imagem é obrigatória",
+        "back": "Voltar",
+        "continue": "Continuar"
+    },
+    "features": {
+        "responsiveDesign": "Design Responsivo",
+        "responsiveNavigation": "Navegação Responsiva",
+        "responsiveSlider": "Slider Responsivo",
+        "mediaLightbox": "Lightbox de Mídia",
+        "backgroundVideo": "Vídeo de Fundo",
+        "threeDTransformations": "Transformações 3D",
+        "interactions": "Interações",
+        "forms": "Formulários",
+        "symbols": "Símbolos",
+        "cssGrid": "CSS Grid",
+        "custom404Page": "Página 404 Personalizada",
+        "webFonts": "Fontes Web",
+        "retinaReady": "Pronto para Retina",
+        "contentManagementSystem": "Sistema de Gestão de Conteúdo",
+        "ecommerce": "E-commerce",
+        "cssAnimations": "Animações CSS",
+        "crossBrowserCompatibility": "Compatibilidade entre Navegadores",
+        "socialMediaIntegration": "Integração com Mídias Sociais",
+        "seoOptimization": "Otimização para SEO",
+        "multilingualSupport": "Suporte Multilíngue",
+        "back": "Voltar",
+        "continue": "Continuar"
+    },
+    "agree": {
+        "confirmText": "Confirmo que o template está em conformidade com as ",
+        "submissionGuidelines": "diretrizes de submissão",
+        "and": "e com o",
+        "agreement": "acordo Quimplo.",
+        "back": "Voltar",
+        "submit": "Enviar"
+    },
+    "price": {
+        "basicPlanTitle": "Básico",
+        "fastPlanTitle": "Rápido",
+        "free": "Grátis",
+        "price": "R$8",
+        "publishSite": "Publique seu site agora",
+        "unlimitedTemplateUploads": "Envios ilimitados de templates",
+        "limitedReviewTime": "Tempo de revisão limitado",
+        "homepageFeature": "Seu template na página inicial",
+        "featuredSection": "Seu template na seção \"Destaques\"",
+        "reducedReviewTime": "Tempo de revisão reduzido"
+    },
+    "cookies": {
+        "cookieNoticeTitle": "Este site usa cookies",
+        "cookieNoticeMessage": "Utilizamos cookies para garantir que você tenha a melhor experiência em nosso site.",
+        "cookiePolicy": "Política de Cookies",
+        "acceptButton": "Aceitar"
+    }
+}

@@ -1,32 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { FaBorderAll, FaBlog, FaBusinessTime, FaPalette, FaGraduationCap, FaShoppingCart, FaHeartbeat, FaRegCopyright, FaPlane } from "react-icons/fa";
-import { MdEvent, MdOutlineWeb, MdPhotoCamera } from "react-icons/md";
-import { AiOutlineFundProjectionScreen, AiOutlineBarChart } from "react-icons/ai";
-import { GiMeal } from "react-icons/gi";
+import { useTranslation } from 'react-i18next';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import './CategoryFilters.scss';
 
 const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
+    const { t } = useTranslation();
+
     const categories = [
-        { name: 'Todos', icon: <FaBorderAll />, path: "/sites/all" },
-        { name: 'Em destaque', icon: <AiOutlineBarChart />, path: "/sites/hot" },
-        { name: 'Blog', icon: <FaBlog />, path: "/sites/blog" },
-        { name: 'Negócios', icon: <FaBusinessTime />, path: "/sites/business" },
-        { name: 'Criativo', icon: <FaPalette />, path: "/sites/creative" },
-        { name: 'Educacional', icon: <FaGraduationCap />, path: "/sites/educational" },
-        { name: 'E-commerce', icon: <FaShoppingCart />, path: "/sites/e-commerce" },
-        { name: 'Evento', icon: <MdEvent />, path: "/sites/event" },
-        { name: 'Saúde e Bem-Estar', icon: <FaHeartbeat />, path: "/sites/health-wellness" },
-        { name: 'Landing Page', icon: <MdOutlineWeb />, path: "/sites/landing-page" },
-        { name: 'Sem Fins Lucrativos', icon: <FaRegCopyright />, path: "/sites/non-profit" },
-        { name: 'Fotografia', icon: <MdPhotoCamera />, path: "/sites/photography" },
-        { name: 'Portfólio', icon: <AiOutlineFundProjectionScreen />, path: "/sites/portfolio" },
-        { name: 'Restaurante', icon: <GiMeal />, path: "/sites/restaurant" },
-        { name: 'Saas', icon: <AiOutlineBarChart />, path: "/sites/saas" },
-        { name: 'Tecnologia', icon: <AiOutlineBarChart />, path: "/sites/technology" },
-        { name: 'Viagem', icon: <FaPlane />, path: "/sites/travel" }
+        { name: t('categories.all'), path: "/sites/all" },
+        { name: t('categories.featured'), path: "/sites/hot" },
+        { name: t('categories.blog'), path: "/sites/blog" },
+        { name: t('categories.business'), path: "/sites/business" },
+        { name: t('categories.creative'), path: "/sites/creative" },
+        { name: t('categories.educational'), path: "/sites/educational" },
+        { name: t('categories.ecommerce'), path: "/sites/e-commerce" },
+        { name: t('categories.event'), path: "/sites/event" },
+        { name: t('categories.health'), path: "/sites/health-wellness" },
+        { name: t('categories.landingPage'), path: "/sites/landing-page" },
+        { name: t('categories.nonProfit'), path: "/sites/non-profit" },
+        { name: t('categories.photography'), path: "/sites/photography" },
+        { name: t('categories.portfolio'), path: "/sites/portfolio" },
+        { name: t('categories.restaurant'), path: "/sites/restaurant" }, // Corrigido de 'ipath' para 'path'
+        { name: t('categories.saas'), path: "/sites/saas" },
+        { name: t('categories.technology'), path: "/sites/technology" },
+        { name: t('categories.travel'), path: "/sites/travel" }
     ];
 
     const [isDesktop, setIsDesktop] = useState(window.innerWidth > 809);
@@ -73,6 +73,7 @@ const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
 };
 
 export default CategoryFilters;
+
 
 
 

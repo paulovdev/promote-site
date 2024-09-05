@@ -3,11 +3,12 @@ import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icon
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
 import "./ToolStep.scss";
 import { DiCss3, DiJavascript1 } from 'react-icons/di';
+import { useTranslation } from 'react-i18next';
 
 const ToolStep = ({ tool, setTool, setStep }) => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
-
+  const { t } = useTranslation();
   const tools = [
     { name: 'Drupal', icon: <FaDrupal /> },
     { name: 'Elementor', icon: <FaElementor /> },
@@ -32,7 +33,7 @@ const ToolStep = ({ tool, setTool, setStep }) => {
     if (tool) {
       setStep((prev) => prev + 1);
     } else {
-      setError('Por favor, selecione uma ferramenta.');
+      setError(t('tools.error'));
     }
   };
 
@@ -61,8 +62,8 @@ const ToolStep = ({ tool, setTool, setStep }) => {
       )}
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Voltar</button>
-        <button onClick={handleContinue} type='button'>Continuar</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">{t('tools.back')}</button>
+        <button onClick={handleContinue} type='button'>{t('tools.continue')}</button>
       </div>
     </section>
   );

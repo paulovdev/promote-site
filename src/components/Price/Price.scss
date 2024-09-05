@@ -10,21 +10,24 @@
         display: flex;
         align-items: start;
         justify-content: start;
+
         gap: 2.5rem;
 
         .plan {
             width: 700px;
-            height: 350px;
+            height: 400px;
 
             padding: 1.5rem;
 
             background-color: var(--bg);
             border: 1px solid var(--border);
+            border-top: 5px solid var(--accent);
             border-radius: .5rem;
 
             display: flex;
-            align-items: start;
-            justify-content: start;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
             gap: 2rem;
 
             .left-content {

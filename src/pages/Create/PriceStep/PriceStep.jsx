@@ -4,7 +4,7 @@ import "./PriceStep.scss"
 const PriceStep = ({ price, setPrice, setStep }) => {
   return (
     <section id="price-step">
-      <span className='price-text'>{price === 0 ? 'Gratuito' : `R$${price}`}</span>
+      <span className='price-text'>{price === 0 ? 'Free' : `$${price}`}</span>
       <input
         type="range"
         min="0"
@@ -16,8 +16,8 @@ const PriceStep = ({ price, setPrice, setStep }) => {
 
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Voltar</button>
-        <button onClick={() => setStep((prev) => prev + 1)} type='button'>Continuar</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
+        <button onClick={() => setStep((prev) => prev + 1)} type='button'>Continue</button>
       </div>
     </section>
 

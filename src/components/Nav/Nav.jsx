@@ -1,18 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-
 import { BiLastPage } from "react-icons/bi";
-
-import "./Nav.scss";
 import { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
+import LanguageSelector from "../LanguageSelector/LanguageSelector";
+import { useTranslation } from "react-i18next";
+
+import "./Nav.scss";
+import ThemeChange from './../ThemeChange/ThemeChange';
+
 
 const Navbar = () => {
-    // Inicializa corretamente o estado usando useState
+    const { t } = useTranslation();
     const [showMenu, setShowMenu] = useState(false);
     const [hmRotate, setHmRotate] = useState(false);
 
-    // Alterna a visibilidade do menu móvel
     function toggleMenu() {
         setShowMenu(prevState => !prevState);
         setHmRotate(prevState => !prevState);
@@ -24,20 +26,19 @@ const Navbar = () => {
                 <nav>
                     <div className="logo">
                         <Link to="/">
-                            <BiLastPage />Quimplo
+                            <BiLastPage />
                         </Link>
                     </div>
 
+
                     <ul className='desktop-menu' onClick={() => scrollTo({ top: 0 })}>
-                        <li><NavLink className='explore-nav' to="/stories">Histórias </NavLink></li>
-                        <li><NavLink className='explore-nav' to="/sites/all">Explorar</NavLink></li>
-                        <motion.li
-                            whileHover={{ scale: 1.03 }}
-                            transition={{ type: "spring", stiffness: 150, damping: 8 }}
-                            onClick={() => scrollTo({ top: 0 })}
-                        >
-                            <NavLink className='feature-nav' to="/create">Publicar template</NavLink>
-                        </motion.li>
+                        <li>  <LanguageSelector /></li>
+                        <li><NavLink className='explore-nav' to="/stories">{t('nav.stories')}</NavLink></li>
+                        <li><NavLink className='explore-nav' to="/sites/all">{t('nav.explore')}</NavLink></li>
+                        <li onClick={() => scrollTo({ top: 0 })}>
+                            <NavLink className='feature-nav' to="/create">{t('nav.submitTemplate')}</NavLink>
+                        </li>
+                        <li>  <ThemeChange /></li>
                     </ul>
 
                     <div className="mobile-menu" onClick={toggleMenu}>
@@ -54,9 +55,9 @@ const Navbar = () => {
                                 exit={{ opacity: 0, y: -50 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <li><NavLink to="/stories">Histórias <BsArrowRight /></NavLink></li>
-                                <li><NavLink to="/sites/all">Explorar <BsArrowRight /></NavLink></li>
-                                <li><NavLink to="/create">Comece a vender <BsArrowRight /></NavLink></li>
+                                <li><NavLink to="/stories">{t('nav.histories')} <BsArrowRight /></NavLink></li>
+                                <li><NavLink to="/sites/all">{t('nav.exploreAll')} <BsArrowRight /></NavLink></li>
+                                <li><NavLink to="/create">{t('nav.startSelling')} <BsArrowRight /></NavLink></li>
                             </motion.ul>
                         )}
                     </AnimatePresence>

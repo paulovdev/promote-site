@@ -1,6 +1,6 @@
 #home-logos {
     max-width: 1400px;
-    padding: 75px ;
+    padding: 75px;
     margin: 5rem auto;
 
     border-radius: 3rem;
@@ -12,24 +12,26 @@
     flex-direction: column;
 
     span {
-        font-size: 12px;
-        font-weight: 800;
-
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         text-transform: uppercase;
+        font-size: .875rem;
+        font-weight: 700;
+        line-height: 1.225rem;
 
         color: var(--p-i);
 
-        text-align: center;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     h1 {
-        letter-spacing: -1px;
-        font-size: 42px;
-        font-weight: 700;
-        color: var(--p-i);
+        letter-spacing: -1.6px;
+        font-size: 3rem;
+        font-weight: 500;
+        color: var(--p);
 
-        margin-bottom: 5rem;
+        margin-bottom: 2rem;
     }
 
     .icons {
@@ -49,5 +51,54 @@
         }
 
 
+    }
+}
+
+@media (max-width:809px) {
+    #home-logos {
+        padding: 50px;
+        margin: 5rem auto;
+
+        border-radius: 1.5rem;
+        background-color: var(--accent-3);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        span {
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            max-width: 100% !important;
+        
+            font-size: 2rem !important;
+            font-weight: 500;
+            color: var(--p);
+            text-align: center;
+
+            margin-bottom: 5rem;
+        }
+
+        .icons {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6rem;
+
+            svg {
+                color: var(--p-i);
+                font-size: 54px;
+                transition: .3s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+                &:hover {
+                    transform: scale(1.10);
+                    cursor: pointer;
+                }
+            }
+
+
+        }
     }
 }

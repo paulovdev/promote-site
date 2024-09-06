@@ -22,18 +22,25 @@
         gap: 1rem;
 
         span {
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            font-size: .875rem;
+            font-weight: 700;
+            line-height: 1.225rem;
+
             color: var(--accent);
+
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         h1 {
-            max-width: 75%;
-            font-size: 42px;
-            font-weight: 700;
+            letter-spacing: -1.6px;
+            font-size: 3rem;
+            font-weight: 500;
             color: var(--p);
+
             margin-bottom: 2rem;
         }
     }
@@ -50,7 +57,8 @@
 
         .faq-card {
             position: relative;
-            width: 1000px;
+            max-width: 1000px;
+            width: 100%;
 
             padding: 1rem 0;
 
@@ -63,7 +71,7 @@
                 align-items: center;
 
                 h3 {
-                    font-size: 18px;
+                    font-size: 1.2rem;
                     font-weight: 700;
                     color: var(--p);
                 }
@@ -77,9 +85,10 @@
             .faq-content {
                 p {
                     margin-top: 1rem;
-                    font-size: 16px;
+                    font-size: 1.2rem;
                     font-weight: 500;
                     color: var(--p);
+                    opacity: .8;
                     line-height: 1.5;
                 }
             }
@@ -90,10 +99,6 @@
 @media (max-width:1400px) {
     #home-faqs {
         padding: 20px !important;
-
-        .text-content h1 {
-            font-size: 36px;
-        }
     }
 }
 
@@ -101,12 +106,65 @@
     #home-faqs {
         padding: 15px !important;
 
-        .text-content h1 {
-            font-size: 30px;
+        span {
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: .875rem;
+            font-weight: 700;
+            line-height: 1.225rem;
+
+            color: var(--accent);
+
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .faqs .faq-card {
-            padding: 1rem;
+        h1 {
+            max-width: 100% !important;
+            font-size: 2rem !important;
+            font-weight: 500;
+            color: var(--p);
+
+            margin-bottom: 2rem;
+        }
+
+        .faq-card {
+            position: relative;
+            max-width: 1000px;
+            width: 100%;
+
+            padding: 1rem 0;
+
+            cursor: pointer;
+            user-select: none;
+
+            .faq-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h3 {
+                    font-size: 1.2rem !important;
+                    font-weight: 700;
+                    color: var(--p);
+                }
+
+                svg {
+                    font-size: 20px;
+                    color: var(--accent);
+                }
+            }
+
+            .faq-content {
+                p {
+                    margin-top: 1rem;
+                    font-size: 1rem !important;
+                    font-weight: 400;
+                    color: var(--p);
+                    line-height: 1.5;
+                }
+            }
         }
     }
 }

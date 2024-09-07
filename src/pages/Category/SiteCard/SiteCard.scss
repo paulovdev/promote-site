@@ -10,8 +10,9 @@
     overflow: hidden;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
 
     img {
         max-width: 325px;
@@ -153,7 +154,9 @@
 
 
 .placeholder {
+    max-width: 325px;
     width: 100%;
     height: fit-content;
+
     background: var(--border-2);
 }

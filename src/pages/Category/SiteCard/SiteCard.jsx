@@ -16,7 +16,7 @@ const SiteCard = ({ site }) => {
 
     return (
         <Link to={`/site/${site.id}`} key={site.id} className="site-card" onClick={() => scrollTo({ top: 0 })}>
-            <div >
+           
                 <img
                     src={site.imageURL}
                     alt={site.siteName}
@@ -26,7 +26,6 @@ const SiteCard = ({ site }) => {
                 {!isLoaded && <div className="placeholder" />}
                 <div className="text-card">
                     <div className="several-content">
-
                         <span>
                             {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
                             {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
@@ -50,7 +49,7 @@ const SiteCard = ({ site }) => {
 
                     <div className="view"><RiArrowRightUpLine /></div>
                 </div>
-            </div>
+          
         </Link>
     );
 };

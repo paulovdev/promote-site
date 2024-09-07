@@ -10,28 +10,24 @@ import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si
 import { IoCloseOutline } from "react-icons/io5";
 import { DiCss3, DiJavascript1 } from 'react-icons/di';
 
-
-import Transition from "../../utils/Transition/Transition"
+import Transition from "../../utils/Transition/Transition";
 import './Stories.scss';
-
 
 const Stories = () => {
     const { i18n } = useTranslation();
     const { sites, loading } = useSites();
 
-
-    console.log(sites.descriptionEn)
     if (loading) {
         return <div>Loading...</div>;
     }
 
     return (
-        <div className="stories-container">
+        <div id="stories">
             <div className="back-button">
                 <Link to="/"><IoCloseOutline /></Link>
             </div>
             <Swiper
-                autoplay={{ delay: 8000, disableOnInteraction: false }}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
                 modules={[Autoplay, Pagination, Navigation]}
                 slidesPerView={1}
                 navigation={{
@@ -66,7 +62,8 @@ const Stories = () => {
                                             {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
                                         </span>
                                         <p>{site.category}</p>
-                                    </div>  </div>
+                                    </div>
+                                </div>
                                 <h1>{site.siteName}</h1>
                                 <p>{i18n.language === 'en' ? site.descriptionEn : site.descriptionBr}</p>
                             </div>
@@ -78,4 +75,4 @@ const Stories = () => {
     );
 };
 
-export default Transition(Stories, { text: "Histórias" });
+export default Transition(Stories, { text: { br: "Histórias", en: "Stories" } });

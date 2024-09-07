@@ -5,7 +5,6 @@ header {
   width: 100%;
 
   top: 0;
-  padding: 15px;
   background-color: var(--bg);
 
   display: flex;
@@ -15,18 +14,6 @@ header {
   z-index: 999;
 
   .logo>a {
-    position: relative;
-    font-family: "Raleway", sans-serif;
-    font-size: 20px;
-    letter-spacing: -1px;
-
-    color: var(--p);
-
-    display: flex;
-    align-items: center;
-    gap: 0.1rem;
-    z-index: 999;
-
     svg {
       font-size: 42px;
       color: var(--accent);

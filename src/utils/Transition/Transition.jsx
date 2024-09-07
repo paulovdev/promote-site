@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { BiLastPage } from "react-icons/bi";
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './Transition.scss';
 
 const Transition = (OgComponent, additionalProps) => {
     return (props) => {
         const [animationComplete, setAnimationComplete] = useState(false);
         const location = useLocation();
+        const { i18n } = useTranslation();
         const showLogo = location.pathname === '/';
         const { text } = additionalProps || {};
 
@@ -22,6 +24,8 @@ const Transition = (OgComponent, additionalProps) => {
                 document.body.classList.remove('no-scroll');
             };
         }, [animationComplete]);
+
+        const translatedText = i18n.language === 'en' ? text.en : text.br;
 
         return (
             <>
@@ -68,7 +72,7 @@ const Transition = (OgComponent, additionalProps) => {
                             transition={{ duration: 0.3, ease: 'easeOut' }}
                         >
                             <div className="text">
-                                {text}
+                                {translatedText}
                             </div>
                         </motion.div>
                     )}

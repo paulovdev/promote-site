@@ -276,6 +276,9 @@
         "back": "Voltar",
         "continue": "Continuar"
     },
+    "stories": {
+        "text": "Histórias"
+    },
     "agree": {
         "confirmText": "Confirmo que o template está em conformidade com as ",
         "submissionGuidelines": "diretrizes de submissão",

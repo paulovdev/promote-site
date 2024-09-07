@@ -276,6 +276,9 @@
         "back": "Back",
         "continue": "Continue"
     },
+    "stories": {
+        "text": "Stories"
+    },
     "agree": {
         "confirmText": "I confirm that the template complies with the ",
         "submissionGuidelines": "submission guidelines",

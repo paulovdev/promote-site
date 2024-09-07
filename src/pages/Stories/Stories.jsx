@@ -3,16 +3,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { useSites } from '../../hooks/useSites';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
 import { IoCloseOutline } from "react-icons/io5";
-import Transition from "../../utils/Transition/Transition"
-import './Stories.scss';
 import { DiCss3, DiJavascript1 } from 'react-icons/di';
 
+
+import Transition from "../../utils/Transition/Transition"
+import './Stories.scss';
+
+
 const Stories = () => {
+    const { i18n } = useTranslation();
     const { sites, loading } = useSites();
 
+
+    console.log(sites.descriptionEn)
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -60,7 +68,7 @@ const Stories = () => {
                                         <p>{site.category}</p>
                                     </div>  </div>
                                 <h1>{site.siteName}</h1>
-                                <p>{site.description}</p>
+                                <p>{i18n.language === 'en' ? site.descriptionEn : site.descriptionBr}</p>
                             </div>
                         </div>
                     </SwiperSlide>

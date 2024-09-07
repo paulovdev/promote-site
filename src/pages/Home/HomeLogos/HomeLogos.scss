@@ -12,6 +12,8 @@
     flex-direction: column;
 
     span {
+        margin-bottom: 1rem;
+        
         letter-spacing: 1px;
         text-transform: uppercase;
         font-size: .875rem;
@@ -29,7 +31,7 @@
         letter-spacing: -1.6px;
         font-size: 3rem;
         font-weight: 500;
-        color: var(--p);
+        color: var(--p-i);
 
         margin-bottom: 3rem;
     }
@@ -57,10 +59,9 @@
 @media (max-width:809px) {
     #home-logos {
         padding: 50px;
-        margin: 5rem auto;
 
         border-radius: 1.5rem;
-        background-color: var(--accent-3);
+
 
         display: flex;
         align-items: center;

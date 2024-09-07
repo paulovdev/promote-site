@@ -33,7 +33,7 @@
 
         svg {
             font-size: 38px;
-            color: #fff;
+            color: var(--fixed-c);
         }
 
         &:hover {
@@ -64,19 +64,26 @@
         left: 100px;
         bottom: 100px;
 
-        h1 {
-            color: #fff;
-            font-size: 58px;
-            letter-spacing: -3px;
-            font-weight: 500;
+        h1,
+        span {
+            max-width: 60%;
+            letter-spacing: -1.6px;
             margin-bottom: 1rem;
+            font-size: 4.5rem;
+            font-weight: 400;
+            line-height: 4.5rem;
+            color: var(--fixed-c);
         }
 
+
         p {
-            max-width: 55%;
-            color: #fff;
-            font-size: 36px;
-            font-weight: 400;
+            max-width: 60%;
+            font-size: 1.3rem;
+            font-weight: 300;
+            line-height: 1.3;
+            color: var(--fixed-c);
+            opacity: .9;
+            margin-bottom: 2rem;
         }
     }
 
@@ -91,7 +98,7 @@
             font-size: 12px;
             font-weight: 900;
 
-            color: #fff;
+            color: var(--fixed-c);
 
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -107,7 +114,7 @@
                 width: 50px;
                 height: 50px;
                 border-radius: 100%;
-                color: #fff;
+                color: var(--fixed-c);
                 padding: 0.3rem;
             }
         }
@@ -160,7 +167,7 @@
             left: 25px;
 
             h1 {
-                font-size: 52px;
+                font-size: 3.5rem;
 
             }
 
@@ -195,7 +202,7 @@
             left: 25px;
 
             h1 {
-                font-size: 52px;
+                font-size: 3.5rem;
 
             }
 

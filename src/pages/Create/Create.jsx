@@ -187,24 +187,16 @@ const Create = () => {
           exit={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: 'easeIn' }}
         >
-          <div className="top-nav">
-            <Link to={"/"}>
-              Home Page
-            </Link>
-            <MdKeyboardArrowRight />
-            <Link>
-              Publish
-            </Link>
-          </div>
           <h1>{t('create.header.title')}</h1>
           <p>
             {t('create.header.description')}
           </p>
 
-          <Price onClick={() => setShowModal(true)} />
-        </motion.div>
-      </div>
 
+        </motion.div>
+        
+      </div>
+      <Price onClick={() => setShowModal(true)} />
       <AnimatePresence mode='wait'>
         {showModal && (
           <motion.div

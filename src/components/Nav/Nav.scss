@@ -14,6 +14,7 @@ header {
   z-index: 999;
 
   .logo>a {
+    position: relative;
     font-family: "Raleway", sans-serif;
     font-size: 20px;
     letter-spacing: -1px;
@@ -155,12 +156,18 @@ header {
     li {
       width: 100%;
 
+      .sub-options-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
       a {
 
         color: var(--p);
-        font-size: 24px;
+        font-size: 2rem;
         font-weight: 600;
-        letter-spacing: -1px;
+        letter-spacing: -1.3px;
 
         display: flex;
         align-items: center;
@@ -168,7 +175,7 @@ header {
 
         svg {
           font-size: 22px;
-          color: var(--p);
+          color: var(--accent);
         }
       }
     }

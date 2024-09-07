@@ -49,15 +49,18 @@ const Navbar = () => {
                     <AnimatePresence mode="wait">
                         {showMenu && (
                             <motion.ul className="mobile-menu-content"
-                                onClick={toggleMenu}
                                 initial={{ opacity: 0, y: -50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -50 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <li><NavLink to="/stories">{t('nav.histories')} <BsArrowRight /></NavLink></li>
-                                <li><NavLink to="/sites/all">{t('nav.exploreAll')} <BsArrowRight /></NavLink></li>
-                                <li><NavLink to="/create">{t('nav.startSelling')} <BsArrowRight /></NavLink></li>
+                                <li onClick={() => scrollTo({ top: 0 })}><NavLink to="/stories">{t('nav.histories')} <BsArrowRight /></NavLink></li>
+                                <li onClick={() => scrollTo({ top: 0 })}><NavLink to="/sites/all">{t('nav.exploreAll')} <BsArrowRight /></NavLink></li>
+                                <li onClick={() => scrollTo({ top: 0 })}>
+                                    <NavLink className='feature-nav' to="/create">{t('nav.submitTemplate')} <BsArrowRight /></NavLink>
+                                </li>
+                                <li> <div className="sub-options-wrapper">   <LanguageSelector /><ThemeChange /></div></li>
+
                             </motion.ul>
                         )}
                     </AnimatePresence>

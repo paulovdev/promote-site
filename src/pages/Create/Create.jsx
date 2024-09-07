@@ -194,9 +194,17 @@ const Create = () => {
 
 
         </motion.div>
-        
+
       </div>
-      <Price onClick={() => setShowModal(true)} />
+      <motion.div
+        initial={{ opacity: 0, y: -25 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, ease: 'easeIn' }}
+        className='price-wrapper'
+      >
+        <Price onClick={() => setShowModal(true)} />
+      </motion.div>
       <AnimatePresence mode='wait'>
         {showModal && (
           <motion.div

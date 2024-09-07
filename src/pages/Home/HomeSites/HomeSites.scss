@@ -126,6 +126,14 @@
 }
 
 @media (max-width: 809px) {
+    .site-slide:nth-child(odd) {
+        --staggered-y: -10px !important;
+    }
+
+    .site-slide:nth-child(even) {
+        --staggered-y: 10px !important;
+    }
+
     #home-sites {
         .slider-container {
             .slider {

@@ -1,7 +1,7 @@
 #price {
     position: relative;
     max-width: 1400px;
-    width: 100vw;
+    width: 100%;
     margin: 0 0 5rem 0;
 
     .plans {
@@ -10,18 +10,18 @@
         display: flex;
         align-items: start;
         justify-content: start;
-
+        flex-wrap: wrap;
         gap: 2.5rem;
 
         .plan {
-            width: 700px;
+            width: fit-content;
             height: 400px;
 
             padding: 1.5rem;
 
             background-color: var(--bg);
             border: 1px solid var(--border);
-            border-top: 5px solid var(--accent);
+            border-top: 5px solid var(--accent-2);
             border-radius: .5rem;
 
             display: flex;

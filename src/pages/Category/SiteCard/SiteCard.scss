@@ -14,7 +14,8 @@
     justify-content: center;
 
     img {
-        width: 325px;
+        max-width: 325px;
+        width: 100%;
         height: 200px;
 
         border-radius: 1rem;
@@ -132,6 +133,7 @@
         width: 100%;
 
         img {
+            max-width: 100% !important;
             width: 100%;
             height: 250px;
         }
@@ -143,26 +145,6 @@
 
             p {
                 font-size: 0.875rem;
-            }
-        }
-    }
-}
-
-@media (max-width: 480px) {
-    .site-card {
-        width: 100%;
-
-        img {
-            height: 200px;
-        }
-
-        .text-card {
-            h1 {
-                font-size: 1.25rem;
-            }
-
-            p {
-                font-size: 0.75rem;
             }
         }
     }

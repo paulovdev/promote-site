@@ -23,7 +23,7 @@ const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
         { name: t('categories.nonProfit'), path: "/sites/non-profit" },
         { name: t('categories.photography'), path: "/sites/photography" },
         { name: t('categories.portfolio'), path: "/sites/portfolio" },
-        { name: t('categories.restaurant'), path: "/sites/restaurant" }, // Corrigido de 'ipath' para 'path'
+        { name: t('categories.restaurant'), path: "/sites/restaurant" },
         { name: t('categories.saas'), path: "/sites/saas" },
         { name: t('categories.technology'), path: "/sites/technology" },
         { name: t('categories.travel'), path: "/sites/travel" }
@@ -57,6 +57,8 @@ const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
                         spaceBetween={10}
                         slidesPerView={'auto'}
                         onSwiper={(swiper) => (swiperRef.current = swiper)}
+                        touchStartPreventDefault={false}
+                        preventClicks={false}
                     >
                         {categories.map((category, index) => (
                             <SwiperSlide key={index}>

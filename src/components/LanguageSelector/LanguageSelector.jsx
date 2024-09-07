@@ -7,7 +7,7 @@ import { FaChevronDown } from "react-icons/fa";
 import "./LanguageSelector.scss";
 
 function LanguageSelector() {
-    const { i18n } = useTranslation();
+    const { i18n, t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
 
     const openDropdown = () => {
@@ -43,8 +43,8 @@ function LanguageSelector() {
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
                     >
-                        <li onClick={() => handleChange('en')}>EN</li>
-                        <li onClick={() => handleChange('br')}>BR</li>
+                        <li onClick={() => handleChange('en')}>{t("language.en")}</li>
+                        <li onClick={() => handleChange('br')}>{t("language.br")}</li>
                     </motion.ul>
                 )}
             </AnimatePresence>

@@ -8,6 +8,10 @@
         "exploreAll": "Explore",
         "startSelling": "Start selling"
     },
+    "language": {
+        "br": "Brazil",
+        "en": "English"
+    },
     "homeHero": {
         "title": "Elevate your <span>template</span> and make a lasting impact!",
         "description": "Launch your template on Quimplo with ease to attract more visitors and boost your sales. You don't even need an account!",

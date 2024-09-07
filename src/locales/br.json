@@ -8,6 +8,10 @@
         "exploreAll": "Explorar",
         "startSelling": "Comece a vender"
     },
+    "language": {
+        "br": "Brasil",
+        "en": "Inglês"
+    },
     "homeHero": {
         "title": "Eleve seu <span>template</span> e cause um impacto duradouro!",
         "description": "Lance seu template no Quimplo com facilidade para atrair mais visitantes e aumentar suas vendas. Você nem precisa de uma conta!",

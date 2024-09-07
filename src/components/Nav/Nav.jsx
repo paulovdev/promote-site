@@ -24,7 +24,13 @@ const Navbar = () => {
         <>
             <header>
                 <nav>
-                    <div className="logo">
+                    <div className="logo" onClick={() => {
+                        scrollTo({ top: 0 });
+                        if (showMenu) {
+                            toggleMenu()
+                            return
+                        }
+                    }}>
                         <Link to="/">
                             <BiLastPage />
                         </Link>
@@ -54,9 +60,18 @@ const Navbar = () => {
                                 exit={{ opacity: 0, y: -50 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <li onClick={() => scrollTo({ top: 0 })}><NavLink to="/stories">{t('nav.histories')} <BsArrowRight /></NavLink></li>
-                                <li onClick={() => scrollTo({ top: 0 })}><NavLink to="/sites/all">{t('nav.exploreAll')} <BsArrowRight /></NavLink></li>
-                                <li onClick={() => scrollTo({ top: 0 })}>
+                                <li onClick={() => {
+                                    scrollTo({ top: 0 });
+                                    toggleMenu()
+                                }}><NavLink to="/stories">{t('nav.histories')} <BsArrowRight /></NavLink></li>
+                                <li onClick={() => {
+                                    scrollTo({ top: 0 });
+                                    toggleMenu()
+                                }}><NavLink to="/sites/all">{t('nav.exploreAll')} <BsArrowRight /></NavLink></li>
+                                <li onClick={() => {
+                                    scrollTo({ top: 0 });
+                                    toggleMenu()
+                                }}>
                                     <NavLink className='feature-nav' to="/create">{t('nav.submitTemplate')} <BsArrowRight /></NavLink>
                                 </li>
                                 <li> <div className="sub-options-wrapper">   <LanguageSelector /><ThemeChange /></div></li>

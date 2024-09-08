@@ -137,10 +137,12 @@
         "toolText": {
             "tooltip": "See more from {{category}}"
         },
+        "featured": "Em destaque",
         "siteDetails": {
             "madeBy": "Made by",
             "viewSite": "View this site",
-            "buySite": "Buy? {{price}}"
+            "buySite": "Buy? {{price}}",
+            "freePrice": "Free"
         },
         "features": {
             "title": "TEMPLATE FEATURES",
@@ -275,9 +277,6 @@
         "multilingualSupport": "Multilingual Support",
         "back": "Back",
         "continue": "Continue"
-    },
-    "stories": {
-        "text": "Stories"
     },
     "agree": {
         "confirmText": "I confirm that the template complies with the ",

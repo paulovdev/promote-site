@@ -100,14 +100,13 @@ const SiteHeader = ({ site }) => {
                 className="site-button-2"
                 target="_blank"
                 rel="noopener noreferrer"
-              >{t('siteHeader.siteDetails.buySite', { price: site.price === "free" ? "Free" : `$${site.price}` })}</a>
-
+              >{t('siteHeader.siteDetails.buySite', { price: site.price === 0 ? `${t('siteHeader.siteDetails.freePrice')}` : `$${site.price}` })}</a>
             </div>
           </div>
 
           <div className="left-content">
             <img src={site.imageURL} alt={site.siteName} />
-            {site.hot === 1 ? <p>Featured</p> : ""}
+            {site.hot === 1 ? <p>{t("siteHeader.featured")}</p> : ""}
           </div>
         </div>
 

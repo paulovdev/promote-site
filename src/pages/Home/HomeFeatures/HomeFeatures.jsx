@@ -26,7 +26,7 @@ const HomeFeatures = () => {
                             {index === 2 && <CiClock1 />}
                             {index === 3 && <MdOutlineDone />}
                         </div>
-                        <h3>{feature.title}</h3>
+                        <h2>{feature.title}</h2>
                         <p>{feature.description}</p>
                     </div>
                 ))}

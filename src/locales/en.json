@@ -303,5 +303,9 @@
         "cookieNoticeMessage": "We use cookies to ensure you get the best experience on our website.",
         "cookiePolicy": "Cookie Policy",
         "acceptButton": "Accept"
+    },
+    "u404": {
+        "unfoundText": "404: Page not found",
+        "back": "Back"
     }
 }

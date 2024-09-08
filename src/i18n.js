@@ -15,8 +15,8 @@ i18n.use(initReactI18next).init({
             translation: br
         }
     },
-    lng: savedLanguage, // Define o idioma inicial com base no cookie ou no padrão
-    fallbackLng: 'en', // idioma fallback
+    lng: savedLanguage, 
+    fallbackLng: 'en', 
     interpolation: {
         escapeValue: false
     }

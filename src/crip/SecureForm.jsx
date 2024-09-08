@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { db, storage } from '../firebase/Firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { IoCloseOutline, IoImageOutline } from "react-icons/io5";
 import { motion } from 'framer-motion';
@@ -74,7 +74,7 @@ const SecureForm = () => {
       const downloadURL = await getDownloadURL(imageRef);
       setImageURL(downloadURL);
 
-      await addDoc(collection(db, 'sites'), {
+      await setDoc(doc(db, `sites/${siteName.toLowerCase()}`), {
         myName,
         email,
         profileLink,
@@ -268,50 +268,60 @@ const SecureForm = () => {
         </div>
         <br />
 
-        {featuresListBr.map(feature => (
-          <div className='features' key={feature.id}>
-            <input
-              type='checkbox'
-              id={`br-${feature.id}`}
-              checked={featuresBr.includes(feature.name)}
-              onChange={() => toggleFeatureBr(feature.name)}
-            />
-            <label htmlFor={`br-${feature.id}`}>{feature.name}</label>
+        <h2>3 - Features</h2>
+
+        <div className="features-container">
+          <div className="features-column">
+            <h3>Features (BR)</h3>
+            <ul>
+              {featuresListBr.map(feature => (
+                <li key={feature.id}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={featuresBr.includes(feature.id)}
+                      onChange={() => toggleFeatureBr(feature.id)}
+                    />
+                    {feature.name}
+                  </label>
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
-
-        <br />
-        <br />
-
-        {featuresListEn.map(feature => (
-          <div className='features' key={feature.id}>
-            <input
-              type='checkbox'
-              id={`en-${feature.id}`}
-              checked={featuresEn.includes(feature.name)}
-              onChange={() => toggleFeatureEn(feature.name)}
-            />
-            <label htmlFor={`en-${feature.id}`}>{feature.name}</label>
+          <div className="features-column">
+            <h3>Features (EN)</h3>
+            <ul>
+              {featuresListEn.map(feature => (
+                <li key={feature.id}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={featuresEn.includes(feature.id)}
+                      onChange={() => toggleFeatureEn(feature.id)}
+                    />
+                    {feature.name}
+                  </label>
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
-
-        <br />
-        <h2>3 - Price:</h2>
-        <div className="input-container">
-          <label>Site Price ($)</label>
-          <br />
-          <input
-            type="number"
-            placeholder=""
-            value={sitePrice}
-            onChange={(e) => setSitePrice(Number(e.target.value))}
-            required
-          />
         </div>
-        <br />
 
-        <h2>4 - Additional Info:</h2>
-        <div className="grid-1">
+        <h2>4 - Others:</h2>
+        <div className="grid-2">
+          <div className="input-container">
+            <label>Price</label>
+            <br />
+            <input
+              type="number"
+              placeholder=""
+              value={sitePrice}
+              onChange={(e) => setSitePrice(parseFloat(e.target.value))}
+              required
+            />
+          </div>
+          <br />
+
           <div className="input-container">
             <label>Live Preview Link</label>
             <br />
@@ -320,6 +330,7 @@ const SecureForm = () => {
               placeholder=""
               value={livePreview}
               onChange={(e) => setLivePreview(e.target.value)}
+              required
             />
           </div>
           <br />
@@ -332,6 +343,7 @@ const SecureForm = () => {
               placeholder=""
               value={buyLink}
               onChange={(e) => setBuyLink(e.target.value)}
+              required
             />
           </div>
           <br />
@@ -344,73 +356,62 @@ const SecureForm = () => {
               placeholder=""
               value={contactLink}
               onChange={(e) => setContactLink(e.target.value)}
-            />
-          </div>
-        </div>
-        <br />
-
-        <div>
-          <h2>5 - Upload an image:</h2>
-          <div className="step-category">
-            <div className="input-container">
-              <label>Upload Image</label>
-              <br />
-              <div className="image-upload">
-                <input
-                  ref={imageRef}
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                  hidden
-                />
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={handleClick}
-                  className="upload-button"
-                >
-                  <IoImageOutline size={50} />
-                  <p>Choose Image</p>
-                </motion.div>
-                {image && (
-                  <div className="image-preview">
-                    <img src={URL.createObjectURL(image)} width={150} alt="preview" />
-                    <button onClick={() => setImage(null)}>
-                      <IoCloseOutline size={20} />
-                    </button>
-                  </div>
-                )}
-                {!isPhotoValid && <p className="error">Image is required!</p>}
-              </div>
-            </div>
-          </div>
-        </div>
-        <br />
-
-        <div>
-          <h2>6 - Contact Info:</h2>
-          <div className="input-container">
-            <label>Email</label>
-            <br />
-            <input
-              type="email"
-              placeholder=""
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
-          <br />
         </div>
-        <br />
 
-        <motion.button
-          type="submit"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          Submit
-        </motion.button>
+        <h2>5 - Image Upload:</h2>
+        <div className="step-image-upload">
+          <div className="image-upload-container">
+            <input
+              type="file"
+              ref={imageRef}
+              onChange={handleImageChange}
+              style={{ display: 'none' }}
+            />
+            <motion.div
+              className="image-upload-button"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleClick}
+            >
+              <IoImageOutline size={24} />
+              <span>Upload Image</span>
+            </motion.div>
+            {image && (
+              <div className="image-preview">
+                <motion.img
+                  src={URL.createObjectURL(image)}
+                  width={150}
+                  alt="Preview"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                />
+                <motion.div
+                  className="image-remove-button"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.8 }}
+                  onClick={() => setImage(null)}
+                >
+                  <IoCloseOutline size={24} />
+                </motion.div>
+              </div>
+            )}
+            {!isPhotoValid && <p style={{ color: 'red' }}>Please upload an image.</p>}
+          </div>
+        </div>
+
+        <div className="button-container">
+          <motion.button
+            type="submit"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Submit
+          </motion.button>
+        </div>
       </form>
     </div>
   );

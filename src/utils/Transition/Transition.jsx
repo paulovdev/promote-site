@@ -60,7 +60,7 @@ const Transition = (OgComponent, additionalProps) => {
                             transition={{ duration: 0.3, ease: 'easeOut' }}
                         >
                             <div className="quimplo-logo">
-                                <BiLastPage />
+                               <BiLastPage /> Quimplo
                             </div>
                         </motion.div>
                     ) : (

@@ -39,13 +39,21 @@
     }
 
     .quimplo-logo {
+        font-size: 3rem;
+        font-weight: 600;
+        letter-spacing: -1.6px;
+
+        color: var(--p);
+
         display: flex;
         align-items: center;
         gap: 0.1rem;
+
+
         z-index: 999;
 
         svg {
-            font-size: 92px;
+            font-size: 72px;
             color: var(--accent);
         }
 

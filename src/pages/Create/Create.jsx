@@ -288,6 +288,7 @@ const SuccessModal = ({ onClose }) => {
         </button>
         <h3>{t('create.successModal.title')}</h3>
         <p>{t('create.successModal.description')}</p>
+        <button className='modal-btn' onClick={onClose}>Ok</button>
       </motion.div>
     </motion.div>
   );

@@ -40,7 +40,7 @@ const Price = ({ onClick }) => {
                         <li><IoCheckmarkCircleSharp className="check-icon" />{t('price.homepageFeature')}</li>
                         <li><IoCheckmarkCircleSharp className="check-icon" />{t('price.featuredSection')}</li>
                     </ul>
-                    <button onClick={onClick}>{t('price.publishSite')}</button>
+                    <button onClick={onClick} disabled>{t('price.develop')}</button>
 
                 </div>
             </div>

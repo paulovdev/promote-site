@@ -93,6 +93,14 @@
                     box-shadow: inset -600px 0 0 0 var(--p-i);
                     color: var(--fixed-c);
                 }
+
+                &:disabled {
+                    border: 1px solid var(--border);
+                    background-color: var(--bg-3);
+                    box-shadow: none;
+                    color: var(--p);
+                    cursor: no-drop;
+                }
             }
 
 

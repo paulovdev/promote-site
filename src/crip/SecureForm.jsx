@@ -27,21 +27,49 @@ const SecureForm = () => {
   const imageRef = useRef();
 
   const featuresListBr = [
-    { id: 1, name: 'Responsivo' },
-    { id: 2, name: 'SEO Otimizado' },
-    { id: 3, name: 'Integração com Redes Sociais' },
-    { id: 4, name: 'Carregamento Rápido' },
-    { id: 5, name: 'Fácil Customização' },
-    { id: 6, name: 'Segurança Avançada' },
+    { id: 1, name: 'Design Responsivo' },
+    { id: 2, name: 'Navegação Responsiva' },
+    { id: 3, name: 'Slider Responsivo' },
+    { id: 4, name: 'Lightbox de Mídia' },
+    { id: 5, name: 'Vídeo de Fundo' },
+    { id: 6, name: 'Transformações 3D' },
+    { id: 7, name: 'Interações' },
+    { id: 8, name: 'Formulários' },
+    { id: 9, name: 'Símbolos' },
+    { id: 10, name: 'Grade CSS' },
+    { id: 11, name: 'Página 404 Personalizada' },
+    { id: 12, name: 'Fontes Web' },
+    { id: 13, name: 'Pronto para Retina' },
+    { id: 14, name: 'Sistema de Gerenciamento de Conteúdo' },
+    { id: 15, name: 'E-commerce' },
+    { id: 16, name: 'Animações CSS' },
+    { id: 17, name: 'Compatibilidade entre Navegadores' },
+    { id: 18, name: 'Integração com Mídias Sociais' },
+    { id: 19, name: 'Otimização para SEO' },
+    { id: 20, name: 'Suporte Multilíngue' }
   ];
 
   const featuresListEn = [
-    { id: 1, name: 'Responsive' },
-    { id: 2, name: 'SEO Optimized' },
-    { id: 3, name: 'Social Media Integration' },
-    { id: 4, name: 'Fast Loading' },
-    { id: 5, name: 'Easy Customization' },
-    { id: 6, name: 'Advanced Security' },
+    { id: 1, name: 'Responsive Design' },
+    { id: 2, name: 'Responsive Navigation' },
+    { id: 3, name: 'Responsive Slider' },
+    { id: 4, name: 'Media Lightbox' },
+    { id: 5, name: 'Background Video' },
+    { id: 6, name: '3D Transformations' },
+    { id: 7, name: 'Interactions' },
+    { id: 8, name: 'Forms' },
+    { id: 9, name: 'Symbols' },
+    { id: 10, name: 'CSS Grid' },
+    { id: 11, name: 'Custom 404 Page' },
+    { id: 12, name: 'Web Fonts' },
+    { id: 13, name: 'Retina Ready' },
+    { id: 14, name: 'Content Management System' },
+    { id: 15, name: 'E-commerce' },
+    { id: 16, name: 'CSS Animations' },
+    { id: 17, name: 'Cross-browser Compatibility' },
+    { id: 18, name: 'Social Media Integration' },
+    { id: 19, name: 'SEO Optimization' },
+    { id: 20, name: 'Multilingual Support' }
   ];
 
   const toggleFeatureBr = (id) => {
@@ -279,8 +307,8 @@ const SecureForm = () => {
                   <label>
                     <input
                       type="checkbox"
-                      checked={featuresBr.includes(feature.id)}
-                      onChange={() => toggleFeatureBr(feature.id)}
+                      checked={featuresBr.includes(feature.name)}
+                      onChange={() => toggleFeatureBr(feature.name)}
                     />
                     {feature.name}
                   </label>
@@ -296,8 +324,8 @@ const SecureForm = () => {
                   <label>
                     <input
                       type="checkbox"
-                      checked={featuresEn.includes(feature.id)}
-                      onChange={() => toggleFeatureEn(feature.id)}
+                      checked={featuresEn.includes(feature.name)}
+                      onChange={() => toggleFeatureEn(feature.name)}
                     />
                     {feature.name}
                   </label>

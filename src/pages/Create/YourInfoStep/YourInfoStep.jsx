@@ -101,9 +101,9 @@ const YourInfoStep = ({
             value={contactLink}
             onChange={(e) => setContactLink(e.target.value)}
           />
-          {submitted && errors.contactLink && (
-            <div className="error-message"><p>{errors.contactLink}</p></div>
-          )}
+          <div className="error-message">
+            {submitted && errors.contactLink && (<p>{errors.contactLink}</p>)}
+          </div>
         </div>
       </div>
 

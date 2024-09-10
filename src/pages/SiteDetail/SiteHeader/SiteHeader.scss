@@ -360,13 +360,15 @@
 
 #site-faqs {
     position: relative;
+    max-width: 1400px;
     width: 100%;
     height: fit-content;
 
     margin: 5rem auto 0 auto;
-    max-width: 1400px;
+    padding: 100px;
 
-    background-color: var(--bg);
+    background-color: var(--accent-2);
+    border-radius: 2rem;
 
     display: flex;
     align-items: center;
@@ -378,19 +380,20 @@
         font-weight: 800;
         letter-spacing: 2px;
         text-transform: uppercase;
-        color: var(--accent);
+        color: var(--p-i);
     }
 
     h1 {
-        max-width: 75%;
         font-size: 42px;
         font-weight: 700;
-        color: var(--p);
+        color: var(--p-i);
         margin-bottom: 2rem;
+        text-align: center;
     }
 
     .faqs {
         position: relative;
+        max-width: 1000px;
         width: 100%;
 
         display: flex;
@@ -417,7 +420,7 @@
                 h3 {
                     font-size: 18px;
                     font-weight: 700;
-                    color: var(--p);
+                    color: var(--p-i);
                 }
 
                 svg {
@@ -431,7 +434,7 @@
                     margin-top: 1rem;
                     font-size: 16px;
                     font-weight: 500;
-                    color: var(--p);
+                    color: var(--p-i);
                     line-height: 1.5;
                 }
             }
@@ -449,7 +452,7 @@
     }
 
     #site-faqs {
-        padding: 25px;
+        padding: 100px;
     }
 }
 
@@ -468,7 +471,7 @@
     }
 
     #site-faqs {
-        padding: 25px;
+        padding: 75px;
     }
 }
 
@@ -616,7 +619,8 @@
     }
 
     #site-faqs {
-        padding: 15px;
+        padding: 50px;
+        border-radius: 1rem;
 
         span {
             letter-spacing: 1px;
@@ -625,7 +629,6 @@
             font-weight: 700;
             line-height: 1.225rem;
 
-            color: var(--accent);
 
             display: flex;
             align-items: center;
@@ -637,7 +640,7 @@
             max-width: 100% !important;
             font-size: 2rem !important;
             font-weight: 500;
-            color: var(--p);
+
 
             margin-bottom: 2rem;
             text-align: center;
@@ -646,6 +649,7 @@
         .faqs {
             position: relative;
             width: 100%;
+
 
             display: flex;
             align-items: start;
@@ -671,12 +675,12 @@
                     h3 {
                         font-size: 18px;
                         font-weight: 700;
-                        color: var(--p);
+
                     }
 
                     svg {
                         font-size: 20px;
-                        color: var(--accent);
+
                     }
                 }
 
@@ -685,7 +689,7 @@
                         margin-top: 1rem;
                         font-size: 16px;
                         font-weight: 500;
-                        color: var(--p);
+
                         line-height: 1.5;
                     }
                 }

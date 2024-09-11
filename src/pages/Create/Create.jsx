@@ -1,11 +1,12 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { debounce } from 'lodash';
+import { Helmet } from 'react-helmet';
+
 import emailjs from 'emailjs-com';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../firebase/Firebase';
 import { IoCloseOutline } from 'react-icons/io5';
-import { MdKeyboardArrowRight } from "react-icons/md";
 import { useTranslation } from 'react-i18next';
 
 import YourInfoStep from './YourInfoStep/YourInfoStep';
@@ -14,10 +15,10 @@ import ToolStep from './ToolStep/ToolStep';
 import ImageStep from './ImageStep/ImageStep';
 import PriceStep from './PriceStep/PriceStep';
 import SiteLinksStep from './SiteLinksStep/SiteLinksStep';
-import FeaturesStep from './FeaturesStep/FeaturesStep'; // Novo componente
+import FeaturesStep from './FeaturesStep/FeaturesStep';
 
 import Price from '../../components/Price/Price';
-import { Link } from 'react-router-dom';
+
 
 import "./Create.scss";
 
@@ -179,91 +180,99 @@ const Create = () => {
   };
 
   return (
-    <div id="create">
-      <div className="head-container">
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{t('helmet.publish')}</title>
+        <link rel="canonical" href="http://quimplo.online/create" />
+      </Helmet>
+
+      <div id="create">
+        <div className="head-container">
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: 'easeIn' }}
+          >
+            <h1>{t('create.header.title')}</h1>
+            <p>
+              {t('create.header.description')}
+            </p>
+
+
+          </motion.div>
+
+        </div>
         <motion.div
           initial={{ opacity: 0, y: -25 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: 'easeIn' }}
+          className='price-wrapper'
         >
-          <h1>{t('create.header.title')}</h1>
-          <p>
-            {t('create.header.description')}
-          </p>
-
-
+          <Price onClick={() => setShowModal(true)} />
         </motion.div>
-
-      </div>
-      <motion.div
-        initial={{ opacity: 0, y: -25 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, ease: 'easeIn' }}
-        className='price-wrapper'
-      >
-        <Price onClick={() => setShowModal(true)} />
-      </motion.div>
-      <AnimatePresence mode='wait'>
-        {showModal && (
-          <motion.div
-            className="form-container"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-          >
-            <AnimatePresence mode='wait'>
-              <motion.section
-                key={step}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ ease: 'easeInOut', duration: 0.3 }}
-                className='animate-render-step-wrapper'
-              >
-                <div className="form-wrapper">
-                  <div className="left-content">
-                    <div className="step-info">
-                      <span>{stepContent[step].span} </span>
-                      <h1>{stepContent[step].h1} </h1>
-                      <p>{stepContent[step].p}</p>
-                      {step == 4 && (
-                        <>
-                          <p className='other-p'>
-                            <div className="border"></div>
-                            {stepContent[step].v}
-                          </p>
-                          <p className='other-p'>
-                            <div className="border"></div>
-                            {stepContent[step].c}
-                          </p>
-                        </>
-                      )}
+        <AnimatePresence mode='wait'>
+          {showModal && (
+            <motion.div
+              className="form-container"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+            >
+              <AnimatePresence mode='wait'>
+                <motion.section
+                  key={step}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ ease: 'easeInOut', duration: 0.3 }}
+                  className='animate-render-step-wrapper'
+                >
+                  <div className="form-wrapper">
+                    <div className="left-content">
+                      <div className="step-info">
+                        <span>{stepContent[step].span} </span>
+                        <h1>{stepContent[step].h1} </h1>
+                        <p>{stepContent[step].p}</p>
+                        {step == 4 && (
+                          <>
+                            <p className='other-p'>
+                              <div className="border"></div>
+                              {stepContent[step].v}
+                            </p>
+                            <p className='other-p'>
+                              <div className="border"></div>
+                              {stepContent[step].c}
+                            </p>
+                          </>
+                        )}
+                      </div>
+                      {renderStepProgress()}
                     </div>
-                    {renderStepProgress()}
+
+                    <div className="right-content">
+                      {renderStep()}
+                    </div>
                   </div>
+                </motion.section>
+              </AnimatePresence>
 
-                  <div className="right-content">
-                    {renderStep()}
-                  </div>
-                </div>
-              </motion.section>
-            </AnimatePresence>
+              <button className="close-button" onClick={() => setShowModal(false)}>
+                <IoCloseOutline size={35} />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-            <button className="close-button" onClick={() => setShowModal(false)}>
-              <IoCloseOutline size={35} />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {showSuccessModal && (
-          <SuccessModal onClose={() => setShowSuccessModal(false)} />
-        )}
-      </AnimatePresence>
-    </div>
+        <AnimatePresence>
+          {showSuccessModal && (
+            <SuccessModal onClose={() => setShowSuccessModal(false)} />
+          )}
+        </AnimatePresence>
+      </div>
+    </>
   );
 };
 

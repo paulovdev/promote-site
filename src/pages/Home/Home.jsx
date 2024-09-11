@@ -1,5 +1,5 @@
-// Home.js
 import React from "react";
+import { Helmet } from "react-helmet";
 import HomeHero from "./HomeHero/HomeHero";
 import HomeSites from "./HomeSites/HomeSites";
 import HomeFeatures from "./HomeFeatures/HomeFeatures";
@@ -12,14 +12,22 @@ import "./Home.scss";
 
 const Home = () => {
     return (
-        <div id="home">
-            <HomeHero />
-            <HomeSites />
-            <HomeFeatures />
-            <HomeLogos />
-            <HomeFAQs />
-            <HomeNewsLetter />
-        </div>
+        <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Quimplo</title>
+                <link rel="canonical" href="http://quimplo.online" />
+            </Helmet>
+            <div id="home">
+
+                <HomeHero />
+                <HomeSites />
+                <HomeFeatures />
+                <HomeLogos />
+                <HomeFAQs />
+                <HomeNewsLetter />
+            </div>
+        </>
     );
 };
 

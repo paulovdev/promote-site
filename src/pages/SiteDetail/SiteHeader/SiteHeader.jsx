@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from 'react-i18next';
+import { Tooltip } from 'react-tooltip';
+
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
 import { DiCss3, DiJavascript1 } from 'react-icons/di';
-import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { useTranslation } from 'react-i18next';
-import { Tooltip } from 'react-tooltip';
 
 import "./SiteHeader.scss";
 
@@ -25,6 +27,12 @@ const SiteHeader = ({ site }) => {
 
   return (
     <>
+    {/*   <Helmet>
+        <meta charSet="utf-8" />
+        <title>sdfsdf{site.data}</title>
+        <link rel="canonical" href={`http://quimplo.online/${site.data}`} />
+      </Helmet> */}
+
       <section id="site-detail">
         <div className="top-nav">
           <Link to={"/"}>

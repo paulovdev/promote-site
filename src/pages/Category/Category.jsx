@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import { useTranslation } from 'react-i18next';
+
+import { useCategorySites } from '../../hooks/useCategorySites';
 import CategoryFilters from './CategoryFilters/CategoryFilters';
 import CategorySkeleton from './CategorySkeleton/CategorySkeleton';
 import SiteCard from './SiteCard/SiteCard';
-import { useCategorySites } from '../../hooks/useCategorySites';
+
 import { IoSearchOutline } from "react-icons/io5";
 
 import './Category.scss';
-import { useTranslation } from 'react-i18next';
 
 const Category = () => {
     const { category } = useParams();
@@ -48,37 +51,45 @@ const Category = () => {
     };
 
     return (
-        <section id="category-head">
-            <div id="category-layout">
-                <div className="head-text">
-                    <h1>{t('category.header.title')}</h1>
-                    <p>{t('category.header.subTitle')} <Link to={"/create"}>{t('category.header.aTitle')}</Link> {t('category.header.threeTitle')}  </p>
-                    <div className="search">
-                        <IoSearchOutline />
-                        <input
-                            type="text"
-                            placeholder={t('category.search.placeholder')}
-                            value={searchInput}
-                            onChange={handleSearchChange}
+        <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>{t('helmet.explore')}</title>
+                <link rel="canonical" href="http://quimplo.online/sites" />
+            </Helmet>
+
+            <section id="category-head">
+                <div id="category-layout">
+                    <div className="head-text">
+                        <h1>{t('category.header.title')}</h1>
+                        <p>{t('category.header.subTitle')} <Link to={"/create"}>{t('category.header.aTitle')}</Link> {t('category.header.threeTitle')}  </p>
+                        <div className="search">
+                            <IoSearchOutline />
+                            <input
+                                type="text"
+                                placeholder={t('category.search.placeholder')}
+                                value={searchInput}
+                                onChange={handleSearchChange}
+                            />
+                        </div>
+                        <CategoryFilters
+                            activeMenu={activeMenu}
+                            handleMenuToggle={handleMenuToggle}
+                            toolFilters={toolFilters}
+                            handleToolFilterChange={handleToolFilterChange}
+                            setSearchQuery={setSearchInput}
                         />
                     </div>
-                    <CategoryFilters
-                        activeMenu={activeMenu}
-                        handleMenuToggle={handleMenuToggle}
-                        toolFilters={toolFilters}
-                        handleToolFilterChange={handleToolFilterChange}
-                        setSearchQuery={setSearchInput}
-                    />
+                    <section id="category">
+                        <div className="site-grid">
+                            {loading ? <CategorySkeleton /> : filteredSites.map((site) => (
+                                <SiteCard key={site.id} site={site} />
+                            ))}
+                        </div>
+                    </section>
                 </div>
-                <section id="category">
-                    <div className="site-grid">
-                        {loading ? <CategorySkeleton /> : filteredSites.map((site) => (
-                            <SiteCard key={site.id} site={site} />
-                        ))}
-                    </div>
-                </section>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 

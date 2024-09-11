@@ -308,5 +308,10 @@
     "u404": {
         "unfoundText": "404: Page not found",
         "back": "Back"
+    },
+    "helmet": {
+        "publish": "Publish | Quimplo",
+        "explore": "Explore | Quimplo",
+        "stories": "Stories | Quimplo"
     }
 }

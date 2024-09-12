@@ -18,6 +18,9 @@
         "buttonText": "Explore",
         "buttonText2": "Submit template"
     },
+    "HomeSitesFeatured": {
+        "sectionTitle": "Featured templates"
+    },
     "homeFeatures": {
         "sectionTitle": "How does Quimplo work?",
         "sectionSubtitle": "It's easy to publish on Quimplo!",
@@ -45,9 +48,8 @@
         "sectionSubtitle": "You can have it in every template"
     },
     "homeNewsletter": {
-        "titlePart1": "Subscribe to the Quimplo events newsletter to be the first",
-        "titlePart2": "to know about new templates",
-        "buttonText": "Subscribe now"
+        "titlePart1": "Subscribe to the Quimplo events newsletter to be the first to know about new templates",
+        "buttonText": "Subscribe"
     },
     "homeFAQs": {
         "sectionTitle": "Frequently Asked Questions",

@@ -7,8 +7,10 @@
     align-items: center;
     z-index: 998;
 
+    user-select: none;
+
     nav {
-        position: relative; // To position the fade effect
+        position: relative;
         width: 100%;
 
         .swiper-container {

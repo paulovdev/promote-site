@@ -49,6 +49,7 @@
         position: relative;
         width: 100%;
 
+
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -60,7 +61,8 @@
             max-width: 1000px;
             width: 100%;
 
-            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
 
             cursor: pointer;
             user-select: none;
@@ -71,7 +73,7 @@
                 align-items: center;
 
                 h3 {
-                    font-size: 1.2rem;
+                    font-size: 1.3rem;
                     font-weight: 600;
                     letter-spacing: -1.2px;
                     color: var(--p);
@@ -147,7 +149,8 @@
                 align-items: center;
 
                 h3 {
-                    font-size: 1.1rem !important;
+                    max-width: 80%;
+                    font-size: 1.22rem !important;
                     font-weight: 600 !important;
                     color: var(--p);
                 }

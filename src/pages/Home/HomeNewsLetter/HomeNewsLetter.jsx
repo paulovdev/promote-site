@@ -8,8 +8,10 @@ const HomeNewsLetter = () => {
     return (
         <section id="home-newsletter">
             <h1>{t('homeNewsletter.titlePart1')}</h1>
-            <h1>{t('homeNewsletter.titlePart2')}</h1>
-            <button>{t('homeNewsletter.buttonText')}</button>
+            <form>
+                <input type="email" placeholder='example@gmail.com' autoComplete='email' />
+                <button>{t('homeNewsletter.buttonText')}</button>
+            </form>
         </section>
     );
 };

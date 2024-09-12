@@ -9,6 +9,7 @@ import HomeLogos from "./HomeLogos/HomeLogos";
 
 import Transition from "../../utils/Transition/Transition";
 import "./Home.scss";
+import HomeSitesFeatured from "./HomeSitesFeatured/HomeSitesFeatured";
 
 const Home = () => {
     return (
@@ -22,10 +23,12 @@ const Home = () => {
 
                 <HomeHero />
                 <HomeSites />
+                <HomeSitesFeatured />
                 <HomeFeatures />
                 <HomeLogos />
                 <HomeFAQs />
                 <HomeNewsLetter />
+
             </div>
         </>
     );

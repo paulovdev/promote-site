@@ -18,6 +18,9 @@
         "buttonText": "Explorar",
         "buttonText2": "Enviar template"
     },
+    "HomeSitesFeatured": {
+        "sectionTitle": "Templates em destaque"
+    },
     "homeFeatures": {
         "sectionTitle": "Como funciona o Quimplo?",
         "sectionSubtitle": "É fácil publicar no Quimplo!",
@@ -45,9 +48,8 @@
         "sectionSubtitle": "Você pode tê-lo em qualquer template"
     },
     "homeNewsletter": {
-        "titlePart1": "Inscreva-se na newsletter de eventos da Quimplo para ser o primeiro",
-        "titlePart2": "a saber sobre novos templates",
-        "buttonText": "Inscreva-se agora"
+        "titlePart1": "Inscreva-se na newsletter de eventos da Quimplo para ser o primeiro a saber sobre novos templates",
+        "buttonText": "Inscreva-se"
     },
     "homeFAQs": {
         "sectionTitle": "Perguntas Frequentes",

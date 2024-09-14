@@ -8,8 +8,7 @@ import './HomeSites.scss';
 
 const HomeSites = () => {
   const { sites, loading, error } = useSites();
-  const staggeredSites = sites.concat(sites); // Duplicando para efeito de looping infinito
-
+  const staggeredSites = sites.concat(sites);
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -21,7 +20,7 @@ const HomeSites = () => {
           slidesPerView={3}
           spaceBetween={10}
           loop={true}
-         
+
           autoplay={{
             "delay": 1,
             "disableOnInteraction": false,

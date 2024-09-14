@@ -43,8 +43,8 @@ const FeaturesStep = ({ features, setFeatures, setStep }) => {
                     <input
                         type='checkbox'
                         id={feature.id}
-                        checked={features.includes(feature.id)}
-                        onChange={() => toggleFeature(feature.id)}
+                        checked={features.includes(t(`features.${feature.name}`))}
+                        onChange={() => toggleFeature(t(`features.${feature.name}`))}
                     />
                     <label htmlFor={feature.id}>{t(`features.${feature.name}`)}</label>
                 </div>

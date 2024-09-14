@@ -58,6 +58,7 @@ const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
                         slidesPerView={'auto'}
                         onSwiper={(swiper) => (swiperRef.current = swiper)}
                         touchStartPreventDefault={false}
+                        
                         preventClicks={false}
                     >
                         {categories.map((category, index) => (

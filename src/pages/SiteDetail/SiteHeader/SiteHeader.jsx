@@ -115,7 +115,7 @@ const SiteHeader = ({ site }) => {
       <section id='site-features'>
         <div className="features">
           <span>{t('siteHeader.features.title')}</span>
-          <h1>{t('siteHeader.features.subtitle')}</h1>
+          <h1>{t('siteHeader.features.subtitle')}:</h1>
           <ul>
             {i18n.language === 'en'
               ? site.featureEn.map((feature, index) => (

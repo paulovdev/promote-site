@@ -12,7 +12,7 @@
 
         display: flex;
         align-items: center;
-
+        gap: .5rem;
         cursor: pointer;
 
         svg {
@@ -21,7 +21,7 @@
     }
 
     .arrow-icon {
-        margin-left: 8px;
+        font-size: 1.2rem;
         transition: transform 0.2s ease;
     }
 

@@ -15,11 +15,17 @@ i18n.use(initReactI18next).init({
             translation: br
         }
     },
-    lng: savedLanguage, 
-    fallbackLng: 'en', 
+    lng: savedLanguage,
+    fallbackLng: 'en',
     interpolation: {
         escapeValue: false
     }
+});
+
+// Definir cookie seguro
+Cookies.set('language', savedLanguage, {
+    secure: true, // Envia apenas via HTTPS
+    sameSite: 'Strict' // Proteção contra CSRF
 });
 
 export default i18n;

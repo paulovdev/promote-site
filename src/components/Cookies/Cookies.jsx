@@ -16,7 +16,11 @@ const CookiesComponent = () => {
     }, []);
 
     const handleAccept = () => {
-        Cookies.set('cookieConsent', 'true', { expires: 365 });
+        Cookies.set('cookieConsent', 'true', { 
+            expires: 365, 
+            secure: true, 
+            sameSite: 'Strict' 
+        });
         setIsVisible(false);
     };
 

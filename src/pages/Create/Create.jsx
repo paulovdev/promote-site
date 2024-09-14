@@ -171,6 +171,7 @@ const Create = () => {
       span: t('create.steps.6.span'),
       h1: t('create.steps.6.title'),
       p: t('create.steps.6.description'),
+      v: t('create.steps.6.only'),
     },
     7: {
       span: t('create.steps.7.span'),
@@ -236,18 +237,21 @@ const Create = () => {
                         <span>{stepContent[step].span} </span>
                         <h1>{stepContent[step].h1} </h1>
                         <p>{stepContent[step].p}</p>
-                        {step == 4 && (
-                          <>
-                            <p className='other-p'>
-                              <div className="border"></div>
-                              {stepContent[step].v}
-                            </p>
-                            <p className='other-p'>
-                              <div className="border"></div>
-                              {stepContent[step].c}
-                            </p>
-                          </>
+
+                        {step == 4 || step == 6 && (
+                          <p className='other-p'>
+                            <div className="border"></div>
+                            {stepContent[step].v}
+                          </p>
                         )}
+
+                        {step == 4 && (
+                          <p className='other-p'>
+                            <div className="border"></div>
+                            {stepContent[step].c}
+                          </p>
+                        )}
+
                       </div>
                       {renderStepProgress()}
                     </div>

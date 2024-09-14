@@ -25,10 +25,8 @@ const HomeSitesFeatured = () => {
           : sites.map((site, index) => (
             <Link className="site-container" key={index} to={`/site/${site.id}`} onClick={() => scrollTo({ top: 0 })}>
               <img src={site.imageURL} alt={site.siteName} width={300} height={200} />
-
               <div className="view"><RiArrowRightUpLine /></div>
             </Link>
-
           ))}
       </div>
     </section>

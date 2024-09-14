@@ -146,6 +146,19 @@
             "buySite": "Comprar? {{price}}",
             "freePrice": "Grátis"
         },
+        "toolDescriptions": {
+            "madeWith": "Este template foi feito com",
+            "drupal": "Drupal é um sistema de gerenciamento de conteúdo web gratuito e de código aberto, escrito em PHP e distribuído sob a GNU General Public License.",
+            "elementor": "Elementor é um plugin popular de construtor de páginas para WordPress que permite aos usuários criar layouts personalizados sem codificação.",
+            "framer": "Framer é uma ferramenta de design para criar protótipos interativos e animações para sites e aplicativos.",
+            "ghost": "Ghost é uma plataforma de publicação de código aberto poderosa, focada em publicação e blogs profissionais.",
+            "html-css-js": "HTML, CSS e JavaScript são as tecnologias fundamentais para construir e projetar sites e aplicativos web.",
+            "next": "Next é um framework React que permite renderização no lado do servidor e geração de sites estáticos para criar aplicativos web otimizados.",
+            "react": "React é uma biblioteca JavaScript para construir interfaces de usuário, mantida pelo Facebook e uma comunidade de desenvolvedores e empresas individuais.",
+            "webflow": "Webflow é uma ferramenta de design web, CMS e plataforma de hospedagem em um, permitindo que os usuários projetem, construam e lancem sites responsivos visualmente.",
+            "wix": "Wix é uma plataforma de desenvolvimento web baseada em nuvem que permite aos usuários criar sites HTML5 por meio do uso de ferramentas de arrastar e soltar.",
+            "wordpress": "WordPress é um sistema de gerenciamento de conteúdo (CMS) de código aberto usado para construir e gerenciar sites, conhecido por sua flexibilidade e facilidade de uso."
+        },
         "features": {
             "title": "ESTRUTURAS DO TEMPLATES",
             "subtitle": "Este template contém as seguintes características"
@@ -205,7 +218,8 @@
             "6": {
                 "span": "6/7",
                 "title": "Preço",
-                "description": "Defina o preço de venda do seu site."
+                "description": "Defina o preço de venda do seu site.",
+                "only": "APENAS EM DOLÁRES ($)"
             },
             "7": {
                 "span": "7/7",

@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Cookies from "js-cookie";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaChevronDown } from "react-icons/fa";
+
+import { BiWorld } from "react-icons/bi";
+import { RiArrowDownSFill } from "react-icons/ri";
 
 import "./LanguageSelector.scss";
 
@@ -20,7 +22,11 @@ function LanguageSelector() {
 
     const handleChange = (language) => {
         i18n.changeLanguage(language);
-        Cookies.set('language', language, { expires: 365 });
+        Cookies.set('language', language, { 
+            expires: 365, 
+            secure: true, 
+            sameSite: 'Strict' 
+        });
         closeDropdown();
     };
 
@@ -31,8 +37,9 @@ function LanguageSelector() {
             onMouseLeave={closeDropdown}
         >
             <button className="dropdown-button">
+                <BiWorld />
                 {i18n.language.toUpperCase()}
-                <FaChevronDown className={`arrow-icon ${isOpen ? 'open' : ''}`} />
+                <RiArrowDownSFill className={`arrow-icon ${isOpen ? 'open' : ''}`} />
             </button>
             <AnimatePresence>
                 {isOpen && (

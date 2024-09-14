@@ -3,23 +3,20 @@
 #category-head {
     position: relative;
     max-width: 1400px;
-
     width: 100%;
     height: 100%;
-
     padding: 0;
-    margin: 10rem auto;
+
+    margin: 10rem auto 8rem auto;
 
     display: flex;
     align-items: start;
-
     gap: 2.5rem;
 
     #category-layout {
         position: relative;
         width: 100%;
         height: 100%;
-
         display: flex;
         align-items: start;
         flex-direction: column;
@@ -27,13 +24,11 @@
 
         .head-text {
             width: 100%;
-
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             text-align: center;
-
 
             h1,
             span {
@@ -69,21 +64,16 @@
                 }
             }
 
-
             .search {
                 max-width: 500px;
                 width: 100%;
                 padding: 10px;
-
                 margin: 0 0 3rem 0;
-
                 font-size: 20px;
                 font-weight: 600;
-
                 border-radius: 2rem;
                 border: 1px solid var(--border);
                 background-color: var(--bg);
-
                 display: flex;
                 align-items: center;
 
@@ -96,10 +86,8 @@
 
                 input {
                     width: 100%;
-
                     border: none;
                     background: transparent;
-
                     color: var(--p);
                     font-size: 16px;
                     font-weight: 500;
@@ -115,7 +103,6 @@
             position: relative;
             width: 100%;
             height: 100%;
-
             display: flex;
             align-items: start;
             justify-content: start;
@@ -123,7 +110,6 @@
 
             .site-grid {
                 width: 100%;
-
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr 1fr;
                 gap: 1.5rem;
@@ -135,12 +121,12 @@
 @media (max-width: 1400px) {
     #category-head {
         padding: 25px;
+        margin: 8rem auto 5rem auto;
 
         .head-text {
 
             h1,
             span {
-                max-width: 85%;
                 letter-spacing: -1.6px;
                 margin-bottom: 1rem;
                 font-size: 4rem;
@@ -149,9 +135,7 @@
                 color: var(--p);
             }
 
-
             p {
-                max-width: 65%;
                 font-size: 1.3rem;
                 font-weight: 300;
                 line-height: 1.3;
@@ -163,20 +147,13 @@
     }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
     #category-head {
-        padding: 25px;
-
-        .head-text {
-            h1 {
-                max-width: 100% !important;
-                font-size: 52px !important;
-                margin-bottom: 2rem;
-                line-height: 1;
-            }
-
-            p {
-                max-width: 80%;
+        #category-layout {
+            #category {
+                .site-grid {
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
             }
         }
     }
@@ -185,14 +162,13 @@
 @media (max-width: 809px) {
     #category-head {
         flex-direction: column;
-        margin: 8rem 0;
         padding: 15px;
 
         .head-text {
 
             h1,
             span {
-                max-width: 100% !important;
+                max-width: 100%;
                 letter-spacing: -1.6px;
                 margin-bottom: 1rem;
                 font-size: 3.5rem !important;
@@ -202,7 +178,7 @@
             }
 
             p {
-                max-width: 100% !important;
+                max-width: 100%;
                 font-size: 1.2rem !important;
                 font-weight: 300;
                 line-height: 1.3;
@@ -225,14 +201,11 @@
 
                 .site-grid {
                     width: 100%;
-
                     display: grid;
                     grid-template-columns: 1fr;
                     gap: 1.5rem;
                 }
             }
         }
-
-
     }
 }

@@ -205,6 +205,7 @@ const Create = () => {
           </motion.div>
 
         </div>
+
         <motion.div
           initial={{ opacity: 0, y: -25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -214,6 +215,7 @@ const Create = () => {
         >
           <Price onClick={() => setShowModal(true)} />
         </motion.div>
+        
         <AnimatePresence mode='wait'>
           {showModal && (
             <motion.div

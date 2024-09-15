@@ -8,16 +8,14 @@ const HomeHero = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="home-hero">
+    <section id="hero-section">
       <h1 dangerouslySetInnerHTML={{ __html: t('homeHero.title') }} />
       <p>{t('homeHero.description')}</p>
-      <div
-        className="home-button"
-      >
-        <Link to="/sites/all" className="home-button-content" onClick={() => scrollTo({ top: 0 })}>
+      <div className="hero-buttons">
+        <Link to="/sites/all" className="hero-button" onClick={() => scrollTo({ top: 0 })}>
           {t('homeHero.buttonText')} <FaArrowRightLong />
         </Link>
-        <Link to="/create" className="home-button-content-2" onClick={() => scrollTo({ top: 0 })}>
+        <Link to="/create" className="hero-button secondary" onClick={() => scrollTo({ top: 0 })}>
           {t('homeHero.buttonText2')} <FaArrowRightLong />
         </Link>
       </div>

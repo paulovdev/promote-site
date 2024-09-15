@@ -1,12 +1,10 @@
 @import "../../index.scss";
 
 header {
-  position: fixed;
+  position: relative;
   width: 100%;
-
   top: 0;
   background-color: var(--bg);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,71 +26,52 @@ header {
     li {
       .feature-nav {
         width: 175px;
-
-        border-radius: 2rem;
-
         border: 1px solid var(--border);
+        border-radius: 1.5rem;
         background-color: var(--accent);
         color: var(--fixed-c);
-
         text-align: center;
-        border-radius: 1.5rem;
         padding: .50rem 1.5rem;
         font-size: 1rem;
         line-height: 1.5rem;
-
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
         box-shadow: inset 0 0 0 0 var(--p);
-        -webkit-transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
-        -moz-transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
-        transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.3s;
 
         &:hover,
         &.active {
           box-shadow: inset 0 -150px 0 0 var(--p);
           color: var(--p-2);
-          gap: 1rem;
         }
       }
 
       .explore-nav {
         padding: .5rem 1.1rem;
-
         border-radius: 2rem;
         color: var(--p);
-
         font-size: 1rem;
         font-weight: 400;
         line-height: 1.5rem;
-
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
         &:hover,
         &.active {
           backdrop-filter: blur(25px);
-          background-color: #42424217;
+          background-color: rgba(66, 66, 66, 0.1);
         }
       }
     }
   }
 
-  .mobile-menu-content {
-    display: none;
-  }
-
   .mobile-menu {
-    width: fit-content;
-    height: fit-content;
-
     display: none;
     align-items: end;
     justify-content: center;
     flex-direction: column;
     gap: .1rem;
-
+    width: fit-content;
+    height: fit-content;
     transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     cursor: pointer;
     z-index: 998;
@@ -104,35 +83,30 @@ header {
       margin: 2px 0;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       transform-origin: center;
-    }
 
-    .hm-bar.active:nth-child(1) {
-      transform: rotate(45deg) translate(1px, 1px);
-    }
+      &.active:nth-child(1) {
+        transform: rotate(45deg) translate(1px, 1px);
+      }
 
-    .hm-bar.active:nth-child(2) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
+      &.active:nth-child(2) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
 
-    .hm-bar.active:nth-child(3) {
-      opacity: 0;
+      &.active:nth-child(3) {
+        opacity: 0;
+      }
     }
-
   }
 
   .mobile-menu-content {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100vw;
     height: 75vh;
-
     padding: 0 3rem 0 2rem;
-
     background-color: var(--bg-2);
     border: 1px solid var(--border);
-
     display: none;
     align-items: start;
     justify-content: center;
@@ -150,12 +124,10 @@ header {
       }
 
       a {
-
         color: var(--p);
         font-size: 2rem;
         font-weight: 600;
         letter-spacing: -1.3px;
-
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -166,47 +138,37 @@ header {
         }
       }
     }
-
-
   }
 
   nav {
     position: relative;
     max-width: 1250px;
     width: 100%;
-
     padding: 15px 0;
-
     list-style: none;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-
   }
 }
 
-
-@media (max-width:1400px) {
+@media (max-width: 1400px) {
   header {
     nav {
       left: 0;
       padding: 15px;
     }
-
   }
-
-
 }
 
-@media (max-width:809px) {
+@media (max-width: 992px) {
   header {
     padding: 0;
     gap: 0;
 
     .logo>a {
-      margin-left: 0rem;
+      margin-left: 0;
     }
 
     nav {
@@ -216,7 +178,6 @@ header {
 
     .mobile-menu {
       display: flex;
-
     }
 
     .mobile-menu-content {
@@ -227,6 +188,4 @@ header {
       display: none;
     }
   }
-
-
 }

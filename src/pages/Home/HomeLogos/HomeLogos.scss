@@ -14,10 +14,11 @@
     span {
         margin-bottom: 1rem;
 
-        letter-spacing: 1px;
-        text-transform: uppercase;
         font-size: .875rem;
         font-weight: 700;
+
+        letter-spacing: 1px;
+        text-transform: uppercase;
         line-height: 1.225rem;
 
         color: var(--p-i);
@@ -25,21 +26,28 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
+
+        text-align: center;
     }
 
     h1 {
-        letter-spacing: -1.6px;
+        margin-bottom: 2rem;
+
         font-size: 3rem;
-        font-weight: 500;
+        font-weight: 400;
+
+        line-height: 1;
+        letter-spacing: -1.6px;
+
         color: var(--p-i);
 
-        margin-bottom: 3rem;
+        text-align: center;
     }
 
     .icons {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        gap: 6rem;
+        gap: 5rem;
 
         svg {
             color: var(--p-i);
@@ -56,49 +64,30 @@
     }
 }
 
-@media (max-width:809px) {
+@media (max-width:992px) {
+    #home-logos {
+        padding: 50px;
+    }
+}
+
+@media (max-width:768px) {
     #home-logos {
         padding: 30px 15px;
-
         border-radius: 1.5rem;
 
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-
-        span {
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: .875rem;
-            font-weight: 700;
-            line-height: 1.225rem;
-            text-align: center;
-
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-
-        }
-
         h1 {
-            max-width: 100% !important;
-            font-size: 2rem !important;
-            font-weight: 500;
-            line-height: 1.05;
+            margin-bottom: 3rem;
 
-            margin-bottom: 5rem;
-            text-align: center;
+            font-size: 2.5rem;
         }
 
         .icons {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 5rem;
 
             svg {
-
+                color: var(--p-i);
                 font-size: 54px;
                 transition: .3s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
@@ -111,4 +100,5 @@
 
         }
     }
+
 }

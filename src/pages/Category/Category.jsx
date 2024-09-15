@@ -55,7 +55,6 @@ const Category = () => {
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>{t('helmet.explore')}</title>
-                <link rel="canonical" href="http://quimplo.online/sites" />
             </Helmet>
 
             <section id="category-head">

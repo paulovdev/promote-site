@@ -27,7 +27,7 @@ const Stories = () => {
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>{t('helmet.stories')}</title>
-                <link rel="canonical" href="http://quimplo.online/stories" />
+            
             </Helmet>
 
             <div id="stories">

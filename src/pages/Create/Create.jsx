@@ -185,7 +185,7 @@ const Create = () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>{t('helmet.publish')}</title>
-        <link rel="canonical" href="http://quimplo.online/create" />
+ 
       </Helmet>
 
       <div id="create">

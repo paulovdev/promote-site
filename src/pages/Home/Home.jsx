@@ -17,7 +17,7 @@ const Home = () => {
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>Quimplo</title>
-                <link rel="canonical" href="http://quimplo.online" />
+        
             </Helmet>
             <div id="home">
 

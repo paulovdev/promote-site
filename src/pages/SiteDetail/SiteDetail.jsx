@@ -20,7 +20,7 @@ const SiteDetail = () => {
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>{data.site.siteName} | Quimplo</title>
-                <link rel="canonical" href={`http://quimplo.online/${data.site.siteName}`} />
+         
             </Helmet>
             <AnimatePresence mode="wait">
                 <motion.div

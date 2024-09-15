@@ -11,20 +11,27 @@
   padding: 0.5rem;
 
   border-radius: 100%;
-  background-color: var(--btn);
+  background-color: var(--accent);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   user-select: none;
-  z-index: 999;
+  z-index: 999999;
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
-  mix-blend-mode: exclusion;
+  svg {
+    color: var(--fixed-c);
+    font-size: 26px;
+  }
 
   &:hover {
-    background-color: var(--btn-2);
+    background-color: var(--p);
+
+    svg {
+      color: var(--p-2);
+    }
   }
 }
 
@@ -41,27 +48,22 @@
 @media (max-width:809px) {
   .scroll-top {
     position: fixed;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 
-    right: 20px;
-    bottom: 90px;
+    right: 15px;
+    bottom: 30px;
 
     padding: 0.5rem;
 
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     border-radius: 100%;
-    background-color: var(--btn);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     user-select: none;
-    z-index: 998;
     transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-    &:hover {
-      background-color: var(--btn-2);
-    }
   }
 }

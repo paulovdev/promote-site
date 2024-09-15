@@ -116,21 +116,22 @@
             font-size: .875rem;
             font-weight: 700;
             line-height: 1.225rem;
-
-            color: var(--accent);
+            text-align: center;
 
             display: flex;
             align-items: center;
             gap: 0.5rem;
+
         }
 
         h1 {
             max-width: 100% !important;
             font-size: 2rem !important;
             font-weight: 500;
-            color: var(--p);
+            line-height: 1.05;
 
             margin-bottom: 2rem;
+            text-align: center;
         }
 
         .faq-card {

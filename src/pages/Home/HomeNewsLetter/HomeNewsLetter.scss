@@ -45,7 +45,7 @@
             text-align: center;
             border-radius: 1.5rem;
             font-size: 1.125rem;
-            font-weight: 600;
+            font-weight: 500;
             line-height: 1.5rem;
 
             cursor: pointer;
@@ -100,7 +100,7 @@
         margin: 5rem auto !important;
         background-color: var(--accent-2);
 
-        padding: 50px;
+        padding: 50px 15px;
 
         display: flex;
         align-items: center;
@@ -111,16 +111,22 @@
             max-width: 100% !important;
             font-size: 2rem !important;
             font-weight: 500;
-            line-height: 1.1;
+            line-height: 1.05;
+
+            margin-bottom: 0;
             text-align: center;
         }
 
         form {
             input {
-                max-width: fit-content;
+                max-width: 100%;
                 width: 100%;
                 padding: 10px 1rem;
 
+            }
+
+            button {
+                width: 100%;
             }
         }
 

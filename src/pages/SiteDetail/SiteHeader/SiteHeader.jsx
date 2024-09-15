@@ -25,6 +25,28 @@ const SiteHeader = ({ site }) => {
   const toolDescriptions = t('siteHeader.toolDescriptions', { returnObjects: true });
   const currentDescription = i18n.language === 'en' ? site.descriptionEn : site.descriptionBr;
 
+  const categories = [
+    { name: t('categories.all'), path: "/sites/all" },
+    { name: t('categories.featured'), path: "/sites/hot" },
+    { name: t('categories.blog'), path: "/sites/blog" },
+    { name: t('categories.business'), path: "/sites/business" },
+    { name: t('categories.creative'), path: "/sites/creative" },
+    { name: t('categories.educational'), path: "/sites/educational" },
+    { name: t('categories.ecommerce'), path: "/sites/e-commerce" },
+    { name: t('categories.event'), path: "/sites/event" },
+    { name: t('categories.health'), path: "/sites/health-wellness" },
+    { name: t('categories.landingPage'), path: "/sites/landing-page" },
+    { name: t('categories.nonProfit'), path: "/sites/non-profit" },
+    { name: t('categories.photography'), path: "/sites/photography" },
+    { name: t('categories.portfolio'), path: "/sites/portfolio" },
+    { name: t('categories.restaurant'), path: "/sites/restaurant" },
+    { name: t('categories.saas'), path: "/sites/saas" },
+    { name: t('categories.technology'), path: "/sites/technology" },
+    { name: t('categories.travel'), path: "/sites/travel" }
+  ];
+  const currentCategory = categories.find(cat => cat.path === `/sites/${site.category}`)?.name;
+
+
   return (
     <>
       <section id="site-detail">
@@ -34,7 +56,7 @@ const SiteHeader = ({ site }) => {
           </Link>
           <MdKeyboardArrowRight />
           <Link to={`/sites/${site.category}`}>
-            {site.category}
+            {currentCategory}
           </Link>
           <MdKeyboardArrowRight />
           <Link>
@@ -67,7 +89,7 @@ const SiteHeader = ({ site }) => {
 
               <div className="category-text">
                 <Link to={`/sites/${site.category}`} data-tooltip-id="my-tooltip" data-tooltip-content={t('siteHeader.toolText.tooltip', { category: site.category })}>
-                  {site.category}
+                  {currentCategory}
                 </Link>
               </div>
             </div>

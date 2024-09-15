@@ -3,7 +3,7 @@ import { useSites } from '../../../hooks/useSites';
 import { Link } from 'react-router-dom';
 import { RiArrowRightUpLine } from "react-icons/ri";
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { Autoplay } from 'swiper/modules';
 import './HomeSites.scss';
 
 const HomeSites = () => {
@@ -15,21 +15,36 @@ const HomeSites = () => {
 
   return (
     <section id="home-sites">
-      <div className="swiper-container">
-        <Swiper
-          slidesPerView={3}
-          spaceBetween={10}
-          loop={true}
 
-          autoplay={{
-            "delay": 1,
-            "disableOnInteraction": false,
-            "pauseOnMouseEnter": false,
-            "stopOnLastSlide": false,
-            "waitForTransition": true
-          }}
-        >
-          {loading
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={25}
+        autoplay={{
+          delay: 2000,
+          pauseOnMouseEnter: true,
+        }}
+        loop={true}
+        pagination={{ clickable: false }}
+        modules={[Autoplay]}
+        breakpoints={{
+          1400: {
+            slidesPerView: 4,
+            spaceBetween: 25,
+          },
+          1000: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          609: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          }
+
+
+        }}
+      >
+        {
+          loading
             ? Array.from({ length: 8 }).map((_, index) => (
               <div key={index} className="loading-skeleton" />
             ))
@@ -41,8 +56,8 @@ const HomeSites = () => {
                 </Link>
               </SwiperSlide>
             ))}
-        </Swiper>
-      </div>
+      </Swiper>
+
     </section >
   );
 };

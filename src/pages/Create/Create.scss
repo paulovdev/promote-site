@@ -714,7 +714,7 @@
 
             .animate-render-step-wrapper {
                 width: 100%;
-                height: fit-content !important;
+                height: 100% !important;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -879,29 +879,44 @@
             max-width: 100%;
             width: 100%;
 
-            h1 {
-                max-width: 100%;
-                letter-spacing: -1.6px !important;
-                margin-bottom: 1rem !important;
-                font-size: 3.5rem !important;
-                font-weight: 400 !important;
-                line-height: 1.1 !important;
+            h1,
+            span {
+                max-width: 100% !important;
+                letter-spacing: -1.25px !important;
+                margin-bottom: 1rem;
+                font-size: 2.5rem !important;
+                font-weight: 500 !important;
+                line-height: 1 !important;
                 color: var(--p);
             }
 
             p {
-                max-width: 100%;
-                font-size: 1.2rem !important;
-                font-weight: 300;
-                line-height: 1.3 !important;
+                max-width: 100% !important;
+                letter-spacing: -.7px !important;
+                font-size: 1.1rem !important;
+                font-weight: 400 !important;
+                line-height: 1.2 !important;
                 color: var(--p);
                 opacity: .9;
-                margin-bottom: 2rem;
+                margin-bottom: 2rem !important;
             }
 
         }
 
         .form-container {
+            position: fixed;
+            width: 100vw;
+            height: 100%;
+            top: 0;
+
+            overflow-y: scroll;
+
+            background: var(--bg);
+
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            z-index: 9999999;
 
             .form-wrapper {
                 padding: 25px;
@@ -913,40 +928,34 @@
 
 
                 .left-content {
+                
                     max-width: 100%;
                     width: 100%;
                     height: fit-content !important;
-                    margin: 10rem 0 0 0;
+
 
                     .step-info {
 
-
                         h1 {
-                            letter-spacing: -2px;
-                            font-size: 3rem;
-                            font-weight: 600;
-                            line-height: 3.5rem;
+                            max-width: 100% !important;
+                            letter-spacing: -1.25px !important;
                             margin-bottom: 1rem;
+                            font-size: 2.5rem !important;
+                            font-weight: 500 !important;
+                            line-height: 1 !important;
+                            color: var(--p);
                         }
 
                         p {
-                            margin-bottom: 2rem;
-
-                            font-size: 1.1rem;
-                            font-weight: 300;
-                            line-height: 1.2;
+                            max-width: 100% !important;
+                            letter-spacing: -.7px !important;
+                            font-size: 1.1rem !important;
+                            font-weight: 400 !important;
+                            line-height: 1.2 !important;
                             color: var(--p);
                             opacity: .9;
-                            text-align: start;
-
-                            display: flex;
-                            align-items: center;
-                            gap: 0.5rem;
-
-
+                            margin-bottom: 2rem !important;
                         }
-
-
                     }
                 }
 

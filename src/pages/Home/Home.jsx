@@ -12,7 +12,6 @@ import Transition from "../../utils/Transition/Transition";
 import "./Home.scss";
 
 const Home = () => {
-    const [showHero, setShowHero] = useState(false);
     const [showSites, setShowSites] = useState(false);
     const [showSitesFeatured, setShowSitesFeatured] = useState(false);
     const [showFeatures, setShowFeatures] = useState(false);
@@ -21,11 +20,10 @@ const Home = () => {
     const [showNewsLetter, setShowNewsLetter] = useState(false);
 
     useEffect(() => {
-        setShowHero(true);
         const timers = [
             setTimeout(() => setShowSites(true), 0),
             setTimeout(() => setShowSitesFeatured(true), 1000),
-            setTimeout(() => setShowFeatures(true), 1500),
+            setTimeout(() => setShowFeatures(true),1500),
             setTimeout(() => setShowLogos(true), 2000),
             setTimeout(() => setShowFAQs(true), 2500),
             setTimeout(() => setShowNewsLetter(true), 3000),
@@ -41,7 +39,7 @@ const Home = () => {
                 <title>Quimplo</title>
             </Helmet>
             <div id="home">
-                {showHero && <HomeHero />}
+                <HomeHero />
                 {showSites && <HomeSites />}
                 {showSitesFeatured && <HomeSitesFeatured />}
                 {showFeatures && <HomeFeatures />}

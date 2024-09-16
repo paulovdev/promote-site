@@ -53,11 +53,11 @@
             height: fit-content;
 
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: start;
+            justify-content: start;
             flex-direction: column;
 
-            text-align: center;
+            text-align: start;
 
             .icon-card {
                 margin-bottom: 2rem;

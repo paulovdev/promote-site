@@ -6,14 +6,14 @@ import HomeFeatures from "./HomeFeatures/HomeFeatures";
 import HomeFAQs from "./HomeFAQs/HomeFAQs";
 import HomeNewsLetter from "./HomeNewsLetter/HomeNewsLetter";
 import HomeLogos from "./HomeLogos/HomeLogos";
-import HomeSitesFeatured from "./HomeSitesFeatured/HomeSitesFeatured";
-
+/* import HomeSitesFeatured from "./HomeSitesFeatured/HomeSitesFeatured";
+ */
 import Transition from "../../utils/Transition/Transition";
 import "./Home.scss";
 
 const Home = () => {
     const [showSites, setShowSites] = useState(false);
-    const [showSitesFeatured, setShowSitesFeatured] = useState(false);
+ /*    const [showSitesFeatured, setShowSitesFeatured] = useState(false); */
     const [showFeatures, setShowFeatures] = useState(false);
     const [showLogos, setShowLogos] = useState(false);
     const [showFAQs, setShowFAQs] = useState(false);
@@ -22,7 +22,7 @@ const Home = () => {
     useEffect(() => {
         const timers = [
             setTimeout(() => setShowSites(true), 0),
-            setTimeout(() => setShowSitesFeatured(true), 1000),
+          /*   setTimeout(() => setShowSitesFeatured(true), 1000), */
             setTimeout(() => setShowFeatures(true),1500),
             setTimeout(() => setShowLogos(true), 2000),
             setTimeout(() => setShowFAQs(true), 2500),
@@ -41,7 +41,7 @@ const Home = () => {
             <div id="home">
                 <HomeHero />
                 {showSites && <HomeSites />}
-                {showSitesFeatured && <HomeSitesFeatured />}
+                {/* {showSitesFeatured && <HomeSitesFeatured />} */}
                 {showFeatures && <HomeFeatures />}
                 {showLogos && <HomeLogos />}
                 {showFAQs && <HomeFAQs />}

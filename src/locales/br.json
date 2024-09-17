@@ -26,19 +26,15 @@
         "sectionSubtitle": "É fácil publicar no Quimplo!",
         "features": [
             {
-                "title": "Selecione seu template",
-                "description": "Escolha o melhor template que você quer vender."
-            },
-            {
-                "title": "Preencha o formulário e publique",
+                "title": "1. Preencha o formulário e publique",
                 "description": "Complete todas as informações necessárias e envie seu template para revisão."
             },
             {
-                "title": "Aguarde a revisão",
+                "title": "2. Aguarde a revisão",
                 "description": "Após o envio, seu template será revisado. Você também pode optar por um destaque para aparecer no topo."
             },
             {
-                "title": "Pronto!",
+                "title": "3. Pronto!",
                 "description": "Seu template está sendo configurado e estará disponível em breve!"
             }
         ]

@@ -26,8 +26,10 @@ const HomeLogos = () => {
 
     return (
         <section id='home-logos'>
-            <span>{t('homeLogos.sectionTitle')}</span>
-            <h1>{t('homeLogos.sectionSubtitle')}</h1>
+            <div className="text-logos">
+                <span>{t('homeLogos.sectionTitle')}</span>
+                <h1>{t('homeLogos.sectionSubtitle')}</h1>
+            </div>
             <div className="icons">
                 {icons.map((icon, index) => (
                     <div key={index} data-tooltip-id="my-tooltip" data-tooltip-content={`${icon.name}`}>{icon.icon}</div>

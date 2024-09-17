@@ -12,9 +12,9 @@ const Price = ({ onClick }) => {
             <div className="plans">
                 <div className="plan" onClick={onClick}>
 
-                    <h3 className="plan-title">
-                        {t('price.basicPlanTitle')} <p className="cost">{t('price.free')}</p>
-                    </h3>
+                    <h3> Quimplo </h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <span className="cost">{t('price.free')}</span>
 
 
                     <ul className="features">
@@ -29,10 +29,10 @@ const Price = ({ onClick }) => {
                 </div>
 
                 <div className="plan">
+                    <h3>Quimplo featured</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <span className="cost">{t('price.price')}</span>
 
-                    <h3 className="plan-title">
-                        {t('price.fastPlanTitle')} <p className="cost">{t('price.price')}</p>
-                    </h3>
 
                     <ul className="features" >
                         <li><IoCheckmarkCircleSharp className="check-icon" />{t('price.unlimitedTemplateUploads')}</li>

@@ -14,16 +14,14 @@
         gap: 2.5rem;
 
         .plan {
-            max-width: 400px;
+            max-width: 500px;
             width: 100%;
             height: fit-content;
 
             padding: 2rem 1.5rem;
 
-            background-color: var(--bg);
             border: 1px solid var(--border);
-            border-top: 3px solid var(--accent);
-            border-radius: .5rem;
+            border-radius: 1rem;
 
             display: flex;
             align-items: start;
@@ -33,15 +31,18 @@
             transition: .1s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
             cursor: pointer;
 
-            .plan-title {
+            &:nth-child(2) {
+                border: 2px solid var(--accent);
+            }
+
+            h3 {
                 width: 100%;
+                margin-bottom: 1rem;
 
-                margin-bottom: 3rem;
+                letter-spacing: -1px;
 
-                letter-spacing: -1.6px;
-
-                font-size: 2.5rem;
-                font-weight: 500;
+                font-size: 1.5rem;
+                font-weight: 700;
                 line-height: 1.3;
 
                 color: var(--p);
@@ -50,14 +51,26 @@
                 align-items: center;
                 justify-content: space-between;
 
-                .cost {
-                    letter-spacing: -1px;
-                    font-size: 1.3rem;
-                    font-weight: 600;
-                    color: var(--p);
 
-                    margin: 0;
-                }
+            }
+
+            p {
+                margin-bottom: 2rem;
+
+                font-weight: 300;
+                font-size: 1rem;
+                line-height: 1.2;
+
+                color: var(--p);
+
+            }
+
+            span {
+                margin-bottom: 1rem;
+
+                font-size: 2rem;
+                font-weight: 600;
+                color: var(--p);
             }
 
             .check-icon {
@@ -137,6 +150,8 @@
                 border: 3px solid var(--accent);
             }
         }
+
+
     }
 }
 

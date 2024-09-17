@@ -1,10 +1,12 @@
 @import "../../index.scss";
 
 header {
-  position: relative;
+  position: fixed;
   width: 100%;
   top: 0;
+  height: 6vh;
   background-color: var(--bg);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +15,7 @@ header {
 
   .logo>a {
     svg {
-      font-size: 42px;
+      font-size: 32px;
       color: var(--accent);
     }
   }
@@ -31,9 +33,10 @@ header {
         background-color: var(--accent);
         color: var(--fixed-c);
         text-align: center;
-        padding: .50rem 1.5rem;
+        padding: .30rem 1.3rem;
         font-size: 1rem;
-        line-height: 1.5rem;
+        font-weight: 600;
+        letter-spacing: -.3px;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
         box-shadow: inset 0 0 0 0 var(--p);
@@ -47,18 +50,18 @@ header {
 
       .explore-nav {
         padding: .5rem 1.1rem;
-        border-radius: 2rem;
         color: var(--p);
         font-size: 1rem;
-        font-weight: 400;
+        font-weight: 600;
         line-height: 1.5rem;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
         &:hover,
         &.active {
-          backdrop-filter: blur(25px);
-          background-color: rgba(66, 66, 66, 0.1);
+       
+          border-bottom: 1px solid var(--bg);
+         
         }
       }
     }
@@ -142,9 +145,9 @@ header {
 
   nav {
     position: relative;
-    max-width: 1250px;
     width: 100%;
-    padding: 15px 0;
+    padding: 0 1rem;
+
     list-style: none;
     display: flex;
     align-items: center;

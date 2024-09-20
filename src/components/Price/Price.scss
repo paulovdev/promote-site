@@ -14,7 +14,7 @@
         gap: 2.5rem;
 
         .plan {
-            max-width: 500px;
+            max-width: 400px;
             width: 100%;
             height: fit-content;
 
@@ -147,7 +147,7 @@
             }
 
             &:hover {
-                border: 3px solid var(--accent);
+                border: 2px solid var(--accent);
             }
         }
 

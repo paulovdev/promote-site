@@ -10,7 +10,7 @@ export const ThemeProvider = ({ children }) => {
             return cookieTheme;
         }
         const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        return prefersDarkScheme ? "light" : "dark";
+        return prefersDarkScheme ? "dark " : "light";
     };
 
     const [theme, setTheme] = useState(getInitialTheme);
@@ -23,7 +23,7 @@ export const ThemeProvider = ({ children }) => {
     useEffect(() => {
         const mediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
         const handleChange = (e) => {
-            setTheme(e.matches ? "light" : "dark");
+            setTheme(e.matches ? "dark" : "light ");
         };
 
         mediaQueryList.addEventListener("change", handleChange);

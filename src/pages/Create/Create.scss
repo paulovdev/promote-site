@@ -10,6 +10,8 @@
     justify-content: center;
     flex-direction: column;
 
+
+
     .head-container,
     .head-container>div {
         max-width: 1000px;
@@ -57,17 +59,19 @@
     }
 
     .form-container {
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
+        position: relative;
+        max-width: 1400px;
+        width: 100%;
+        height: min(90vh, 750px);
 
-        overflow-y: scroll;
 
+        background-color: var(--bg);
+        border-radius: 1rem;
 
         display: flex;
-        align-items: center;
-        justify-content: start;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
         z-index: 9999999;
 
         .animate-render-step-wrapper {
@@ -83,72 +87,72 @@
             position: relative;
             max-width: 1400px;
             width: 100%;
-            max-height: 1200px;
-            height: 100%;
-            margin: 1rem auto;
-
-            background: var(--bg);
-
+            height: min(90vh, 750px);
+            border-radius: 1rem 0 0 1rem;
+            overflow-y: scroll;
             display: flex;
             align-items: center;
             justify-content: start;
-            gap: 3rem;
             z-index: 999;
 
 
             .left-content {
                 position: sticky;
-                top: 100px;
-                max-width: 700px;
+                top: 0;
+                max-width: 450px;
                 width: 100%;
-                max-height: 600px;
-                height: 100%;
+                height: min(90vh, 750px);
+                background-color: var(--bg-2);
+
+                padding: 2rem;
 
                 display: flex;
                 align-items: start;
+                justify-content: space-between;
                 flex-direction: column;
 
+                svg {
+                    font-size: 42px;
+                    color: var(--accent);
+                }
+
                 .step-info {
+                    position: relative;
                     width: 100%;
 
                     display: flex;
                     align-items: start;
                     justify-content: start;
                     flex-direction: column;
+                    gap: .5rem;
                     text-align: start;
 
                     span {
-                        letter-spacing: 1px;
-                        text-transform: uppercase;
-                        font-size: 1.375rem;
-                        font-weight: 700;
-                        line-height: 1.225rem;
 
-                        color: var(--accent);
-                        margin-bottom: 2rem;
+                        font-size: 1rem;
+                        font-weight: 600;
+
+                        letter-spacing: -.8px;
+
+                        color: var(--p-i);
+
                     }
 
                     h1 {
-                        letter-spacing: -2px;
-                        font-size: 3.325rem;
+                        letter-spacing: -1px;
+                        font-size: 2.5rem;
                         font-weight: 600;
-                        line-height: 3.5rem;
-                        margin-bottom: 1rem;
+                        color: var(--p-i);
                     }
 
                     p {
-                        font-size: 1.25rem;
-                        font-weight: 300;
-                        line-height: 1.75rem;
-                        color: var(--p);
-                        opacity: .9;
+                        font-size: 1rem;
+                        letter-spacing: -.4px;
+                        font-weight: 400;
+                        line-height: 1.3;
+
+                        color: var(--p-i);
                         text-align: start;
-
-                        display: flex;
-                        align-items: center;
-                        gap: 0.5rem;
-
-
                     }
 
                     .other-p {
@@ -177,28 +181,36 @@
 
             .right-content {
                 position: relative;
-                max-width: 700px;
+                max-width: 950px;
                 width: 100%;
-                height: 600px;
-
-                display: flex;
-                align-items: center;
+                height: min(90vh, 750px);
 
                 form {
                     position: relative;
                     width: 100%;
-                    height: 100%;
-                    margin: 2rem 0;
+                    height: 900px;
 
                     .step-buttons {
+                        position: sticky;
+                        width: 100%;
+                        height: fit-content;
+                        left: 0;
+                        bottom: 0;
+
+                        background-color: #ffffff85;
+                        backdrop-filter: blur(5px);
+                        border-top: 2px solid var(--border);
+                        padding: 1rem;
+
                         display: flex;
                         justify-content: space-between;
                         gap: 1rem;
 
+                        z-index: 99999;
+
                         button {
                             width: 150px;
-                            padding: 10px;
-                            margin: 5rem 0;
+                            height: 40px;
 
                             outline: none;
                             border: none;
@@ -242,11 +254,11 @@
                                 }
                             }
                         }
+
+
                     }
                 }
             }
-
-
         }
 
         .error-message {
@@ -275,12 +287,12 @@
 
         .close-button {
             position: absolute;
-            top: 35px;
-            right: 30px;
-            background: none;
+            top: 0px;
+            right: -50px;
+            background-color: var(--border);
+            border-radius: .5rem;
             border: none;
 
-            font-size: 1.5rem;
             cursor: pointer;
             color: var(--p);
             z-index: 999999;
@@ -291,13 +303,10 @@
 
                 &:hover {
 
-                    background-color: var(--border);
+                    background-color: var(--border-2);
                 }
             }
         }
-
-
-
     }
 
 }
@@ -329,7 +338,7 @@
     width: 100%;
     height: 100%;
 
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.753);
 
     display: flex;
     justify-content: center;
@@ -411,574 +420,22 @@
 .step-progress {
     position: relative;
     width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+}
+
+.step {
+    position: relative;
+    width: 70px;
     height: 7px;
 
-    margin: 0 0 2rem 0;
-
-    background-color: var(--bg-2);
-    border-radius: 5rem;
-
-
-    .progress-bar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        background-color: var(--accent);
-        border-radius: 5rem;
-    }
+    background: var(--bg);
+    border-radius: 5px;
 }
 
-@media (max-width: 1400px) {
-    #create {
-        padding: 25px;
-
-        .head-container {
-            max-width: 100%;
-
-            h1,
-            span {
-                letter-spacing: -1.6px;
-                margin-bottom: 1rem;
-                font-size: 4rem;
-                font-weight: 400;
-                line-height: 4.5rem;
-                color: var(--p);
-            }
-
-
-            p {
-                font-size: 1.3rem;
-                font-weight: 300;
-                line-height: 1.3;
-                color: var(--p);
-                opacity: .9;
-                margin-bottom: 2rem;
-            }
-
-        }
-
-        .form-container {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            top: 0;
-
-            overflow-y: scroll;
-
-            background: var(--bg);
-
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            z-index: 9999999;
-
-            .animate-render-step-wrapper {
-                width: 100%;
-
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-            }
-
-            .form-wrapper {
-                padding: 25px;
-
-                .left-content {
-                    max-width: 500px;
-                    width: 100%;
-                    height: 600px;
-
-                    .step-info {
-
-                        span {
-                            letter-spacing: 1px;
-                            text-transform: uppercase;
-                            font-size: 1.375rem;
-                            font-weight: 700;
-                            line-height: 1.225rem;
-
-                            color: var(--accent);
-                            margin-bottom: 2rem;
-                        }
-
-                        h1 {
-                            letter-spacing: -2px;
-                            font-size: 3rem;
-                            font-weight: 600;
-                            line-height: 3.5rem;
-                            margin-bottom: 1rem;
-                        }
-
-                        p {
-                            font-size: 1.1rem;
-                            font-weight: 300;
-                            line-height: 1.75rem;
-                            color: var(--p);
-                            opacity: .9;
-                            text-align: start;
-
-                            display: flex;
-                            align-items: center;
-                            gap: 0.5rem;
-
-
-                        }
-
-                        .other-p {
-                            font-size: 14px;
-                            font-weight: 400;
-                            opacity: .9;
-                            margin-bottom: 2rem;
-                            text-align: start;
-
-                            display: flex;
-                            align-items: center;
-                            gap: 0.5rem;
-
-
-                            .border {
-                                width: 6px;
-                                height: 6px;
-
-                                border-radius: 100%;
-                                background-color: var(--p);
-                            }
-                        }
-
-                    }
-                }
-
-                .right-content {
-                    max-width: 700px;
-                    width: 100%;
-                    height: 600px;
-
-                    form {
-                        position: relative;
-                        width: 100%;
-                        height: 100%;
-                        margin: 2rem 0;
-
-                        .step-buttons {
-                            display: flex;
-                            justify-content: space-between;
-                            gap: 1rem;
-
-                            button {
-                                width: 150px;
-                                padding: 10px;
-                                margin: 5rem 0;
-
-                                outline: none;
-                                border: none;
-
-                                background-color: var(--accent);
-                                border: 1px solid var(--border);
-                                border-radius: 2rem;
-
-                                color: var(--fixed-c);
-                                font-size: 16px;
-                                font-weight: 600;
-
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                gap: 1rem;
-
-                                cursor: pointer;
-                                transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-                                &:disabled {
-                                    border: 1px solid var(--border);
-                                    background-color: var(--bg-3);
-                                    color: var(--p);
-                                    cursor: no-drop;
-                                }
-
-                                &:nth-child(1) {
-                                    border: 1px solid var(--border);
-                                    background-color: var(--bg-2);
-                                    color: var(--p);
-
-                                    &:hover {
-                                        background-color: var(--border-2);
-                                    }
-
-                                    &:disabled {
-                                        &:hover {
-                                            background-color: transparent;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            .error-message {
-                position: relative;
-                height: 10px;
-                pointer-events: none;
-                margin: .5rem 0;
-
-
-                p {
-                    font-size: 15px;
-                    font-weight: 600;
-                    text-align: start;
-                    color: #f00;
-                }
-            }
-
-            p {
-                font-size: 18px;
-                font-weight: 400;
-
-                color: var(--p);
-                text-align: center;
-                margin-bottom: 1rem;
-            }
-
-            .close-button {
-                position: absolute;
-                top: 35px;
-                right: 30px;
-                background: none;
-                border: none;
-
-                font-size: 1.5rem;
-                cursor: pointer;
-                color: var(--p);
-
-                svg {
-                    transition: all .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-                    border-radius: .5rem;
-
-                    &:hover {
-
-                        background-color: var(--border);
-                    }
-                }
-            }
-
-
-
-        }
-
-    }
-
-}
-
-@media (max-width: 1100px) {
-    #create {
-        .head-container {
-            max-width: 100%;
-
-            h1,
-            span {
-                letter-spacing: -1.6px;
-                margin-bottom: 1rem;
-                font-size: 4rem;
-                font-weight: 400;
-                line-height: 4.5rem;
-                color: var(--p);
-            }
-
-
-            p {
-                font-size: 1.3rem !important;
-                font-weight: 300;
-                line-height: 1.3;
-                color: var(--p);
-                opacity: .9;
-                margin-bottom: 2rem;
-            }
-
-        }
-
-        .form-container {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            top: 0;
-
-            overflow-y: scroll;
-
-            background: var(--bg);
-
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            z-index: 9999999;
-
-            .animate-render-step-wrapper {
-                width: 100%;
-                height: 100% !important;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-            }
-
-            .form-wrapper {
-                padding: 25px;
-                height: fit-content !important;
-
-                align-items: start;
-                justify-content: start;
-                flex-direction: column;
-
-
-                .left-content {
-                    position: relative;
-                    top: 0;
-                    max-width: 100%;
-                    width: 100%;
-                    height: fit-content !important;
-                    margin: 10rem 0 0 0;
-
-                    .step-info {
-
-                        span {
-                            letter-spacing: 1px;
-                            text-transform: uppercase;
-                            font-size: 1.375rem;
-                            font-weight: 700;
-                            line-height: 1.225rem;
-
-                            color: var(--accent);
-                            margin-bottom: 2rem;
-                        }
-
-                        h1 {
-                            letter-spacing: -2px;
-                            font-size: 3.5rem;
-                            font-weight: 600;
-                            line-height: 3.5rem;
-                            margin-bottom: 1rem;
-                        }
-
-                        p {
-                            margin-bottom: 2rem;
-
-                            font-size: 1.2rem;
-                            font-weight: 300;
-                            line-height: 1.75rem;
-                            color: var(--p);
-                            opacity: .9;
-                            text-align: start;
-
-                            display: flex;
-                            align-items: center;
-                            gap: 0.5rem;
-
-
-                        }
-
-                        .other-p {
-                            font-size: 14px;
-                            font-weight: 400;
-                            opacity: .9;
-                            margin-bottom: 2rem;
-                            text-align: start;
-
-                            display: flex;
-                            align-items: center;
-                            gap: 0.5rem;
-
-
-                            .border {
-                                width: 6px;
-                                height: 6px;
-
-                                border-radius: 100%;
-                                background-color: var(--p);
-                            }
-                        }
-
-                    }
-                }
-
-                .right-content {
-                    max-width: 100%;
-                    width: 100%;
-                    height: fit-content !important;
-
-                    form {
-                        position: relative;
-                        width: 100%;
-                        height: 100%;
-                        margin: 2rem 0;
-
-                    }
-                }
-            }
-
-            .error-message {
-                position: relative;
-                height: 10px;
-                pointer-events: none;
-                margin: .5rem 0;
-
-
-                p {
-                    font-size: 15px;
-                    font-weight: 600;
-                    text-align: start;
-                    color: #f00;
-                }
-            }
-
-            p {
-                font-size: 18px;
-                font-weight: 400;
-
-                color: var(--p);
-                text-align: center;
-                margin-bottom: 1rem;
-            }
-
-            .close-button {
-                position: absolute;
-                top: 35px;
-                right: 30px;
-                background: none;
-                border: none;
-
-                font-size: 1.5rem;
-                cursor: pointer;
-                color: var(--p);
-
-                svg {
-                    transition: all .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-                    border-radius: .5rem;
-
-                    &:hover {
-
-                        background-color: var(--border);
-                    }
-                }
-            }
-
-
-
-        }
-
-    }
-
-}
-
-@media (max-width: 809px) {
-    #create {
-        max-width: 100%;
-        width: 100%;
-
-        .head-container {
-            margin: 0;
-            max-width: 100%;
-            width: 100%;
-
-            h1,
-            span {
-                max-width: 100% !important;
-                letter-spacing: -1.25px !important;
-                margin-bottom: 1rem !important;
-                font-size: 3rem !important;
-                font-weight: 500 !important;
-                line-height: 1 !important;
-                color: var(--p);
-            }
-
-            p {
-                max-width: 100% !important;
-                letter-spacing: -.2px !important;
-                font-size: 1.2rem !important;
-                font-weight: 400 !important;
-                line-height: 1.2 !important;
-                color: var(--p);
-                opacity: .9;
-                margin-bottom: 2rem;
-            }
-
-        }
-
-        .form-container {
-            position: fixed;
-            width: 100vw;
-            height: 100%;
-            top: 0;
-
-            overflow-y: scroll;
-
-            background: var(--bg);
-
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            z-index: 9999999;
-
-            .form-wrapper {
-                padding: 25px;
-                height: fit-content !important;
-
-                align-items: start;
-                justify-content: start;
-                flex-direction: column;
-
-
-                .left-content {
-
-                    max-width: 100%;
-                    width: 100%;
-                    height: fit-content !important;
-
-
-                    .step-info {
-
-                        h1 {
-                            max-width: 100% !important;
-                            letter-spacing: -1.25px !important;
-                            margin-bottom: 1rem;
-                            font-size: 2.5rem !important;
-                            font-weight: 500 !important;
-                            line-height: 1 !important;
-                            color: var(--p);
-                        }
-
-                        p {
-                            max-width: 100% !important;
-                            letter-spacing: -.7px !important;
-                            font-size: 1.1rem !important;
-                            font-weight: 400 !important;
-                            line-height: 1.2 !important;
-                            color: var(--p);
-                            opacity: .9;
-                            margin-bottom: 2rem !important;
-                        }
-                    }
-                }
-
-                .right-content {
-                    max-width: 100%;
-                    width: 100%;
-                    height: fit-content !important;
-
-                    form {
-                        position: relative;
-                        width: 100%;
-                        height: 100%;
-                        margin: 2rem 0;
-
-                    }
-                }
-            }
-
-
-        }
-
-    }
-
+.step.completed {
+    background: var(--p);
 }

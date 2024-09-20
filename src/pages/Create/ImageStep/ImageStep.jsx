@@ -23,53 +23,56 @@ const ImageStep = ({ image, setImage, isPhotoValid, setIsPhotoValid, imageRef, h
   };
 
   return (
-    <section id='image-step'>
+    <>
+      <section id='image-step'>
 
-      <div className="step-image">
-        <div className="image-select">
-          <button type="button" className="prf-file" onClick={handleClick}>
-            <GoUpload size={75} />
-            <span>{t('imageStep.dragAndDropOrChoose')}</span>
-            <p>{t('imageStep.supportedFormats')}</p>
+        <div className="step-image">
+          <div className="image-select">
+            <button type="button" className="prf-file" onClick={handleClick}>
+              <GoUpload size={75} />
+              <span>{t('imageStep.dragAndDropOrChoose')}</span>
+              <p>{t('imageStep.supportedFormats')}</p>
 
-            <p>{image ? t('imageStep.imageLoaded') : ''}</p>
-          </button>
-          {image && (
-            <img
-              width={150}
-              src={URL.createObjectURL(image)}
-              alt={t('imageStep.imageLoaded')}
-              className="preview-image"
-            />
+              <p>{image ? t('imageStep.imageLoaded') : ''}</p>
+            </button>
+            {image && (
+              <img
+                width={150}
+                src={URL.createObjectURL(image)}
+                alt={t('imageStep.imageLoaded')}
+                className="preview-image"
+              />
+            )}
+          </div> 
+          <input
+            onChange={(e) => {
+              handleImageChange(e);
+              setIsPhotoValid(e.target.files.length > 0);
+            }}
+            ref={imageRef}
+            type="file"
+            hidden
+          />
+          {submitted && !isPhotoValid && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="error-message"
+            >
+              {t('imageStep.imageRequired')}
+            </motion.p>
           )}
         </div>
-        <input
-          onChange={(e) => {
-            handleImageChange(e);
-            setIsPhotoValid(e.target.files.length > 0);
-          }}
-          ref={imageRef}
-          type="file"
-          hidden
-        />
-        {submitted && !isPhotoValid && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="error-message"
-          >
-            {t('imageStep.imageRequired')}
-          </motion.p>
-        )}
-      </div>
 
+
+      </section>
       <div className="step-buttons">
         <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">{t('imageStep.back')}</button>
         <button onClick={handleContinue} type='button'>{t('imageStep.continue')}</button>
       </div>
-    </section>
+    </>
   );
 };
 

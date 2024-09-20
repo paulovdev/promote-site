@@ -22,8 +22,8 @@
   --btn-2: #333;
   --btn-3: rgb(230, 230, 230);
 
-  --accent: #1db95e;
-  --accent-2: #86ee94;
+  --accent: #3b63e4;
+  --accent-2: #f6f6fe;
   --accent-3: #b2d6ff;
 
   --fixed-c: #fff;
@@ -149,6 +149,23 @@ button {
   to {
     transform: rotate(1turn);
   }
+}
+
+::selection {
+  background-color: var(--btn);
+  color: var(--btn);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 1px;
+  background-color: var(--border);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--p);
+  border-radius: 2rem;
+
 }
 
 

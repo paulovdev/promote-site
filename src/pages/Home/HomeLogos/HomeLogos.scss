@@ -2,17 +2,15 @@
     max-width: 1250px;
     padding: 75px;
     margin: 5rem auto;
-
     border-radius: 2rem;
     background-color: var(--accent-2);
-
     display: flex;
     align-items: start;
     justify-content: start;
+    gap: 1rem;
 
     .text-logos {
         position: relative;
-
         display: flex;
         align-items: start;
         justify-content: start;
@@ -21,36 +19,38 @@
 
         span {
             margin-bottom: 1rem;
-
             font-size: .875rem;
             font-weight: 700;
-
             letter-spacing: 1px;
             text-transform: uppercase;
             line-height: 1.225rem;
-
             color: var(--p-i);
-
             display: flex;
             align-items: center;
             gap: 0.5rem;
-
         }
 
         h1 {
-            font-size: 3rem;
+            margin-bottom: 2rem;
+
+            font-size: 4.5rem;
             font-weight: 600;
             line-height: .9;
-
-
             color: var(--p-i);
         }
 
+        p {
+
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.3;
+
+            color: var(--p-i);
+        }
     }
 
     .icons {
         position: relative;
-   
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         gap: 5rem;
@@ -59,56 +59,43 @@
             color: var(--p-i);
             font-size: 54px;
             transition: .3s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-            &:hover {
-                transform: scale(1.10);
-                padding: .5rem;
-                border-radius: .5rem;
-                border: 1px solid var(--p-i);
-                cursor: pointer;
-
-            }
         }
 
-
+        div:hover svg,
+        div.active svg {
+            transform: scale(1.10);
+            padding: .5rem;
+            border-radius: .5rem;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            cursor: pointer;
+        }
     }
 }
 
-@media (max-width:992px) {
+@media (max-width: 992px) {
     #home-logos {
         padding: 50px;
     }
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
     #home-logos {
         padding: 30px 15px;
         border-radius: 1.5rem;
 
         h1 {
             margin-bottom: 3rem;
-
             font-size: 2.5rem;
         }
 
         .icons {
-            display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 5rem;
 
             svg {
-                color: var(--p-i);
                 font-size: 54px;
-                transition: .3s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-                &:hover {
-                    transform: scale(1.10);
-                    cursor: pointer;
-                }
             }
-
-
         }
     }
-
 }

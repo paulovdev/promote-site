@@ -4,7 +4,8 @@ import Cookies from 'js-cookie';
 import en from './src/locales/en.json';
 import br from './src/locales/br.json';
 
-const savedLanguage = Cookies.get('language') || 'en';
+const systemLanguage = navigator.language || navigator.userLanguage; // 'pt-BR', 'en-US', etc.
+const savedLanguage = Cookies.get('language') || (systemLanguage.startsWith('pt') ? 'br' : 'en');
 
 i18n.use(initReactI18next).init({
     resources: {

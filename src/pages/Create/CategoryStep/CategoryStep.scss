@@ -1,7 +1,10 @@
 #category-step {
     position: relative;
     width: 100%;
-    height: 800px;
+    height: calc(100% - 3rem);
+
+    padding: 2rem;
+
     display: flex;
     flex-direction: column;
 
@@ -10,7 +13,6 @@
         width: 100%;
         height: 800px;
 
-        overflow-y: scroll;
 
         display: flex;
         align-items: center;

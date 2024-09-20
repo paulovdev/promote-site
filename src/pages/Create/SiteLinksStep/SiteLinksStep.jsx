@@ -13,15 +13,17 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
   };
 
   return (
-    <section id="site-links-step">
-      <input
-        type='checkbox'
-        id="terms"
-      />
-      <label htmlFor="terms">
-        {t('agree.confirmText')}
-        <a href="/submission-guidelines">{t('agree.submissionGuidelines')}</a> {t('and')} {t('agree.agreement')}
-      </label>
+    <>
+      <section id="site-links-step">
+        <input
+          type='checkbox'
+          id="terms"
+        />
+        <label htmlFor="terms">
+          {t('agree.confirmText')}
+          <a href="/submission-guidelines">{t('agree.submissionGuidelines')}</a> {t('and')} {t('agree.agreement')}
+        </label>
+      </section>
 
       <div className="step-buttons">
         <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">
@@ -31,7 +33,7 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
           {t('agree.submit')}
         </button>
       </div>
-    </section>
+    </>
   );
 };
 

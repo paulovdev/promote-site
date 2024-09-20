@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBlog, FaBusinessTime, FaPalette, FaGraduationCap, FaShoppingCart, FaHeartbeat, FaPlane, FaRegCopyright, FaBorderAll } from 'react-icons/fa';
 import { MdEvent, MdOutlineWeb, MdPhotoCamera } from 'react-icons/md';
 import { AiOutlineFundProjectionScreen, AiOutlineBarChart } from 'react-icons/ai';
@@ -6,10 +6,24 @@ import { GiMeal } from 'react-icons/gi';
 import './CategoryStep.scss';
 import { useTranslation } from 'react-i18next';
 
-const CategoryStep = ({ category, setCategory, setStep }) => {
+const CategoryStep = ({ setCategory, setStep }) => {
   const { t } = useTranslation();
+  const [category, setLocalCategory] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    // Recuperar a categoria do sessionStorage ao montar o componente
+    const savedCategory = sessionStorage.getItem('category');
+    if (savedCategory) {
+      setLocalCategory(savedCategory);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Salvar a categoria no sessionStorage sempre que mudar
+    sessionStorage.setItem('category', category);
+  }, [category]);
 
   const categories = [
     { name: t('categories.all'), icon: <FaBorderAll />, path: "/sites/all" },
@@ -41,31 +55,35 @@ const CategoryStep = ({ category, setCategory, setStep }) => {
   };
 
   return (
-    <section id='category-step'>
-      <div className="category-cards">
-        {categories.map((cat) => (
-          <div
-            key={cat.path}
-            onClick={() => setCategory(cat.path)}
-            className={category === cat.path ? 'selected' : 'category-card'}
-          >
-            <div className="icon">{cat.icon}</div>
-            <div className="category-name">{cat.name}</div>
-          </div>
-        ))}
-      </div>
-
-      {submitted && !category && (
-        <div className="error-message">
-          <p>{error}</p>
+    <>
+      <section id='category-step'>
+        <div className="category-cards">
+          {categories.map((cat) => (
+            <div
+              key={cat.path}
+              onClick={() => {
+                setLocalCategory(cat.path);
+                setCategory(cat.path); // Atualiza o estado no componente pai
+              }}
+              className={category === cat.path ? 'selected' : 'category-card'}
+            >
+              <div className="icon">{cat.icon}</div>
+              <div className="category-name">{cat.name}</div>
+            </div>
+          ))}
         </div>
-      )}
 
+        {submitted && !category && (
+          <div className="error-message">
+            <p>{error}</p>
+          </div>
+        )}
+      </section>
       <div className="step-buttons">
         <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
         <button onClick={handleContinue} type='button'>Continue</button>
       </div>
-    </section>
+    </>
   );
 };
 

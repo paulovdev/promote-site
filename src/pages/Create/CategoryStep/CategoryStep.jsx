@@ -26,8 +26,6 @@ const CategoryStep = ({ setCategory, setStep }) => {
   }, [category]);
 
   const categories = [
-    { name: t('categories.all'), icon: <FaBorderAll />, path: "/sites/all" },
-    { name: t('categories.featured'), icon: <AiOutlineBarChart />, path: "/sites/hot" },
     { name: t('categories.blog'), icon: <FaBlog />, path: "/sites/blog" },
     { name: t('categories.business'), icon: <FaBusinessTime />, path: "/sites/business" },
     { name: t('categories.creative'), icon: <FaPalette />, path: "/sites/creative" },

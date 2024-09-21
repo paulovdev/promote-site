@@ -22,8 +22,8 @@
   --btn-2: #333;
   --btn-3: rgb(230, 230, 230);
 
-  --accent: #3b63e4;
-  --accent-2: #f6f6fe;
+  --accent: #247bdf;
+  --accent-2: #efeff8;
   --accent-3: #b2d6ff;
 
   --fixed-c: #fff;
@@ -40,6 +40,7 @@
 
   --border: #262626;
   --border-2: #3a3a3a;
+  --accent-2: #1a1a19;
 
   --btn: #242424;
   --btn-2: #404040;
@@ -191,5 +192,6 @@ button {
 #my-tooltip {
   background-color: var(--accent);
   color: var(--fixed-c);
+  font-weight: 600;
   border-radius: 2rem;
 }

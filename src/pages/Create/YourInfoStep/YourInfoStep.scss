@@ -9,6 +9,11 @@
     display: flex;
     flex-direction: column;
 
+    h1 {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
     .input-grid {
         width: 100%;
         display: flex;

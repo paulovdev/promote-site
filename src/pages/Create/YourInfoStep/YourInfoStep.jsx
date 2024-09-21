@@ -1,19 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './YourInfoStep.scss';
 
-const YourInfoStep = ({ setStep }) => {
+const YourInfoStep = ({
+  myName: initialMyName,
+  setMyName,
+  email: initialEmail,
+  setEmail,
+  profileLink: initialProfileLink,
+  setProfileLink,
+  siteName: initialSiteName,
+  setSiteName,
+  description: initialDescription,
+  setDescription,
+  livePreview: initialLivePreview,
+  setLivePreview,
+  buyLink: initialBuyLink,
+  setBuyLink,
+  contactLink: initialContactLink,
+  setContactLink,
+  price: initialPrice,
+  setPrice,
+  setStep
+}) => {
   const { t } = useTranslation();
 
-  const [myName, setMyName] = useState(sessionStorage.getItem('myName') || '');
-  const [email, setEmail] = useState(sessionStorage.getItem('email') || '');
-  const [profileLink, setProfileLink] = useState(sessionStorage.getItem('profileLink') || '');
-  const [siteName, setSiteName] = useState(sessionStorage.getItem('siteName') || '');
-  const [description, setDescription] = useState(sessionStorage.getItem('description') || '');
-  const [livePreview, setLivePreview] = useState(sessionStorage.getItem('livePreview') || '');
-  const [buyLink, setBuyLink] = useState(sessionStorage.getItem('buyLink') || '');
-  const [contactLink, setContactLink] = useState(sessionStorage.getItem('contactLink') || '');
-  const [price, setPrice] = useState(Number(sessionStorage.getItem('price')) || 0);
+  const [myName, setMyNameState] = useState(initialMyName || sessionStorage.getItem('myName') || '');
+  const [email, setEmailState] = useState(initialEmail || sessionStorage.getItem('email') || '');
+  const [profileLink, setProfileLinkState] = useState(initialProfileLink || sessionStorage.getItem('profileLink') || '');
+  const [siteName, setSiteNameState] = useState(initialSiteName || sessionStorage.getItem('siteName') || '');
+  const [description, setDescriptionState] = useState(initialDescription || sessionStorage.getItem('description') || '');
+  const [livePreview, setLivePreviewState] = useState(initialLivePreview || sessionStorage.getItem('livePreview') || '');
+  const [buyLink, setBuyLinkState] = useState(initialBuyLink || sessionStorage.getItem('buyLink') || '');
+  const [contactLink, setContactLinkState] = useState(initialContactLink || sessionStorage.getItem('contactLink') || '');
+  const [price, setPriceState] = useState(Number(initialPrice) || Number(sessionStorage.getItem('price')) || 0);
 
   const [errors, setErrors] = useState({
     myName: '',
@@ -79,7 +99,10 @@ const YourInfoStep = ({ setStep }) => {
               placeholder="e.g., Paulo"
               value={myName}
               autoComplete="name"
-              onChange={(e) => setMyName(e.target.value)}
+              onChange={(e) => {
+                setMyNameState(e.target.value);
+                setMyName(e.target.value);
+              }}
             />
             <div className="error-message">
               {submitted && errors.myName && <p>{errors.myName}</p>}
@@ -92,7 +115,10 @@ const YourInfoStep = ({ setStep }) => {
               type="email"
               placeholder="example@gmail.com"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmailState(e.target.value);
+                setEmail(e.target.value);
+              }}
             />
             <div className="error-message">
               {submitted && errors.email && <p>{errors.email}</p>}
@@ -108,7 +134,10 @@ const YourInfoStep = ({ setStep }) => {
               placeholder="https://example.com"
               value={profileLink}
               autoComplete="link"
-              onChange={(e) => setProfileLink(e.target.value)}
+              onChange={(e) => {
+                setProfileLinkState(e.target.value);
+                setProfileLink(e.target.value);
+              }}
             />
             <div className="error-message">
               {submitted && errors.profileLink && <p>{errors.profileLink}</p>}
@@ -121,10 +150,13 @@ const YourInfoStep = ({ setStep }) => {
               type="text"
               placeholder="https://contact-link.com"
               value={contactLink}
-              onChange={(e) => setContactLink(e.target.value)}
+              onChange={(e) => {
+                setContactLinkState(e.target.value);
+                setContactLink(e.target.value);
+              }}
             />
             <div className="error-message">
-              {submitted && errors.contactLink && (<p>{errors.contactLink}</p>)}
+              {submitted && errors.contactLink && <p>{errors.contactLink}</p>}
             </div>
           </div>
         </div>
@@ -137,7 +169,10 @@ const YourInfoStep = ({ setStep }) => {
               type="text"
               placeholder="e.g., Quimplo"
               value={siteName}
-              onChange={(e) => setSiteName(e.target.value)}
+              onChange={(e) => {
+                setSiteNameState(e.target.value);
+                setSiteName(e.target.value);
+              }}
             />
             <div className="error-message">
               {submitted && errors.siteName && <p>{errors.siteName}</p>}
@@ -152,7 +187,10 @@ const YourInfoStep = ({ setStep }) => {
               max="1000"
               step="5"
               value={price}
-              onChange={(e) => setPrice(Number(e.target.value))}
+              onChange={(e) => {
+                setPriceState(Number(e.target.value));
+                setPrice(Number(e.target.value));
+              }}
             />
             <div className="error-message">
               {submitted && errors.price && <p>{errors.price}</p>}
@@ -166,7 +204,10 @@ const YourInfoStep = ({ setStep }) => {
             placeholder="This template includes..."
             value={description}
             maxLength={250}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => {
+              setDescriptionState(e.target.value);
+              setDescription(e.target.value);
+            }}
           />
           <div className="error-message">
             {submitted && errors.description && <p>{errors.description}</p>}
@@ -175,7 +216,6 @@ const YourInfoStep = ({ setStep }) => {
 
         <br />  <hr />   <br />
 
-
         <div className="input-grid">
           <div className="input-container">
             <label>{t('yourInfoStep.livePreviewLinkLabel')}</label>
@@ -183,7 +223,10 @@ const YourInfoStep = ({ setStep }) => {
               type="text"
               placeholder="https://preview-link.com"
               value={livePreview}
-              onChange={(e) => setLivePreview(e.target.value)}
+              onChange={(e) => {
+                setLivePreviewState(e.target.value);
+                setLivePreview(e.target.value);
+              }}
             />
             {submitted && errors.livePreview && (
               <div className="error-message"><p>{errors.livePreview}</p></div>
@@ -196,14 +239,16 @@ const YourInfoStep = ({ setStep }) => {
               type="text"
               placeholder="https://buy-link.com"
               value={buyLink}
-              onChange={(e) => setBuyLink(e.target.value)}
+              onChange={(e) => {
+                setBuyLinkState(e.target.value);
+                setBuyLink(e.target.value);
+              }}
             />
             {submitted && errors.buyLink && (
               <div className="error-message"><p>{errors.buyLink}</p></div>
             )}
           </div>
         </div>
-
       </section>
 
       <div className="step-buttons">

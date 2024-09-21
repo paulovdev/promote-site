@@ -21,8 +21,9 @@ const Create = () => {
   const { t } = useTranslation();
   const [step, setStep] = useState(() => {
     const savedStep = sessionStorage.getItem('currentStep');
-    return savedStep ? Number(savedStep) : 1; // Inicia no passo salvo ou no passo 1
+    return savedStep ? Number(savedStep) : 1;
   });
+  const [reset, setReset] = useState(false)
   const [myName, setMyName] = useState('');
   const [email, setEmail] = useState('');
   const [profileLink, setProfileLink] = useState('');
@@ -88,28 +89,49 @@ const Create = () => {
       const templateParams = {
         from_name: myName,
         to_name: 'Paulo Vitor',
-        profileLink: profileLink,
-        email: email,
-        category: category,
-        tool: tool,
-        siteName: siteName,
-        description: description,
+        profileLink,
+        email,
+        category,
+        tool,
+        siteName,
+        description,
         sitePrice: price === 0 ? 'Free' : `$${price}`,
-        features: features,
-        livePreview: livePreview,
-        buyLink: buyLink,
-        contactLink: contactLink,
+        features,
+        livePreview,
+        buyLink,
+        contactLink,
         imageURL: imageUrl,
       };
 
       await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
       setShowModal(false);
       setShowSuccessModal(true);
+      resetForm();
+      setReset(true)
     } catch (error) {
       console.error('EmailJS Error:', error);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const resetForm = () => {
+    setMyName('');
+    setEmail('');
+    setProfileLink('');
+    setSiteName('');
+    setDescription('');
+    setCategory('');
+    setTool('');
+    setImage(null);
+    setPrice('500');
+    setLivePreview('');
+    setBuyLink('');
+    setContactLink('');
+    setFeatures([]);
+    setIsPhotoValid(true);
+    setStep(1);
+    sessionStorage.clear();
   };
 
   const renderStepProgress = () => (
@@ -130,17 +152,63 @@ const Create = () => {
       {(() => {
         switch (step) {
           case 1:
-            return <YourInfoStep {...{ myName, setMyName, email, setEmail, profileLink, setProfileLink, siteName, setSiteName, description, setDescription, setStep: debouncedSetStep, livePreview, setLivePreview, buyLink, setBuyLink, contactLink, setContactLink, price, setPrice }} />;
+            return (
+              <YourInfoStep
+                myName={myName}
+                setMyName={setMyName}
+                email={email}
+                setEmail={setEmail}
+                profileLink={profileLink}
+                setProfileLink={setProfileLink}
+                siteName={siteName}
+                setSiteName={setSiteName}
+                description={description}
+                setDescription={setDescription}
+                livePreview={livePreview}
+                setLivePreview={setLivePreview}
+                buyLink={buyLink}
+                setBuyLink={setBuyLink}
+                contactLink={contactLink}
+                setContactLink={setContactLink}
+                price={price}
+                setPrice={setPrice}
+                reset={reset}
+                setStep={debouncedSetStep}
+              />
+            );
           case 2:
-            return <CategoryStep category={category} setCategory={setCategory} setStep={debouncedSetStep} />;
+            return <CategoryStep
+              category={category}
+              setCategory={setCategory}
+              reset={reset}
+              setStep={debouncedSetStep} />;
           case 3:
-            return <ToolStep tool={tool} setTool={setTool} setStep={debouncedSetStep} />;
+            return <ToolStep
+              tool={tool}
+              setTool={setTool}
+              reset={reset}
+              setStep={debouncedSetStep} />;
           case 4:
-            return <ImageStep image={image} setImage={setImage} isPhotoValid={isPhotoValid} setIsPhotoValid={setIsPhotoValid} imageRef={imageRef} handleImageChange={handleImageChange} setStep={debouncedSetStep} />;
+            return <ImageStep
+              image={image}
+              setImage={setImage}
+              isPhotoValid={isPhotoValid}
+              setIsPhotoValid={setIsPhotoValid}
+              imageRef={imageRef}
+              handleImageChange={handleImageChange}
+              reset={reset}
+              setStep={debouncedSetStep} />;
           case 5:
-            return <FeaturesStep features={features} setFeatures={setFeatures} setStep={debouncedSetStep} />;
+            return <FeaturesStep
+              features={features}
+              setFeatures={setFeatures}
+              reset={reset}
+              setStep={debouncedSetStep} />;
           case 6:
-            return <SiteLinksStep setStep={debouncedSetStep} handleSubmit={handleSubmit} />;
+            return <SiteLinksStep
+              setStep={debouncedSetStep}
+              reset={reset}
+              handleSubmit={handleSubmit} />;
           default:
             return null;
         }
@@ -198,6 +266,7 @@ const Create = () => {
             exit={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: 'easeIn' }}
           >
+            <span>{t('create.header.span')}</span>
             <h1>{t('create.header.title')}</h1>
             <p>{t('create.header.description')}</p>
           </motion.div>

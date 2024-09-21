@@ -27,13 +27,11 @@
     }
 
     h1 {
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
 
-        font-size: 4rem;
+        font-size: 3.5rem;
         font-weight: 600;
-        line-height: .9;
-
-        text-align: center;
+        line-height: 1;
 
         color: var(--p);
     }
@@ -53,7 +51,7 @@
             flex: 1;
             height: 200px;
 
-            border: 2px solid var(--accent);
+            border: 2px solid var(--border);
             padding: 1.5rem;
             border-radius: 1rem;
 
@@ -63,6 +61,11 @@
             flex-direction: column;
 
             text-align: start;
+            transition: .3s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+            &:hover {
+                border: 2px solid var(--accent);
+            }
 
             .icon-card {
                 margin-bottom: 1rem;

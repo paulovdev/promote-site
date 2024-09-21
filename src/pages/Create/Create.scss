@@ -16,7 +16,7 @@
     .head-container>div {
         max-width: 1000px;
         width: 100%;
-        margin: 5rem auto 1rem auto;
+        margin: 4rem auto 1rem auto;
 
         display: flex;
         align-items: center;
@@ -24,11 +24,37 @@
         flex-direction: column;
         text-align: center;
 
-        h1,
         span {
+            margin-bottom: 1rem;
+
+            padding: 0.25rem 1rem;
+
+            font-size: .7rem;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1.225rem;
+
+            border: 1px solid var(--accent);
+            border-radius: 2rem;
+
+            color: var(--accent);
+
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            text-align: center;
+        }
+
+        h1 {
+            max-width: 850px;
+            width: 100%;
+
             margin-bottom: 2rem;
 
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 600;
             line-height: 1;
 
@@ -38,6 +64,9 @@
         }
 
         p {
+            max-width: 850px;
+            width: 100%;
+
             margin-bottom: 2rem;
 
             font-size: 1.2rem;
@@ -45,10 +74,7 @@
             line-height: 1.3;
 
             color: var(--p);
-
         }
-
-
     }
 
     .price-wrapper {
@@ -128,21 +154,24 @@
                     text-align: start;
 
                     span {
+                        margin-bottom: 1rem;
 
                         font-size: 1rem;
                         font-weight: 600;
 
                         letter-spacing: -.8px;
 
-                        color: var(--p-i);
+                        color: var(--p);
 
                     }
 
                     h1 {
-                        letter-spacing: -1px;
-                        font-size: 2.5rem;
+
+                        font-size: 3.5rem;
                         font-weight: 600;
-                        color: var(--p-i);
+                        line-height: 1;
+
+                        color: var(--p);
                     }
 
                     p {
@@ -151,7 +180,7 @@
                         font-weight: 400;
                         line-height: 1.3;
 
-                        color: var(--p-i);
+                        color: var(--p);
                         text-align: start;
                     }
 
@@ -188,19 +217,21 @@
                 form {
                     position: relative;
                     width: 100%;
-                    
+
 
                     .step-buttons {
                         position: sticky;
                         width: 100%;
                         height: fit-content;
-                        left: 0;
-                        bottom: 0;
 
-                        background-color: #ffffff85;
-                        backdrop-filter: blur(5px);
-                        border-top: 2px solid var(--border);
+                        left: 0;
+                        bottom: -1px;
+
                         padding: 1rem;
+
+                        background-color: var(--bg);
+                        border-top: 2px solid var(--border);
+
 
                         display: flex;
                         justify-content: space-between;
@@ -219,7 +250,7 @@
                             border: 1px solid var(--border);
                             border-radius: 2rem;
 
-                            color: var(--fixed-c);
+                            color: var(--p-2);
                             font-size: 16px;
                             font-weight: 600;
 
@@ -236,6 +267,11 @@
                                 background-color: var(--bg-3);
                                 color: var(--p);
                                 cursor: no-drop;
+                            }
+
+                            &:hover {
+                                color: var(--p-i);
+                                border: 1px solid var(--accent-2);
                             }
 
                             &:nth-child(1) {
@@ -289,20 +325,19 @@
             position: absolute;
             top: 0px;
             right: -50px;
-            background-color: var(--border);
             border-radius: .5rem;
             border: none;
 
             cursor: pointer;
-            color: var(--p);
+            color: var(--accent);
             z-index: 999999;
 
             svg {
                 transition: all .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
                 border-radius: .5rem;
+                background-color: var(--border);
 
                 &:hover {
-
                     background-color: var(--border-2);
                 }
             }
@@ -433,7 +468,7 @@
     width: 70px;
     height: 7px;
 
-    background: var(--bg);
+    background: var(--border-2);
     border-radius: 5px;
 }
 

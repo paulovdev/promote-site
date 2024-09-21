@@ -9,9 +9,11 @@ import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icon
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
 import { DiCss3, DiJavascript1 } from 'react-icons/di';
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowRight, MdVisibility } from "react-icons/md";
+import { IoMdHome } from 'react-icons/io';
 
 import "./SiteHeader.scss";
+
 
 const SiteHeader = ({ site }) => {
   const { t, i18n } = useTranslation();
@@ -52,7 +54,11 @@ const SiteHeader = ({ site }) => {
       <section id="site-detail">
         <div className="top-nav">
           <Link to={"/"}>
-            {t('siteHeader.breadcrumb.home')}
+            <IoMdHome />
+          </Link>
+          <MdKeyboardArrowRight />
+          <Link to={`/sites/all`}>
+            Marketplace
           </Link>
           <MdKeyboardArrowRight />
           <Link to={`/sites/${site.category}`}>
@@ -63,8 +69,9 @@ const SiteHeader = ({ site }) => {
             {site.siteName}
           </Link>
         </div>
-        <div className="site-detail-container">
-          <div className="right-content">
+        <div className="head-text">
+          <div className="left-content">
+
             <div className="site-top-text">
               <div className="tool-text">
                 <Link to={`/sites/${site.tool}`}>
@@ -94,27 +101,27 @@ const SiteHeader = ({ site }) => {
               </div>
             </div>
 
-            <div className="header-text">
-              <div className="title">
-                <h1>{site.siteName}</h1>
-                <p>{currentDescription}</p>
-              </div>
-            </div>
-
-            <div className="sub-text">
+            <h1>{site.siteName}</h1>
+            <div className="profile-text">
               {t('siteHeader.siteDetails.madeBy')}
               <a href={site.profileLink} target="_blank" rel="noopener noreferrer">
                 {site.myName}
               </a>
             </div>
 
+          </div>
+
+
+
+          <div className="right-content">
+            <p>{currentDescription}</p>
             <div className="site-buttons">
               <a
                 href={site.livePreview}
                 className="site-button"
                 target="_blank"
                 rel="noopener noreferrer"
-              >{t('siteHeader.siteDetails.viewSite')}</a>
+              >{t('siteHeader.siteDetails.viewSite')} <MdVisibility /></a>
 
               <a
                 href={site.buyLink}
@@ -123,11 +130,42 @@ const SiteHeader = ({ site }) => {
                 rel="noopener noreferrer"
               >{t('siteHeader.siteDetails.buySite', { price: site.price === 0 ? `${t('siteHeader.siteDetails.freePrice')}` : `$${site.price}` })}</a>
             </div>
+
           </div>
+        </div>
+
+        <div className="site-detail-container">
+
 
           <div className="left-content">
             <img src={site.imageURL} alt={site.siteName} />
             {site.hot === 1 ? <p>{t("siteHeader.featured")}</p> : ""}
+          </div>
+
+          <div className="right-content">
+            <div className="card">
+              <div className="tool-text">
+                <span>
+                  {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
+                  {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
+                  {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
+                  {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
+                  {site.tool === 'html-css-js' && <>
+                    <FaHtml5 style={{ background: '#e34c26' }} />
+                    <DiCss3 style={{ background: '#264de4' }} />
+                    <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
+                  </>}
+                  {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
+                  {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
+                  {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
+                  {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
+                  {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
+                </span>
+              </div>
+              <h1>{t(`toolDescriptions.madeWith`)} <span>{site.tool}</span></h1>
+              <p>{t(`toolDescriptions.${site.tool}`)}</p>
+            </div>
+
           </div>
         </div>
 
@@ -155,28 +193,6 @@ const SiteHeader = ({ site }) => {
       </section>
 
       <section id='site-made'>
-        <div className="card">
-          <div className="tool-text">
-            <span>
-              {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
-              {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
-              {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
-              {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
-              {site.tool === 'html-css-js' && <>
-                <FaHtml5 style={{ background: '#e34c26' }} />
-                <DiCss3 style={{ background: '#264de4' }} />
-                <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
-              </>}
-              {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
-              {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
-              {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
-              {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
-              {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
-            </span>
-          </div>
-          <h1>{t(`toolDescriptions.madeWith`)} <span>{site.tool}</span></h1>
-          <p>{t(`toolDescriptions.${site.tool}`)}</p>
-        </div>
 
       </section>
 

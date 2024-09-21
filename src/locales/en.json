@@ -138,7 +138,7 @@
         "featured": "Em destaque",
         "siteDetails": {
             "madeBy": "Made by",
-            "viewSite": "View this site",
+            "viewSite": "Preview",
             "buySite": "Buy? {{price}}",
             "freePrice": "Free"
         },
@@ -167,19 +167,23 @@
     },
     "toolDescriptions": {
         "madeWith": "This template was made with",
-        "drupal": "Drupal is a free and open-source web content management system written in PHP and distributed under the GNU General Public License.",
-        "elementor": "Elementor is a popular WordPress page builder plugin that allows users to create custom layouts without coding.",
-        "framer": "Framer is a design tool for creating interactive prototypes and animations for websites and applications.",
-        "ghost": "Ghost is a powerful open-source publishing platform focused on professional publishing and blogging.",
-        "html-css-js": "HTML, CSS, and JavaScript are the foundational technologies for building and designing websites and web applications.",
-        "next": "Next is a React framework that enables server-side rendering and static site generation for building optimized web applications.",
-        "react": "React is a JavaScript library for building user interfaces, maintained by Facebook and a community of individual developers and companies.",
+        "drupal": "Drupal is a free and open-source web content management system, written in PHP and distributed under the GNU General Public License.",
+        "elementor": "Elementor is a popular page builder plugin for WordPress that allows users to create custom layouts without coding.",
+        "framer": "Framer is a design tool for creating interactive prototypes and animations for websites and apps.",
+        "ghost": "Ghost is a powerful open-source publishing platform focused on professional publishing and blogs.",
+        "html-css-js": "HTML, CSS, and JavaScript are the fundamental technologies for building and designing websites and web applications.",
+        "html": "HTML (HyperText Markup Language) is the standard language for creating web pages and applications.",
+        "css": "CSS (Cascading Style Sheets) is a style sheet language used for describing the presentation of a document written in HTML or XML.",
+        "javascript": "JavaScript is a programming language that enables the creation of dynamic and interactive web content.",
+        "next": "Next.js is a React framework that enables server-side rendering and static site generation for optimized web applications.",
+        "react": "React is a JavaScript library for building user interfaces, maintained by Facebook and a community of developers and companies.",
         "webflow": "Webflow is a web design tool, CMS, and hosting platform in one, allowing users to design, build, and launch responsive websites visually.",
-        "wix": "Wix is a cloud-based web development platform that allows users to create HTML5 websites through the use of online drag and drop tools.",
+        "wix": "Wix is a cloud-based web development platform that allows users to create HTML5 websites using drag-and-drop tools.",
         "wordpress": "WordPress is an open-source content management system (CMS) used to build and manage websites, known for its flexibility and ease of use."
     },
     "create": {
         "header": {
+            "span": "Sell your template!",
             "title": "Ready to publish your template?",
             "description": "Your template needs to be of high quality and undergo a rigorous verification process. This process may take 1 to 2 weeks, but you can shorten it by subscribing to Quimplo Premium."
         },

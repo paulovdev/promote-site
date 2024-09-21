@@ -3,7 +3,7 @@
         "logo": "Quimplo",
         "stories": "Histórias",
         "explore": "Explorar",
-        "submitTemplate": "Enviar modelo",
+        "submitTemplate": "Enviar template",
         "histories": "Histórias",
         "exploreAll": "Explorar",
         "startSelling": "Comece a vender"
@@ -138,7 +138,7 @@
         "featured": "Featured",
         "siteDetails": {
             "madeBy": "Feito por",
-            "viewSite": "Ver este site",
+            "viewSite": "Visualizar",
             "buySite": "Comprar? {{price}}",
             "freePrice": "Grátis"
         },
@@ -172,6 +172,9 @@
         "framer": "Framer é uma ferramenta de design para criar protótipos interativos e animações para sites e aplicativos.",
         "ghost": "Ghost é uma plataforma de publicação de código aberto poderosa, focada em publicação e blogs profissionais.",
         "html-css-js": "HTML, CSS e JavaScript são as tecnologias fundamentais para construir e projetar sites e aplicativos web.",
+        "html": "HTML (HyperText Markup Language) é a linguagem padrão para criar páginas web e aplicativos.",
+        "css": "CSS (Cascading Style Sheets) é uma linguagem de estilo usada para descrever a apresentação de um documento escrito em HTML ou XML.",
+        "js": "JavaScript é uma linguagem de programação que permite a criação de conteúdo web dinâmico e interativo.",
         "next": "Next é um framework React que permite renderização no lado do servidor e geração de sites estáticos para criar aplicativos web otimizados.",
         "react": "React é uma biblioteca JavaScript para construir interfaces de usuário, mantida pelo Facebook e uma comunidade de desenvolvedores e empresas individuais.",
         "webflow": "Webflow é uma ferramenta de design web, CMS e plataforma de hospedagem em um, permitindo que os usuários projetem, construam e lancem sites responsivos visualmente.",
@@ -180,7 +183,8 @@
     },
     "create": {
         "header": {
-            "title": "Pronto para publicar seu template?",
+            "span": "Venda seu template!",
+            "title": "Envie seu template",
             "description": "Seu template precisa ser de alta qualidade e passar por um rigoroso processo de verificação. Esse processo pode levar de 1 a 2 semanas, mas você pode acelerar assinando o Quimplo Premium."
         },
         "steps": {
@@ -239,7 +243,7 @@
         "validLivePreview": "Um link de visualização ao vivo válido é obrigatório",
         "validBuyLink": "Um link de compra válido é obrigatório",
         "validContactLink": "Um link de contato válido é obrigatório",
-        "price":"Preco do template",
+        "price": "Preco do template",
         "continue": "Continuar",
         "back": "Voltar"
     },

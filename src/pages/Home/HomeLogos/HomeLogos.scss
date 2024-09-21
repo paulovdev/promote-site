@@ -7,7 +7,7 @@
     display: flex;
     align-items: start;
     justify-content: start;
-    gap: 1rem;
+    gap: 2rem;
 
     .text-logos {
         position: relative;
@@ -19,12 +19,16 @@
 
         span {
             margin-bottom: 1rem;
+
             font-size: .875rem;
             font-weight: 700;
-            letter-spacing: 1px;
+
             text-transform: uppercase;
+            letter-spacing: 1px;
             line-height: 1.225rem;
-            color: var(--p-i);
+
+            color: var(--p);
+
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -35,8 +39,9 @@
 
             font-size: 4.5rem;
             font-weight: 600;
-            line-height: .9;
-            color: var(--p-i);
+            line-height: 1;
+
+            color: var(--p);
         }
 
         p {
@@ -45,18 +50,19 @@
             font-weight: 500;
             line-height: 1.3;
 
-            color: var(--p-i);
+
+            color: var(--p);
         }
     }
 
     .icons {
         position: relative;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 5rem;
 
         svg {
-            color: var(--p-i);
+            color: var(--p);
             font-size: 54px;
             transition: .3s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
         }
@@ -66,8 +72,8 @@
             transform: scale(1.10);
             padding: .5rem;
             border-radius: .5rem;
+            color: var(--accent) !important;
             border: 2px solid var(--accent);
-            color: var(--accent);
             cursor: pointer;
         }
     }

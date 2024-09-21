@@ -9,7 +9,8 @@ const HomeHero = () => {
 
   return (
     <section id="hero-section">
-      <h1 dangerouslySetInnerHTML={{ __html: t('homeHero.title') }} />
+      <span>{t('homeHero.span')}</span>
+      <h1>{t('homeHero.title')}</h1>
       <p>{t('homeHero.description')}</p>
       <div className="hero-buttons">
         <Link to="/sites/all" className="hero-button" onClick={() => scrollTo({ top: 0 })}>

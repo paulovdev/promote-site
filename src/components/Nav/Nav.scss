@@ -3,23 +3,20 @@
 header {
   position: fixed;
   width: 100%;
-  height: 7vh;
-
+  padding: .5rem;
   top: 0;
 
   background-color: var(--bg);
-  border-bottom: 1px solid var(--border);
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
 
   z-index: 999;
 
   .logo>a {
     svg {
-      font-size: 32px;
+      font-size: 38px;
       color: var(--accent);
     }
   }
@@ -27,15 +24,15 @@ header {
   .desktop-menu {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 
     li {
       .feature-nav {
         width: 175px;
-        padding: .4rem 1.3rem;
+        padding: .6rem 1.3rem;
 
         font-size: 1rem;
-        font-weight: 600;
+        font-weight: 500;
 
         letter-spacing: -.3px;
 
@@ -59,24 +56,42 @@ header {
       }
 
       .explore-nav {
-        padding: .4rem 1.3rem;
+        padding: .4rem .5rem;
         color: var(--p);
 
         font-size: 1rem;
         font-weight: 600;
 
-        line-height: 1.5rem;
-
         border: 1px solid transparent;
         border-radius: 2rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
         &:hover,
         &.active {
-          box-shadow: inset 0 -150px 0 0 var(--p);
-          color: var(--p-2);
+          &::before {
+            opacity: 1;
+          }
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 15px;
+          height: 4px;
+
+          bottom: 7px;
+          border-radius: 1rem;
+
+          background-color: var(--p);
+
+          transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+          opacity: 0;
         }
       }
     }
@@ -160,14 +175,13 @@ header {
 
   nav {
     position: relative;
+    max-width: 1250px;
     width: 100%;
-    padding: 0 5rem;
+    padding: .5rem;
 
-    list-style: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
   }
 }
 

@@ -1,8 +1,11 @@
 {
     "nav": {
         "logo": "Quimplo",
+        "home": "Inicio",
         "stories": "Histórias",
         "explore": "Explorar",
+        "featured": "Em destaque",
+        "about": "Sobre",
         "submitTemplate": "Enviar template",
         "histories": "Histórias",
         "exploreAll": "Explorar",
@@ -13,7 +16,8 @@
         "en": "Inglês"
     },
     "homeHero": {
-        "title": "Eleve seu <span>template</span> e cause um impacto duradouro!",
+        "span": "Novos templates disponíveis",
+        "title": "Eleve seu template e cause um impacto duradouro!",
         "description": "Lance seu template no Quimplo com facilidade para atrair mais visitantes e aumentar suas vendas. Você nem precisa de uma conta!",
         "buttonText": "Explorar",
         "buttonText2": "Enviar template"

@@ -1,8 +1,11 @@
 #your-info-step {
     position: relative;
     width: 100%;
-    height: calc(100% - 3rem);
+    height: fit-content;
+
+    margin: 1rem 0;
     padding: 2rem;
+
     display: flex;
     flex-direction: column;
 

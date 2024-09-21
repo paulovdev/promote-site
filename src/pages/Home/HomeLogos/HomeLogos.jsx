@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
 import { DiCss3, DiJavascript1 } from 'react-icons/di';
+
+import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip } from 'react-tooltip';
 import { useTranslation } from 'react-i18next';
+
 import "./HomeLogos.scss";
 
 const HomeLogos = () => {
@@ -33,13 +37,27 @@ const HomeLogos = () => {
 
     return (
         <section id='home-logos'>
+
             <div className="text-logos">
                 <span>{t('homeLogos.sectionTitle')}</span>
-                <h1>{selectedToolName}</h1>
-                {selectedTool && (
-                    <p>{t(`toolDescriptions.${selectedTool}`)}</p>
-                )}
+
+                <AnimatePresence mode='wait'>
+                    <motion.div className="text-logos"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <h1>{selectedToolName}</h1>
+                        {selectedTool && (
+                            <p>{t(`toolDescriptions.${selectedTool}`)}</p>
+                        )}
+                    </motion.div>
+                </AnimatePresence>
+
             </div>
+
+
             <div className="icons">
                 {icons.map((icon, index) => (
                     <div

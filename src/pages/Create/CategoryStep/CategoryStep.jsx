@@ -57,6 +57,7 @@ const CategoryStep = ({ setCategory, setStep }) => {
   return (
     <>
       <section id='category-step'>
+
         <div className="category-cards">
           {categories.map((cat) => (
             <div
@@ -79,9 +80,10 @@ const CategoryStep = ({ setCategory, setStep }) => {
           </div>
         )}
       </section>
+
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">Back</button>
-        <button onClick={handleContinue} type='button'>Continue</button>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">{t('categoryStep.back')}</button>
+        <button onClick={handleContinue} type='button'>{t('categoryStep.continue')}</button>
       </div>
     </>
   );

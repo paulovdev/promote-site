@@ -59,9 +59,8 @@ header {
 
         &:hover,
         &.active {
-       
-          border-bottom: 1px solid var(--bg);
-         
+          border: 1px solid var(--bg);
+        
         }
       }
     }

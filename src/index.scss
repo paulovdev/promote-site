@@ -151,10 +151,6 @@ button {
   }
 }
 
-::selection {
-  background-color: var(--btn);
-  color: var(--btn);
-}
 
 ::-webkit-scrollbar {
   width: 8px;

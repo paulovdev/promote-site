@@ -77,22 +77,22 @@ const Create = () => {
 
   const handleSubmit = async (e, isPaid) => {
     e.preventDefault();
-  
+
     if (!image) {
       setIsPhotoValid(false);
       return;
     }
-  
+
     setIsLoading(true);
-  
+
     try {
       const imageRef = ref(storage, `images/${image.name}`);
       await uploadBytes(imageRef, image);
       const imageUrl = await getDownloadURL(imageRef);
-  
+
       // Define o valor de hot com base no pagamento
       const hot = isPaid ? 1 : 0; // Se o pagamento foi realizado, hot é 1, senão é 0
-  
+
       const templateParams = {
         from_name: myName,
         to_name: 'Paulo Vitor',
@@ -110,7 +110,7 @@ const Create = () => {
         imageURL: imageUrl,
         hot, // Adiciona o hot aqui
       };
-  
+
       await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
       setShowModal(false);
       setShowSuccessModal(true);
@@ -122,7 +122,8 @@ const Create = () => {
       setIsLoading(false);
     }
   };
-  
+
+
 
   const resetForm = () => {
     setMyName('');
@@ -215,7 +216,7 @@ const Create = () => {
               setStep={debouncedSetStep} />;
           case 6:
             return <SiteLinksStep
-            
+
               selectedPlan={price}
               setStep={debouncedSetStep}
               reset={reset}

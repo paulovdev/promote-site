@@ -1,10 +1,3 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { loadStripe } from '@stripe/stripe-js';
-import "./SiteLinksStep.scss";
-
-const stripePromise = loadStripe('pk_test_51Q1x2cRraDIE2N6qbyls0V3OWLG43f6fV0O5rLdgZjyBQrcXTubZmvoxBX7DiPLmFHxBjOGsBWrJeb73jPYJftKO006qSKveLt');
-
 const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
@@ -12,6 +5,7 @@ const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
   const handleSubmitWithValidation = async (e) => {
     e.preventDefault();
     setSubmitted(true);
+    let isPaid = false;
 
     if (selectedPlan === 'paid') {
       const stripe = await stripePromise;
@@ -26,13 +20,14 @@ const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
         console.error('Stripe Error:', error);
         setSubmitted(false);
       } else {
-        // Espera pelo pagamento e então envia os dados
-        handleSubmit(e, true); // Passa true para indicar que o pagamento foi feito
+        isPaid = true; // Pagamento foi iniciado
       }
     } else {
       console.log('Plano gratuito selecionado, enviando...');
-      handleSubmit(e, false); // Passa false para indicar que é um plano gratuito
     }
+
+    // Chama o handleSubmit aqui independentemente do pagamento
+    handleSubmit(e, isPaid);
   };
 
   return (
@@ -56,5 +51,3 @@ const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
     </>
   );
 };
-
-export default SiteLinksStep;

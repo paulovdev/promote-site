@@ -8,7 +8,6 @@ const stripePromise = loadStripe('pk_live_51Q1x2cRraDIE2N6q15XgLA5G4Z3go22e8ZS9i
 const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
-  console.log('Plano selecionado:', selectedPlan);
 
   const handleSubmitWithValidation = async (e) => {
     e.preventDefault();
@@ -22,15 +21,17 @@ const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
         successUrl: `${window.location.origin}/success`,
         cancelUrl: `${window.location.origin}/cancel`,
       });
-      handleSubmit(e);
-      console.log("plano pago ")
+
       if (error) {
         console.error('Stripe Error:', error);
         setSubmitted(false);
+      } else {
+        // Espera pelo pagamento e então envia os dados
+        handleSubmit(e, true); // Passa true para indicar que o pagamento foi feito
       }
     } else {
       console.log('Plano gratuito selecionado, enviando...');
-      handleSubmit(e);
+      handleSubmit(e, false); // Passa false para indicar que é um plano gratuito
     }
   };
 

@@ -75,21 +75,24 @@ const Create = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, isPaid) => {
     e.preventDefault();
-
+  
     if (!image) {
       setIsPhotoValid(false);
       return;
     }
-
+  
     setIsLoading(true);
-
+  
     try {
       const imageRef = ref(storage, `images/${image.name}`);
       await uploadBytes(imageRef, image);
       const imageUrl = await getDownloadURL(imageRef);
-
+  
+      // Define o valor de hot com base no pagamento
+      const hot = isPaid ? 1 : 0; // Se o pagamento foi realizado, hot é 1, senão é 0
+  
       const templateParams = {
         from_name: myName,
         to_name: 'Paulo Vitor',
@@ -99,25 +102,27 @@ const Create = () => {
         tool,
         siteName,
         description,
-        sitePrice: price === 0 ? 'Free' : `$${price}`,
+        sitePrice: price === '0' ? 'Free' : `$${price}`,
         features,
         livePreview,
         buyLink,
         contactLink,
         imageURL: imageUrl,
+        hot, // Adiciona o hot aqui
       };
-
+  
       await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
       setShowModal(false);
       setShowSuccessModal(true);
       resetForm();
-      setReset(true)
+      setReset(true);
     } catch (error) {
       console.error('EmailJS Error:', error);
     } finally {
       setIsLoading(false);
     }
   };
+  
 
   const resetForm = () => {
     setMyName('');

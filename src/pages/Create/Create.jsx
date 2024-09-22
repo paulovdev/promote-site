@@ -86,11 +86,37 @@ const Create = () => {
     setIsLoading(true);
 
     try {
+      // Se o plano for pago, verifique o pagamento primeiro
+      if (isPaid) {
+        const stripe = await stripePromise;
+        const { error } = await stripe.redirectToCheckout({
+          lineItems: [{ price: 'price_1Q1ylSRraDIE2N6q1CPEIbBT', quantity: 1 }],
+          mode: 'payment',
+          successUrl: `${window.location.origin}/success`,
+          cancelUrl: `${window.location.origin}/cancel`,
+        });
+
+        if (error) {
+          console.error('Stripe Error:', error);
+          setIsLoading(false);
+          return; // Não continue se houve um erro
+        }
+
+        // Aqui você deve verificar se o pagamento foi aprovado
+        // Para fins de exemplo, vamos simular que o pagamento foi aprovado
+        const paymentApproved = true; // Substitua por lógica real de verificação
+
+        if (!paymentApproved) {
+          setIsLoading(false);
+          return; // Se o pagamento não foi aprovado, não envie o formulário
+        }
+      }
+
+      // Processa o envio para EmailJS
       const imageRef = ref(storage, `images/${image.name}`);
       await uploadBytes(imageRef, image);
       const imageUrl = await getDownloadURL(imageRef);
 
-      // Define o valor de hot com base no pagamento
       const hot = isPaid ? 1 : 0; // Se o pagamento foi realizado, hot é 1, senão é 0
 
       const templateParams = {
@@ -122,6 +148,7 @@ const Create = () => {
       setIsLoading(false);
     }
   };
+
 
 
 

@@ -1,37 +1,15 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { loadStripe } from '@stripe/stripe-js';
 import "./SiteLinksStep.scss";
-
-const stripePromise = loadStripe('pk_test_51Q1x2cRraDIE2N6qbyls0V3OWLG43f6fV0O5rLdgZjyBQrcXTubZmvoxBX7DiPLmFHxBjOGsBWrJeb73jPYJftKO006qSKveLt');
 
 const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmitWithValidation = async (e) => {
+  const handleSubmitWithValidation = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    let isPaid = false;
-
-    if (selectedPlan === 'paid') {
-      const stripe = await stripePromise;
-      const { error } = await stripe.redirectToCheckout({
-        lineItems: [{ price: 'price_1Q1ylSRraDIE2N6q1CPEIbBT', quantity: 1 }],
-        mode: 'payment',
-        successUrl: `${window.location.origin}/success`,
-        cancelUrl: `${window.location.origin}/cancel`,
-      });
-
-      if (error) {
-        console.error('Stripe Error:', error);
-        setSubmitted(false);
-      } else {
-        isPaid = true; // Pagamento foi iniciado
-      }
-    } else {
-      console.log('Plano gratuito selecionado, enviando...');
-    }
+    const isPaid = selectedPlan === 'paid';
 
     // Chama o handleSubmit aqui independentemente do pagamento
     handleSubmit(e, isPaid);
@@ -58,6 +36,5 @@ const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
     </>
   );
 };
-
 
 export default SiteLinksStep;

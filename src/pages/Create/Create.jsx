@@ -50,7 +50,7 @@ const Create = () => {
   useEffect(() => {
     document.body.classList.toggle('no-scroll', showModal);
   }, [showModal]);
-  
+
   // Salva o passo atual no sessionStorage sempre que ele mudar
   useEffect(() => {
     sessionStorage.setItem('currentStep', step);
@@ -210,6 +210,8 @@ const Create = () => {
               setStep={debouncedSetStep} />;
           case 6:
             return <SiteLinksStep
+            
+              selectedPlan={price}
               setStep={debouncedSetStep}
               reset={reset}
               handleSubmit={handleSubmit} />;
@@ -283,7 +285,7 @@ const Create = () => {
           transition={{ duration: 0.3, ease: 'easeIn' }}
           className='price-wrapper'
         >
-          <Price onClick={() => setShowModal(true)} />
+          <Price setPlan={setPrice} onClick={() => setShowModal(true)} />
         </motion.div>
 
         <AnimatePresence mode='wait'>

@@ -16,7 +16,7 @@ const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
     if (selectedPlan === 'paid') {
       const stripe = await stripePromise;
       const { error } = await stripe.redirectToCheckout({
-        lineItems: [{ price: 'price_1Q1xmWRraDIE2N6qBr7I8ukN', quantity: 1 }],
+        lineItems: [{ price: 'price_1Q1ylSRraDIE2N6q1CPEIbBT', quantity: 1 }],
         mode: 'payment',
         successUrl: `${window.location.origin}/success`,
         cancelUrl: `${window.location.origin}/cancel`,

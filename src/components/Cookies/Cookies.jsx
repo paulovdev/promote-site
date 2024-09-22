@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Cookies from 'js-cookie';
 import { useTranslation } from 'react-i18next';
 import './Cookies.scss';
+import { Link } from 'react-router-dom';
 
 const CookiesComponent = () => {
     const { t } = useTranslation();
@@ -16,10 +17,10 @@ const CookiesComponent = () => {
     }, []);
 
     const handleAccept = () => {
-        Cookies.set('cookieConsent', 'true', { 
-            expires: 365, 
-            secure: true, 
-            sameSite: 'Strict' 
+        Cookies.set('cookieConsent', 'true', {
+            expires: 365,
+            secure: true,
+            sameSite: 'Strict'
         });
         setIsVisible(false);
     };
@@ -35,7 +36,7 @@ const CookiesComponent = () => {
                     transition={{ duration: 0.3, delay: 1.7 }}
                 >
                     <h1>{t('cookies.cookieNoticeTitle')}</h1>
-                    <p>{t('cookies.cookieNoticeMessage')} <a href="#">{t('cookies.cookiePolicy')}</a></p>
+                    <p>{t('cookies.cookieNoticeMessage')} <Link to="/cookies">{t('cookies.cookiePolicy')}</Link></p>
                     <motion.button
                         whileHover={{ scale: 1.03 }}
                         transition={{ type: "spring", stiffness: 1000, damping: 5 }}

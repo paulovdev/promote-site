@@ -16,7 +16,7 @@
         "en": "English"
     },
     "homeHero": {
-        "span": "New templates available",
+        "span": "New templates available!",
         "title": "Elevate your template and make a lasting impact!",
         "description": "Launch your template on Quimplo with ease to attract more visitors and boost your sales. You don't even need an account!",
         "buttonText": "Explore",
@@ -323,7 +323,20 @@
         "cookieNoticeTitle": "This site uses cookies",
         "cookieNoticeMessage": "We use cookies to ensure you get the best experience on our website.",
         "cookiePolicy": "Cookie Policy",
-        "acceptButton": "Accept"
+        "acceptButton": "Accept",
+        "cookiesPolicyTitle": "Quimplo Cookies Policy",
+        "introText": "Welcome to Quimplo's Cookies Policy page! Here, we explain how we use cookies and similar technologies to provide the best possible experience on our site.",
+        "whatAreCookiesTitle": "What are cookies?",
+        "whatAreCookiesText": "Cookies are small text files stored on your device when you visit a website. They help remember your preferences and activities, making navigation easier and improving user experience.",
+        "howWeUseCookiesTitle": "How do we use cookies at Quimplo?",
+        "howWeUseCookiesText": "At Quimplo, we use cookies for various purposes, including:",
+        "necessaryCookies": "Necessary Cookies: These cookies are essential for the website to function correctly. Without them, some functionalities may not be available.",
+        "performanceCookies": "Performance Cookies: These cookies collect information about how visitors use the site, helping us improve performance and user experience.",
+        "functionalityCookies": "Functionality Cookies: These cookies allow the site to remember your choices (such as your username, language, or region) to provide a more personalized experience.",
+        "managingCookiesTitle": "Managing Cookies",
+        "managingCookiesText": "You can manage and/or delete cookies as you prefer. Most browsers allow you to control cookies through their settings. However, disabling cookies may affect your browsing experience on Quimplo.",
+        "moreInfoTitle": "More Information",
+        "moreInfoText": "If you have any questions or need more information about our cookie policy, please contact us through our support."
     },
     "u404": {
         "unfoundText": "404: Page not found",

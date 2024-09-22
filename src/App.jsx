@@ -15,6 +15,7 @@ import Cookies from './components/Cookies/Cookies';
 import { AnimatePresence } from 'framer-motion';
 import Stories from './pages/Stories/Stories';
 import U404 from './pages/U404/U404';
+import CookiesPage from './pages/CookiesPage/CookiesPage';
 
 const App = () => {
 
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/sites/:category" element={<Category />} />
           <Route path="/sites/:tool" element={<Category />} />
           <Route path="/stories" element={<Stories />} />
+          <Route path="/cookies" element={<CookiesPage />} />
           <Route path="*" element={<U404 />} />
 
           <Route path="/CNOYMulmOdU0bwORZLxS1sDQs14heCNOYMulmOdU0bwORZLxS" element={<SecureForm />} />

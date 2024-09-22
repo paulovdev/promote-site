@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { loadStripe } from '@stripe/stripe-js';
 import "./SiteLinksStep.scss";
 
-const stripePromise = loadStripe('pk_live_51Q1x2cRraDIE2N6q15XgLA5G4Z3go22e8ZS9iNgTk6lJDpR6o8ibFAiqAezLo2qlDRrqeBx4f0IB9FTtJhyE0iTt00bd3RwdaQ');
+const stripePromise = loadStripe('pk_test_51Q1x2cRraDIE2N6qbyls0V3OWLG43f6fV0O5rLdgZjyBQrcXTubZmvoxBX7DiPLmFHxBjOGsBWrJeb73jPYJftKO006qSKveLt');
 
 const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
   const { t } = useTranslation();

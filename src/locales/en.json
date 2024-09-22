@@ -11,6 +11,24 @@
         "exploreAll": "Explore",
         "startSelling": "Start selling"
     },
+    "about": {
+        "aboutTitle": "About Us",
+        "quimploForAll": "Quimplo for Everyone!",
+        "introText": "Whether you are a programmer or not, you are in the right place!",
+        "whatIsQuimploTitle": "What is Quimplo?",
+        "whatIsQuimploText": "Quimplo is more than just a template marketplace. Our mission is to empower creators and developers by providing an environment where you can share your creations and find the tools you need to take your projects to the next level.",
+        "forProgrammersTitle": "For Programmers",
+        "forProgrammersText": "For programmers, Quimplo offers a wide range of programming technologies. Whether you're an experienced developer or just starting out, we have the resources you need to create amazing and functional templates. Our marketplace allows you to sell your templates directly to a global community of users, increasing your visibility and reach.",
+        "forNonProgrammersTitle": "For Non-Programmers",
+        "forNonProgrammersText": "For those who are not programmers, Quimplo is still the ideal platform. We offer easy-to-use templates that can be customized without any programming knowledge. With our intuitive interface, anyone can create stunning and professional websites with just a few clicks.",
+        "whyChooseQuimploTitle": "Why Choose Quimplo?",
+        "diversityOfTechnologies": "Diversity of Technologies: We offer support for various programming technologies, including HTML, CSS, JavaScript, React, Angular, Vue.js, and much more.",
+        "easeOfUse": "Ease of Use: Our platform is designed to be user-friendly, allowing anyone, regardless of their technical experience, to create and sell templates.",
+        "globalCommunity": "Global Community: Join a community of creators and developers from around the world. Share your ideas, collaborate on projects, and find inspiration.",
+        "supportAndResources": "Support and Resources: We provide tutorials, guides, and technical support to help you at every stage of your project.",
+        "joinQuimploToday": "Join Quimplo Today!",
+        "joinQuimploText": "If you are ready to turn your ideas into reality, Quimplo is the place for you. Explore our platform, discover new possibilities, and start creating and selling your templates right now!"
+    },
     "language": {
         "br": "Brazil",
         "en": "English"
@@ -344,6 +362,8 @@
     },
     "helmet": {
         "publish": "Publish | Quimplo",
+        "about": "About | Quimplo",
+        "cookies": "Cookies Policy | Quimplo",
         "explore": "Explore | Quimplo",
         "stories": "Stories | Quimplo"
     }

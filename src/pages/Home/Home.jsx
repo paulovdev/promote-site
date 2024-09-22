@@ -9,7 +9,6 @@ import HomeLogos from "./HomeLogos/HomeLogos";
 
 import Transition from "../../utils/Transition/Transition";
 import "./Home.scss";
-
 const Home = () => {
     const [showSites, setShowSites] = useState(false);
     const [showFeatures, setShowFeatures] = useState(false);
@@ -38,7 +37,6 @@ const Home = () => {
             <div id="home">
                 <HomeHero />
                 {showSites && <HomeSites />}
-                {/* {showSitesFeatured && <HomeSitesFeatured />} */}
                 {showFeatures && <HomeFeatures />}
                 {showLogos && <HomeLogos />}
                 {showFAQs && <HomeFAQs />}

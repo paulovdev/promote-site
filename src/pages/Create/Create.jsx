@@ -47,6 +47,10 @@ const Create = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const imageRef = useRef();
 
+  useEffect(() => {
+    document.body.classList.toggle('no-scroll', showModal);
+  }, [showModal]);
+  
   // Salva o passo atual no sessionStorage sempre que ele mudar
   useEffect(() => {
     sessionStorage.setItem('currentStep', step);

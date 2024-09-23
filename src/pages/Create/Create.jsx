@@ -15,10 +15,16 @@ import ImageStep from './ImageStep/ImageStep';
 import SiteLinksStep from './SiteLinksStep/SiteLinksStep';
 import FeaturesStep from './FeaturesStep/FeaturesStep';
 import Price from '../../components/Price/Price';
+import { loadStripe } from '@stripe/stripe-js';
+import "./SiteLinksStep.scss";
+
+
 import "./Create.scss";
 
 const Create = () => {
   const { t } = useTranslation();
+  const stripePromise = loadStripe('pk_test_51Q1x2cRraDIE2N6qbyls0V3OWLG43f6fV0O5rLdgZjyBQrcXTubZmvoxBX7DiPLmFHxBjOGsBWrJeb73jPYJftKO006qSKveLt');
+
   const [step, setStep] = useState(() => {
     const savedStep = sessionStorage.getItem('currentStep');
     return savedStep ? Number(savedStep) : 1;

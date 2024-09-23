@@ -3,11 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { loadStripe } from '@stripe/stripe-js';
 import './SiteLinksStep.scss';
 
-const stripePromise = loadStripe('pk_test_51Q1x2cRraDIE2N6qbyls0V3OWLG43f6fV0O5rLdgZjyBQrcXTubZmvoxBX7DiPLmFHxBjOGsBWrJeb73jPYJftKO006qSKveLt');
+const stripePromise = loadStripe('pk_test_51Q1x2cRraDIE2N6qbyls0V3OWLG43f6fV0O5rLdgZjyBQrcXTubZmvoxBX7DiPLmFHxBjOGsBWrJeb73jPYJftKO006qSKveLt'); // Replace with your publishable key
 
 const SiteLinksStep = ({ setStep, handleSubmit }) => {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
+  const [paymentError, setPaymentError] = useState(null);
 
   const handleStripePayment = async () => {
     const stripe = await stripePromise;
@@ -22,43 +23,56 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
 
       const session = await response.json();
 
-      // Redireciona para a sessão de checkout do Stripe
       const { error } = await stripe.redirectToCheckout({
         sessionId: session.id,
       });
 
       if (error) {
         console.error('Stripe Error:', error);
-        return false; // Pagamento falhou
+        setPaymentError(error.message); // Set a user-friendly error message
+        return false;
       }
 
-      return true; // Pagamento iniciado com sucesso
+      return true; // Payment initiated successfully
     } catch (error) {
       console.error('Erro ao criar sessão de checkout:', error);
-      return false; // Pagamento falhou
+      setPaymentError('An error occurred while creating the payment session. Please try again later.'); // Set a user-friendly error message
+      return false;
     }
   };
-
-
 
   const handleSubmitWithValidation = async (e) => {
     e.preventDefault();
     setSubmitted(true);
 
+    // Validate form fields here (consider using a library like Yup)
+    // ... sua lógica de validação ...
+
+    if (paymentError) {
+      // Exibir erro de pagamento se houver
+      return;
+    }
+
     const paymentApproved = await handleStripePayment();
     if (paymentApproved) {
-      console.log('Pagamento aprovado');
-      await handleSubmit(e, true); // Certifique-se de que handleSubmit está corretamente implementado
+      console.log('Pagamento aprovado'); // Log para depuração
+
+      // Enviar os dados do formulário para o seu backend para processamento (incluindo status de pagamento)
+      const formData = new FormData(e.target); // Extrair dados do formulário
+      formData.append('isPaid', 1); // Indicar envio pago
+      await handleSubmit(formData, true); // Chamar seu manipulador de envio com o pagamento aprovado
+
+      // Exibir o modal de sucesso
+      setShowSuccessModal(true);
     } else {
-      console.log('Pagamento não aprovado');
+      console.log('Pagamento não aprovado'); // Log para depuração
     }
   };
 
 
-
   const handleNormalSubmit = (e) => {
     e.preventDefault();
-    handleSubmit(e, false); // Envia com hot: 0
+    handleSubmit(new FormData(e.target), false); // Send form data with isPaid=0 for free submission
   };
 
   return (
@@ -70,8 +84,9 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
           <a href="/submission-guidelines">{t('agree.submissionGuidelines')}</a> {t('and')} {t('agree.agreement')}
         </label>
         <button onClick={handleSubmitWithValidation} type='button'>
-          PAGAR PARA IR MAIS RÁPIDO
+          PAGAR PARA IR MAIS RÁPTO
         </button>
+        {paymentError && <p className="error-message">{paymentError}</p>} {/* Display payment error message */}
       </section>
 
       <div className="step-buttons">

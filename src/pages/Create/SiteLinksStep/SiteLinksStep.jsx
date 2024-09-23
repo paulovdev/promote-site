@@ -1,29 +1,56 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { loadStripe } from '@stripe/stripe-js';
 import "./SiteLinksStep.scss";
 
-const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
+const stripePromise = loadStripe('pk_test_51Q1x2cRraDIE2N6qbyls0V3OWLG43f6fV0O5rLdgZjyBQrcXTubZmvoxBX7DiPLmFHxBjOGsBWrJeb73jPYJftKO006qSKveLt');
+const SiteLinksStep = ({ setStep, handleSubmit }) => {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmitWithValidation = (e) => {
+  const handleStripePayment = async () => {
+    // Aqui você chama a lógica do Stripe
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [{ price: 'price_1Q1ylSRraDIE2N6q1CPEIbBT', quantity: 1 }],
+      mode: 'payment',
+      successUrl: `${window.location.origin}/success`,
+      cancelUrl: `${window.location.origin}/cancel`,
+    });
+
+    if (error) {
+      console.error('Stripe Error:', error);
+      return false; // Indica que o pagamento falhou
+    }
+
+    return true; // Indica que o pagamento foi realizado com sucesso
+  };
+
+  const handleSubmitWithValidation = async (e) => {
     e.preventDefault();
     setSubmitted(true);
-    const isPaid = selectedPlan === 'paid'; // Verifica se o plano selecionado é pago
-    handleSubmit(e, isPaid); // Passa o isPaid para handleSubmit
+
+    // Se o usuário optar pelo pagamento
+    const paymentApproved = await handleStripePayment();
+    if (paymentApproved) {
+      handleSubmit(e, true); // Envia com hot: 1
+    } else {
+      // Se o pagamento não for aprovado, apenas envia o formulário sem hot
+      handleSubmit(e, false); // Envia com hot: 0
+    }
   };
 
   return (
     <>
       <section id="site-links-step">
-        <input
-          type='checkbox'
-          id="terms"
-        />
+        <input type='checkbox' id="terms" />
         <label htmlFor="terms">
           {t('agree.confirmText')}
           <a href="/submission-guidelines">{t('agree.submissionGuidelines')}</a> {t('and')} {t('agree.agreement')}
         </label>
+        <button onClick={handleSubmitWithValidation} type='button'>
+          PAGAR PARA IR MAIS RÁPIDO
+        </button>
       </section>
 
       <div className="step-buttons">
@@ -37,5 +64,7 @@ const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
     </>
   );
 };
+
+
 
 export default SiteLinksStep;

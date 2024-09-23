@@ -15,10 +15,10 @@ import ImageStep from './ImageStep/ImageStep';
 import SiteLinksStep from './SiteLinksStep/SiteLinksStep';
 import FeaturesStep from './FeaturesStep/FeaturesStep';
 import Price from '../../components/Price/Price';
-import { loadStripe } from '@stripe/stripe-js';
+
 
 import "./Create.scss";
-const stripePromise = loadStripe('pk_test_51Q1x2cRraDIE2N6qbyls0V3OWLG43f6fV0O5rLdgZjyBQrcXTubZmvoxBX7DiPLmFHxBjOGsBWrJeb73jPYJftKO006qSKveLt');
+
 
 const Create = () => {
   const { t } = useTranslation();
@@ -79,15 +79,6 @@ const Create = () => {
     }
   };
 
-  const onPlanSelect = (planType) => {
-    if (planType === 'paid') {
-      // Não faça nada aqui, o Stripe será chamado no `handleSubmit`
-    } else {
-      // Para o plano gratuito, chama o handleSubmit diretamente
-      handleSubmit(event, false); // false indica que não é pago
-    }
-  };
-
   const handleSubmit = async (e, isPaid) => {
     e.preventDefault();
 
@@ -99,30 +90,6 @@ const Create = () => {
     setIsLoading(true);
 
     try {
-      if (isPaid) {
-        const stripe = await stripePromise;
-        const { error } = await stripe.redirectToCheckout({
-          lineItems: [{ price: 'price_1Q1ylSRraDIE2N6q1CPEIbBT', quantity: 1 }],
-          mode: 'payment',
-          successUrl: `${window.location.origin}/success`,
-          cancelUrl: `${window.location.origin}/cancel`,
-        });
-
-        if (error) {
-          console.error('Stripe Error:', error);
-          setIsLoading(false);
-          return; // Não continue se houve um erro
-        }
-
-        // Aqui você deve verificar se o pagamento foi aprovado
-        const paymentApproved = true; // Substitua por lógica real de verificação
-
-        if (!paymentApproved) {
-          setIsLoading(false);
-          return; // Se o pagamento não foi aprovado, não envie o formulário
-        }
-      }
-
       // Processa o envio para EmailJS
       const imageRef = ref(storage, `images/${image.name}`);
       await uploadBytes(imageRef, image);
@@ -255,12 +222,9 @@ const Create = () => {
               setStep={debouncedSetStep} />;
           case 6:
             return <SiteLinksStep
-              selectedPlan={pay}
               setStep={debouncedSetStep}
               reset={reset}
               handleSubmit={handleSubmit} />;
-
-
           default:
             return null;
         }
@@ -331,7 +295,7 @@ const Create = () => {
           transition={{ duration: 0.3, ease: 'easeIn' }}
           className='price-wrapper'
         >
-          <Price setPlan={setPrice} onClick={() => setShowModal(true)} onPlanSelect={onPlanSelect} />
+          <Price setPlan={setPrice} onClick={() => setShowModal(true)} />
         </motion.div>
 
         <AnimatePresence mode='wait'>

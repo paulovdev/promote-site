@@ -3,19 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { IoCheckmarkCircleSharp } from "react-icons/io5";
 import './Price.scss';
 
-const Price = ({ setPlan, onClick, onPlanSelect }) => {
+const Price = ({ onClick }) => {
     const { t } = useTranslation();
 
-    const handlePlanSelect = (planType) => {
-        setPlan(planType);
-        onPlanSelect(planType); // Chama a função com o tipo de plano
-        onClick(); // Abre o modal ao selecionar um plano
-    };
 
     return (
         <section id="price">
             <div className="plans">
-                <div className="plan" onClick={() => handlePlanSelect('free')}>
+                <div className="plan" onClick={onClick}>
                     <h3>Quimplo</h3>
                     <span className="cost">{t('price.free')}</span>
                     <ul className="features">
@@ -24,7 +19,7 @@ const Price = ({ setPlan, onClick, onPlanSelect }) => {
                     <button>{t('price.publishSite')}</button>
                 </div>
 
-                <div className="plan" onClick={() => handlePlanSelect('paid')}>
+                <div className="plan" onClick={onClick}>
                     <h3>Quimplo featured</h3>
                     <span className="cost">{t('price.price')}</span>
                     <ul className="features">

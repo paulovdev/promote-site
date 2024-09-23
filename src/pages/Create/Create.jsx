@@ -81,6 +81,8 @@ const Create = () => {
 
   const handleSubmit = async (e, isPaid) => {
     e.preventDefault();
+    console.log('Validando o envio do formulário');
+    console.log('Formulário enviado com hot:', isPaid ? 1 : 0); // Debug
 
     if (!image) {
       setIsPhotoValid(false);
@@ -90,12 +92,11 @@ const Create = () => {
     setIsLoading(true);
 
     try {
-      // Processa o envio para EmailJS
       const imageRef = ref(storage, `images/${image.name}`);
       await uploadBytes(imageRef, image);
       const imageUrl = await getDownloadURL(imageRef);
 
-      const hot = isPaid ? 1 : 0; // Se o pagamento foi realizado, hot é 1, senão é 0
+      const hot = isPaid ? 1 : 0;
 
       const templateParams = {
         from_name: myName,
@@ -119,13 +120,14 @@ const Create = () => {
       setShowModal(false);
       setShowSuccessModal(true);
       resetForm();
-      setReset(true);
     } catch (error) {
       console.error('EmailJS Error:', error);
     } finally {
       setIsLoading(false);
     }
   };
+
+
 
 
 

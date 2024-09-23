@@ -10,43 +10,51 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleStripePayment = async () => {
-    const response = await fetch('/api/create-checkout-session', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (!response.ok) {
-      console.error('Erro ao criar sessão de checkout:', response.statusText);
-      return false; // Indica que o pagamento falhou
-    }
-
-    const data = await response.json();
     const stripe = await stripePromise;
+    try {
+      const response = await fetch('https://promote-site-back.vercel.app/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ /* dados necessários, se houver */ }),
+      });
 
-    const { error } = await stripe.redirectToCheckout({
-      sessionId: data.id,
-    });
+      const session = await response.json();
 
-    if (error) {
-      console.error('Stripe Error:', error);
-      return false; // Indica que o pagamento falhou
+      // Redireciona para a sessão de checkout do Stripe
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      if (error) {
+        console.error('Stripe Error:', error);
+        return false; // Pagamento falhou
+      }
+
+      return true; // Pagamento iniciado com sucesso
+    } catch (error) {
+      console.error('Erro ao criar sessão de checkout:', error);
+      return false; // Pagamento falhou
     }
-
-    return true; // Indica que o pagamento foi realizado com sucesso
   };
+
+
 
   const handleSubmitWithValidation = async (e) => {
     e.preventDefault();
     setSubmitted(true);
 
-    // Inicia o pagamento
     const paymentApproved = await handleStripePayment();
     if (paymentApproved) {
-      handleSubmit(e, true); // Envia com hot: 1
+      console.log('Pagamento aprovado');
+      await handleSubmit(e, true); // Certifique-se de que handleSubmit está corretamente implementado
     } else {
       console.log('Pagamento não aprovado');
     }
   };
+
+
 
   const handleNormalSubmit = (e) => {
     e.preventDefault();

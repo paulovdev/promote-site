@@ -16,8 +16,6 @@ import SiteLinksStep from './SiteLinksStep/SiteLinksStep';
 import FeaturesStep from './FeaturesStep/FeaturesStep';
 import Price from '../../components/Price/Price';
 import { loadStripe } from '@stripe/stripe-js';
-import "./SiteLinksStep.scss";
-
 
 import "./Create.scss";
 

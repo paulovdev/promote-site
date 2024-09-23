@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { loadStripe } from '@stripe/stripe-js';
-import "./SiteLinksStep.scss";
-
-const stripePromise = loadStripe('pk_test_51Q1x2cRraDIE2N6qbyls0V3OWLG43f6fV0O5rLdgZjyBQrcXTubZmvoxBX7DiPLmFHxBjOGsBWrJeb73jPYJftKO006qSKveLt');
 const SiteLinksStep = ({ setStep, handleSubmit }) => {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
 
   const handleStripePayment = async () => {
-    // Aqui você chama a lógica do Stripe
     const stripe = await stripePromise;
     const { error } = await stripe.redirectToCheckout({
       lineItems: [{ price: 'price_1Q1ylSRraDIE2N6q1CPEIbBT', quantity: 1 }],
@@ -20,24 +13,30 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
 
     if (error) {
       console.error('Stripe Error:', error);
-      return false; // Indica que o pagamento falhou
+      return false; // Pagamento falhou
     }
 
-    return true; // Indica que o pagamento foi realizado com sucesso
+    // Aqui você deve verificar se o pagamento foi realmente aprovado
+    return true; // Pagamento aprovado (simplificado)
   };
 
   const handleSubmitWithValidation = async (e) => {
     e.preventDefault();
     setSubmitted(true);
 
-    // Se o usuário optar pelo pagamento
+    // Inicia o pagamento
     const paymentApproved = await handleStripePayment();
     if (paymentApproved) {
       handleSubmit(e, true); // Envia com hot: 1
     } else {
-      // Se o pagamento não for aprovado, apenas envia o formulário sem hot
-      handleSubmit(e, false); // Envia com hot: 0
+      // Se o pagamento falhar, você pode decidir como proceder
+      console.log('Pagamento não aprovado');
     }
+  };
+
+  const handleNormalSubmit = (e) => {
+    e.preventDefault();
+    handleSubmit(e, false); // Envia com hot: 0
   };
 
   return (
@@ -57,14 +56,10 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
         <button onClick={() => setStep((prev) => prev - 1)} type='button' className="back-button">
           {t('agree.back')}
         </button>
-        <button onClick={handleSubmitWithValidation} type='button'>
+        <button onClick={handleNormalSubmit} type='button'>
           {t('agree.submit')}
         </button>
       </div>
     </>
   );
 };
-
-
-
-export default SiteLinksStep;

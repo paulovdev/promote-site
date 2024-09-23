@@ -255,11 +255,12 @@ const Create = () => {
               setStep={debouncedSetStep} />;
           case 6:
             return <SiteLinksStep
-
-              selectedPlan={price}
+              selectedPlan={pay}
               setStep={debouncedSetStep}
               reset={reset}
               handleSubmit={handleSubmit} />;
+
+
           default:
             return null;
         }

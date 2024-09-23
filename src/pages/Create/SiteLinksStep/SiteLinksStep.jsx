@@ -1,3 +1,9 @@
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { loadStripe } from '@stripe/stripe-js';
+import "./SiteLinksStep.scss";
+
+const stripePromise = loadStripe('pk_test_51Q1x2cRraDIE2N6qbyls0V3OWLG43f6fV0O5rLdgZjyBQrcXTubZmvoxBX7DiPLmFHxBjOGsBWrJeb73jPYJftKO006qSKveLt');
 const SiteLinksStep = ({ setStep, handleSubmit }) => {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
@@ -63,3 +69,7 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
     </>
   );
 };
+
+
+
+export default SiteLinksStep;

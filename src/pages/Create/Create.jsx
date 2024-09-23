@@ -79,6 +79,15 @@ const Create = () => {
     }
   };
 
+  const onPlanSelect = (planType) => {
+    if (planType === 'paid') {
+      // Não faça nada aqui, o Stripe será chamado no `handleSubmit`
+    } else {
+      // Para o plano gratuito, chama o handleSubmit diretamente
+      handleSubmit(event, false); // false indica que não é pago
+    }
+  };
+
   const handleSubmit = async (e, isPaid) => {
     e.preventDefault();
 
@@ -90,7 +99,6 @@ const Create = () => {
     setIsLoading(true);
 
     try {
-      // Se o plano for pago, verifique o pagamento primeiro
       if (isPaid) {
         const stripe = await stripePromise;
         const { error } = await stripe.redirectToCheckout({
@@ -107,7 +115,6 @@ const Create = () => {
         }
 
         // Aqui você deve verificar se o pagamento foi aprovado
-        // Para fins de exemplo, vamos simular que o pagamento foi aprovado
         const paymentApproved = true; // Substitua por lógica real de verificação
 
         if (!paymentApproved) {
@@ -138,7 +145,7 @@ const Create = () => {
         buyLink,
         contactLink,
         imageURL: imageUrl,
-        hot, // Adiciona o hot aqui
+        hot,
       };
 
       await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
@@ -152,6 +159,7 @@ const Create = () => {
       setIsLoading(false);
     }
   };
+
 
 
 
@@ -322,7 +330,7 @@ const Create = () => {
           transition={{ duration: 0.3, ease: 'easeIn' }}
           className='price-wrapper'
         >
-          <Price setPlan={setPrice} onClick={() => setShowModal(true)} />
+          <Price setPlan={setPrice} onClick={() => setShowModal(true)} onPlanSelect={onPlanSelect} />
         </motion.div>
 
         <AnimatePresence mode='wait'>

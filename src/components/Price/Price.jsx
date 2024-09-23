@@ -1,14 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { IoCheckmarkCircleSharp } from "react-icons/io5";
 import './Price.scss';
 
-const Price = ({ setPlan, onClick }) => {
+const Price = ({ setPlan, onClick, onPlanSelect }) => {
     const { t } = useTranslation();
 
     const handlePlanSelect = (planType) => {
         setPlan(planType);
+        onPlanSelect(planType); // Chama a função com o tipo de plano
         onClick(); // Abre o modal ao selecionar um plano
     };
 
@@ -36,5 +36,6 @@ const Price = ({ setPlan, onClick }) => {
         </section>
     );
 };
+
 
 export default Price;

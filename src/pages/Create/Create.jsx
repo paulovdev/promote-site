@@ -96,7 +96,7 @@ const Create = () => {
       await uploadBytes(imageRef, image);
       const imageUrl = await getDownloadURL(imageRef);
 
-      const hot = isPaid ? 1 : 0;
+      const hot = isPaid ? 1 : 0; // Define o hot com base no valor de isPaid
 
       const templateParams = {
         from_name: myName,
@@ -226,7 +226,9 @@ const Create = () => {
             return <SiteLinksStep
               setStep={debouncedSetStep}
               reset={reset}
-              handleSubmit={handleSubmit} />;
+              handleSubmit={handleSubmit}
+              isPaid={true}
+            />
           default:
             return null;
         }

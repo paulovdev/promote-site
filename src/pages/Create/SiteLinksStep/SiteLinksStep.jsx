@@ -5,7 +5,7 @@ import './SiteLinksStep.scss';
 
 const stripePromise = loadStripe('pk_test_51Q1x2cRraDIE2N6qbyls0V3OWLG43f6fV0O5rLdgZjyBQrcXTubZmvoxBX7DiPLmFHxBjOGsBWrJeb73jPYJftKO006qSKveLt'); // Replace with your publishable key
 
-const SiteLinksStep = ({ setStep, handleSubmit }) => {
+const SiteLinksStep = ({ setStep, handleSubmit, isPaid }) => {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
   const [paymentError, setPaymentError] = useState(null);
@@ -45,7 +45,7 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
     e.preventDefault();
     setSubmitted(true);
 
-    // Validate form fields here (consider using a library like Yup)
+    // Validação do formulário aqui
     // ... sua lógica de validação ...
 
     if (paymentError) {
@@ -57,10 +57,9 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
     if (paymentApproved) {
       console.log('Pagamento aprovado'); // Log para depuração
 
-      // Enviar os dados do formulário para o seu backend para processamento (incluindo status de pagamento)
+      // Enviar os dados do formulário para o seu backend para processamento
       const formData = new FormData(e.target); // Extrair dados do formulário
-      formData.append('isPaid', 1); // Indicar envio pago
-      await handleSubmit(formData, true); // Chamar seu manipulador de envio com o pagamento aprovado
+      await handleSubmit(formData, true); // Passando true para indicar pagamento
 
       // Exibir o modal de sucesso
       setShowSuccessModal(true);

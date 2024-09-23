@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import "./SiteLinksStep.scss";
 
-const SiteLinksStep = ({ setStep, handleSubmit }) => {
+const SiteLinksStep = ({ setStep, handleSubmit, selectedPlan }) => {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmitWithValidation = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    handleSubmit(e);
+    const isPaid = selectedPlan === 'paid'; // Verifica se o plano selecionado é pago
+    handleSubmit(e, isPaid); // Passa o isPaid para handleSubmit
   };
 
   return (

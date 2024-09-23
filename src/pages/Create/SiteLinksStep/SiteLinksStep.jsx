@@ -11,7 +11,7 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const createCheckoutSession = async () => {
-    const response = await fetch('http://localhost:3000/api/create-checkout-session', {
+    const response = await fetch('https://promote-site-back.vercel.app/api/create-checkout-session', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
     });

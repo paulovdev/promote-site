@@ -14,7 +14,6 @@ import ToolStep from './ToolStep/ToolStep';
 import ImageStep from './ImageStep/ImageStep';
 import SiteLinksStep from './SiteLinksStep/SiteLinksStep';
 import FeaturesStep from './FeaturesStep/FeaturesStep';
-import Price from '../../components/Price/Price';
 
 
 import "./Create.scss";
@@ -79,7 +78,7 @@ const Create = () => {
     }
   };
 
-  
+
   const handleSubmit = async (e) => {
     if (e) e.preventDefault(); // Verifica se o evento existe antes de chamar preventDefault
 
@@ -90,49 +89,49 @@ const Create = () => {
     console.log('Formulário enviado com hot:', isPaid ? 1 : 0); // Debug
 
     if (!image) {
-        setIsPhotoValid(false);
-        return;
+      setIsPhotoValid(false);
+      return;
     }
 
     setIsLoading(true);
 
     try {
-        const imageRef = ref(storage, `images/${image.name}`);
-        await uploadBytes(imageRef, image);
-        const imageUrl = await getDownloadURL(imageRef);
+      const imageRef = ref(storage, `images/${image.name}`);
+      await uploadBytes(imageRef, image);
+      const imageUrl = await getDownloadURL(imageRef);
 
- 
-        const templateParams = {
-            from_name: myName,
-            to_name: 'Paulo Vitor',
-            profileLink,
-            email,
-            category,
-            tool,
-            siteName,
-            description,
-            sitePrice: price === '0' ? 'Free' : `$${price}`,
-            features,
-            livePreview,
-            buyLink,
-            contactLink,
-            imageURL: imageUrl,
-            hot:0,
-        };
 
-        await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
-        setShowModal(false);
-        setShowSuccessModal(true);
-        resetForm();
+      const templateParams = {
+        from_name: myName,
+        to_name: 'Paulo Vitor',
+        profileLink,
+        email,
+        category,
+        tool,
+        siteName,
+        description,
+        sitePrice: price === '0' ? 'Free' : `$${price}`,
+        features,
+        livePreview,
+        buyLink,
+        contactLink,
+        imageURL: imageUrl,
+        hot: 0,
+      };
 
-        // Limpar o sessionStorage após o envio
-        sessionStorage.removeItem('payment');
+      await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
+      setShowModal(false);
+      setShowSuccessModal(true);
+      resetForm();
+
+      // Limpar o sessionStorage após o envio
+      sessionStorage.removeItem('payment');
     } catch (error) {
-        console.error('EmailJS Error:', error);
+      console.error('EmailJS Error:', error);
     } finally {
-        setIsLoading(false);
+      setIsLoading(false);
     }
-};
+  };
 
 
 
@@ -307,7 +306,7 @@ const Create = () => {
           transition={{ duration: 0.3, ease: 'easeIn' }}
           className='price-wrapper'
         >
-          <Price setPlan={setPrice} onClick={() => setShowModal(true)} />
+          <button onClick={() => setShowModal(true)}>PUBLICAR SITE </button>
         </motion.div>
 
         <AnimatePresence mode='wait'>

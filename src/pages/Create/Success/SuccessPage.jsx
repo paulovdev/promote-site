@@ -1,83 +1,59 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import emailjs from 'emailjs-com';
-import { useTranslation } from 'react-i18next';
+import "./SuccessPage.scss";
 
 const SuccessPage = () => {
-  const { t } = useTranslation();
+  const [paymentStatus, setPaymentStatus] = useState(null);
 
   useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+    const sessionId = query.get('session_id');
+
+    // Verificar o status do pagamento com o sessionId
     const checkPaymentStatus = async () => {
-      const session_id = sessionStorage.getItem('session_id');
-
-      if (session_id) {
-        const response = await fetch('https://promote-site-back.vercel.app/check-payment-status', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ session_id }), // Enviando o session_id corretamente
-        });
-
-        if (!response.ok) {
-          const errorMessage = await response.json();
-          console.error("Erro ao verificar o status do pagamento:", errorMessage);
-          return;
-        }
-
-        const data = await response.json();
-
-        if (data.isPaid) {
-          await sendEmail();
-        } else {
-          console.log("Pagamento não confirmado, não enviando email.");
-        }
-      } else {
-        console.error("session_id não encontrado no sessionStorage.");
-      }
+      const response = await fetch(`https://promote-site-back.vercel.app/check-payment-status?session_id=${sessionId}`);
+      const data = await response.json();
+      setPaymentStatus(data.status);
+      console.log(data)
+      console.log(data.status)
     };
-
     const sendEmail = async () => {
-      const myName = sessionStorage.getItem('myName');
-      const email = sessionStorage.getItem('email');
-      const profileLink = sessionStorage.getItem('profileLink');
-      const siteName = sessionStorage.getItem('siteName');
-      const description = sessionStorage.getItem('description');
-      const category = sessionStorage.getItem('category');
-      const tool = sessionStorage.getItem('tool');
-      const price = sessionStorage.getItem('price');
-      const features = JSON.parse(sessionStorage.getItem('selectedFeatures'));
-      const hot = 1;
-
       const templateParams = {
-        from_name: myName,
+        from_name: sessionStorage.getItem('myName'),
         to_name: 'Paulo Vitor',
-        profileLink,
-        email,
-        category,
-        tool,
-        siteName,
-        description,
-        price,
-        features,
-        hot,
+        profileLink: sessionStorage.getItem('profileLink'),
+        email: sessionStorage.getItem('email'),
+        category: sessionStorage.getItem('category'),
+        tool: sessionStorage.getItem('tool'),
+        siteName: sessionStorage.getItem('siteName'),
+        description: sessionStorage.getItem('description'),
+        price: sessionStorage.getItem('price'),
+        features: JSON.parse(sessionStorage.getItem('selectedFeatures')),
+        hot: 1,
       };
 
       try {
         await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
-        console.log("Email enviado com sucesso!");
+        console.log('Email enviado com sucesso!');
         sessionStorage.clear();
       } catch (error) {
-        console.error("Erro ao enviar email:", error);
+        setLogs([`Erro ao enviar email: ${error.message}`]);
       }
     };
 
-    checkPaymentStatus();
+    if (sessionId) {
+     
+      checkPaymentStatus();
+    }
   }, []);
 
   return (
-    <div>
-      <h1>{t('successPage.title')}</h1>
-      <p>{t('successPage.message')}</p>
+    <div id='success-section'>
+      {paymentStatus === 'paid' ? (
+        <h1>PAGAMENTO REALIZADO COM SUCESSO</h1>
+      ) : (
+        <h1>Pagamento ainda não confirmado.</h1>
+      )}
     </div>
   );
 };

@@ -306,7 +306,7 @@ const Create = () => {
           transition={{ duration: 0.3, ease: 'easeIn' }}
           className='price-wrapper'
         >
-          <button onClick={() => setShowModal(true)}>PUBLICAR SITE </button>
+          <button onClick={() => setShowModal(true)}>{t("price.publishSite")}</button>
         </motion.div>
 
         <AnimatePresence mode='wait'>

@@ -339,8 +339,8 @@ const Create = () => {
                   >
                     <div className="form-wrapper">
                       <div className="left-content">
-                        <BiLastPage />
                         <div className="step-info">
+                          <BiLastPage />
                           <span>{stepContent[step].span}</span>
                           <h1>{stepContent[step].h1}</h1>
                           <p>{stepContent[step].p}</p>

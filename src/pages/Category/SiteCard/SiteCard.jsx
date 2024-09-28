@@ -38,7 +38,7 @@ const SiteCard = ({ site }) => {
         <Link to={`/site/${site.id}`} key={site.id} className="site-card" onClick={() => scrollTo({ top: 0 })}>
 
             <img
-                src={site.imageURL}
+                src={site.imageURL1}
                 alt={site.siteName}
                 width={325} height={200}
                 className="site-image"

@@ -24,10 +24,10 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
     e.preventDefault();
     setSubmitted(true);
     try {
-      await createCheckoutSession(); // Espera pela criação da sessão
+      await createCheckoutSession();
     } catch (error) {
       console.error('Error during submission:', error);
-      setSubmitted(false); // Reseta o estado se ocorrer um erro
+      setSubmitted(false);
     }
   };
 

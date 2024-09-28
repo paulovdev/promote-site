@@ -17,14 +17,13 @@ const SecureForm = () => {
   const [livePreview, setLivePreview] = useState('');
   const [buyLink, setBuyLink] = useState('');
   const [contactLink, setContactLink] = useState('');
-  const [image, setImage] = useState(null);
-  const [imageURL, setImageURL] = useState('');
+  const [images, setImages] = useState([null, null, null]);
+  const [imageURLs, setImageURLs] = useState(['', '', '']);
   const [isPhotoValid, setIsPhotoValid] = useState(true);
   const [featuresEn, setFeaturesEn] = useState([]);
   const [featuresBr, setFeaturesBr] = useState([]);
   const [sitePrice, setSitePrice] = useState(0);
-
-  const imageRef = useRef();
+  const imageRefs = [useRef(), useRef(), useRef()];
 
   const featuresListBr = [
     { id: 1, name: 'Design Responsivo' },
@@ -91,16 +90,19 @@ const SecureForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!image) {
+    if (images.some(image => !image)) {
       setIsPhotoValid(false);
       return;
     }
 
     try {
-      const imageRef = ref(storage, `images/${siteName}`);
-      await uploadBytes(imageRef, image);
-      const downloadURL = await getDownloadURL(imageRef);
-      setImageURL(downloadURL);
+      const uploadPromises = images.map((image, index) => {
+        const imageRef = ref(storage, `images/${siteName}/image${index + 1}`);
+        return uploadBytes(imageRef, image).then(() => getDownloadURL(imageRef));
+      });
+
+      const downloadURLs = await Promise.all(uploadPromises);
+      setImageURLs(downloadURLs);
 
       await setDoc(doc(db, `sites/${siteName.toLowerCase()}`), {
         myName,
@@ -117,7 +119,9 @@ const SecureForm = () => {
         livePreview,
         buyLink,
         contactLink,
-        imageURL: downloadURL,
+        imageURL1: downloadURLs[0],
+        imageURL2: downloadURLs[1],
+        imageURL3: downloadURLs[2],
         createdAt: serverTimestamp(),
         views: 0,
         hot: 0,
@@ -137,24 +141,25 @@ const SecureForm = () => {
       setLivePreview('');
       setBuyLink('');
       setContactLink('');
-      setImage(null);
-      setImageURL('');
+      setImages([null, null, null]);
+      setImageURLs(['', '', '']);
       setIsPhotoValid(true);
     } catch (error) {
       console.error('Error adding document: ', error);
     }
   };
 
-  const handleImageChange = (e) => {
+  const handleImageChange = (e, index) => {
     const file = e.target.files[0];
     if (file) {
-      setImage(file);
+      const newImages = [...images];
+      newImages[index] = file;
+      setImages(newImages);
       setIsPhotoValid(true);
     }
   };
-
-  const handleClick = () => {
-    imageRef.current.click();
+  const handleClick = (index) => {
+    imageRefs[index].current.click();
   };
 
   return (
@@ -389,47 +394,26 @@ const SecureForm = () => {
           </div>
         </div>
 
-        <h2>5 - Image Upload:</h2>
-        <div className="step-image-upload">
-          <div className="image-upload-container">
+        <h2>5 - Image Uploads:</h2>
+        {Array.from({ length: 3 }).map((_, index) => (
+          <div key={index} className="input-container">
+            <label>Upload Image {index + 1}</label>
+            <br />
             <input
               type="file"
-              ref={imageRef}
-              onChange={handleImageChange}
+              accept="image/*"
+              onChange={(e) => handleImageChange(e, index)}
+              ref={imageRefs[index]}
               style={{ display: 'none' }}
             />
-            <motion.div
-              className="image-upload-button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleClick}
-            >
-              <IoImageOutline size={24} />
-              <span>Upload Image</span>
-            </motion.div>
-            {image && (
-              <div className="image-preview">
-                <motion.img
-                  src={URL.createObjectURL(image)}
-                  width={150}
-                  alt="Preview"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                />
-                <motion.div
-                  className="image-remove-button"
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.8 }}
-                  onClick={() => setImage(null)}
-                >
-                  <IoCloseOutline size={24} />
-                </motion.div>
-              </div>
-            )}
-            {!isPhotoValid && <p style={{ color: 'red' }}>Please upload an image.</p>}
+            <button type="button" onClick={() => handleClick(index)}>
+              <IoImageOutline /> {images[index] ? images[index].name : 'Choose Image'}
+            </button>
+            <IoCloseOutline onClick={() => handleImageChange({ target: { files: [null] } }, index)} />
           </div>
-        </div>
+        ))}
+        {!isPhotoValid && <p style={{ color: 'red' }}>Please upload all images.</p>}
+
 
         <div className="button-container">
           <motion.button

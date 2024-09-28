@@ -2,89 +2,134 @@
     position: relative;
     width: 100%;
     height: fit-content;
-
-
+    
     display: flex;
     flex-direction: column;
-
+    gap: 1rem;
+  
     .image-select {
+      position: relative;
+      width: 100%;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+  
+      transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  
+      .prf-file {
         position: relative;
-        max-width: 750px;
         width: 100%;
-        height: 100%;
-
-        margin-bottom: 1rem;
-
-        border-radius: 0.5rem;
-
+        height: 250px;
+  
+        border: 2px dashed var(--border);
+        border-radius: 0.4rem;
+  
+        color: var(--fixed-c);
+        font-weight: 300;
+        font-size: 18px;
+  
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         gap: 1rem;
-
+  
         transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-        z-index: 999;
-
-        .prf-file {
-            position: relative;
-            width: 100%;
-            height: 300px;
-
-            border: 2px dashed var(--border);
-            border-radius: 0.4rem;
-
-            color: var(--fixed-c);
-
-            font-weight: 300;
-            font-size: 18px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 1rem;
-
-            transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-            cursor: pointer;
-
-            &:hover {
-                border: 2px dashed var(--accent);
-
-                svg {
-                    color: var(--accent);
-
-                }
-            }
-
-            svg {
-                color: var(--p);
-                transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-            }
-
-            span {
-                font-size: 18px;
-                font-weight: 600;
-                color: var(--p);
-            }
-
-            p {
-                font-size: 16px;
-                font-weight: 400;
-                color: var(--p);
-                margin: 0;
-            }
+        cursor: pointer;
+  
+        &:hover {
+          border: 2px dashed var(--accent);
+  
+          svg {
+            color: var(--accent);
+          }
         }
-
-        .preview-image {
-            position: absolute;
-            width: 100%;
-            height: 300px;
-            filter: brightness(80%);
-            border-radius: 0.4rem;
-            z-index: 999;
+  
+        svg {
+          color: var(--p);
+          font-size: 42px;
+          transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
         }
-
+  
+        span {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--p);
+        }
+  
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--p);
+          margin: 0;
+        }
+      }
+  
+      .image-preview {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+  
+        img {
+          width: 100%;
+          height: 245px;
+          border-radius: 0.5rem;
+          border: 1px solid var(--border);
+        }
+      }
+  
+      .preview-content {
+        position: relative;
+        top: 20px;
+  
+        &:hover {
+          svg {
+            color: #f00 !important;
+          }
+        }
+  
+        svg {
+          font-size: 22px;
+          color: var(--p);
+          z-index: 9999;
+  
+          &:hover {
+            color: var(--p) !important;
+          }
+        }
+  
+        p {
+          font-size: 14px;
+          font-weight: 600;
+          color: var(--p);
+          margin: 0;
+        }
+      }
     }
-
-}
+  
+    .image-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+  
+      .image-select {
+        flex: 1;
+        margin-bottom: 0; // Ajusta a margem inferior para alinhamento
+        height: 250px; // Define uma altura fixa para as imagens lado a lado
+      }
+      
+      .image-preview {
+        height: 100%; // Ajusta a altura da pré-visualização da imagem
+      }
+    }
+  
+    .large-preview {
+      img {
+        height: 250px; // Aumenta a altura da primeira imagem
+      }
+    }
+  }
+  

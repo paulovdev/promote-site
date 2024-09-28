@@ -27,7 +27,7 @@ const Stories = () => {
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>{t('helmet.stories')}</title>
-            
+
             </Helmet>
 
             <div id="stories">
@@ -48,7 +48,7 @@ const Stories = () => {
                     {sites.map((site) => (
                         <SwiperSlide key={site.id}>
                             <div className="story-background" style={{ backgroundColor: site.color || '#ccc' }}>
-                                <img src={site.imageURL} alt={site.siteName} />
+                                <img src={site.imageURL1} alt={site.siteName} />
                                 <div className="text-content">
                                     <div className="text-card">
                                         <div className="several-content">

@@ -51,7 +51,7 @@ const HomeSites = () => {
             : staggeredSites.map((site, index) => (
               <SwiperSlide key={index} className="site-slide">
                 <Link className="site-container" to={`/site/${site.id}`} onClick={() => scrollTo({ top: 0 })}>
-                  <img src={site.imageURL} alt={site.siteName} width={300} height={200} />
+                  <img src={site.imageURL1} alt={site.siteName} width={300} height={200} />
                   <div className="view"><RiArrowRightUpLine /></div>
                 </Link>
               </SwiperSlide>

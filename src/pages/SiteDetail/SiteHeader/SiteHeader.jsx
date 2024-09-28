@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from 'react-i18next';
 import { Tooltip } from 'react-tooltip';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
@@ -24,7 +26,6 @@ const SiteHeader = ({ site }) => {
   };
 
   const faqs = t('siteHeader.faqs.questions', { returnObjects: true });
-  const toolDescriptions = t('siteHeader.toolDescriptions', { returnObjects: true });
   const currentDescription = i18n.language === 'en' ? site.descriptionEn : site.descriptionBr;
 
   const categories = [
@@ -48,6 +49,12 @@ const SiteHeader = ({ site }) => {
   ];
   const currentCategory = categories.find(cat => cat.path === `/sites/${site.category}`)?.name;
 
+  const imagesURLs = [
+    { id: 1, img: site.imageURL1 },
+    { id: 2, img: site.imageURL2 },
+    { id: 3, img: site.imageURL3 },
+
+  ]
 
   return (
     <>
@@ -138,8 +145,26 @@ const SiteHeader = ({ site }) => {
 
 
           <div className="left-content">
-            <img src={site.imageURL} alt={site.siteName} />
-            {site.hot === 1 ? <p>{t("siteHeader.featured")}</p> : ""}
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={25}
+              autoplay={{
+                delay: 5000,
+                pauseOnMouseEnter: true,
+              }}
+              loop={true}
+              pagination={{ clickable: false }}
+              navigation
+              modules={[Autoplay]}
+              className="image-slide"
+            >
+              {imagesURLs.map((site) => (
+                <SwiperSlide key={site.id} >
+                  <img src={site.img} alt={site.img} />
+                  {site.hot === 1 ? <p>{t("siteHeader.featured")}</p> : ""}
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
           <div className="right-content">

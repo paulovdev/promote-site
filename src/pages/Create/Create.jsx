@@ -35,7 +35,7 @@ const Create = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [tool, setTool] = useState('');
-  const [image, setImage] = useState(null);
+  const [images, setImages] = useState([]);
   const [price, setPrice] = useState('500');
   const [livePreview, setLivePreview] = useState('');
   const [buyLink, setBuyLink] = useState('');
@@ -47,7 +47,6 @@ const Create = () => {
     const savedShowModal = sessionStorage.getItem('showModal');
     return savedShowModal !== null ? JSON.parse(savedShowModal) : false;
   });
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const imageRef = useRef();
   const navigate = useNavigate()
 
@@ -69,52 +68,47 @@ const Create = () => {
     []
   );
 
-  const handleImageChange = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
-      setImage(selectedFile);
-      setIsPhotoValid(true);
-    } else {
-      setIsPhotoValid(false);
+  const handleImageChange = async (newImages) => {
+    const validFormats = ['image/jpeg', 'image/png', 'image/gif']; // Adicione outros formatos conforme necessário
+    const maxSizeInBytes = 2 * 1024 * 1024; // 2 MB
+
+    const validImages = [];
+
+    for (let index = 0; index < newImages.length; index++) {
+      const file = newImages[index];
+      if (file) {
+        if (!validFormats.includes(file.type)) {
+          alert(t('imageStep.invalidFormat'));
+          return;
+        }
+        if (file.size > maxSizeInBytes) {
+          alert(t('imageStep.fileTooLarge'));
+          return;
+        }
+
+        // Faz o upload da imagem e obtém a URL
+        const imageRef = ref(storage, `images/${file.name}`);
+        await uploadBytes(imageRef, file);
+        const url = await getDownloadURL(imageRef);
+        validImages[index] = url;
+      }
     }
+
+    setImages(validImages);
+    setIsPhotoValid(validImages.map(img => img !== null));
   };
 
-  const resetForm = () => {
-    setMyName('');
-    setEmail('');
-    setProfileLink('');
-    setSiteName('');
-    setDescription('');
-    setCategory('');
-    setTool('');
-    setImage(null);
-    setPrice('500');
-    setLivePreview('');
-    setBuyLink('');
-    setContactLink('');
-    setFeatures([]);
-    setIsPhotoValid(true);
-    setStep(1);
-    sessionStorage.clear();
-  };
+
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
     console.log('Validando o envio do formulário');
-
-    if (!image) {
-      setIsPhotoValid(false);
-      return;
-    }
-
     setIsLoading(true);
 
     try {
-      const imageRef = ref(storage, `images/${image.name}`);
-      await uploadBytes(imageRef, image);
-      const imageUrl = await getDownloadURL(imageRef);
-
+      if (images.length === 0) {
+        throw new Error("Nenhuma imagem selecionada.");
+      }
 
       const templateParams = {
         from_name: myName,
@@ -130,14 +124,16 @@ const Create = () => {
         livePreview,
         buyLink,
         contactLink,
-        imageURL: imageUrl,
+        imageURL1: images[0],
+        imageURL2: images[1],
+        imageURL3: images[2],
         hot: 0,
       };
 
       await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
       setShowModal(false);
       resetForm();
-      navigate('/success')
+      navigate('/success');
     } catch (error) {
       console.error('EmailJS Error:', error);
     } finally {
@@ -145,6 +141,23 @@ const Create = () => {
     }
   };
 
+  const resetForm = () => {
+    setMyName('');
+    setEmail('');
+    setProfileLink('');
+    setSiteName('');
+    setDescription('');
+    setCategory('');
+    setTool('');
+    setPrice('500');
+    setLivePreview('');
+    setBuyLink('');
+    setContactLink('');
+    setFeatures([]);
+    setIsPhotoValid(true);
+    setStep(1);
+
+  };
 
   const renderStepProgress = () => (
     <div className="step-progress">
@@ -201,8 +214,9 @@ const Create = () => {
               setStep={debouncedSetStep} />;
           case 4:
             return <ImageStep
-              image={image}
-              setImage={setImage}
+              images={images}
+              onImageChange={handleImageChange}
+              setImages={setImages}
               isPhotoValid={isPhotoValid}
               setIsPhotoValid={setIsPhotoValid}
               imageRef={imageRef}

@@ -20,7 +20,7 @@ const RelatedSites = ({ relatedSites, category }) => {
                 {relatedSites.map(relatedSite => (
                     <div key={relatedSite.id} className="related-site">
                         <Link to={`/site/${relatedSite.id}`} onClick={() => scrollTo({ top: 0, behavior: "smooth" })}>
-                            <img src={relatedSite.imageURL} alt={relatedSite.siteName} />
+                            <img src={relatedSite.imageURL1} alt={relatedSite.siteName} />
                             <div className="related-site-text">
                                 <h1>{relatedSite.siteName}</h1>
                                 <span>{t('relatedSites.madeBy')} {relatedSite.myName}</span>

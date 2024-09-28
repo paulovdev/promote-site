@@ -3,9 +3,6 @@
     width: 100%;
     height: fit-content;
 
-    margin: 1rem 0;
-    padding: 2rem;
-
     display: flex;
     flex-direction: column;
 
@@ -24,9 +21,9 @@
         }
 
         .category-card {
-            max-width: 325px;
+            max-width: 250px;
             width: 100%;
-            height: 125px;
+            height: 150px;
 
             padding: 1rem;
 
@@ -52,9 +49,9 @@
         }
 
         .selected {
-            max-width: 325px;
+            max-width: 250px;
             width: 100%;
-            height: 125px;
+            height: 150px;
 
             padding: 1rem;
 

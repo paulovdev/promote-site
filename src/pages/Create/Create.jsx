@@ -148,12 +148,11 @@ const Create = () => {
 
   const renderStepProgress = () => (
     <div className="step-progress">
-      {Array.from({ length: 6 }, (_, index) => (
-        <div key={index} className={`step ${index < step ? 'completed' : ''}`} />
-      ))}
+      <div className="progress-line"></div>
       <motion.div
         className="progress-bar"
         initial={{ width: 0 }}
+        animate={{ width: `${step * 14.28}%` }} // Ajustado para 7 passos
         transition={{ duration: 0.5, ease: 'easeInOut' }}
       />
     </div>
@@ -272,6 +271,7 @@ const Create = () => {
         <title>{t('helmet.publish')}</title>
       </Helmet>
 
+      {/* head */}
       <div id="create">
         <div className="head-container">
           <motion.div
@@ -286,6 +286,7 @@ const Create = () => {
           </motion.div>
         </div>
 
+        {/* price */}
         <motion.div
           initial={{ opacity: 0, y: -25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -296,14 +297,15 @@ const Create = () => {
           <button onClick={() => setShowModal(true)}>{t("price.publishSite")}</button>
         </motion.div>
 
+        {/* modal */}
         <AnimatePresence mode='wait'>
           {showModal && (
             <motion.div
               className="modal-overlay"
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 0.8 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.1 }}
             >
               <motion.div
                 className="form-container"
@@ -318,17 +320,22 @@ const Create = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ ease: 'easeInOut', duration: 0.3 }}
+                    transition={{ ease: 'easeInOut', duration: 0.1 }}
                     className='animate-render-step-wrapper'
                   >
 
 
-                    <div className="form-wrapper">  <button className="close-button" onClick={() => setShowModal(false)}>
-                      <IoCloseOutline size={35} />
-                    </button>
+                    <div className="form-wrapper">
+                      <div className="header">
+                        <BiLastPage />
+                        <button className="close-button" onClick={() => setShowModal(false)}>
+                          <IoCloseOutline />
+                        </button>
+
+                      </div>
                       <div className="left-content">
                         <div className="step-info">
-                          <BiLastPage />
+
                           <span>{stepContent[step].span}</span>
                           <h1>{stepContent[step].h1}</h1>
                           <p>{stepContent[step].p}</p>
@@ -345,13 +352,15 @@ const Create = () => {
                             </p>
                           )}
                         </div>
-                        {renderStepProgress()}
+
                       </div>
 
                       <div className="right-content">
                         {renderStep()}
                       </div>
+
                     </div>
+                    {renderStepProgress()}
                   </motion.section>
                 </AnimatePresence>
               </motion.div>
@@ -359,11 +368,7 @@ const Create = () => {
           )}
         </AnimatePresence>
 
-        <AnimatePresence>
-          {showSuccessModal && (
-            <SuccessModal onClose={() => setShowSuccessModal(false)} />
-          )}
-        </AnimatePresence>
+
       </div>
     </>
   );

@@ -123,35 +123,58 @@
             position: relative;
 
             width: 100%;
-            height: 100%;
-
+            height: 100vh;
 
             overflow-y: scroll;
+
             display: flex;
             align-items: center;
             justify-content: start;
+            flex-direction: column;
+
             z-index: 999;
 
-            .close-button {
-                position: fixed;
-                top: 15px;
-                right: 25px;
-                border-radius: 0.5rem;
-                border: none;
-                cursor: pointer;
-                color: var(--p);
-                z-index: 9999;
+            .header {
+                position: relative;
+                max-width: 1200px;
+                width: 100%;
+                top: 0;
+                left: 0;
+
+                padding: .5rem 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: var(--bg);
+
 
                 svg {
+                    font-size: 42px;
+                    color: var(--p);
+                }
 
-                    transition: all 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                .close-button {
+
                     border-radius: 0.5rem;
+                    border: none;
+                    cursor: pointer;
+                    color: var(--p);
+                    z-index: 9999;
 
-                    &:hover {
-                        background-color: var(--border-2);
+                    svg {
+                        font-size: 42px;
+
+                        transition: all 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+                        border-radius: 0.5rem;
+
+                        &:hover {
+                            background-color: var(--border-2);
+                        }
                     }
                 }
             }
+
 
             &::-webkit-scrollbar {
                 width: 12px;
@@ -170,17 +193,16 @@
             }
 
             .left-content {
-                position: sticky;
-                top: 0;
-                max-width: 990px;
+                position: relative;
+                margin-top: 5rem;
+                max-width: 1200px;
                 width: 100%;
-                height: 100vh;
-                background-color: var(--accent);
-                padding: 5rem 16rem;
+                height: 100%;
+
 
                 display: flex;
-                align-items: start;
-                justify-content: space-between;
+                align-items: center;
+                justify-content: center;
                 flex-direction: column;
 
 
@@ -194,21 +216,17 @@
                     gap: 1rem;
                     text-align: start;
 
-                    svg {
-                        font-size: 42px;
-                        margin-bottom: 3rem;
-                        color: var(--fixed-c);
-                    }
+
 
                     span {
                         margin-bottom: 1rem;
 
-                        font-size: .8rem;
+                        font-size: .85rem;
                         font-weight: 400;
 
                         line-height: 1.225rem;
 
-                        color: var(--fixed-c);
+                        color: var(--p);
 
                         display: flex;
                         align-items: center;
@@ -217,20 +235,20 @@
                     }
 
                     h1 {
-                        font-size: 2.2rem;
+                        font-size: 2.5rem;
                         font-weight: 600;
                         letter-spacing: -.6px;
                         line-height: 1;
-                        color: var(--fixed-c);
+                        color: var(--p);
                     }
 
                     p {
                         font-size: 1rem;
                         letter-spacing: -0.2px;
-                        font-weight: 400;
+                        font-weight: 500;
                         line-height: 1.3;
-                        color: var(--fixed-c);
-                        opacity: .8;
+                        color: var(--p);
+                        opacity: .7;
                         text-align: start;
                     }
 
@@ -248,7 +266,7 @@
                             width: 6px;
                             height: 6px;
                             border-radius: 100%;
-                            background-color: var(--fixed-c);
+                            background-color: var(--p);
                         }
                     }
                 }
@@ -256,22 +274,29 @@
 
             .right-content {
                 position: relative;
-                max-width: 990px;
+                max-width: 1200px;
                 width: 100%;
-                height: 100vh;
-                padding: 2rem 5rem;
+                height: 100%;
+
+                margin: 2rem 0 10rem 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
 
                 form {
                     position: relative;
                     width: 100%;
+                    height: 100%;
 
                     .step-buttons {
-                        position: sticky;
+                        position: fixed;
                         width: 100%;
                         height: fit-content;
                         left: 0;
                         bottom: -1px;
-                        padding: 1rem;
+                        padding: 1rem 5rem;
                         background-color: var(--bg);
                         border-top: 2px solid var(--border);
                         display: flex;
@@ -461,13 +486,16 @@
 }
 
 .step-progress {
-    position: relative;
+    position: fixed;
     width: 100%;
+    height: fit-content;
+    left: 0;
+    bottom: 70px;
 
     display: flex;
     justify-content: space-between;
-    align-items: center;
-
+    gap: 1rem;
+    z-index: 99999;
 }
 
 .step {
@@ -483,6 +511,25 @@
 .step.completed {
     background: var(--fixed-c);
     border: 1px solid var(--fixed-c);
+}
+
+.step-progress {
+    position: fixed;
+    width: 100%;
+    height: 7px;
+    left: 0;
+    bottom: 70px;
+
+    background-color: var(--bg-2);
+
+    .progress-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: var(--accent);
+        border-radius: 1rem;
+    }
 }
 
 body.no-scroll {

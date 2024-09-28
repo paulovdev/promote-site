@@ -42,7 +42,7 @@ const SuccessPage = () => {
     };
 
     if (sessionId) {
-     
+      sendEmail();
       checkPaymentStatus();
     }
   }, []);

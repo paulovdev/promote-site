@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './SiteLinksStep.scss';
+import { loadStripe } from '@stripe/stripe-js';
 
 const SiteLinksStep = ({ setStep, handleSubmit }) => {
+
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
 
   const createCheckoutSession = async () => {
+    const stripe = await loadStripe("pk_live_51Q3yLrFQSsXyaRCdZIHA442pUtdCgj3oYwweprsk9tSkD4RwGDjtCxSzn9lkbgvgX78I4WZCIIAlcCUALXD1Yfhu00Z8ZVaUwC")
+
     const response = await fetch('https://promote-site-back.vercel.app/create-checkout-session', {
       method: 'POST',
       headers: {
@@ -15,9 +19,14 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
     });
 
     const session = await response.json();
-    window.location.href = session.url;
+    const result = stripe.redirectToCheckout({
+      sessionId: session.id
+    })
+    if (result.error) {
+      console.log(result.error)
+    }
+
     console.log(session)
-    console.log(session.url)
   };
 
   const handleSubmitWithValidation = async (e) => {

@@ -39,15 +39,25 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
   return (
     <>
       <section id="site-links-step">
+
+        <p>
+          Por favor, revise cuidadosamente todas as informações antes de submeter o formulário. O processo de revisão pode levar algum tempo, e qualquer erro ou informação faltante pode atrasar a aprovação do seu template. Para acelerar o processo, você pode optar pelo nosso serviço de Quick Queue, garantindo uma revisão mais rápida.
+        </p>
+        <p>
+          Optando pelo serviço de Quick Queue, seu formulário será revisado com prioridade, economizando tempo e agilizando o processo de aprovação do seu site.
+        </p>
+        <button type="button" onClick={handleSubmitWithValidation} disabled={submitted}>
+          Escolher Quick Queue
+        </button>
+
         <input type="checkbox" id="terms" />
         <label htmlFor="terms">
           {t('agree.confirmText')}
           <a href="/submission-guidelines">{t('agree.submissionGuidelines')}</a> {t('agree.agreement')}
         </label>
-        <button type="button" onClick={handleSubmitWithValidation} disabled={submitted}>
-          PAGAR PARA IR MAIS RÁPIDO
-        </button>
+
       </section>
+
 
       <div className="step-buttons">
         <button onClick={() => setStep((prev) => prev - 1)} type='button'>{t('tools.back')}</button>

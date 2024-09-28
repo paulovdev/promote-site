@@ -42,8 +42,8 @@ const SuccessPage = () => {
     };
 
     if (sessionId) {
-      sendEmail();
       checkPaymentStatus();
+      paymentStatus === 'paid' && sendEmail();
     }
   }, []);
 

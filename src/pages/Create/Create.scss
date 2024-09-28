@@ -104,7 +104,7 @@
         height: 100vh;
 
         background-color: var(--bg);
-        border-radius: 1rem;
+
         display: flex;
         align-items: start;
         justify-content: center;
@@ -125,7 +125,6 @@
             width: 100%;
             height: 100%;
 
-            border-radius: 1rem 0 0 1rem;
 
             overflow-y: scroll;
             display: flex;
@@ -134,9 +133,9 @@
             z-index: 999;
 
             .close-button {
-                position: absolute;
-                top: 10px;
-                right: 10px;
+                position: fixed;
+                top: 15px;
+                right: 25px;
                 border-radius: 0.5rem;
                 border: none;
                 cursor: pointer;
@@ -144,7 +143,7 @@
                 z-index: 9999;
 
                 svg {
-                   
+
                     transition: all 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
                     border-radius: 0.5rem;
 
@@ -156,18 +155,18 @@
 
             &::-webkit-scrollbar {
                 width: 12px;
-                border-radius: 1rem;
+
             }
 
             &::-webkit-scrollbar-track {
                 background: var(--bg-2);
-                border-radius: 1rem;
+
             }
 
             &::-webkit-scrollbar-thumb {
                 background-color: var(--p);
-                border-radius: 1rem;
-                border: 2px solid var(--bg-2);
+
+                border: 1px solid var(--bg-2);
             }
 
             .left-content {
@@ -177,7 +176,7 @@
                 width: 100%;
                 height: 100vh;
                 background-color: var(--accent);
-                padding: 5rem 17rem;
+                padding: 5rem 16rem;
 
                 display: flex;
                 align-items: start;
@@ -204,8 +203,8 @@
                     span {
                         margin-bottom: 1rem;
 
-                        font-size: .875rem;
-                        font-weight: 700;
+                        font-size: .8rem;
+                        font-weight: 400;
 
                         line-height: 1.225rem;
 
@@ -218,9 +217,9 @@
                     }
 
                     h1 {
-                        font-size: 2rem;
+                        font-size: 2.2rem;
                         font-weight: 600;
-                        letter-spacing: -.4px;
+                        letter-spacing: -.6px;
                         line-height: 1;
                         color: var(--fixed-c);
                     }
@@ -249,7 +248,7 @@
                             width: 6px;
                             height: 6px;
                             border-radius: 100%;
-                            background-color: var(--p);
+                            background-color: var(--fixed-c);
                         }
                     }
                 }

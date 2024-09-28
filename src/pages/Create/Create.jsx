@@ -17,6 +17,7 @@ import FeaturesStep from './FeaturesStep/FeaturesStep';
 
 
 import "./Create.scss";
+import { useNavigate } from 'react-router-dom';
 
 
 const Create = () => {
@@ -42,13 +43,13 @@ const Create = () => {
   const [features, setFeatures] = useState([]);
   const [isPhotoValid, setIsPhotoValid] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(() => {
     const savedShowModal = sessionStorage.getItem('showModal');
     return savedShowModal !== null ? JSON.parse(savedShowModal) : false;
   });
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const imageRef = useRef();
+  const navigate = useNavigate()
 
   useEffect(() => {
     document.body.classList.toggle('no-scroll', showModal);
@@ -78,15 +79,29 @@ const Create = () => {
     }
   };
 
+  const resetForm = () => {
+    setMyName('');
+    setEmail('');
+    setProfileLink('');
+    setSiteName('');
+    setDescription('');
+    setCategory('');
+    setTool('');
+    setImage(null);
+    setPrice('500');
+    setLivePreview('');
+    setBuyLink('');
+    setContactLink('');
+    setFeatures([]);
+    setIsPhotoValid(true);
+    setStep(1);
+    sessionStorage.clear();
+  };
 
   const handleSubmit = async (e) => {
-    if (e) e.preventDefault(); // Verifica se o evento existe antes de chamar preventDefault
-
-    // Verifica o estado de pagamento no sessionStorage
-    const isPaid = sessionStorage.getItem('payment') === 'true';
+    e.preventDefault()
 
     console.log('Validando o envio do formulário');
-    console.log('Formulário enviado com hot:', isPaid ? 1 : 0); // Debug
 
     if (!image) {
       setIsPhotoValid(false);
@@ -121,11 +136,8 @@ const Create = () => {
 
       await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
       setShowModal(false);
-      setShowSuccessModal(true);
       resetForm();
-
-      // Limpar o sessionStorage após o envio
-      sessionStorage.removeItem('payment');
+      navigate('/success')
     } catch (error) {
       console.error('EmailJS Error:', error);
     } finally {
@@ -133,31 +145,6 @@ const Create = () => {
     }
   };
 
-
-
-
-
-
-
-
-  const resetForm = () => {
-    setMyName('');
-    setEmail('');
-    setProfileLink('');
-    setSiteName('');
-    setDescription('');
-    setCategory('');
-    setTool('');
-    setImage(null);
-    setPrice('500');
-    setLivePreview('');
-    setBuyLink('');
-    setContactLink('');
-    setFeatures([]);
-    setIsPhotoValid(true);
-    setStep(1);
-    sessionStorage.clear();
-  };
 
   const renderStepProgress = () => (
     <div className="step-progress">
@@ -324,9 +311,6 @@ const Create = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
               >
-                <button className="close-button" onClick={() => setShowModal(false)}>
-                  <IoCloseOutline size={35} />
-                </button>
 
                 <AnimatePresence mode='wait'>
                   <motion.section
@@ -337,7 +321,11 @@ const Create = () => {
                     transition={{ ease: 'easeInOut', duration: 0.3 }}
                     className='animate-render-step-wrapper'
                   >
-                    <div className="form-wrapper">
+
+
+                    <div className="form-wrapper">  <button className="close-button" onClick={() => setShowModal(false)}>
+                      <IoCloseOutline size={35} />
+                    </button>
                       <div className="left-content">
                         <div className="step-info">
                           <BiLastPage />
@@ -381,31 +369,5 @@ const Create = () => {
   );
 };
 
-const SuccessModal = ({ onClose }) => {
-  const { t } = useTranslation();
-
-  return (
-    <motion.div
-      className="modal-overlay"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-      onClick={onClose}
-    >
-      <motion.div
-        className="modal-content"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button className="close-btn" onClick={onClose}>
-          <IoCloseOutline size={32} />
-        </button>
-        <h3>{t('create.successModal.title')}</h3>
-        <p>{t('create.successModal.description')}</p>
-        <button className='modal-btn' onClick={onClose}>Ok</button>
-      </motion.div>
-    </motion.div>
-  );
-};
 
 export default Create;

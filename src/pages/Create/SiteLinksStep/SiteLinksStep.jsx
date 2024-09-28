@@ -33,7 +33,7 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
 
   const handleNormalSubmit = (e) => {
     e.preventDefault();
-    handleSubmit(e, false);
+    handleSubmit(e);
   };
 
   return (
@@ -50,8 +50,8 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
       </section>
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)}>{t('back')}</button>
-        <button onClick={handleNormalSubmit} disabled={submitted}>
+        <button onClick={() => setStep((prev) => prev - 1)} type='button'>{t('tools.back')}</button>
+        <button onClick={handleNormalSubmit} type='button'>
           {t('submit')}
         </button>
       </div>

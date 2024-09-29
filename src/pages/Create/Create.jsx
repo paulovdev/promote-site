@@ -36,7 +36,7 @@ const Create = () => {
   const [category, setCategory] = useState('');
   const [tool, setTool] = useState('');
   const [images, setImages] = useState([]);
-  const [price, setPrice] = useState('500');
+  const [price, setPrice] = useState('0');
   const [livePreview, setLivePreview] = useState('');
   const [buyLink, setBuyLink] = useState('');
   const [contactLink, setContactLink] = useState('');
@@ -149,7 +149,7 @@ const Create = () => {
     setDescription('');
     setCategory('');
     setTool('');
-    setPrice('500');
+    setPrice('0');
     setLivePreview('');
     setBuyLink('');
     setContactLink('');
@@ -159,6 +159,7 @@ const Create = () => {
 
   };
 
+  /* progress line */
   const renderStepProgress = () => (
     <div className="step-progress">
       <div className="progress-line"></div>
@@ -170,6 +171,7 @@ const Create = () => {
       />
     </div>
   );
+
 
   const renderStep = () => (
     <form>
@@ -243,6 +245,7 @@ const Create = () => {
     </form>
   );
 
+  /* steps text content */
   const stepContent = {
     1: {
       span: t('create.steps.1.span'),
@@ -354,17 +357,18 @@ const Create = () => {
                           <h1>{stepContent[step].h1}</h1>
                           <p>{stepContent[step].p}</p>
                           {step === 4 && (
-                            <p className='other-p'>
-                              <div className="border"></div>
-                              {stepContent[step].v}
-                            </p>
+                            <>
+                              <p className='other-p'>
+                                <div className="border"></div>
+                                {stepContent[step].v}
+                              </p>
+                              <p className='other-p'>
+                                <div className="border"></div>
+                                {stepContent[step].c}
+                              </p>
+                            </>
                           )}
-                          {step === 3 && (
-                            <p className='other-p'>
-                              <div className="border"></div>
-                              {stepContent[step].c}
-                            </p>
-                          )}
+
                         </div>
 
                       </div>

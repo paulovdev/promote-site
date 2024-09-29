@@ -211,42 +211,36 @@
         },
         "steps": {
             "1": {
-                "span": "1/7",
+                "span": "Step 01",
                 "title": "Your Information",
                 "description": "Provide your name, email, profile link, template name, and description. This helps users understand what your site is about."
             },
             "2": {
-                "span": "2/7",
+                "span": "Step 02",
                 "title": "Category",
                 "description": "Choose the category that best fits your site. This helps organize and find your site."
             },
             "3": {
-                "span": "3/7",
+                "span": "Step 03",
                 "title": "Tool",
                 "description": "Select the tool you used to create your site."
             },
             "4": {
-                "span": "4/7",
+                "span": "Step 04",
                 "title": "Image",
                 "description": "Add a representative image of your site.",
                 "size": "Size 1000px x 500px",
-                "maxSize": "Maximum file size 1MB"
+                "maxSize": "Max file size 1MB"
             },
             "5": {
-                "span": "5/7",
+                "span": "Step 05",
                 "title": "Features",
-                "description": "Select the features your site offers, such as responsiveness, SEO optimized, etc."
+                "description": "Select the features your site offers, such as responsiveness, SEO optimization, etc."
             },
             "6": {
-                "span": "6/7",
-                "title": "Price",
-                "description": "Set the sale price of your site.",
-                "only": "ONLY IN DOLLARS ($)"
-            },
-            "7": {
-                "span": "7/7",
+                "span": "Step 06",
                 "title": "Publish Your Site",
-                "description": "To finish, please accept the terms and conditions. Your site will be reviewed and later available to the public."
+                "description": "Finally, please accept the terms and conditions. Your site will be reviewed and made available to the public later."
             }
         },
         "successModal": {
@@ -321,6 +315,9 @@
         "submissionGuidelines": "submission guidelines",
         "and": "and the",
         "agreement": "Quimplo agreement.",
+        "quickText1": "Please carefully review all information before submitting the form. The review process may take some time, and any errors or missing information can delay the approval of your template. To speed up the process, you can opt for our Fast Review service, ensuring a quicker review.",
+        "quickText2": "By opting for the Fast Review service, your form will be reviewed with priority, saving time and speeding up the approval process of your site.",
+        "quickButton": "Choose Fast Review",
         "back": "Back",
         "submit": "Submit"
     },

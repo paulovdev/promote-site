@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from 'react-i18next';
 import { Tooltip } from 'react-tooltip';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
@@ -154,16 +154,20 @@ const SiteHeader = ({ site }) => {
               }}
               loop={true}
               pagination={{ clickable: false }}
-              navigation
-              modules={[Autoplay]}
+
+              navigation={true}
+
+              modules={[Autoplay, Navigation]}
               className="image-slide"
             >
-              {imagesURLs.map((site) => (
-                <SwiperSlide key={site.id} >
-                  <img src={site.img} alt={site.img} />
-                  {site.hot === 1 ? <p>{t("siteHeader.featured")}</p> : ""}
-                </SwiperSlide>
-              ))}
+              {
+                imagesURLs.map((site) => (
+                  <SwiperSlide key={site.id} >
+                    <img src={site.img} alt={site.img} />
+                    {site.hot === 1 ? <p>{t("siteHeader.featured")}</p> : ""}
+                  </SwiperSlide>
+                ))
+              }
             </Swiper>
           </div>
 
@@ -195,7 +199,7 @@ const SiteHeader = ({ site }) => {
         </div>
 
         <Tooltip id="my-tooltip" />
-      </section>
+      </section >
 
       <section id='site-features'>
         <div className="features">

@@ -265,7 +265,7 @@
         "validLivePreview": "Um link de visualização ao vivo válido é obrigatório",
         "validBuyLink": "Um link de compra válido é obrigatório",
         "validContactLink": "Um link de contato válido é obrigatório",
-        "price": "Preco do template",
+        "price": "Preço do template",
         "continue": "Continuar",
         "back": "Voltar"
     },
@@ -316,6 +316,9 @@
         "submissionGuidelines": "diretrizes de submissão",
         "and": "e com o",
         "agreement": "acordo Quimplo.",
+        "quickText1": "Por favor, revise cuidadosamente todas as informações antes de submeter o formulário. O processo de revisão pode levar algum tempo, e qualquer erro ou informação faltante pode atrasar a aprovação do seu template. Para acelerar o processo, você pode optar pelo nosso serviço de Revisão Rápida, garantindo uma revisão mais rápida.",
+        "quickText2": " Optando pelo serviço de Revisão Rápida, seu formulário será revisado com prioridade, economizando tempo e agilizando o processo de aprovação do seu site.",
+        "quickButton": "Escolher Revisão Rápida",
         "back": "Voltar",
         "submit": "Enviar"
     },

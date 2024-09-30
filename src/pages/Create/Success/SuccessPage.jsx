@@ -4,19 +4,29 @@ import "./SuccessPage.scss";
 
 const SuccessPage = () => {
   const [paymentStatus, setPaymentStatus] = useState(null);
-
+  const [images, setImages] = useState(() => {
+    const storedImages = sessionStorage.getItem('images');
+    return storedImages ? JSON.parse(storedImages) : [null, null, null];
+  });
+  
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
     const sessionId = query.get('session_id');
 
-    // Verificar o status do pagamento com o sessionId
     const checkPaymentStatus = async () => {
-      const response = await fetch(`https://promote-site-back.vercel.app/check-payment-status?session_id=${sessionId}`);
-      const data = await response.json();
-      setPaymentStatus(data.status);
-      console.log(data)
-      console.log(data.status)
+      try {
+        const response = await fetch(`https://promote-site-back.vercel.app/check-payment-status?session_id=${sessionId}`);
+        const data = await response.json();
+        setPaymentStatus(data.status);
+
+        if (data.status === 'paid') {
+          sendEmail();
+        }
+      } catch (error) {
+        console.error('Error checking payment status:', error);
+      }
     };
+
     const sendEmail = async () => {
       const templateParams = {
         from_name: sessionStorage.getItem('myName'),
@@ -29,6 +39,9 @@ const SuccessPage = () => {
         description: sessionStorage.getItem('description'),
         price: sessionStorage.getItem('price'),
         features: JSON.parse(sessionStorage.getItem('selectedFeatures')),
+        imageURL1: images[0],
+        imageURL2: images[1],
+        imageURL3: images[2],
         hot: 1,
       };
 
@@ -37,13 +50,12 @@ const SuccessPage = () => {
         console.log('Email enviado com sucesso!');
         sessionStorage.clear();
       } catch (error) {
-        setLogs([`Erro ao enviar email: ${error.message}`]);
+        console.error('Erro ao enviar email:', error);
       }
     };
 
     if (sessionId) {
       checkPaymentStatus();
-      paymentStatus === 'paid' && sendEmail();
     }
   }, []);
 

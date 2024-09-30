@@ -4,11 +4,12 @@ import "./SuccessPage.scss";
 
 const SuccessPage = () => {
   const [paymentStatus, setPaymentStatus] = useState(null);
+  const [emailSent, setEmailSent] = useState(false);
   const [images, setImages] = useState(() => {
     const storedImages = sessionStorage.getItem('images');
     return storedImages ? JSON.parse(storedImages) : [null, null, null];
   });
-  
+
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
     const sessionId = query.get('session_id');
@@ -19,7 +20,7 @@ const SuccessPage = () => {
         const data = await response.json();
         setPaymentStatus(data.status);
 
-        if (data.status === 'paid') {
+        if (data.status === 'paid' && !emailSent) {
           sendEmail();
         }
       } catch (error) {
@@ -48,6 +49,7 @@ const SuccessPage = () => {
       try {
         await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
         console.log('Email enviado com sucesso!');
+        setEmailSent(true); // Marcar o email como enviado na variável de estado
         sessionStorage.clear();
       } catch (error) {
         console.error('Erro ao enviar email:', error);
@@ -57,7 +59,7 @@ const SuccessPage = () => {
     if (sessionId) {
       checkPaymentStatus();
     }
-  }, []);
+  }, [images, emailSent]);
 
   return (
     <div id='success-section'>

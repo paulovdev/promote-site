@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+
+import { FaExclamationCircle } from "react-icons/fa";
+
 import './YourInfoStep.scss';
 
 const YourInfoStep = ({
@@ -41,6 +45,7 @@ const YourInfoStep = ({
     profileLink: '',
     siteName: '',
     description: '',
+    description2: '',
     livePreview: '',
     buyLink: '',
     contactLink: '',
@@ -93,7 +98,10 @@ const YourInfoStep = ({
       <section id="your-info-step">
         <div className="input-grid">
           <div className="input-container">
-            <label>{t('yourInfoStep.nameLabel')}</label>
+            <label>
+              {t('yourInfoStep.nameLabel')}
+              <p>{t('yourInfoStep.nameInfo')}</p>
+            </label>
             <input
               type="text"
               placeholder="e.g., Paulo"
@@ -105,12 +113,15 @@ const YourInfoStep = ({
               }}
             />
             <div className="error-message">
-              {submitted && errors.myName && <p>{errors.myName}</p>}
+              {submitted && errors.myName && <p><FaExclamationCircle />{errors.myName}</p>}
             </div>
           </div>
 
           <div className="input-container">
-            <label>{t('yourInfoStep.emailLabel')}</label>
+            <label>
+              {t('yourInfoStep.emailLabel')}
+              <p>{t('yourInfoStep.emailInfo')}</p>
+            </label>
             <input
               type="email"
               placeholder="example@gmail.com"
@@ -121,14 +132,17 @@ const YourInfoStep = ({
               }}
             />
             <div className="error-message">
-              {submitted && errors.email && <p>{errors.email}</p>}
+              {submitted && errors.email && <p><FaExclamationCircle />{errors.email}</p>}
             </div>
           </div>
         </div>
 
         <div className="input-grid">
           <div className="input-container">
-            <label>{t('yourInfoStep.profileLinkLabel')}</label>
+            <label>
+              {t('yourInfoStep.profileLinkLabel')}
+              <p>{t('yourInfoStep.profileLinkInfo')}</p>
+            </label>
             <input
               type="text"
               placeholder="https://example.com"
@@ -140,12 +154,15 @@ const YourInfoStep = ({
               }}
             />
             <div className="error-message">
-              {submitted && errors.profileLink && <p>{errors.profileLink}</p>}
+              {submitted && errors.profileLink && <p><FaExclamationCircle />{errors.profileLink}</p>}
             </div>
           </div>
 
           <div className="input-container">
-            <label>{t('yourInfoStep.contactLinkLabel')}</label>
+            <label>
+              {t('yourInfoStep.contactLinkLabel')}
+              <p>{t('yourInfoStep.contactLinkInfo')}</p>
+            </label>
             <input
               type="text"
               placeholder="https://contact-link.com"
@@ -156,7 +173,7 @@ const YourInfoStep = ({
               }}
             />
             <div className="error-message">
-              {submitted && errors.contactLink && <p>{errors.contactLink}</p>}
+              {submitted && errors.contactLink && <p><FaExclamationCircle />{errors.contactLink}</p>}
             </div>
           </div>
         </div>
@@ -164,7 +181,10 @@ const YourInfoStep = ({
         <br />  <hr />   <br />
         <div className="input-grid">
           <div className="input-container">
-            <label>{t('yourInfoStep.templateNameLabel')}</label>
+            <label>
+              {t('yourInfoStep.templateNameLabel')}
+              <p>{t('yourInfoStep.templateNameInfo')}</p>
+            </label>
             <input
               type="text"
               placeholder="e.g., Quimplo"
@@ -175,12 +195,15 @@ const YourInfoStep = ({
               }}
             />
             <div className="error-message">
-              {submitted && errors.siteName && <p>{errors.siteName}</p>}
+              {submitted && errors.siteName && <p><FaExclamationCircle />{errors.siteName}</p>}
             </div>
           </div>
 
           <div className="input-container">
-            <label className='price-text'>{t('yourInfoStep.price')}: {price === 0 ? `${t('price.free')}` : <>${price}</>}</label>
+            <label className='price-text'>
+              {t('yourInfoStep.price')}
+              <p>{t('yourInfoStep.priceInfo')}</p>
+            </label>
             <input
               type="number"
               min="0"
@@ -192,17 +215,22 @@ const YourInfoStep = ({
                 setPrice(Number(e.target.value));
               }}
             />
-            <div className="error-message">
-              {submitted && errors.price && <p>{errors.price}</p>}
-            </div>
+
+            <div className="error-message"><p className='pricing-p'>{t('yourInfoStep.price')}: {price === 0 ? `${t('price.free')}` : <>${price}</>}</p></div>
+
           </div>
         </div>
 
+        {/* description */}
         <div className="input-container text-input">
-          <label>{t('yourInfoStep.templateDescriptionLabel')}</label>
+          <label>
+            {t('yourInfoStep.templateDescriptionLabel')}
+            <p>{t('yourInfoStep.templateDescriptionInfo')}</p>
+          </label>
           <textarea
             placeholder="This template includes..."
             value={description}
+          
             maxLength={250}
             onChange={(e) => {
               setDescriptionState(e.target.value);
@@ -210,7 +238,7 @@ const YourInfoStep = ({
             }}
           />
           <div className="error-message">
-            {submitted && errors.description && <p>{errors.description}</p>}
+            {submitted && errors.description && <p><FaExclamationCircle />{errors.description}</p>}
           </div>
         </div>
 
@@ -218,42 +246,53 @@ const YourInfoStep = ({
 
         <div className="input-grid">
           <div className="input-container">
-            <label>{t('yourInfoStep.livePreviewLinkLabel')}</label>
+            <label>
+              {t('yourInfoStep.livePreviewLabel')}
+              <p>{t('yourInfoStep.livePreviewInfo')}</p>
+            </label>
             <input
               type="text"
-              placeholder="https://preview-link.com"
+              placeholder="https://example.com"
               value={livePreview}
               onChange={(e) => {
                 setLivePreviewState(e.target.value);
                 setLivePreview(e.target.value);
               }}
             />
-            {submitted && errors.livePreview && (
-              <div className="error-message"><p>{errors.livePreview}</p></div>
-            )}
+            <div className="error-message">
+              {submitted && errors.livePreview && <p><FaExclamationCircle />{errors.livePreview}</p>}
+            </div>
           </div>
-
+          <br />  <hr />   <br />
           <div className="input-container">
-            <label>{t('yourInfoStep.buyLinkLabel')}</label>
+            <label>
+              {t('yourInfoStep.buyLinkLabel')}
+              <p>{t('yourInfoStep.buyLinkInfo')}</p>
+            </label>
             <input
               type="text"
-              placeholder="https://buy-link.com"
+              placeholder="https://LemonSqueezy, Gumroad, Payhip/"
               value={buyLink}
               onChange={(e) => {
                 setBuyLinkState(e.target.value);
                 setBuyLink(e.target.value);
               }}
             />
-            {submitted && errors.buyLink && (
-              <div className="error-message"><p>{errors.buyLink}</p></div>
-            )}
+            <div className="error-message">
+              {submitted && errors.buyLink && <p><FaExclamationCircle />{errors.buyLink}</p>}
+            </div>
+
           </div>
         </div>
-      </section>
+      </section >
 
       <div className="step-buttons">
-        <button onClick={() => setStep((prev) => prev - 1)} type='button' disabled={true} className="back-button">{t('yourInfoStep.back')}</button>
-        <button onClick={handleContinue} type='button'>{t('yourInfoStep.continue')}</button>
+        <button type="button" className="secondary-button" disabled>
+          {t('yourInfoStep.back')}
+        </button>
+        <button type="button" className="primary-button" onClick={handleContinue}>
+          {t('yourInfoStep.continue')}
+        </button>
       </div>
     </>
   );

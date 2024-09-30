@@ -11,7 +11,7 @@ const Footer = () => {
         <footer>
             <div className="footer-content">
                 <p>&copy; 2024 Quimplo. All rights reserved.</p>
-                <Link to={"/cookies"}>{t('cookies.cookiePolicy')}</Link>
+                <Link to={"/cookies"} onClick={() => (scrollTo({ top: 0 }))}>{t('cookies.cookiePolicy')}</Link>
                 <ThemeChange />
                 <LanguageSelector />
             </div>

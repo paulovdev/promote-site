@@ -165,8 +165,8 @@
             "freePrice": "Free"
         },
         "features": {
-            "title": "TEMPLATE FEATURES",
-            "subtitle": "This template contains the following features"
+            "overview": "Overview",
+            "features": "Features"
         },
         "faqs": {
             "title": "COMMON QUESTIONS ABOUT TEMPLATES",
@@ -217,30 +217,35 @@
             },
             "2": {
                 "span": "Step 02",
-                "title": "Category",
-                "description": "Choose the category that best fits your site. This helps organize and find your site."
+                "title": "Detailed Description",
+                "description": "Provide a detailed description of your site. Include information such as the purpose of the site, the target audience, key features, and any other relevant details. The more comprehensive the description, the better users will understand the value of your site."
             },
             "3": {
                 "span": "Step 03",
-                "title": "Tool",
-                "description": "Select the tool you used to create your site."
+                "title": "Category",
+                "description": "Choose the category that best fits your site. This helps organize and find your site."
             },
             "4": {
                 "span": "Step 04",
-                "title": "Image",
-                "description": "Add a representative image of your site.",
-                "size": "Size 1000px x 500px",
-                "maxSize": "Max file size 1MB"
+                "title": "Tool",
+                "description": "Select the tool you used to create your site."
             },
             "5": {
                 "span": "Step 05",
-                "title": "Features",
-                "description": "Select the features your site offers, such as responsiveness, SEO optimization, etc."
+                "title": "Image",
+                "description": "Add a representative image of your site.",
+                "size": "Size 1000px x 500px",
+                "maxSize": "Maximum file size 1MB"
             },
             "6": {
                 "span": "Step 06",
+                "title": "Features",
+                "description": "Select the features your site offers, such as responsiveness, SEO optimization, etc."
+            },
+            "7": {
+                "span": "Step 07",
                 "title": "Publish Your Site",
-                "description": "Finally, please accept the terms and conditions. Your site will be reviewed and made available to the public later."
+                "description": "To finish, please accept the terms and conditions. Your site will be reviewed and will be available to the public later."
             }
         },
         "successModal": {
@@ -250,23 +255,35 @@
     },
     "yourInfoStep": {
         "nameLabel": "Your name",
-        "emailLabel": "Your email",
+        "nameInfo": "Please enter your name.",
+        "emailLabel": "Email address",
+        "emailInfo": "Enter your email address for contact purposes.",
         "profileLinkLabel": "Profile link",
+        "profileLinkInfo": "Provide a link to your professional profile.",
         "contactLinkLabel": "Contact link",
+        "contactLinkInfo": "Provide a link for potential buyers to contact you.",
         "templateNameLabel": "Template name",
+        "templateNameInfo": "Enter the name of your template.",
+        "price": "Price",
+        "priceInfo": "Set a price between $0 and $1000.",
         "templateDescriptionLabel": "Template description",
-        "livePreviewLinkLabel": "Live preview link",
-        "buyLinkLabel": "Buy link",
-        "nameRequired": "Name is required",
-        "validEmail": "A valid email is required",
-        "validProfileLink": "A valid profile link is required",
-        "siteNameRequired": "Site name is required",
-        "descriptionLength": "Description must be more than 30 characters",
-        "validLivePreview": "A valid live preview link is required",
-        "validBuyLink": "A valid buy link is required",
-        "validContactLink": "A valid contact link is required",
-        "continue": "Continue",
-        "back": "Back"
+        "templateDescriptionInfo": "Describe your template in detail (minimum 30 characters).",
+        "livePreviewLabel": "Live preview link",
+        "livePreviewInfo": "Provide a link to a live preview of your template.",
+        "buyLinkLabel": "Purchase link",
+        "buyLinkInfo": "Provide a link where your template can be purchased.",
+        "nameRequired": "Your name is required.",
+        "validEmail": "Please enter a valid email address.",
+        "validProfileLink": "Please enter a valid profile link.",
+        "siteNameRequired": "Template name is required.",
+        "descriptionLength": "Description must be at least 30 characters.",
+        "validLivePreview": "Please enter a valid live preview link.",
+        "validBuyLink": "Please enter a valid purchase link.",
+        "validContactLink": "Please enter a valid contact link.",
+        "validPrice": "Price must be between $0 and $1000.",
+        "detailDescription": "Write a more detailed description regarding features and overview.",
+        "back": "Back",
+        "continue": "Continue"
     },
     "categoryStep": {
         "error": "Please select a category.",

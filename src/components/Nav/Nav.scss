@@ -3,7 +3,6 @@
 header {
   position: fixed;
   width: 100%;
-  padding: .5rem;
   top: 0;
 
   background-color: var(--bg);
@@ -14,11 +13,15 @@ header {
 
   z-index: 999;
 
-  .logo>a {
+  a.logo {
+    display: flex;
+    align-items: center;
+
     svg {
-      font-size: 38px;
+      font-size: 42px;
       color: var(--accent);
     }
+
   }
 
   .desktop-menu {
@@ -29,7 +32,7 @@ header {
     li {
       .feature-nav {
         width: 175px;
-        padding: .6rem 1.3rem;
+        padding: .7rem 1.5rem;
 
         font-size: 1rem;
         font-weight: 500;
@@ -85,7 +88,7 @@ header {
           width: 15px;
           height: 4px;
 
-          bottom: 7px;
+          bottom: 15px;
           border-radius: 1rem;
 
           background-color: var(--p);
@@ -175,9 +178,8 @@ header {
 
   nav {
     position: relative;
-    max-width: 1250px;
     width: 100%;
-    padding: .5rem;
+    padding: 1rem 5rem;
 
     display: flex;
     align-items: center;

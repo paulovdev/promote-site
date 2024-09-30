@@ -10,6 +10,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
 import { DiCss3, DiJavascript1 } from 'react-icons/di';
+import { IoIosCheckmarkCircle } from "react-icons/io";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { MdKeyboardArrowRight, MdVisibility } from "react-icons/md";
 import { IoMdHome } from 'react-icons/io';
@@ -27,6 +28,7 @@ const SiteHeader = ({ site }) => {
 
   const faqs = t('siteHeader.faqs.questions', { returnObjects: true });
   const currentDescription = i18n.language === 'en' ? site.descriptionEn : site.descriptionBr;
+  const currentDescription2 = i18n.language === 'en' ? site.description2En : site.description2Br;
 
   const categories = [
     { name: t('categories.all'), path: "/sites/all" },
@@ -202,23 +204,35 @@ const SiteHeader = ({ site }) => {
       </section >
 
       <section id='site-features'>
-        <div className="features">
-          <span>{t('siteHeader.features.title')}</span>
-          <h1>{t('siteHeader.features.subtitle')}:</h1>
+
+        <div className="left-content">
+          <h2>{t('siteHeader.features.overview')}</h2>
+          <div
+            className="description2"
+            dangerouslySetInnerHTML={{ __html: currentDescription2 }}
+          />
+
+
+        </div>
+        <div className="right-content">
+          <h2>{t('siteHeader.features.features')}</h2>
           <ul>
             {i18n.language === 'en'
               ? site.featureEn.map((feature, index) => (
                 <li key={index}>
-                  <h2>- {feature}</h2>
+                  <h3><IoIosCheckmarkCircle /> {feature}</h3>
                 </li>
               ))
               : site.featureBr.map((feature, index) => (
                 <li key={index}>
-                  <h2>- {feature}</h2>
+                  <h3><IoIosCheckmarkCircle /> {feature}</h3>
                 </li>
               ))}
           </ul>
+
+
         </div>
+
       </section>
 
       <section id='site-made'>

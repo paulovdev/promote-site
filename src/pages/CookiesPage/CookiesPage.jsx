@@ -1,12 +1,18 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import "./CookiesPage.scss";
+import { motion } from 'framer-motion';
 
 const CookiesPage = () => {
     const { t } = useTranslation();
 
     return (
-        <section id='cookies-section'>
+        <motion.section id='cookies-section'
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeIn' }}
+        >
             <h1>{t('cookies.cookiesPolicyTitle')}</h1>
             <p>{t('cookies.introText')}</p>
             <br />
@@ -26,7 +32,9 @@ const CookiesPage = () => {
             <br />
             <h2>{t('cookies.moreInfoTitle')}</h2>
             <p>{t('cookies.moreInfoText')}</p>
-        </section>
+
+
+        </motion.section>
     );
 }
 

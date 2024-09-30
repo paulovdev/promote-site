@@ -43,7 +43,7 @@ const SiteLinksStep = ({ setStep, handleSubmit }) => {
         <p>{t('agree.quickText1')} </p>
         <p>  {t('agree.quickText2')}  </p>
         <button type="button" onClick={handleSubmitWithValidation} disabled={submitted}>
-          {t('agree.quickButton')}
+          {t('agree.quickButton')} $4
         </button>
 
         <input type="checkbox" id="terms" />

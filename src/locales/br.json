@@ -165,8 +165,8 @@
             "freePrice": "Grátis"
         },
         "features": {
-            "title": "ESTRUTURAS DO TEMPLATES",
-            "subtitle": "Este template contém as seguintes características"
+            "overview": "Visão geral",
+            "features": "Recursos"
         },
         "faqs": {
             "title": "PERGUNTAS FREQUENTES SOBRE TEMPLATES",
@@ -217,28 +217,33 @@
             },
             "2": {
                 "span": "Etapa 02",
-                "title": "Categoria",
-                "description": "Escolha a categoria que melhor se encaixa para o seu site. Isso ajuda a organizar e encontrar seu site."
+                "title": "Descrição detalhada",
+                "description": "Forneça uma descrição detalhada do seu site. Inclua informações como o propósito do site, o público-alvo, principais características e quaisquer outros detalhes relevantes. Quanto mais abrangente for a descrição, melhor os usuários entenderão o valor do seu site."
             },
             "3": {
                 "span": "Etapa 03",
-                "title": "Ferramenta",
-                "description": "Selecione a ferramenta que você usou para criar seu site."
+                "title": "Categoria",
+                "description": "Escolha a categoria que melhor se encaixa para o seu site. Isso ajuda a organizar e encontrar seu site."
             },
             "4": {
                 "span": "Etapa 04",
+                "title": "Ferramenta",
+                "description": "Selecione a ferramenta que você usou para criar seu site."
+            },
+            "5": {
+                "span": "Etapa 05",
                 "title": "Imagem",
                 "description": "Adicione uma imagem representativa do seu site.",
                 "size": "Tamanho 1000px x 500px",
                 "maxSize": "Tamanho máximo do arquivo 1MB"
             },
-            "5": {
-                "span": "Etapa 05",
+            "6": {
+                "span": "Etapa 06",
                 "title": "Características",
                 "description": "Selecione as características que seu site oferece, como responsividade, otimização para SEO, etc."
             },
-            "6": {
-                "span": "Etapa 06",
+            "7": {
+                "span": "Etapa 07",
                 "title": "Publique seu site",
                 "description": "Para finalizar, por favor, aceite os termos e condições. Seu site será revisado e estará disponível ao público posteriormente."
             }
@@ -250,24 +255,35 @@
     },
     "yourInfoStep": {
         "nameLabel": "Seu nome",
-        "emailLabel": "Seu e-mail",
+        "nameInfo": "Insira seu nome ou nickname.",
+        "emailLabel": "Endereço de email",
+        "emailInfo": "Insira seu endereço de email para fins de contato.",
         "profileLinkLabel": "Link do perfil",
+        "profileLinkInfo": "Forneça um link para seu perfil profissional.",
         "contactLinkLabel": "Link de contato",
+        "contactLinkInfo": "Forneça um link para que possam entrar em contato com você.",
         "templateNameLabel": "Nome do template",
+        "templateNameInfo": "Insira o nome do seu template.",
+        "price": "Preço",
+        "priceInfo": "Defina um preço entre $0 e $1000. (em dólares)",
         "templateDescriptionLabel": "Descrição do template",
-        "livePreviewLinkLabel": "Link de visualização ao vivo",
+        "templateDescriptionInfo": "Descreva seu template em detalhes (mínimo de 30 caracteres).",
+        "livePreviewLabel": "Link de visualização ao vivo",
+        "livePreviewInfo": "Forneça um link para uma visualização ao vivo do seu template.",
         "buyLinkLabel": "Link de compra",
-        "nameRequired": "Nome é obrigatório",
-        "validEmail": "Um e-mail válido é obrigatório",
-        "validProfileLink": "Um link de perfil válido é obrigatório",
-        "siteNameRequired": "Nome do site é obrigatório",
-        "descriptionLength": "Descrição deve ter mais de 30 caracteres",
-        "validLivePreview": "Um link de visualização ao vivo válido é obrigatório",
-        "validBuyLink": "Um link de compra válido é obrigatório",
-        "validContactLink": "Um link de contato válido é obrigatório",
-        "price": "Preço do template",
-        "continue": "Continuar",
-        "back": "Voltar"
+        "buyLinkInfo": "Forneça um link onde seu template pode ser comprado.",
+        "nameRequired": "Seu nome é obrigatório.",
+        "validEmail": "Por favor, insira um endereço de email válido.",
+        "validProfileLink": "Por favor, insira um link de perfil válido.",
+        "siteNameRequired": "Nome do template é obrigatório.",
+        "descriptionLength": "A descrição deve ter pelo menos 30 caracteres.",
+        "validLivePreview": "Por favor, insira um link de visualização ao vivo válido.",
+        "validBuyLink": "Por favor, insira um link de compra válido.",
+        "validContactLink": "Por favor, insira um link de contato válido.",
+        "validPrice": "O preço deve estar entre $0 e $1000.",
+        "detailDescription": "Escreva uma descrição mais detalhada falando sobre os recursos e visão geral.",
+        "back": "Voltar",
+        "continue": "Continuar"
     },
     "categoryStep": {
         "error": "Por favor, selecione uma categoria.",
@@ -280,9 +296,14 @@
         "continue": "Continuar"
     },
     "imageStep": {
-        "dragAndDropOrChoose": "Arraste e solte ou escolha um arquivo local",
-        "supportedFormats": "Formatos suportados: .png, .jpg, .svg",
-        "imageLoaded": "Imagem carregada...",
+        "dragAndDropOrChoose": "Arraste e solte ou escolha um arquivo",
+        "supportedFormats": "Formatos suportados: PNG, JPG, WEBP",
+        "imageLoaded": "Imagem carregada",
+        "confirmDelete": "Tem certeza de que deseja excluir esta imagem?",
+        "yes": "Sim",
+        "no": "Não",
+        "fileError": "Arquivo maior que 1MB ou formato não permitido.",
+        "ok": "OK",
         "imageRequired": "Imagem é obrigatória",
         "back": "Voltar",
         "continue": "Continuar"

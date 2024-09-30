@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { FaBlog, FaBusinessTime, FaPalette, FaGraduationCap, FaShoppingCart, FaHeartbeat, FaPlane, FaRegCopyright, FaBorderAll } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
+
+import { FaBlog, FaExclamationCircle, FaBusinessTime, FaPalette, FaGraduationCap, FaShoppingCart, FaHeartbeat, FaPlane, FaRegCopyright, FaBorderAll } from 'react-icons/fa';
 import { MdEvent, MdOutlineWeb, MdPhotoCamera } from 'react-icons/md';
 import { AiOutlineFundProjectionScreen, AiOutlineBarChart } from 'react-icons/ai';
 import { GiMeal } from 'react-icons/gi';
+
 import './CategoryStep.scss';
-import { useTranslation } from 'react-i18next';
+
 
 const CategoryStep = ({ setCategory, setStep }) => {
   const { t } = useTranslation();
@@ -74,7 +77,7 @@ const CategoryStep = ({ setCategory, setStep }) => {
 
         {submitted && !category && (
           <div className="error-message">
-            <p>{error}</p>
+            <p><FaExclamationCircle />{error}</p>
           </div>
         )}
       </section>

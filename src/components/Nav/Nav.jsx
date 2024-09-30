@@ -25,30 +25,30 @@ const Navbar = () => {
             <header>
                 <nav>
 
-                    <div className="logo" onClick={() => {
+
+                    <Link to="/" className="logo" onClick={() => {
                         scrollTo({ top: 0 });
                         if (showMenu) {
                             toggleMenu()
                             return
                         }
                     }}>
-                        <Link to="/">
-                            <BiLastPage />
-                        </Link>
-                    </div>
+                        <BiLastPage />
+                    </Link>
+
 
 
                     <ul className='desktop-menu'>
-                        <li><NavLink className='explore-nav' to="/">{t('nav.home')}</NavLink></li>
+                        <li onClick={() => scrollTo({ top: 0 })}><NavLink className='explore-nav' to="/">{t('nav.home')}</NavLink></li>
+                        <li onClick={() => scrollTo({ top: 0 })}><NavLink className='explore-nav' to="/sites/all">{t('nav.explore')}</NavLink></li>
+                        <li onClick={() => scrollTo({ top: 0 })}><NavLink className='explore-nav' to="/about">{t('nav.about')}</NavLink></li>
                         <li><NavLink className='explore-nav' to="/stories">{t('nav.stories')}</NavLink></li>
-                        <li><NavLink className='explore-nav' to="/sites/all">{t('nav.explore')}</NavLink></li>
-                        <li><NavLink className='explore-nav' to="/about">{t('nav.about')}</NavLink></li>
                         <li onClick={() => scrollTo({ top: 0 })}>
                             <NavLink className='feature-nav' to="/create">{t('nav.submitTemplate')}</NavLink>
                         </li>
                     </ul>
 
-                    
+
 
                     <div className="mobile-menu" onClick={toggleMenu}>
                         <div className={`hm-bar ${!hmRotate ? "" : "active"}`}></div>

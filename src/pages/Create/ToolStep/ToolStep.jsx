@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
-import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
-import "./ToolStep.scss";
-import { DiCss3, DiJavascript1 } from 'react-icons/di';
 import { useTranslation } from 'react-i18next';
+
+import { FaDrupal, FaExclamationCircle, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
+import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
+import { DiCss3, DiJavascript1 } from 'react-icons/di';
+
+import "./ToolStep.scss";
 
 const ToolStep = ({ setTool, setStep }) => {
   const [tool, setLocalTool] = useState('');
@@ -76,7 +78,7 @@ const ToolStep = ({ setTool, setStep }) => {
 
         {submitted && !tool && (
           <div className="error-message">
-            <p>{error}</p>
+            <p><FaExclamationCircle />{error}</p>
           </div>
         )}
 

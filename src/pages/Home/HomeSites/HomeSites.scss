@@ -1,15 +1,24 @@
 #home-sites {
     position: relative;
-    padding: 1rem;
     width: 100%;
-    height: 350px;
+    height: fit-content;
+
+    padding: 1rem;
+
     overflow: hidden;
 
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+
     .swiper-slide {
+        position: relative;
+        height: 300px;
+
         display: flex;
         justify-content: center;
         align-items: center;
-        position: relative;
 
         .site-container {
             position: relative;
@@ -22,7 +31,7 @@
                 width: 100%;
                 height: 250px;
                 border: 1px solid var(--border);
-                border-radius: .5rem;
+                border-radius: 1rem;
                 transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             }
 
@@ -33,8 +42,9 @@
                 top: 15px;
                 left: 15px;
                 border-radius: 100%;
-                background-color: var(--fixed-c);
+                background-color: rgba(0, 0, 0, 0.219);
                 box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                border: 1px solid #ffffff48;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -43,17 +53,36 @@
                 z-index: 999;
 
                 svg {
-                    font-size: 24px;
-                    color: var(--p-i);
+                    font-size: 26px;
+                    color: var(--fixed-c);
                 }
+
+            }
+
+            .ocult-texts {
+                position: absolute;
+                left: 15px;
+                bottom: 15px;
+
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: #fff;
+
+                opacity: 0;
+                transition: all .3s cubic-bezier(1, 0, 0, 1);
+                z-index: 999;
             }
 
             &:hover {
                 img {
-                    filter: brightness(95%);
+                    filter: brightness(60%);
                 }
 
                 .view {
+                    opacity: 1;
+                }
+
+                .ocult-texts {
                     opacity: 1;
                 }
 
@@ -69,6 +98,11 @@
 
                 .view {
                     top: 35px;
+                    left: 15px;
+                }
+
+                .ocult-texts {
+                    bottom: 0;
                     left: 15px;
                 }
             }

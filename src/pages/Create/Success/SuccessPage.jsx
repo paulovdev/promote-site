@@ -19,7 +19,7 @@ const SuccessPage = () => {
         const data = await response.json();
         setPaymentStatus(data.status);
 
-        if (data.status === 'paid') {
+        if (data.status === 'paid' && !sessionStorage.getItem('emailSent')) {
           sendEmail();
         }
       } catch (error) {

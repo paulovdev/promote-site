@@ -52,8 +52,10 @@ const SuccessPage = () => {
       try {
         await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
         console.log('Email enviado com sucesso!');
-        sessionStorage.clear();
         sessionStorage.setItem('emailSent', 'true');
+        const emailSentFlag = sessionStorage.getItem('emailSent');
+        sessionStorage.clear();
+        sessionStorage.setItem('emailSent', emailSentFlag);
       } catch (error) {
         console.error('Erro ao enviar email:', error);
       }

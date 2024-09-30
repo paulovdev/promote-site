@@ -12,14 +12,14 @@ const SuccessPage = () => {
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
     const sessionId = query.get('session_id');
-    const emailSent = sessionStorage.getItem('emailSent')
+
     const checkPaymentStatus = async () => {
       try {
         const response = await fetch(`https://promote-site-back.vercel.app/check-payment-status?session_id=${sessionId}`);
         const data = await response.json();
         setPaymentStatus(data.status);
 
-        if (data.status === 'paid' && !emailSent) {
+        if (data.status === 'paid') {
           sendEmail();
         }
       } catch (error) {
@@ -52,6 +52,7 @@ const SuccessPage = () => {
       try {
         await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
         console.log('Email enviado com sucesso!');
+        sessionStorage.clear();
         sessionStorage.setItem('emailSent', 'true');
       } catch (error) {
         console.error('Erro ao enviar email:', error);
@@ -61,7 +62,7 @@ const SuccessPage = () => {
     if (sessionId) {
       checkPaymentStatus();
     }
-  }, [images]);
+  }, []);
 
   return (
     <div id='success-section'>

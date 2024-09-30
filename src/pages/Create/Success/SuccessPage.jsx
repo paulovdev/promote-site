@@ -19,15 +19,15 @@ const SuccessPage = () => {
         const data = await response.json();
         setPaymentStatus(data.status);
 
-        if (data.status === 'paid' && !sessionStorage.getItem('emailSent')) {
-          sendEmail();
+        if (data.status === 'paid' && !sessionStorage.getItem(`emailSent_${sessionId}`)) {
+          sendEmail(sessionId);
         }
       } catch (error) {
         console.error('Error checking payment status:', error);
       }
     };
 
-    const sendEmail = async () => {
+    const sendEmail = async (sessionId) => {
       const templateParams = {
         from_name: sessionStorage.getItem('myName'),
         to_name: 'Paulo Vitor',
@@ -52,10 +52,16 @@ const SuccessPage = () => {
       try {
         await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
         console.log('Email enviado com sucesso!');
-        sessionStorage.setItem('emailSent', 'true');
-        const emailSentFlag = sessionStorage.getItem('emailSent');
+        sessionStorage.setItem(`emailSent_${sessionId}`, 'true');
+
+        const emailSentFlag = sessionStorage.getItem(`emailSent_${sessionId}`);
+        const keysToPreserve = { [`emailSent_${sessionId}`]: emailSentFlag };
+
         sessionStorage.clear();
-        sessionStorage.setItem('emailSent', emailSentFlag);
+
+        for (const key in keysToPreserve) {
+          sessionStorage.setItem(key, keysToPreserve[key]);
+        }
       } catch (error) {
         console.error('Erro ao enviar email:', error);
       }

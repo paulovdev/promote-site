@@ -12,14 +12,14 @@ const SuccessPage = () => {
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
     const sessionId = query.get('session_id');
-
+    const emailSent = sessionStorage.getItem('emailSent')
     const checkPaymentStatus = async () => {
       try {
         const response = await fetch(`https://promote-site-back.vercel.app/check-payment-status?session_id=${sessionId}`);
         const data = await response.json();
         setPaymentStatus(data.status);
 
-        if (data.status === 'paid' && !sessionStorage.getItem('emailSent')) {
+        if (data.status === 'paid' && !emailSent) {
           sendEmail();
         }
       } catch (error) {
@@ -37,19 +37,22 @@ const SuccessPage = () => {
         tool: sessionStorage.getItem('tool'),
         siteName: sessionStorage.getItem('siteName'),
         description: sessionStorage.getItem('description'),
-        price: sessionStorage.getItem('price'),
+        descriptionDetail: sessionStorage.getItem('descriptionDetail'),
+        sitePrice: sessionStorage.getItem('price'),
         features: JSON.parse(sessionStorage.getItem('selectedFeatures')),
+        livePreview: sessionStorage.getItem('livePreview'),
+        buyLink: sessionStorage.getItem('buyLink'),
+        contactLink: sessionStorage.getItem('contactLink'),
         imageURL1: images[0],
         imageURL2: images[1],
         imageURL3: images[2],
-        hot: 1,
+        hot: 1
       };
 
       try {
         await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
         console.log('Email enviado com sucesso!');
-        sessionStorage.clear();
-        sessionStorage.setItem('emailSent', 'true'); // Definir email enviado
+        sessionStorage.setItem('emailSent', 'true');
       } catch (error) {
         console.error('Erro ao enviar email:', error);
       }

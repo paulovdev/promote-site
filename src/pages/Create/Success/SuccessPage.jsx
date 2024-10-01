@@ -19,7 +19,7 @@ const SuccessPage = () => {
         const data = await response.json();
         setPaymentStatus(data.status);
 
-        if (data.status === 'paid' && !sessionStorage.getItem(`emailSent_${sessionId}`)) {
+        if (data.status === 'paid' && !localStorage.getItem(`emailSent_${sessionId}`)) {
           sendEmail(sessionId);
         }
       } catch (error) {
@@ -52,16 +52,19 @@ const SuccessPage = () => {
       try {
         await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
         console.log('Email enviado com sucesso!');
-        sessionStorage.setItem(`emailSent_${sessionId}`, 'true');
-
-        const emailSentFlag = sessionStorage.getItem(`emailSent_${sessionId}`);
-        const keysToPreserve = { [`emailSent_${sessionId}`]: emailSentFlag };
-
-        sessionStorage.clear();
-
-        for (const key in keysToPreserve) {
-          sessionStorage.setItem(key, keysToPreserve[key]);
+        
+        // Limpar todas as entradas do localStorage com "emailSent_"
+        for (const key in localStorage) {
+          if (key.startsWith('emailSent_')) {
+            localStorage.removeItem(key);
+          }
         }
+        
+        // Armazenar a nova entrada no localStorage
+        localStorage.setItem(`emailSent_${sessionId}`, 'true');
+
+        // Limpar o sessionStorage após o envio do email
+        sessionStorage.clear();
       } catch (error) {
         console.error('Erro ao enviar email:', error);
       }

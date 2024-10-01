@@ -5,6 +5,7 @@ import { FaTrash } from 'react-icons/fa';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../../firebase/Firebase'; // Ajuste o caminho conforme necessário
 import './ImageStep.scss';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const ImageStep = ({ setStep }) => {
   const { t } = useTranslation();
@@ -136,27 +137,38 @@ const ImageStep = ({ setStep }) => {
           ))}
         </div>
 
-        {showDeleteModal && (
-          <div className='image-modal'>
-            <div className='image-modal-content'>
-              <p>{t('imageStep.confirmDelete')}</p>
-              <div className='buttons-image-modal'>
-                <button onClick={confirmDeleteImage}>{t('imageStep.yes')}</button>
-                <button onClick={() => setShowDeleteModal(false)}>{t('imageStep.no')}</button>
+        <AnimatePresence mode='wait'>
+          {showDeleteModal && (
+            <motion.div
+              className="image-modal"
+              initial={{ opacity: 0, }}
+              animate={{ opacity: 1, }}
+              exit={{ opacity: 0, }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className='image-modal-content'>
+                <p>{t('imageStep.confirmDelete')}</p>
+                <div className='buttons-image-modal'>
+                  <button onClick={confirmDeleteImage} type='button'>{t('imageStep.yes')}</button>
+                  <button onClick={() => setShowDeleteModal(false)} type='button'>{t('imageStep.no')}</button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+
+          {showErrorModal && (
+            <div className='image-modal'>
+              <div className='image-modal-content'>
+                <p>{t('imageStep.fileError')}</p>
+                <button onClick={() => setShowErrorModal(false)} type='button'>{t('imageStep.ok')}</button>
               </div>
             </div>
-          </div>
-        )}
-
-        {showErrorModal && (
-          <div className='image-modal'>
-            <div className='image-modal-content'>
-              <p>{t('imageStep.fileError')}</p>
-              <button onClick={() => setShowErrorModal(false)}>{t('imageStep.ok')}</button>
-            </div>
-          </div>
-        )}
+          )}
+        </AnimatePresence>
       </section>
+
+
       <div className='step-buttons'>
         <button onClick={() => setStep((prev) => prev - 1)} type='button' className='back-button'>
           {t('imageStep.back')}

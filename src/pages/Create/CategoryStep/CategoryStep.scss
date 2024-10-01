@@ -72,27 +72,18 @@
     }
 }
 
-@media(max-width:809px) {
+@media (max-width:992px) {
     #category-step {
-        position: relative;
-        width: 100%;
-        max-width: 650px;
-        height: 700px;
-        display: flex;
-        flex-direction: column;
-
-
         .category-cards {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}
 
-            .category-card {
-                width: clamp(200px, 45%, 400px);
-                height: 125px;
-            }
-
-            .selected {
-                width: clamp(200px, 45%, 400px);
-                height: 125px;
-            }
+@media (max-width:768px) {
+    #category-step {
+        .category-cards {
+            grid-template-columns: 1fr 1fr;
         }
     }
 }

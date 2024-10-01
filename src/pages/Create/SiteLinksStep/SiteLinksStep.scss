@@ -20,7 +20,6 @@
         text-align: start !important;
     }
 
-
     button {
         width: fit-content;
         padding: 0.6rem 1.5rem;
@@ -54,8 +53,6 @@
             }
         }
     }
-
-
 
     label {
         color: var(--p);
@@ -108,6 +105,14 @@
                 color: var(--accent);
                 border: 1px solid var(--accent);
             }
+        }
+    }
+}
+
+@media (max-width:992px) {
+    #site-links-step {
+        p {
+            font-size: 1.1rem !important;
         }
     }
 }

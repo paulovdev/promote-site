@@ -48,15 +48,15 @@
         "sectionSubtitle": "É fácil publicar no Quimplo!",
         "features": [
             {
-                "title": "1. Preencha o formulário e publique",
+                "title": "Preencha o formulário e publique",
                 "description": "Complete todas as informações necessárias e envie seu template para revisão."
             },
             {
-                "title": "2. Aguarde a revisão",
+                "title": "Aguarde a revisão",
                 "description": "Após o envio, seu template será revisado. Você também pode optar por um destaque para aparecer no topo."
             },
             {
-                "title": "3. Pronto!",
+                "title": "Pronto!",
                 "description": "Seu template está sendo configurado e estará disponível em breve!"
             }
         ]

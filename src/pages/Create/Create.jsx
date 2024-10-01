@@ -278,65 +278,63 @@ const Create = () => {
         </div>
 
         {/* modal */}
-        <AnimatePresence mode='wait'>
+        <AnimatePresence >
           {showModal && (
             <motion.div
               className="modal-overlay"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
+              initial={{ opacity: 0, }}
+              animate={{ opacity: 1, }}
+              exit={{ opacity: 0, }}
+              transition={{ duration: 0.5 }}
             >
 
               <motion.div
                 className="form-container">
-                <AnimatePresence mode='wait'>
-
-                  <motion.div className="form-wrapper"
-                    key={step} initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ ease: 'easeInOut', duration: 0.1 }}>
-                    {/* header */}
-                    <div className="header">
-                      <div className="logo">
-                        <BiLastPage /> <span>Quimplo</span>
-                      </div>
-                      <button className="close-button" onClick={() => setShowModal(false)}>
-                        <IoCloseOutline />
-                      </button>
+                <motion.div className="form-wrapper"
+                  key={step} initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ ease: 'easeInOut', duration: 0.1 }}>
+                  {/* header */}
+                  <div className="header">
+                    <div className="logo">
+                      <BiLastPage /> <span>Quimplo</span>
                     </div>
+                    <button className="close-button" onClick={() => setShowModal(false)}>
+                      <IoCloseOutline />
+                    </button>
+                  </div>
 
-                    <div className="left-content">
-                      <div className="step-info">
+                  <div className="left-content">
+                    <div className="step-info">
 
-                        <span>{stepContent[step].span}</span>
-                        <h1>{stepContent[step].h1}</h1>
-                        <p>{stepContent[step].p}</p>
-                        {step === 5 && (
-                          <>
-                            <p className='other-p'>
-                              <div className="border"></div>
-                              {stepContent[step].v}
-                            </p>
-                            <p className='other-p'>
-                              <div className="border"></div>
-                              {stepContent[step].c}
-                            </p>
-                          </>
-                        )}
-
-                      </div>
+                      <span>{stepContent[step].span}</span>
+                      <h1>{stepContent[step].h1}</h1>
+                      <p>{stepContent[step].p}</p>
+                      {step === 5 && (
+                        <>
+                          <p className='other-p'>
+                            <div className="border"></div>
+                            {stepContent[step].v}
+                          </p>
+                          <p className='other-p'>
+                            <div className="border"></div>
+                            {stepContent[step].c}
+                          </p>
+                        </>
+                      )}
 
                     </div>
 
-                    <div className="right-content">
-                      {renderStep()}
-                    </div>
-                  </motion.div>
+                  </div>
 
-                  {renderStepProgress()}
-                </AnimatePresence>
+                  <div className="right-content">
+                    {renderStep()}
+                  </div>
+                </motion.div>
+
+                {renderStepProgress()}
+
               </motion.div>
             </motion.div>
           )}

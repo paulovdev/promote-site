@@ -72,26 +72,18 @@
     }
 }
 
-@media(max-width:809px) {
+@media (max-width:992px) {
     #tool-step {
-        position: relative;
-        width: 100%;
-        max-width: 650px;
-        height: 700px;
-        display: flex;
-        flex-direction: column;
-
-
         .tool-cards {
-            .tool-card {
-                width: clamp(200px, 45%, 400px);
-                height: 125px;
-            }
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}
 
-            .selected {
-                width: clamp(200px, 45%, 400px);
-                height: 125px;
-            }
+@media (max-width:768px) {
+    #tool-step {
+        .tool-cards {
+            grid-template-columns: 1fr 1fr;
         }
     }
 }

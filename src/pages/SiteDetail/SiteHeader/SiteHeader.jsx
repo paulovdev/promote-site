@@ -28,7 +28,7 @@ const SiteHeader = ({ site }) => {
 
   const faqs = t('siteHeader.faqs.questions', { returnObjects: true });
   const currentDescription = i18n.language === 'en' ? site.descriptionEn : site.descriptionBr;
-  const currentDescription2 = i18n.language === 'en' ? site.description2En : site.description2Br;
+  const currentDescription2 = i18n.language === 'en' ? site.descriptionDetailEn : site.descriptionDetailBr;
 
   const categories = [
     { name: t('categories.all'), path: "/sites/all" },

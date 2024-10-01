@@ -267,6 +267,7 @@
         display: flex;
         align-items: start;
         gap: 2rem;
+        user-select: none;
 
         .left-content {
             position: relative;

@@ -5,14 +5,14 @@ import HomeSites from "./HomeSites/HomeSites";
 import HomeFeatures from "./HomeFeatures/HomeFeatures";
 import HomeFAQs from "./HomeFAQs/HomeFAQs";
 import HomeNewsLetter from "./HomeNewsLetter/HomeNewsLetter";
-import HomeLogos from "./HomeLogos/HomeLogos";
+
 
 import Transition from "../../utils/Transition/Transition";
 import "./Home.scss";
 const Home = () => {
     const [showSites, setShowSites] = useState(false);
     const [showFeatures, setShowFeatures] = useState(false);
-    const [showLogos, setShowLogos] = useState(false);
+  
     const [showFAQs, setShowFAQs] = useState(false);
     const [showNewsLetter, setShowNewsLetter] = useState(false);
 
@@ -20,7 +20,7 @@ const Home = () => {
         const timers = [
             setTimeout(() => setShowSites(true), 0),
             setTimeout(() => setShowFeatures(true), 100),
-            setTimeout(() => setShowLogos(true), 200),
+           
             setTimeout(() => setShowFAQs(true), 300),
             setTimeout(() => setShowNewsLetter(true), 400),
         ];
@@ -34,14 +34,14 @@ const Home = () => {
                 <meta charSet="utf-8" />
                 <title>Quimplo</title>
             </Helmet>
-            <div id="home">
+            <main id="home">
                 <HomeHero />
                 {showSites && <HomeSites />}
                 {showFeatures && <HomeFeatures />}
-                {showLogos && <HomeLogos />}
+                
                 {showFAQs && <HomeFAQs />}
                 {showNewsLetter && <HomeNewsLetter />}
-            </div>
+            </main>
         </>
     );
 };

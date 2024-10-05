@@ -6,9 +6,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Tooltip } from 'react-tooltip';
 import { useTranslation } from 'react-i18next';
 
-import "./HomeLogos.scss";
+import "./AboutLogos.scss";
 
-const HomeLogos = () => {
+const AboutLogos = () => {
     const { t } = useTranslation();
     const [selectedTool, setSelectedTool] = useState("drupal");
     const [selectedToolName, setSelectedToolName] = useState("Drupal");
@@ -34,7 +34,7 @@ const HomeLogos = () => {
     };
 
     return (
-        <section id='home-logos'>
+        <section id='about-logos'>
             <div className="text-logos">
                 <span>{t('homeLogos.sectionTitle')}</span>
                 <AnimatePresence mode='wait'>
@@ -69,4 +69,4 @@ const HomeLogos = () => {
     );
 };
 
-export default HomeLogos;
+export default AboutLogos;

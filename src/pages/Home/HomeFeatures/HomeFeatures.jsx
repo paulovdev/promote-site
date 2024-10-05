@@ -15,8 +15,13 @@ const HomeFeatures = () => {
 
     return (
         <section id="home-features">
+
             <span>{t('homeFeatures.sectionTitle')}</span>
             <h1>{t('homeFeatures.sectionSubtitle')}</h1>
+            <p>Drive your business ahead by drawing in new customers across multiple platforms.</p>
+
+
+
             <div className="features-content">
                 {features.map((feature, index) => (
                     <div className="card" key={index}>
@@ -25,11 +30,13 @@ const HomeFeatures = () => {
                             {index === 1 && <CiFileOn />}
                             {index === 2 && <CiClock1 />}
                             {index === 3 && <MdOutlineDone />}
+
                         </div>
                         <h2>{feature.title}</h2>
                         <p>{feature.description}</p>
                     </div>
                 ))}
+
             </div>
         </section>
     );

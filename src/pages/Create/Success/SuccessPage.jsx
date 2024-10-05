@@ -53,17 +53,14 @@ const SuccessPage = () => {
         await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
         console.log('Email enviado com sucesso!');
         
-        // Limpar todas as entradas do localStorage com "emailSent_"
         for (const key in localStorage) {
           if (key.startsWith('emailSent_')) {
             localStorage.removeItem(key);
           }
         }
         
-        // Armazenar a nova entrada no localStorage
         localStorage.setItem(`emailSent_${sessionId}`, 'true');
 
-        // Limpar o sessionStorage após o envio do email
         sessionStorage.clear();
       } catch (error) {
         console.error('Erro ao enviar email:', error);
@@ -78,7 +75,7 @@ const SuccessPage = () => {
   return (
     <div id='success-section'>
       {paymentStatus === 'paid' ? (
-        <h1>PAGAMENTO REALIZADO COM SUCESSO</h1>
+        <h1>Pagamento realizado com sucesso!</h1>
       ) : (
         <h1>Pagamento ainda não confirmado.</h1>
       )}

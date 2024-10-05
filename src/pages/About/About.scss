@@ -36,7 +36,7 @@
             text-transform: uppercase;
             line-height: 1.225rem;
 
-            border: 1px solid var(--accent);
+            border: 1px solid var(--border);
             border-radius: 2rem;
 
             color: var(--accent);
@@ -110,59 +110,4 @@
         }
     }
 
-    .cards {
-        width: 100%;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-
-        .card {
-            position: relative;
-
-            width: 100%;
-            height: 400px;
-
-            padding: 2.5rem 2rem 1rem 2rem;
-
-            border: 2px solid var(--border);
-            border-radius: 1rem;
-            background-color: var(--accent-2);
-
-            transition: .3s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-            h2 {
-                margin-bottom: 3rem;
-
-                font-size: 2rem;
-                font-weight: 700;
-
-                letter-spacing: -.7px;
-                line-height: 1;
-
-                color: var(--p);
-            }
-
-            p {
-                height: 205px;
-                margin-bottom: 1rem;
-                font-size: 1.25rem;
-                font-weight: 300;
-                line-height: 1.75rem;
-
-
-                color: var(--p);
-            }
-
-            svg {
-                font-size: 32px;
-                color: var(--p);
-            }
-
-            &:hover {
-                border-color: var(--accent);
-            }
-        }
-    }
 }

@@ -2,7 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { BiLastPage } from "react-icons/bi";
 import { useState } from "react";
+
 import { BsArrowRight } from "react-icons/bs";
+import { PiArrowDownRightBold } from "react-icons/pi";
+
+
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import { useTranslation } from "react-i18next";
 
@@ -26,26 +30,32 @@ const Navbar = () => {
                 <nav>
 
 
-                    <Link to="/" className="logo" onClick={() => {
-                        scrollTo({ top: 0 });
-                        if (showMenu) {
-                            toggleMenu()
-                            return
-                        }
-                    }}>
-                        <BiLastPage />
-                    </Link>
-
-
 
                     <ul className='desktop-menu'>
-                        <li onClick={() => scrollTo({ top: 0 })}><NavLink className='explore-nav' to="/">{t('nav.home')}</NavLink></li>
+                        <Link to="/" className="logo" onClick={() => {
+                            scrollTo({ top: 0 });
+                            if (showMenu) {
+                                toggleMenu()
+                                return
+                            }
+                        }}>
+                            <BiLastPage />
+                        </Link>
+                        <div className="left-border"></div>
                         <li onClick={() => scrollTo({ top: 0 })}><NavLink className='explore-nav' to="/sites/all">{t('nav.explore')}</NavLink></li>
                         <li onClick={() => scrollTo({ top: 0 })}><NavLink className='explore-nav' to="/about">{t('nav.about')}</NavLink></li>
                         <li><NavLink className='explore-nav' to="/stories">{t('nav.stories')}</NavLink></li>
+                    </ul>
+
+
+                    <ul className='desktop-menu'>
+                        <li><LanguageSelector /></li>
+
+                        <li><ThemeChange /></li>
                         <li onClick={() => scrollTo({ top: 0 })}>
                             <NavLink className='feature-nav' to="/create">{t('nav.submitTemplate')}</NavLink>
                         </li>
+
                     </ul>
 
 

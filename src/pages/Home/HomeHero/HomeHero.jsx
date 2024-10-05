@@ -9,8 +9,7 @@ const HomeHero = () => {
 
   return (
     <section id="hero-section">
-      <span>{t('homeHero.span')}</span>
-      <h1>{t('homeHero.title')}</h1>
+      <h1>{t('homeHero.title')} <span>{t('homeHero.accentTitle')}</span>{t('homeHero.subTitle')} </h1>
       <p>{t('homeHero.description')}</p>
       <div className="hero-buttons">
         <Link to="/sites/all" className="hero-button" onClick={() => scrollTo({ top: 0 })}>

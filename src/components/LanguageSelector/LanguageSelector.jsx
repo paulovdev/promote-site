@@ -37,9 +37,9 @@ function LanguageSelector() {
             onMouseLeave={closeDropdown}
         >
             <button className="dropdown-button">
-                <BiWorld />
+              {/*   <BiWorld /> */}
                 {i18n.language.toUpperCase()}
-                <RiArrowDownSFill className={`arrow-icon ${isOpen ? 'open' : ''}`} />
+              {/*   <RiArrowDownSFill className={`arrow-icon ${isOpen ? 'open' : ''}`} /> */}
             </button>
             <AnimatePresence>
                 {isOpen && (

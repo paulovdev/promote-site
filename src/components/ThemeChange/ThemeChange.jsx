@@ -1,6 +1,9 @@
 import React from "react";
 import { useTheme } from "../../context/ThemeContext";
-import { FaMoon, FaSun } from "react-icons/fa";
+
+import { IoMdSunny } from "react-icons/io";
+import { IoMoon } from "react-icons/io5";
+
 import "./ThemeChange.scss";
 
 function ThemeChange() {
@@ -12,18 +15,12 @@ function ThemeChange() {
     };
 
     return (
-        <div id="change-theme"  >
-            <div className="toggle-switch" onClick={handleToggle} >
-                <input
-                    type="checkbox"
-                    checked={theme === "dark"}
-                    onChange={handleToggle}
-                />
-                <span className="slider"   >
-                    <FaMoon className="icon moon" />
-                    <FaSun className="icon sun" />
-                </span>
-            </div>
+        <div id="change-theme" onClick={handleToggle} className="toggle-switch">
+            {theme === "dark" ? (
+                <IoMoon className="icon moon" />
+            ) : (
+                <IoMdSunny className="icon sun" />
+            )}
         </div>
     );
 }

@@ -1,20 +1,25 @@
 #home-sites {
     position: relative;
+
     width: 100%;
     height: fit-content;
 
     padding: 1rem;
 
+    background-color: var(--bg-nav);
+    border-radius: 2rem 2rem 0 0;
+
     overflow: hidden;
 
     display: flex;
     align-items: center;
-    gap: 1rem;
     flex-direction: column;
 
     .swiper-slide {
         position: relative;
         height: 300px;
+
+        margin: 0 !important;
 
         display: flex;
         justify-content: center;
@@ -22,9 +27,11 @@
 
         .site-container {
             position: relative;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
             img {

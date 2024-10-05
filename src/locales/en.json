@@ -35,7 +35,9 @@
     },
     "homeHero": {
         "span": "New templates available!",
-        "title": "Elevate your template and make a lasting impact!",
+        "title": "Your template on ",
+        "subTitle": ", success!",
+        "accentTitle": "Quimplo",
         "description": "Launch your template on Quimplo with ease to attract more visitors and boost your sales. You don't even need an account!",
         "buttonText": "Explore",
         "buttonText2": "Submit template"
@@ -48,7 +50,7 @@
         "sectionSubtitle": "It's easy to publish on Quimplo!",
         "features": [
             {
-                "title": "Fill out the form and publish",
+                "title": "Fill out the form",
                 "description": "Complete all the necessary information and submit your template for review."
             },
             {

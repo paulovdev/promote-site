@@ -16,9 +16,9 @@
     text-align: start;
 
     img {
-        max-width: 325px;
+        max-width: 350px;
         width: 100%;
-        height: 200px;
+        height: 175px;
 
         border-radius: 1rem;
         border: 1px solid var(--border);
@@ -43,13 +43,13 @@
             margin-bottom: 1rem;
 
             p {
-                padding: .2rem .8rem;
+                padding: .3rem 1rem;
 
                 border: 1px solid var(--border);
                 border-radius: 2rem;
 
                 height: fit-content !important;
-                font-size: 10px;
+                font-size: .5rem;
                 font-weight: 700;
                 letter-spacing: 2px;
                 text-transform: uppercase;

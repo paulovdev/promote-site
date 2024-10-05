@@ -35,7 +35,7 @@ export const useSiteDetail = (id) => {
     return useQuery({
         queryKey: ['siteDetail', id],
         queryFn: () => fetchSiteData(id),
-        enabled: !!id, // Only run the query if ID is provided
+        enabled: !!id, 
         staleTime: 1000 * 60 * 5, // Keep data fresh for 5 minutes
         refetchOnWindowFocus: false, // Prevent refetching on window focus
     });

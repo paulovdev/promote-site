@@ -81,4 +81,4 @@ const Stories = () => {
     );
 };
 
-export default Transition(Stories, { text: { br: "Histórias", en: "Stories" } });
+export default Stories;

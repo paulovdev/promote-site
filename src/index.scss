@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
 
 :root
 
 /* light */
   {
-  --p: #333333;
+  --p: #222222;
   --p-2: #ffffff;
 
   --bg: #fefefe;
@@ -20,7 +19,7 @@
   --p-i: #333;
 
   --btn: #111;
-  --btn-2: #333;
+  --btn-2: #f7f7f7;
   --btn-3: rgb(230, 230, 230);
 
   --accent: #227ce2;
@@ -46,8 +45,8 @@
   --accent-2: #1a1a19;
   --accent-3: #f7f7f7;
 
-  --btn: #242424;
-  --btn-2: #404040;
+  --btn: #f3f3f3;
+  --btn-2: #222222;
   --btn-3: rgb(44, 44, 44);
 }
 
@@ -104,7 +103,7 @@ button {
     border: 6px solid;
 
     border-color: var(--border);
-    border-right-color: var(--accent);
+    border-right-color: var(--p);
     animation: spinner-d3wgkg 1s infinite linear;
   }
 

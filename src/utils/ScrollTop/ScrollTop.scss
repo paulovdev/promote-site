@@ -11,7 +11,7 @@
   padding: 0.5rem;
 
   border-radius: 100%;
-  background-color: var(--accent);
+  background-color: var(--p);
 
   display: flex;
   align-items: center;
@@ -22,15 +22,15 @@
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
   svg {
-    color: var(--fixed-c);
+    color: var(--p-2);
     font-size: 26px;
   }
 
   &:hover {
-    background-color: var(--p);
+    background-color: var(--p-2);
 
     svg {
-      color: var(--p-2);
+      color: var(--p);
     }
   }
 }

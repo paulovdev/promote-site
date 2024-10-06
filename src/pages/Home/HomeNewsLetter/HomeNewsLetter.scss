@@ -56,36 +56,26 @@
         }
 
         button {
-            width: 50%;
+            width: 30%;
             margin-right: .3rem;
             padding: .5rem 1rem;
 
-            font-size: .9rem;
+            font-size: .8rem;
             font-weight: 500;
 
+            border: 1px solid var(--border);
+            background-color: var(--btn-2);
+            color: var(--p);
 
             border-radius: 2rem;
-            background-color: var(--accent);
-
-            color: var(--fixed-c);
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: .5rem;
 
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-            box-shadow: inset 0 0 0 0 var(--p);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 
             &:hover {
-                box-shadow: inset 0 -150px 0 0 var(--p);
                 color: var(--p-2);
+                background-color: var(--btn);
 
-                svg {
-                    opacity: 1;
-                    font-size: 14px;
-                }
             }
         }
     }

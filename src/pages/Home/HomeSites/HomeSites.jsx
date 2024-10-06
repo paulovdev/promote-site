@@ -20,7 +20,7 @@ const HomeSites = () => {
         slidesPerView={1}
         spaceBetween={15}
         autoplay={{
-          delay: 1000,
+          delay: 5000,
           pauseOnMouseEnter: true,
         }}
         loop={true}
@@ -28,7 +28,7 @@ const HomeSites = () => {
         modules={[Autoplay]}
         breakpoints={{
           1400: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 25,
           },
           1000: {

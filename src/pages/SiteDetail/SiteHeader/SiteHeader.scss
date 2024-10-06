@@ -26,7 +26,7 @@
             font-size: .8rem;
             font-weight: 500;
 
-            color: var(--accent);
+            color: var(--p);
 
             svg {
                 font-size: 1rem;
@@ -38,7 +38,7 @@
             }
 
             &:nth-child(7) {
-                color: var(--p);
+                color: var(--accent);
                 cursor: default;
             }
         }
@@ -178,18 +178,17 @@
 
                 .site-button,
                 .site-button-2 {
-                    width: fit-content;
-                    margin-right: .3rem;
+                    width: 150px;
                     padding: .5rem 1rem;
 
                     font-size: .9rem;
                     font-weight: 500;
 
-
                     border-radius: 2rem;
-                    background-color: var(--accent);
+                    border: none;
+                    background-color: var(--p);
 
-                    color: var(--fixed-c);
+                    color: var(--p-2);
 
                     display: flex;
                     align-items: center;
@@ -197,12 +196,13 @@
                     gap: .5rem;
 
                     cursor: pointer;
-                    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-                    box-shadow: inset 0 0 0 0 var(--p);
+                    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
 
                     &:hover {
-                        box-shadow: inset 0 -150px 0 0 var(--p);
-                        color: var(--p-2);
+                        background-color: var(--p-2);
+                        color: var(--p);
+                        border: 1px solid var(--border);
 
                         svg {
                             opacity: 1;
@@ -223,14 +223,15 @@
 
                 .site-button-2 {
                     border: 1px solid var(--border);
-                    background-color: transparent;
+                    background-color: var(--p-2);
                     color: var(--p);
-                    box-shadow: inset 0 0 0 0 var(--p);
+
 
                     &:hover {
                         border: none;
-                        box-shadow: inset 0 -100px 0 0 var(--p);
                         color: var(--p-2);
+                        background-color: var(--p);
+
                     }
                 }
             }
@@ -301,7 +302,7 @@
 
                     padding: .4rem 1rem;
 
-                    background-color: var(--accent);
+                    background-color: var(--p);
                     border-radius: 2rem;
 
                     color: var(--p-2);
@@ -368,7 +369,7 @@
                     line-height: 1;
                     letter-spacing: -.6px;
 
-                    color: var(--fixed-c);
+                    color: var(--p);
                     text-align: start;
 
                     span {
@@ -426,7 +427,7 @@
         }
 
         &::-webkit-scrollbar-thumb {
-            background-color: var(--accent);
+            background-color: var(--p);
         }
 
         h2 {
@@ -465,7 +466,7 @@
 
             svg {
                 font-size: 22px;
-                color: var(--accent);
+                color: var(--p);
             }
         }
     }
@@ -521,12 +522,12 @@
         letter-spacing: 1px;
         text-transform: uppercase;
         font-size: .7rem;
-        font-weight: 800;
+        font-weight: 700;
 
         border-radius: 2rem;
         line-height: 1.2;
 
-        color: var(--accent);
+        color: var(--p);
     }
 
     h1 {
@@ -581,7 +582,7 @@
 
                 svg {
                     font-size: 18px;
-                    color: var(--accent);
+                    color: var(--p);
                 }
             }
 

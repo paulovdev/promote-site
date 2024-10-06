@@ -1,7 +1,8 @@
 import React from "react";
 import { useTheme } from "../../context/ThemeContext";
 
-import { IoMdSunny } from "react-icons/io";
+import { MdOutlineWbSunny } from "react-icons/md";
+
 import { IoMoon } from "react-icons/io5";
 
 import "./ThemeChange.scss";
@@ -19,7 +20,7 @@ function ThemeChange() {
             {theme === "dark" ? (
                 <IoMoon className="icon moon" />
             ) : (
-                <IoMdSunny className="icon sun" />
+                <MdOutlineWbSunny className="icon sun" />
             )}
         </div>
     );

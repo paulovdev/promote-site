@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { useTranslation } from "react-i18next";
 
-import { BsArrowRight } from "react-icons/bs";
 import { BiLastPage } from "react-icons/bi";
 
 import ThemeChange from "../ThemeChange/ThemeChange";
@@ -48,13 +47,14 @@ const Navbar = () => {
                     </div>
 
 
-
-
-
-                    <div className="mobile-menu" onClick={toggleMenu}>
-                        <div className={`hm-bar ${!hmRotate ? "" : "active"}`}></div>
-                        <div className={`hm-bar ${!hmRotate ? "" : "active"}`}></div>
+                    <div className="mobile-menu-wrapper"> <ThemeChange />
+                        <div className="mobile-menu" onClick={toggleMenu}>
+                            <div className={`hm-bar ${!hmRotate ? "" : "active"}`}></div>
+                            <div className={`hm-bar ${!hmRotate ? "" : "active"}`}></div>
+                        </div>
                     </div>
+
+
 
                     <AnimatePresence mode="wait">
                         {showMenu && (
@@ -64,21 +64,32 @@ const Navbar = () => {
                                 exit={{ opacity: 0, y: -50 }}
                                 transition={{ duration: 0.3 }}
                             >
+
                                 <li onClick={() => {
                                     scrollTo({ top: 0 });
                                     toggleMenu()
-                                }}><NavLink to="/stories">{t('nav.histories')} <BsArrowRight /></NavLink></li>
+                                }}><NavLink to="/sites/all">{t('nav.exploreAll')}</NavLink>
+                                </li>
+
                                 <li onClick={() => {
                                     scrollTo({ top: 0 });
                                     toggleMenu()
-                                }}><NavLink to="/sites/all">{t('nav.exploreAll')} <BsArrowRight /></NavLink></li>
+                                }}><NavLink to="/about">{t('nav.about')}</NavLink>
+                                </li>
+
+                                <li onClick={() => {
+                                    scrollTo({ top: 0 });
+                                    toggleMenu()
+                                }}><NavLink to="/stories">{t('nav.histories')}</NavLink>
+                                </li>
+
                                 <li onClick={() => {
                                     scrollTo({ top: 0 });
                                     toggleMenu()
                                 }}>
-                                    <NavLink className='feature-nav' to="/create">{t('nav.submitTemplate')} <BsArrowRight /></NavLink>
+                                    <NavLink className='feature-nav' to="/create">{t('nav.submitTemplate')}</NavLink>
                                 </li>
-                                <li> <div className="sub-options-wrapper">   <LanguageSelector /><ThemeChange /></div></li>
+
 
                             </motion.ul>
                         )}

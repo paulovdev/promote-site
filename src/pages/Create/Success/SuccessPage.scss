@@ -1,11 +1,31 @@
 #success-section {
-    height: 60vh;
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    height: 50vh;
+
+    margin: 10vh auto;
+
+    background-color: var(--bg);
+    text-align: start;
+
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
+    flex-direction: column;
+
+    z-index: 998;
 
     h1 {
-        font-size: 2.5;
-        color: #000;
+        margin-bottom: 1rem;
+
+        font-size: 2rem;
+        font-weight: 500;
+
+        letter-spacing: -.5px;
+        line-height: 1;
+
+
+        color: var(--p);
     }
 }

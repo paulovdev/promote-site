@@ -1,5 +1,5 @@
 #home-newsletter {
-    max-width: 600px;
+    max-width: 700px;
     padding: 50px;
     margin: 5rem auto;
 
@@ -20,8 +20,9 @@
         font-size: 2rem;
         font-weight: 500;
 
-        letter-spacing: -.9px;
+        letter-spacing: -.5px;
         line-height: 1;
+
 
         color: var(--p);
     }
@@ -37,7 +38,7 @@
 
         input {
             width: 100%;
-            padding: .5rem 1rem;
+            padding: .5rem 1.3rem;
 
             font-size: .9rem;
             font-weight: 400;
@@ -89,4 +90,3 @@
         }
     }
 }
-

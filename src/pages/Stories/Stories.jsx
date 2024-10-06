@@ -31,9 +31,6 @@ const Stories = () => {
             </Helmet>
 
             <div id="stories">
-                <div className="back-button">
-                    <Link to="/"><IoCloseOutline /></Link>
-                </div>
                 <Swiper
                     autoplay={{ delay: 3000, disableOnInteraction: false }}
                     modules={[Autoplay, Pagination, Navigation]}

@@ -15,6 +15,7 @@
 
     text-align: start;
     user-select: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     img {
         max-width: 350px;
@@ -24,12 +25,10 @@
         border-radius: .5rem;
         border: 1px solid var(--border);
 
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
         margin-bottom: 1rem;
 
         z-index: 998;
-
     }
 
     .text-card {
@@ -125,12 +124,14 @@
 
     &:hover {
         img {
-            filter: brightness(60%);
+            filter: brightness(95%);
         }
 
         .view {
             opacity: 1;
         }
+
+        transform: scale(1.01);
     }
 }
 

@@ -22,9 +22,9 @@ const CookiesPage = () => {
             <h2>{t('cookies.howWeUseCookiesTitle')}</h2>
             <p>{t('cookies.howWeUseCookiesText')}</p>
             <ul>
-                <li><strong>{t('cookies.necessaryCookies').split(': ')[0]}:</strong> {t('cookies.necessaryCookies').split(': ')[1]}</li>
-                <li><strong>{t('cookies.performanceCookies').split(': ')[0]}:</strong> {t('cookies.performanceCookies').split(': ')[1]}</li>
-                <li><strong>{t('cookies.functionalityCookies').split(': ')[0]}:</strong> {t('cookies.functionalityCookies').split(': ')[1]}</li>
+                <li><strong>{t('cookies.necessaryCookies').split(': ')[0]}:</strong> <p>{t('cookies.necessaryCookies').split(': ')[1]}</p></li>
+                <li><strong>{t('cookies.performanceCookies').split(': ')[0]}:</strong><p> {t('cookies.performanceCookies').split(': ')[1]}</p></li>
+                <li><strong>{t('cookies.functionalityCookies').split(': ')[0]}:</strong><p> {t('cookies.functionalityCookies').split(': ')[1]}</p></li>
             </ul>
             <br />
             <h2>{t('cookies.managingCookiesTitle')}</h2>

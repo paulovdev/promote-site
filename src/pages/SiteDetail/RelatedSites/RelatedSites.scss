@@ -2,14 +2,13 @@
 
 #site-more-category {
     position: relative;
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
     height: fit-content;
 
     margin: 8rem auto;
 
     background-color: var(--bg);
-
 
     .sub-header-text {
         width: 100%;
@@ -23,9 +22,9 @@
 
         h2,
         strong {
-            font-size: 26px;
+            font-size: 1rem;
             font-weight: 500;
-            letter-spacing: -1px;
+            letter-spacing: -.5px;
 
             color: var(--p);
             text-align: start;
@@ -38,13 +37,13 @@
         a {
             color: var(--p);
 
-            font-size: 18px;
+            font-size: 1rem;
             font-weight: 500;
-            letter-spacing: -1px;
+            letter-spacing: -.5px;
 
             display: flex;
             align-items: center;
-            gap: .8rem;
+            gap: .5rem;
 
         }
     }
@@ -62,7 +61,7 @@
             position: relative;
 
             width: 100%;
-            height: 300px;
+            height: fit-content;
             padding: 0 0 1rem 0;
 
             overflow: hidden;
@@ -160,6 +159,7 @@
 
     #site-more-category {
         padding: 15px;
+
         .related-sites {
             a {
                 img {

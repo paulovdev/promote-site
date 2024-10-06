@@ -36,8 +36,6 @@
     "homeHero": {
         "span": "New templates available!",
         "title": "Your template on Quimplo, success!",
-        
-        
         "description": "Launch your template on Quimplo with ease to attract more visitors and boost your sales. You don't even need an account!",
         "buttonText": "Explore",
         "buttonText2": "Submit template"
@@ -73,7 +71,7 @@
     },
     "homeFAQs": {
         "sectionTitle": "Frequently Asked Questions",
-        "sectionSubtitle": "If you missed something, we've answered some frequently asked questions.",
+        "sectionSubtitle": "Some frequently asked questions.",
         "faqs": [
             {
                 "question": "How can Quimplo help me sell my template?",

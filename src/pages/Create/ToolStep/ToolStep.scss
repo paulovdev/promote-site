@@ -43,6 +43,11 @@
                 border: 2px solid var(--p);
                 border-radius: .5rem;
             }
+
+            .tool-name {
+                font-size: .8rem;
+                font-weight: 400;
+            }
         }
 
         .selected {
@@ -67,6 +72,11 @@
 
             svg {
                 color: var(--accent);
+            }
+
+            .tool-name {
+                font-size: .8rem;
+                font-weight: 400;
             }
         }
     }

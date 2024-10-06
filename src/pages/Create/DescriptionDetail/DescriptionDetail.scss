@@ -1,8 +1,9 @@
 #detail-description {
     width: 100%;
     height: 100%;
-    
+
     display: flex;
+    flex-direction: column;
 }
 
 .quill {
@@ -31,8 +32,10 @@
     color: var(--p) !important;
 
     &::before {
-        font-size: 1rem;
-        font-weight: 500;
+        top: 25px;
+        left: 20px !important;
+        font-size: .8rem !important;
+        font-weight: 400 !important;
         opacity: 0.5;
         color: var(--p) !important;
         font-style: normal !important;
@@ -53,7 +56,7 @@
 }
 
 .ql-editor p {
-    font-size: 1rem !important;
+    font-size: .9rem !important;
 }
 
 .ql-editor h1 {

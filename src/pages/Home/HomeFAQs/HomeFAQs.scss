@@ -62,7 +62,7 @@
 
             background-color: var(--bg-2);
             border: 1px solid var(--border);
-            border-radius: 1rem;
+            border-radius: .5rem;
 
             cursor: pointer;
             user-select: none;
@@ -104,11 +104,5 @@
                 }
             }
         }
-    }
-}
-
-@media (max-width:992px) {
-    #home-faqs {
-        padding: 15px;
     }
 }

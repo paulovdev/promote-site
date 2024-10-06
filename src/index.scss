@@ -196,8 +196,9 @@ button {
 }
 
 #my-tooltip {
-  background-color: var(--accent);
-  color: var(--fixed-c);
-  font-weight: 600;
+  background-color: var(--btn);
+  color: var(--p-2);
+  font-size: .8rem;
+  font-weight: 500;
   border-radius: 2rem;
 }

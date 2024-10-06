@@ -64,6 +64,11 @@ const Navbar = () => {
                                 exit={{ opacity: 0, y: -50 }}
                                 transition={{ duration: 0.3 }}
                             >
+                                <li onClick={() => {
+                                    scrollTo({ top: 0 });
+                                    toggleMenu()
+                                }}><NavLink to="/sites/all">{t('nav.home')}</NavLink>
+                                </li>
 
                                 <li onClick={() => {
                                     scrollTo({ top: 0 });

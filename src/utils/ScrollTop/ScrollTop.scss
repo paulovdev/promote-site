@@ -2,16 +2,18 @@
 
 .scroll-top {
   position: fixed;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 
-  right: 50px;
-  bottom: 50px;
+  right: 0;
+  bottom: 25%;
 
-  padding: 0.5rem;
+  padding: 0.3rem;
 
-  border-radius: 100%;
-  background-color: var(--p);
+  border-radius: 2rem 0 0 2rem;
+  border: 1px solid var(--border);
+  background-color: var(--bg-nav);
+  backdrop-filter: blur(10px);
 
   display: flex;
   align-items: center;
@@ -22,7 +24,7 @@
   transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
   svg {
-    color: var(--p-2);
+    color: var(--p);
     font-size: 26px;
   }
 
@@ -48,16 +50,10 @@
 @media (max-width:809px) {
   .scroll-top {
     position: fixed;
-    width: 40px;
-    height: 40px;
-
-    right: 15px;
-    bottom: 30px;
+    width: 50px;
+    height: 50px;
 
     padding: 0.5rem;
-
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    border-radius: 100%;
 
     display: flex;
     align-items: center;

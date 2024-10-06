@@ -12,70 +12,72 @@
 
     .head-container,
     .head-container>div {
-        max-width: 1000px;
+        max-width: 600px;
         width: 100%;
 
         margin: 4rem auto 1rem auto;
 
+        text-align: start;
+
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: start;
+        justify-content: start;
         flex-direction: column;
 
 
         span {
             margin-bottom: 1rem;
-            padding: 0.25rem 1rem;
-            font-size: 0.7rem;
-            font-weight: 800;
+
             letter-spacing: 1px;
             text-transform: uppercase;
-            line-height: 1.225rem;
-            border: 1px solid var(--border);
-            border-radius: 2rem;
-            color: var(--accent);
+            font-size: .7rem;
+            font-weight: 800;
 
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-align: center;
+            border-radius: 2rem;
+            line-height: 1.225rem;
+
+            color: var(--accent);
         }
 
         h1 {
-            max-width: 850px;
-            width: 100%;
             margin-bottom: 2rem;
-            font-size: 4rem;
+
+            font-size: 2.5rem;
             font-weight: 500;
+
+            letter-spacing: -.9px;
             line-height: 1;
-            text-align: center;
+
             color: var(--p);
         }
 
         p {
-            max-width: 850px;
-            width: 100%;
             margin-bottom: 2rem;
-            font-size: 1.25rem;
-            font-weight: 300;
-            line-height: 1.75rem;
+
+            font-size: 1.1rem;
+            font-weight: 400;
+
+            letter-spacing: -.6px;
+            line-height: 1.3;
+
+            opacity: .7;
             color: var(--p);
-            text-align: center !important;
+
         }
 
         button {
             width: fit-content;
-            padding: 0.6rem 1.5rem;
+            margin-right: .3rem;
+            padding: .5rem 1rem;
+
+            font-size: .9rem;
+            font-weight: 500;
 
 
             border-radius: 2rem;
             background-color: var(--accent);
 
             color: var(--fixed-c);
-
-            text-align: center;
-            font-size: 1.1rem;
-            font-weight: 500;
 
             display: flex;
             align-items: center;
@@ -86,6 +88,15 @@
             transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
             box-shadow: inset 0 0 0 0 var(--p);
 
+            &:hover {
+                box-shadow: inset 0 -150px 0 0 var(--p);
+                color: var(--p-2);
+
+                svg {
+                    opacity: 1;
+                    font-size: 14px;
+                }
+            }
         }
     }
 
@@ -250,19 +261,19 @@
 
                         h1 {
                             font-size: 2.5rem;
-                           
+
                             font-weight: 500;
                             line-height: 1;
-                
+
                             color: var(--p);
                         }
-                
+
                         p {
                             font-size: 1.1rem;
                             font-weight: 400;
                             line-height: 1.3;
                             opacity: .7;
-                
+
                             color: var(--p);
                         }
 
@@ -388,7 +399,7 @@
                     align-items: center;
                     gap: .5rem;
 
-                    svg{
+                    svg {
                         font-size: .8rem;
                     }
                 }
@@ -429,50 +440,7 @@ body.no-scroll {
 
 @media (max-width:992px) {
     #publish-section {
-        padding: 20px;
-
-        .head-container,
-        .head-container>div {
-            max-width: 1000px;
-            width: 100%;
-
-            margin: 4rem auto 1rem auto;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-
-
-            span {
-                margin-bottom: 1rem;
-                padding: 0.25rem 1rem;
-                font-size: 0.7rem;
-                font-weight: 800;
-                letter-spacing: 1px;
-                text-transform: uppercase;
-                line-height: 1.225rem;
-                border: 1px solid var(--accent);
-                border-radius: 2rem;
-                color: var(--accent);
-
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                text-align: center;
-            }
-
-            h1 {
-                max-width: 100%;
-
-                font-size: 3rem;
-
-            }
-
-            p {
-                max-width: 100%;
-            }
-        }
+        padding: 15px;
 
         .modal-overlay {
             .form-container {
@@ -562,6 +530,76 @@ body.no-scroll {
 
                 }
             }
+        }
+    }
+}
+
+@media (max-width:992px) {
+    #publish-section {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .head-container,
+        .head-container>div {
+            max-width: 600px;
+            width: 100%;
+
+            margin: 4rem auto 1rem auto;
+
+            text-align: start;
+
+            display: flex;
+            align-items: start;
+            justify-content: start;
+            flex-direction: column;
+
+
+            span {
+                margin-bottom: 1rem;
+
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                font-size: .7rem;
+                font-weight: 800;
+
+                border-radius: 2rem;
+                line-height: 1.225rem;
+
+                color: var(--accent);
+            }
+
+            h1 {
+                margin-bottom: 2rem;
+
+                font-size: 2.5rem;
+                font-weight: 500;
+
+                letter-spacing: -.9px;
+                line-height: 1;
+
+                color: var(--p);
+            }
+
+            p {
+                margin-bottom: 2rem;
+
+                font-size: 1.1rem;
+                font-weight: 400;
+
+                letter-spacing: -.6px;
+                line-height: 1.3;
+
+                opacity: .7;
+                color: var(--p);
+
+            }
+
         }
     }
 }

@@ -39,7 +39,7 @@
         width: 150px;
         height: fit-content;
 
-        top: 40px;
+        bottom: 40px;
         left: -5px;
 
         padding: .3rem;
@@ -66,62 +66,6 @@
 
             &:hover {
                 background-color: var(--border);
-            }
-        }
-    }
-}
-
-@media (max-width:809px) {
-    #language-selector {
-        position: relative;
-        display: inline-block;
-
-        .dropdown-button {
-            background: none;
-            border: none;
-
-            color: var(--p);
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: .6px;
-
-            display: flex;
-            align-items: center;
-
-            cursor: pointer;
-
-            svg {
-                color: var(--accent);
-            }
-        }
-
-        .arrow-icon {
-            margin-left: 8px;
-            transition: transform 0.2s ease;
-        }
-
-        .arrow-icon.open {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            width: 150px;
-            height: fit-content;
-            top: 35px;
-            left: -5px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: .5rem;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 8px 0;
-            list-style: none;
-
-            li {
-                color: var(--accent);
-                font-size: 1.3rem;
-                font-weight: 600;
-                letter-spacing: 1px;
             }
         }
     }

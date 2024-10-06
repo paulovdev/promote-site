@@ -18,9 +18,6 @@ const HomeFeatures = () => {
 
             <span>{t('homeFeatures.sectionTitle')}</span>
             <h1>{t('homeFeatures.sectionSubtitle')}</h1>
-            <p>Drive your business ahead by drawing in new customers across multiple platforms.</p>
-
-
 
             <div className="features-content">
                 {features.map((feature, index) => (

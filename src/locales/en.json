@@ -35,9 +35,9 @@
     },
     "homeHero": {
         "span": "New templates available!",
-        "title": "Your template on ",
-        "subTitle": ", success!",
-        "accentTitle": "Quimplo",
+        "title": "Your template on Quimplo, success!",
+        
+        
         "description": "Launch your template on Quimplo with ease to attract more visitors and boost your sales. You don't even need an account!",
         "buttonText": "Explore",
         "buttonText2": "Submit template"
@@ -198,7 +198,7 @@
         "html-css-js": "HTML, CSS, and JavaScript are the fundamental technologies for building and designing websites and web applications.",
         "html": "HTML (HyperText Markup Language) is the standard language for creating web pages and applications.",
         "css": "CSS (Cascading Style Sheets) is a style sheet language used for describing the presentation of a document written in HTML or XML.",
-        "javascript": "JavaScript is a programming language that enables the creation of dynamic and interactive web content.",
+        "js": "JavaScript is a programming language that enables the creation of dynamic and interactive web content.",
         "next": "Next.js is a React framework that enables server-side rendering and static site generation for optimized web applications.",
         "react": "React is a JavaScript library for building user interfaces, maintained by Facebook and a community of developers and companies.",
         "webflow": "Webflow is a web design tool, CMS, and hosting platform in one, allowing users to design, build, and launch responsive websites visually.",

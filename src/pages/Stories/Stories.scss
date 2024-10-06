@@ -2,8 +2,9 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: var(--bg-4);
+    background-color: var(--bg-2);
     inset: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,13 +51,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     overflow: hidden;
     z-index: 999999;
 
     img {
         width: 100vw;
         height: 100vh;
-        filter: brightness(30%);
+        filter: brightness(25%);
         object-fit: fill;
     }
 

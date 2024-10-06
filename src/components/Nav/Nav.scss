@@ -3,7 +3,12 @@
 header {
   position: fixed;
   width: 100%;
-  top: 15px;
+  top: 0;
+  left: 0;
+
+  border: 1px solid var(--border);
+  background-color: var(--bg-nav);
+  backdrop-filter: blur(10px);
 
   display: flex;
   align-items: center;
@@ -41,9 +46,7 @@ header {
         margin-right: .3rem;
         padding: .5rem 1rem;
 
-
-        text-align: center;
-        font-size: .9rem;
+        font-size: .8rem;
         font-weight: 500;
 
         border: 1px solid var(--border);
@@ -68,11 +71,11 @@ header {
       }
 
       .explore-nav {
-        padding: .2rem 1rem;
+        padding: .5rem 1rem;
 
         color: var(--p);
 
-        font-size: .9rem;
+        font-size: .8rem;
         font-weight: 500;
 
         border: 1px solid transparent;
@@ -87,10 +90,24 @@ header {
 
         &:hover,
         &.active {
-          background-color: var(--bg-2);
+          &::before {
+            opacity: 1;
+          }
+        }
 
-          opacity: 1;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 8px;
+          height: 4px;
 
+          bottom: 12px;
+          border-radius: 1rem;
+
+          background-color: var(--p);
+
+          transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+          opacity: 0;
         }
       }
     }
@@ -174,15 +191,9 @@ header {
 
   nav {
     position: relative;
-    max-width: 1250px;
+    max-width:600px;
     width: 100%;
-
-    padding: 10px 10px 10px 15px;
-
-    border: 1px solid var(--border);
-    background-color: var(--bg-nav);
-    backdrop-filter: blur(10px);
-    border-radius: 3rem;
+    padding: .5rem 0;
 
     display: flex;
     align-items: center;

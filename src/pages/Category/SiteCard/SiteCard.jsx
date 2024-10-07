@@ -36,14 +36,15 @@ const SiteCard = ({ site }) => {
 
     return (
         <Link to={`/site/${site.id}`} key={site.id} className="site-card" onClick={() => scrollTo({ top: 0 })}>
-
-            <img
-                src={site.imageURL1}
-                alt={site.siteName}
-                width={325} height={200}
-                className="site-image"
-                onLoad={() => setIsLoaded(true)}
-            />
+            <div className="image">
+                <img
+                    src={site.imageURL1}
+                    alt={site.siteName}
+                    width={325} height={200}
+                    className="site-image"
+                    onLoad={() => setIsLoaded(true)}
+                />
+            </div>
             {!isLoaded && <div className="placeholder" />}
             <div className="text-card">
                 <div className="several-content">

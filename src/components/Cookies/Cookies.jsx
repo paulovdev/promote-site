@@ -35,7 +35,6 @@ const CookiesComponent = () => {
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ duration: 0.3, delay: 1.7 }}
                 >
-                    <h1>{t('cookies.cookieNoticeTitle')}</h1>
                     <p>{t('cookies.cookieNoticeMessage')} <Link to="/cookies">{t('cookies.cookiePolicy')}</Link></p>
                     <motion.button
                         whileHover={{ scale: 1.03 }}

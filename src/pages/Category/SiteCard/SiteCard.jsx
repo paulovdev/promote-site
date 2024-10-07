@@ -47,32 +47,33 @@ const SiteCard = ({ site }) => {
             </div>
             {!isLoaded && <div className="placeholder" />}
             <div className="text-card">
-                <div className="several-content">
-                    <span>
-                        {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
-                        {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
-                        {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
-                        {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
-                        {site.tool === 'html-css-js' && <>
+                <span>
+                    {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
+                    {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
+                    {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
+                    {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
+                    {site.tool === 'html-css-js' && (
+                        <>
                             <FaHtml5 style={{ background: '#e34c26' }} />
                             <DiCss3 style={{ background: '#264de4' }} />
                             <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
-                        </>}
-                        {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
-                        {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
-                        {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
-                        {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
-                        {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
-                    </span>
+                        </>
+                    )}
+                    {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
+                    {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
+                    {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
+                    {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
+                    {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
+                </span>
+
+                <div className="title-text">
+                    <h1>{site.siteName}</h1>
+                    <p>•</p>
                     <p>{currentCategory}</p>
                 </div>
-                <h1>{site.siteName}</h1>
-                <span>{t('made.made-by')} {site.myName}</span>
-
-                <div className="view"><RiArrowRightUpLine /></div>
             </div>
 
-        </Link>
+        </Link >
     );
 };
 

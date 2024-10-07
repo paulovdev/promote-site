@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import "./HomeFAQs.scss";
+import "./FAQs.scss";
 
-const HomeFAQs = () => {
+const FAQs = () => {
     const { t } = useTranslation();
     const [selected, setSelected] = useState(null);
 
@@ -53,4 +53,4 @@ const HomeFAQs = () => {
     );
 };
 
-export default HomeFAQs;
+export default FAQs;

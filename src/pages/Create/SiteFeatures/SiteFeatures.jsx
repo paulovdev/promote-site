@@ -6,9 +6,9 @@ import { PiHandTapThin } from "react-icons/pi";
 import { MdOutlineDone } from "react-icons/md";
 
 import { useTranslation } from "react-i18next";
-import "./HomeFeatures.scss";
+import "./SiteFeatures.scss";
 
-const HomeFeatures = () => {
+const SiteFeatures = () => {
     const { t } = useTranslation();
 
     const features = t('homeFeatures.features', { returnObjects: true });
@@ -39,4 +39,4 @@ const HomeFeatures = () => {
     );
 };
 
-export default HomeFeatures;
+export default SiteFeatures;

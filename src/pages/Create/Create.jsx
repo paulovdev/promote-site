@@ -18,6 +18,10 @@ import "./Create.scss";
 import { useNavigate } from 'react-router-dom';
 import DescriptionDetail from './DescriptionDetail/DescriptionDetail';
 
+import HomeFeatures from './SiteFeatures/SiteFeatures';
+import FAQs from '../../components/FAQs/FAQs';
+import SiteFeatures from './SiteFeatures/SiteFeatures';
+
 
 const Create = () => {
   const { t } = useTranslation();
@@ -276,6 +280,8 @@ const Create = () => {
             <button onClick={() => setShowModal(true)}>{t("price.publishSite")}</button>
           </div>
         </div>
+        <SiteFeatures />
+        <FAQs />
 
         {/* modal */}
         <AnimatePresence >

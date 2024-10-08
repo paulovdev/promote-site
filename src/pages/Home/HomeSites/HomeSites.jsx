@@ -8,7 +8,7 @@ import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si
 import { DiCss3, DiJavascript1 } from 'react-icons/di';
 
 import './HomeSites.scss';
-import About from './../../About/About';
+
 
 const HomeSites = () => {
   const { t } = useTranslation();

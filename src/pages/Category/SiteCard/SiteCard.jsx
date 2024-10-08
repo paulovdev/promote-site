@@ -36,7 +36,7 @@ const SiteCard = ({ site }) => {
 
     return (
         <Link to={`/site/${site.id}`} key={site.id} className="site-card" onClick={() => scrollTo({ top: 0 })}>
-            <div className="image">
+          
                 <img
                     src={site.imageURL1}
                     alt={site.siteName}
@@ -44,7 +44,7 @@ const SiteCard = ({ site }) => {
                     className="site-image"
                     onLoad={() => setIsLoaded(true)}
                 />
-            </div>
+            
             {!isLoaded && <div className="placeholder" />}
             <div className="text-card">
                 <span>

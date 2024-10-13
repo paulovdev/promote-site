@@ -18,7 +18,6 @@ import "./Create.scss";
 import { useNavigate } from 'react-router-dom';
 import DescriptionDetail from './DescriptionDetail/DescriptionDetail';
 
-import HomeFeatures from './SiteFeatures/SiteFeatures';
 import FAQs from '../../components/FAQs/FAQs';
 import SiteFeatures from './SiteFeatures/SiteFeatures';
 
@@ -304,7 +303,7 @@ const Create = () => {
                   {/* header */}
                   <div className="header">
                     <div className="logo">
-                      <BiLastPage /> <span>Quimplo</span>
+                      <BiLastPage />
                     </div>
                     <button className="close-button" onClick={() => setShowModal(false)}>
                       <IoCloseOutline />

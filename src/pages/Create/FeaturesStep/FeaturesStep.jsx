@@ -22,7 +22,7 @@ const featuresList = [
     { id: 17, name: 'crossBrowserCompatibility' },
     { id: 18, name: 'socialMediaIntegration' },
     { id: 19, name: 'seoOptimization' },
-    { id: 20, name: 'multilingualSupport' },
+    { id: 20, name: 'multilingualSupport'},
 ];
 
 const FeaturesStep = ({ features, setFeatures, setStep }) => {

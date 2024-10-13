@@ -296,9 +296,14 @@
         "continue": "Continue"
     },
     "imageStep": {
-        "dragAndDropOrChoose": "Drag and Drop or Choose a Local File",
-        "supportedFormats": "Supported formats: .png, .jpg, .svg",
-        "imageLoaded": "Image loaded...",
+        "dragAndDropOrChoose": "Drag and drop or choose a file",
+        "supportedFormats": "Supported formats: PNG, JPG, WEBP",
+        "imageLoaded": "Image loaded",
+        "confirmDelete": "Are you sure you want to delete this image?",
+        "yes": "Yes",
+        "no": "No",
+        "fileError": "File larger than 1MB or format not allowed.",
+        "ok": "OK",
         "imageRequired": "Image is required",
         "back": "Back",
         "continue": "Continue"

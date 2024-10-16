@@ -6,38 +6,18 @@ import { FaExclamationCircle } from "react-icons/fa";
 
 import './YourInfoStep.scss';
 
-const YourInfoStep = ({
-  myName: initialMyName,
-  setMyName,
-  email: initialEmail,
-  setEmail,
-  profileLink: initialProfileLink,
-  setProfileLink,
-  siteName: initialSiteName,
-  setSiteName,
-  description: initialDescription,
-  setDescription,
-  livePreview: initialLivePreview,
-  setLivePreview,
-  buyLink: initialBuyLink,
-  setBuyLink,
-  contactLink: initialContactLink,
-  setContactLink,
-  price: initialPrice,
-  setPrice,
-  setStep
-}) => {
-  const { t } = useTranslation();
+const YourInfoStep = ({ setStep }) => {
+  const { t } = useTranslation()
 
-  const [myName, setMyNameState] = useState(initialMyName || sessionStorage.getItem('myName') || '');
-  const [email, setEmailState] = useState(initialEmail || sessionStorage.getItem('email') || '');
-  const [profileLink, setProfileLinkState] = useState(initialProfileLink || sessionStorage.getItem('profileLink') || '');
-  const [siteName, setSiteNameState] = useState(initialSiteName || sessionStorage.getItem('siteName') || '');
-  const [description, setDescriptionState] = useState(initialDescription || sessionStorage.getItem('description') || '');
-  const [livePreview, setLivePreviewState] = useState(initialLivePreview || sessionStorage.getItem('livePreview') || '');
-  const [buyLink, setBuyLinkState] = useState(initialBuyLink || sessionStorage.getItem('buyLink') || '');
-  const [contactLink, setContactLinkState] = useState(initialContactLink || sessionStorage.getItem('contactLink') || '');
-  const [price, setPriceState] = useState(Number(initialPrice) || Number(sessionStorage.getItem('price')) || 0);
+  const [myName, setMyNameState] = useState(sessionStorage.getItem('myName') || '');
+  const [email, setEmailState] = useState(sessionStorage.getItem('email') || '');
+  const [profileLink, setProfileLinkState] = useState(sessionStorage.getItem('profileLink') || '');
+  const [siteName, setSiteNameState] = useState(sessionStorage.getItem('siteName') || '');
+  const [description, setDescriptionState] = useState(sessionStorage.getItem('description') || '');
+  const [livePreview, setLivePreviewState] = useState(sessionStorage.getItem('livePreview') || '');
+  const [buyLink, setBuyLinkState] = useState(sessionStorage.getItem('buyLink') || '');
+  const [contactLink, setContactLinkState] = useState(sessionStorage.getItem('contactLink') || '');
+  const [price, setPriceState] = useState(Number(sessionStorage.getItem('price')) || 0);
 
   const [errors, setErrors] = useState({
     myName: '',
@@ -179,6 +159,13 @@ const YourInfoStep = ({
         </div>
 
         <br />  <hr />   <br />
+
+        <div className="step-info">
+          <span>{t('create.steps.1.span')}</span>
+          <h1>{t('create.steps.1.title2')}</h1>
+          <p>{t('create.steps.1.description2')}</p>
+        </div>
+
         <div className="input-grid">
           <div className="input-container">
             <label>
@@ -230,7 +217,7 @@ const YourInfoStep = ({
           <textarea
             placeholder="This template includes..."
             value={description}
-          
+
             maxLength={250}
             onChange={(e) => {
               setDescriptionState(e.target.value);
@@ -243,6 +230,12 @@ const YourInfoStep = ({
         </div>
 
         <br />  <hr />   <br />
+
+        <div className="step-info">
+          <span>{t('create.steps.1.span')}</span>
+          <h1>{t('create.steps.1.title3')}</h1>
+          <p>{t('create.steps.1.description3')}</p>
+        </div>
 
         <div className="input-grid">
           <div className="input-container">

@@ -14,6 +14,7 @@ const ImageStep = ({ setStep }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [deleteIndex, setDeleteIndex] = useState(null);
+  const [loading, setLoading] = useState([false, false, false]);
   const [images, setImages] = useState(() => {
     const storedImages = sessionStorage.getItem('images');
     return storedImages ? JSON.parse(storedImages) : [null, null, null];
@@ -21,7 +22,23 @@ const ImageStep = ({ setStep }) => {
   const [isPhotoValid, setIsPhotoValid] = useState(() => images.map(img => img !== null));
 
   useEffect(() => {
+    const handleStorageChange = () => {
+      const storedImages = sessionStorage.getItem('images');
+      if (storedImages) {
+        setImages(JSON.parse(storedImages));
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
+  useEffect(() => {
     sessionStorage.setItem('images', JSON.stringify(images));
+    setIsPhotoValid(images.map(img => img !== null));
   }, [images]);
 
   const handleClick = (index) => {
@@ -38,6 +55,10 @@ const ImageStep = ({ setStep }) => {
         return;
       }
 
+      const newLoading = [...loading];
+      newLoading[index] = true;
+      setLoading(newLoading);
+
       const storageRef = ref(storage, `images/${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -48,13 +69,18 @@ const ImageStep = ({ setStep }) => {
         },
         (error) => {
           console.error('Upload failed', error);
+          const newLoading = [...loading];
+          newLoading[index] = false;
+          setLoading(newLoading);
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             const newImages = [...images];
             newImages[index] = downloadURL;
             setImages(newImages);
-            setIsPhotoValid(newImages.map(img => img !== null));
+            const newLoading = [...loading];
+            newLoading[index] = false;
+            setLoading(newLoading);
           });
         }
       );
@@ -70,7 +96,6 @@ const ImageStep = ({ setStep }) => {
     const newImages = [...images];
     newImages[deleteIndex] = null;
     setImages(newImages);
-    setIsPhotoValid(newImages.map(img => img !== null));
     setShowDeleteModal(false);
     setDeleteIndex(null);
   };
@@ -89,22 +114,28 @@ const ImageStep = ({ setStep }) => {
       <section id='image-step'>
         <div className='image-select large'>
           <button type='button' className='prf-file' onClick={() => handleClick(0)}>
-            <GoUpload />
-            <span>{t('imageStep.dragAndDropOrChoose')}</span>
-            <p>{t('imageStep.supportedFormats')}</p>
-            {images[0] && (
-              <div className='image-preview large-preview'>
-                <img src={images[0]} alt={t('imageStep.imageLoaded')} />
-                <div
-                  className='preview-content'
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleDeleteImage(0);
-                  }}
-                >
-                  <FaTrash />
-                </div>
-              </div>
+            {loading[0] ? (
+              <div className='loading'></div>
+            ) : (
+              <>
+                <GoUpload />
+                <span>{t('imageStep.dragAndDropOrChoose')}</span>
+                <p>{t('imageStep.supportedFormats')}</p>
+                {images[0] && (
+                  <div className='image-preview large-preview'>
+                    <img src={images[0]} alt={t('imageStep.imageLoaded')} />
+                    <div
+                      className='preview-content'
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDeleteImage(0);
+                      }}
+                    >
+                      <FaTrash />
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </button>
           <input onChange={(e) => handleImageChange(e, 0)} ref={imageRefs[0]} type='file' hidden />
@@ -114,22 +145,28 @@ const ImageStep = ({ setStep }) => {
           {images.slice(1).map((image, index) => (
             <div key={index + 1} className='image-select small'>
               <button type='button' className='prf-file' onClick={() => handleClick(index + 1)}>
-                <GoUpload />
-                <span>{t('imageStep.dragAndDropOrChoose')}</span>
-                <p>{t('imageStep.supportedFormats')}</p>
-                {image && (
-                  <div className='image-preview small-preview'>
-                    <img src={image} alt={t('imageStep.imageLoaded')} />
-                    <div
-                      className='preview-content'
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleDeleteImage(index + 1);
-                      }}
-                    >
-                      <FaTrash />
-                    </div>
-                  </div>
+                {loading[index + 1] ? (
+                  <div className='loading'></div>
+                ) : (
+                  <>
+                    <GoUpload />
+                    <span>{t('imageStep.dragAndDropOrChoose')}</span>
+                    <p>{t('imageStep.supportedFormats')}</p>
+                    {image && (
+                      <div className='image-preview small-preview'>
+                        <img src={image} alt={t('imageStep.imageLoaded')} />
+                        <div
+                          className='preview-content'
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDeleteImage(index + 1);
+                          }}
+                        >
+                          <FaTrash />
+                        </div>
+                      </div>
+                    )}
+                  </>
                 )}
               </button>
               <input onChange={(e) => handleImageChange(e, index + 1)} ref={imageRefs[index + 1]} type='file' hidden />
@@ -156,18 +193,17 @@ const ImageStep = ({ setStep }) => {
             </motion.div>
           )}
 
-
           {showErrorModal && (
             <div className='image-modal'>
               <div className='image-modal-content'>
                 <p>{t('imageStep.fileError')}</p>
-                <button onClick={() => setShowErrorModal(false)} type='button'>{t('imageStep.ok')}</button>
+                <button onClick={() => setShowErrorModal(false)} type='button'>{t('imageStep.ok')} </button>
+
               </div>
             </div>
           )}
         </AnimatePresence>
-      </section>
-
+      </section >
 
       <div className='step-buttons'>
         <button onClick={() => setStep((prev) => prev - 1)} type='button' className='back-button'>

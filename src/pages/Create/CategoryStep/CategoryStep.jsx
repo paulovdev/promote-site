@@ -9,7 +9,7 @@ import { GiMeal } from 'react-icons/gi';
 import './CategoryStep.scss';
 
 
-const CategoryStep = ({ setCategory, setStep }) => {
+const CategoryStep = ({ setStep }) => {
   const { t } = useTranslation();
   const [category, setLocalCategory] = useState('');
   const [submitted, setSubmitted] = useState(false);

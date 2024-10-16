@@ -61,13 +61,13 @@
                 font-weight: 900;
                 opacity: 1;
 
-                color: var(--accent);
+                color: var(--p);
                 font-weight: 900;
                 opacity: 1;
 
                 &::before {
-                    color: var(--accent);
-                    border: 1px solid var(--accent);
+                    color: var(--p);
+                    border: 1px solid var(--p);
                 }
             }
         }

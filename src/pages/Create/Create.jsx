@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { debounce } from 'lodash';
 import { Helmet } from 'react-helmet';
 import emailjs from 'emailjs-com';
@@ -24,36 +24,39 @@ import SiteFeatures from './SiteFeatures/SiteFeatures';
 
 const Create = () => {
   const { t } = useTranslation();
+  const [images, setImages] = useState([null, null, null]);
 
   const [step, setStep] = useState(() => {
     const savedStep = sessionStorage.getItem('currentStep');
     return savedStep ? Number(savedStep) : 1;
   });
   const [reset, setReset] = useState(false)
-  const [myName, setMyName] = useState('');
-  const [email, setEmail] = useState('');
-  const [profileLink, setProfileLink] = useState('');
-  const [siteName, setSiteName] = useState('');
-  const [description, setDescription] = useState('');
-  const [descriptionDetail, setDescriptionDetail] = useState('');
-  const [category, setCategory] = useState('');
-  const [tool, setTool] = useState('');
-  const [images, setImages] = useState(() => {
-    const storedImages = sessionStorage.getItem('images');
-    return storedImages ? JSON.parse(storedImages) : [null, null, null];
-  });
-  const [price, setPrice] = useState('0');
-  const [livePreview, setLivePreview] = useState('');
-  const [buyLink, setBuyLink] = useState('');
-  const [contactLink, setContactLink] = useState('');
-  const [features, setFeatures] = useState([]);
-  const [isPhotoValid, setIsPhotoValid] = useState(true);
+  const navigate = useNavigate()
+  const livePreview = sessionStorage.getItem('livePreview');
+  const buyLink = sessionStorage.getItem('buyLink');
+  const contactLink = sessionStorage.getItem('contactLink');
+  const features = sessionStorage.getItem('features');
+  const myName = sessionStorage.getItem('myName');
+  const email = sessionStorage.getItem('email');
+  const profileLink = sessionStorage.getItem('profileLink');
+  const siteName = sessionStorage.getItem('siteName');
+  const price = sessionStorage.getItem('price');
+  const description = sessionStorage.getItem('description');
+  const descriptionDetail = sessionStorage.getItem('descriptionDetail');
+  const category = sessionStorage.getItem('category');
+  const tool = sessionStorage.getItem('tool');
   const [isLoading, setIsLoading] = useState(false);
   const [showModal, setShowModal] = useState(() => {
     const savedShowModal = sessionStorage.getItem('showModal');
     return savedShowModal !== null ? JSON.parse(savedShowModal) : false;
   });
-  const navigate = useNavigate()
+
+  useEffect(() => {
+    const images = sessionStorage.getItem('images');
+    if (images) {
+      setImages(JSON.parse(images));
+    }
+  }, [sessionStorage.getItem('images')]);
 
   useEffect(() => {
     document.body.classList.toggle('no-scroll', showModal);
@@ -103,31 +106,13 @@ const Create = () => {
 
       await emailjs.send('service_rn6tzel', 'template_ash6cza', templateParams, '0j6AC4QElZ7rF8zIB');
       setShowModal(false);
-      resetForm();
-      sessionStorage.clear()
-      navigate('/success');
+
+      console.log("formulario enviado! (gratis)")
     } catch (error) {
       console.error('EmailJS Error:', error);
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const resetForm = () => {
-    setMyName('');
-    setEmail('');
-    setProfileLink('');
-    setSiteName('');
-    setDescription('');
-    setCategory('');
-    setTool('');
-    setPrice('0');
-    setLivePreview('');
-    setBuyLink('');
-    setContactLink('');
-    setFeatures([]);
-    setIsPhotoValid(true);
-    setStep(1);
   };
 
   /* progress line */
@@ -151,54 +136,28 @@ const Create = () => {
           case 1:
             return (
               <YourInfoStep
-                myName={myName}
-                setMyName={setMyName}
-                email={email}
-                setEmail={setEmail}
-                profileLink={profileLink}
-                setProfileLink={setProfileLink}
-                siteName={siteName}
-                setSiteName={setSiteName}
-                description={description}
-                setDescription={setDescription}
-                livePreview={livePreview}
-                setLivePreview={setLivePreview}
-                buyLink={buyLink}
-                setBuyLink={setBuyLink}
-                contactLink={contactLink}
-                setContactLink={setContactLink}
-                price={price}
-                setPrice={setPrice}
                 reset={reset}
                 setStep={debouncedSetStep}
               />
             );
           case 2:
             return <DescriptionDetail
-              descriptionDetail={descriptionDetail}
-              setDescriptionDetail={setDescriptionDetail}
+
               setStep={setStep} />
           case 3:
             return <CategoryStep
-              category={category}
-              setCategory={setCategory}
               reset={reset}
               setStep={debouncedSetStep} />;
           case 4:
             return <ToolStep
-              tool={tool}
-              setTool={setTool}
               reset={reset}
               setStep={debouncedSetStep} />;
           case 5:
             return <ImageStep
-              images={images}
               reset={reset}
               setStep={debouncedSetStep} />;
           case 6:
             return <FeaturesStep
-              features={features}
-              setFeatures={setFeatures}
               reset={reset}
               setStep={debouncedSetStep} />;
           case 7:

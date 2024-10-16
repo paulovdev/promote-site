@@ -56,12 +56,12 @@
 
             padding: 1rem;
 
-            border: 2px solid var(--accent);
+            border: 2px solid var(--p);
             border-radius: .5rem;
 
             font-size: 14px;
             font-weight: 500;
-            color: var(--accent);
+            color: var(--p);
 
             display: flex;
             align-items: start;
@@ -71,7 +71,7 @@
             transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
             svg {
-                color: var(--accent);
+                color: var(--p);
             }
 
             .tool-name {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import "./FeaturesStep.scss";
 
@@ -22,21 +22,21 @@ const featuresList = [
     { id: 17, name: 'crossBrowserCompatibility' },
     { id: 18, name: 'socialMediaIntegration' },
     { id: 19, name: 'seoOptimization' },
-    { id: 20, name: 'multilingualSupport'},
+    { id: 20, name: 'multilingualSupport' },
 ];
 
-const FeaturesStep = ({ features, setFeatures, setStep }) => {
+const FeaturesStep = ({ setStep }) => {
     const { t } = useTranslation();
+    const [features, setFeatures] = useState([]);
 
     // Efeito para recuperar as features do sessionStorage ao montar o componente
     useEffect(() => {
         const storedFeatures = JSON.parse(sessionStorage.getItem('selectedFeatures')) || [];
-        setFeatures(storedFeatures); // Atualiza o estado pai ao montar o componente
-    }, [setFeatures]);
+        setFeatures(storedFeatures);
+    }, []);
 
     // Efeito para sincronizar com sessionStorage
     useEffect(() => {
-        // Apenas salva no sessionStorage se features não estiver vazio
         if (features.length) {
             sessionStorage.setItem('selectedFeatures', JSON.stringify(features));
         }
@@ -48,7 +48,7 @@ const FeaturesStep = ({ features, setFeatures, setStep }) => {
             : [...features, name];
 
         setFeatures(updatedFeatures);
-        sessionStorage.setItem('selectedFeatures', JSON.stringify(updatedFeatures)); // Salva no sessionStorage
+        sessionStorage.setItem('selectedFeatures', JSON.stringify(updatedFeatures));
     };
 
     return (

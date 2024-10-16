@@ -7,7 +7,7 @@ import { DiCss3, DiJavascript1 } from 'react-icons/di';
 
 import "./ToolStep.scss";
 
-const ToolStep = ({ setTool, setStep }) => {
+const ToolStep = ({ setStep }) => {
   const [tool, setLocalTool] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');

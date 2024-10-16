@@ -213,7 +213,11 @@
             "1": {
                 "span": "Etapa 01",
                 "title": "Suas informações",
-                "description": "Forneça seu nome, email, link do perfil, nome do template e descrição. Isso ajuda os usuários a entenderem sobre o que é o seu site."
+                "description": "Forneça seu nome, email e link do perfil. Essas informações nos ajudam a entrar em contato com você e a conhecer melhor seu perfil.",
+                "title2": "Informações do template",
+                "description2": "Forneça o nome do template e uma breve descrição sobre ele. Isso ajuda os usuários a entenderem o propósito e as funcionalidades do seu site.",
+                "title3": "Links do template",
+                "description3": "Forneça os links para visualizar e comprar o seu template. Isso facilita o acesso e a navegação dos usuários interessados em adquirir seu site."
             },
             "2": {
                 "span": "Etapa 02",

@@ -53,10 +53,10 @@
 
             padding: 1rem;
 
-            border: 2px solid var(--accent);
+            border: 2px solid var(--p);
             border-radius: .5rem;
 
-            color: var(--accent);
+            color: var(--p);
 
             display: flex;
             align-items: start;
@@ -71,7 +71,7 @@
             }
 
             svg {
-                color: var(--accent);
+                color: var(--p);
             }
         }
     }

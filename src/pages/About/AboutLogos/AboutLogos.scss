@@ -17,10 +17,14 @@
 
     .text-logos {
         position: relative;
+        max-width: 1000px;
+        width: 100%;
+
         display: flex;
         align-items: start;
         justify-content: start;
         flex-direction: column;
+
         text-align: start;
 
         span {
@@ -31,7 +35,7 @@
             font-size: .7rem;
             font-weight: 700;
 
-            border-radius: 2rem;
+            border-radius: 1rem;
             line-height: 1.2;
 
             color: var(--p);

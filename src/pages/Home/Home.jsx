@@ -6,6 +6,7 @@ import HomeSites from "./HomeSites/HomeSites";
 
 import Transition from "../../utils/Transition/Transition";
 import "./Home.scss";
+import HomeNewsLetter from './HomeNewsLetter/HomeNewsLetter';
 
 const Home = () => {
 
@@ -18,6 +19,7 @@ const Home = () => {
             <main id="home">
                 <HomeHero />
                 <HomeSites />
+                <HomeNewsLetter />
             </main>
         </>
     );

@@ -3,12 +3,8 @@
 header {
   position: fixed;
   width: 100%;
-  top: 0;
+  top: 15px;
   left: 0;
-
-  border: 1px solid var(--border);
-  background-color: var(--bg-nav);
-  backdrop-filter: blur(10px);
 
   display: flex;
   align-items: center;
@@ -51,7 +47,7 @@ header {
 
         border: 1px solid var(--p);
         background-color: var(--btn);
-        border-radius: 2rem;
+        border-radius: 1rem;
 
         color: var(--p-2);
 
@@ -212,7 +208,7 @@ header {
 
         border: 1px solid var(--p);
         background-color: var(--btn);
-        border-radius: 2rem;
+        border-radius: 1rem;
 
         color: var(--p-2);
 
@@ -231,6 +227,12 @@ header {
     max-width: 1000px;
     width: 100%;
     padding: .5rem 25px;
+
+
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background-color: var(--bg-nav);
+    backdrop-filter: blur(10px);
 
     display: flex;
     align-items: center;

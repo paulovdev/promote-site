@@ -3,13 +3,8 @@
 footer {
     position: relative;
     width: 100%;
-    bottom: 0;
+    bottom: 15px;
     left: 0;
-
-    padding: 1rem;
-
-    background-color: var(--bg);
-    border-top: 1px solid var(--border);
 
     display: flex;
     align-items: center;
@@ -20,6 +15,11 @@ footer {
         max-width: 1000px;
         width: 100%;
 
+        padding: 1rem;
+
+        border-radius: 1rem;
+        background-color: var(--bg-2);
+        border: 1px solid var(--border);
 
         display: flex;
         align-items: center;

@@ -1,17 +1,17 @@
 #home-newsletter {
-    max-width: 700px;
+    max-width: 1000px;
     padding: 50px;
-    margin: 5rem auto;
+    margin: 2rem auto;
 
-    border-radius: 2rem;
+    border-radius: 1rem;
     background-color: var(--bg-2);
     border: 1px solid var(--border);
 
-    text-align: center;
+    text-align: start;
 
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
     flex-direction: column;
 
     h1 {
@@ -31,8 +31,8 @@
         width: 100%;
 
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: start;
+        justify-content: start;
         gap: 1rem;
 
         button {
@@ -47,7 +47,7 @@
             background-color: var(--btn);
             color: var(--p-2);
 
-            border-radius: 2rem;
+            border-radius: 21rem;
 
             cursor: pointer;
             transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);

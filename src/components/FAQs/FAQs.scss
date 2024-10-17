@@ -3,8 +3,6 @@
     max-width: 1000px;
     width: 100%;
 
-
-
     margin: 5rem auto;
 
     text-align: start;
@@ -30,7 +28,7 @@
             font-size: .7rem;
             font-weight: 700;
 
-            border-radius: 2rem;
+            border-radius: 1rem;
             line-height: 1.2;
 
             color: var(--p);
@@ -57,7 +55,7 @@
         align-items: start;
         flex-direction: column;
 
-        gap: 1.5rem;
+        gap: 1rem;
 
         .faq-card {
             position: relative;

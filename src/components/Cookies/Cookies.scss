@@ -2,14 +2,17 @@
 
 .cookie-popup {
     position: fixed;
-    bottom: 0;
+    bottom: 15px;
+    left: 15px;
 
-    width: 100%;
-    padding: 1.3rem;
+    width: 90%;
+    padding: 1rem;
 
-    background-color: var(--bg);
-    border-radius: .5rem;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background-color: var(--bg-nav);
+    backdrop-filter: blur(10px);
+
 
     display: flex;
     align-items: center;
@@ -50,7 +53,7 @@
         background-color: var(--btn);
         color: var(--p-2);
 
-        border-radius: 2rem;
+        border-radius: 1rem;
 
         cursor: pointer;
         transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);

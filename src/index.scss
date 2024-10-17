@@ -11,7 +11,7 @@
   --bg-2: #fafafa;
   --bg-3: #f3f3f3;
   --bg-4: #202020;
-  --bg-nav: rgba(255, 255, 255, 0.877);
+  --bg-nav: rgba(255, 255, 255, 0.747);
 
   --border: #ececec;
   --border-2: #dadada;
@@ -33,11 +33,11 @@
   --p: #fefefe;
   --p-2: #222222;
 
-  --bg: #121212;
+  --bg: #101010;
   --bg-2: #141414;
   --bg-3: #141414;
   --bg-4: #f3f3f3;
-  --bg-nav: rgba(18, 18, 18, 0.678);
+  --bg-nav: #101010c0;
 
   --border: #202020;
   --border-2: #3a3a3a;
@@ -200,5 +200,5 @@ button {
   color: var(--p-2);
   font-size: .8rem;
   font-weight: 500;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }

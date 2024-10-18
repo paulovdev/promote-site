@@ -312,18 +312,22 @@
                             width: 100%;
                             height: fit-content;
                             left: 0;
-                            bottom: -1px;
+                            bottom: 0;
+
                             padding: .5rem 5rem;
+
                             background-color: var(--bg);
                             border-top: 2px solid var(--border);
+
                             display: flex;
+                            align-items: center;
                             justify-content: space-between;
                             gap: 1rem;
 
 
                             button {
                                 width: 150px;
-                                padding: .7rem 1.3rem;
+                                padding: .5rem 1.3rem;
 
                                 font-size: .8rem;
                                 font-weight: 500;
@@ -485,8 +489,6 @@ body.no-scroll {
                                 padding: .5rem;
 
                                 button {
-                                    height: 40px;
-
                                     display: flex;
                                     align-items: center;
                                     justify-content: center;

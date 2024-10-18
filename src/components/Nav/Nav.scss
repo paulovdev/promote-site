@@ -17,6 +17,7 @@ header {
   a.logo {
     display: flex;
     align-items: center;
+    z-index: 999;
 
     svg {
       font-size: 42px;
@@ -113,18 +114,21 @@ header {
 
   .mobile-menu-wrapper {
     width: fit-content;
+
     display: none;
     align-items: center;
     gap: 1rem;
 
     .mobile-menu {
+      width: fit-content;
+      height: fit-content;
+
       display: none;
       align-items: end;
       justify-content: center;
       flex-direction: column;
       gap: .1rem;
-      width: fit-content;
-      height: fit-content;
+
       transition: all .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
       cursor: pointer;
       z-index: 998;
@@ -157,11 +161,12 @@ header {
     top: 0;
     left: 0;
 
-    width: 100vw;
-    height: 75vh;
+    width: 100%;
+    height: fit-content;
 
-    padding: 5rem 3rem 0 2rem;
+    padding: 5rem 1rem 1rem 1rem;
 
+    border-radius: 1rem;
     background-color: var(--bg-2);
     border: 1px solid var(--border);
 
@@ -186,7 +191,7 @@ header {
         color: var(--p);
 
         font-size: 1rem;
-        font-weight: 500;
+        font-weight: 400;
 
         letter-spacing: -.4px;
 

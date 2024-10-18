@@ -67,7 +67,7 @@ const Navbar = () => {
                                 <li onClick={() => {
                                     scrollTo({ top: 0 });
                                     toggleMenu()
-                                }}><NavLink to="/sites/all">{t('nav.home')}</NavLink>
+                                }}><NavLink to="/" >{t('nav.home')}</NavLink>
                                 </li>
 
                                 <li onClick={() => {

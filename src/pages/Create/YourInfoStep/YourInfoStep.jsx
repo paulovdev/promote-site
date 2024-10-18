@@ -256,7 +256,7 @@ const YourInfoStep = ({ setStep }) => {
               {submitted && errors.livePreview && <p><FaExclamationCircle />{errors.livePreview}</p>}
             </div>
           </div>
-          <br />  <hr />   <br />
+        
           <div className="input-container">
             <label>
               {t('yourInfoStep.buyLinkLabel')}

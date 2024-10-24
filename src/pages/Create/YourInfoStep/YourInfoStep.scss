@@ -55,7 +55,7 @@
             p {
                 margin: 0;
                 letter-spacing: -.4px;
-                font-size: .9rem;
+                font-size: .8rem;
                 font-weight: 400;
                 opacity: .7;
             }
@@ -82,11 +82,6 @@
             &::placeholder {
                 opacity: .5;
                 color: var(--p);
-            }
-
-            &:focus {
-                border-color: var(--bg);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
 
             &:hover {

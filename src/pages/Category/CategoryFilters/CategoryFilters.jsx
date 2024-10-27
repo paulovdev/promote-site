@@ -86,7 +86,6 @@ const CategoryFilters = ({ activeMenu, setFilters }) => {
                 <div className='filter-icon' onClick={handleFilterIconClick}>
                     <IoFilterSharp />
                 </div>
-                <div className='wrapper-line'></div>
                 {(isDesktop || activeMenu === 'category') && (
                     <Swiper
                         spaceBetween={10}

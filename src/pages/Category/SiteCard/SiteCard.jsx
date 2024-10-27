@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
 import { DiCss3, DiJavascript1 } from 'react-icons/di';
-import { RiArrowRightUpLine } from "react-icons/ri";
 
 import './SiteCard.scss';
 

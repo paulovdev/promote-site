@@ -12,10 +12,6 @@ const fetchSites = async (category, filters) => {
     categoryQuery = query(categoryQuery, where('category', '==', category));
   }
 
-  if (filters.tools && filters.tools.length > 0) {
-    categoryQuery = query(categoryQuery, where('tool', 'in', filters.tools));
-  }
-
   const categorySnapshot = await getDocs(categoryQuery);
   return categorySnapshot.docs.map(doc => ({
     id: doc.id,
@@ -23,35 +19,23 @@ const fetchSites = async (category, filters) => {
   }));
 };
 
-export const useCategorySites = (initialCategory = 'all') => {
-  const [filters, setFilters] = useState({ tools: [] }); // Initialize tools as an empty array
+// Atualize para usar filters como um objeto
+export const useCategorySites = (initialCategory = 'all', initialFilters = { tools: [] }) => {
   const [category, setCategory] = useState(initialCategory);
+  const [filters, setFilters] = useState(initialFilters);
 
   const { data: sites = [], isLoading: loading, error } = useQuery({
-    queryKey: ['sites', category, filters],
+    queryKey: ['sites', category, filters], // Adicionado filters à queryKey
     queryFn: () => fetchSites(category, filters),
     keepPreviousData: true,
   });
-
-  const handleToolFilterChange = (tool) => {
-    setFilters(prevFilters => {
-      const newTools = [...prevFilters.tools];
-      const index = newTools.indexOf(tool);
-      if (index > -1) {
-        newTools.splice(index, 1); // Remove tool if it exists
-      } else {
-        newTools.push(tool); // Add tool if it doesn't exist
-      }
-      return { ...prevFilters, tools: newTools };
-    });
-  };
 
   return {
     sites,
     loading,
     error,
-    filters,
-    handleToolFilterChange,
     setCategory,
+    filters,
+    setFilters,
   };
 };

@@ -1,13 +1,49 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { AnimatePresence, motion } from 'framer-motion';
 
+import { IoFilterSharp } from "react-icons/io5";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useCategorySites } from '../../../hooks/useCategorySites';
+import 'swiper/css';
 
 import './CategoryFilters.scss';
 
-const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
+const CategoryFilters = ({ activeMenu, setFilters }) => {
     const { t } = useTranslation();
+    const { setCategory, filters } = useCategorySites();
+    const [selectedTools, setSelectedTools] = useState({});
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 809);
+    const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+    const swiperRef = useRef(null);
+
+    useEffect(() => {
+        const handleResize = () => setIsDesktop(window.innerWidth > 809);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+
+    const handleToolChange = (toolId) => {
+        setSelectedTools((prevSelectedTools) => {
+            const isChecked = !!prevSelectedTools[toolId];
+            const newSelectedTools = {
+                ...prevSelectedTools,
+                [toolId]: !isChecked
+            };
+
+            // Atualiza o estado global com os IDs selecionados
+            const selectedToolIds = Object.keys(newSelectedTools).filter(id => newSelectedTools[id]);
+            setFilters((prevFilters) => ({
+                ...prevFilters,
+                tools: selectedToolIds
+            }));
+
+            return newSelectedTools;
+        });
+    };
+
 
     const categories = [
         { name: t('categories.all'), path: "/sites/all" },
@@ -29,41 +65,39 @@ const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
         { name: t('categories.travel'), path: "/sites/travel" }
     ];
 
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 809);
-    const swiperRef = useRef(null);
-    const location = useLocation();
+    const tools = [
+        { id: 'react', label: 'React' },
+        { id: 'wordpress', label: 'WordPress' },
+        { id: 'elementor', label: 'Elementor' },
+        { id: 'framer', label: 'Framer' },
+        { id: 'ghost', label: 'Ghost' },
+        { id: 'html-css-js', label: 'HTML + CSS + JS' },
+        { id: 'next', label: 'Next' },
+        { id: 'webflow', label: 'Webflow' },
+        { id: 'wix', label: 'Wix' }
+    ];
 
-    const handleResize = () => {
-        setIsDesktop(window.innerWidth > 809);
-    };
 
-    useEffect(() => {
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    useEffect(() => {
-        const activeCategoryIndex = categories.findIndex(category => category.path === location.pathname);
-        if (swiperRef.current && activeCategoryIndex !== -1) {
-            swiperRef.current.slideTo(activeCategoryIndex);
-        }
-    }, [location, categories]);
+    const handleFilterIconClick = () => setIsFilterModalOpen(!isFilterModalOpen);
 
     return (
         <div id='nav-category'>
             <nav>
+                <div className='filter-icon' onClick={handleFilterIconClick}>
+                    <IoFilterSharp />
+                </div>
+                <div className='wrapper-line'></div>
                 {(isDesktop || activeMenu === 'category') && (
                     <Swiper
                         spaceBetween={10}
                         slidesPerView={'auto'}
                         onSwiper={(swiper) => (swiperRef.current = swiper)}
                         touchStartPreventDefault={false}
-                        
                         preventClicks={false}
                     >
                         {categories.map((category, index) => (
                             <SwiperSlide key={index}>
-                                <NavLink to={category.path}>
+                                <NavLink to={category.path} onClick={() => setCategory(category.path.split('/').pop())}>
                                     {category.name}
                                 </NavLink>
                             </SwiperSlide>
@@ -71,50 +105,50 @@ const CategoryFilters = ({ activeMenu, handleMenuToggle }) => {
                     </Swiper>
                 )}
             </nav>
+
+            <AnimatePresence>
+                {isFilterModalOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3 }}
+                        className="filter-modal"
+                    >
+                        <div className="filter-modal-content">
+                            <p>{t('category.modal.title')}</p>
+                            <div className="filter-tools">
+                                <div className="filter-tools">
+
+                                    {tools.map(tool => (
+                                        <React.Fragment key={tool.id}>
+                                            <input
+                                                type="checkbox"
+                                                id={tool.id}
+                                                checked={!!selectedTools[tool.id]} // Define o estado checked
+                                                onChange={() => handleToolChange(tool.id)}
+                                            />
+                                            <label htmlFor={tool.id}>{tool.label}</label>
+                                        </React.Fragment>
+                                    ))}
+
+                                </div>
+
+                            </div>
+                            <div className='buttons-filter-modal'>
+                                <button
+                                    type='button'
+                                    onClick={() => setIsFilterModalOpen(false)}
+                                >
+                                    {t('category.modal.ok')}
+                                </button>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
 
 export default CategoryFilters;
-
-
-
-
-
-
-
-{/* 
-import { AnimatePresence, motion } from 'framer-motion';
-import { IoIosArrowDown } from "react-icons/io";
-    const CategoryFilters = ({
-    activeMenu,
-    handleMenuToggle,
-    toolFilters,
-    handleToolFilterChange,
-    setSearchQuery,
-}) => {
-                <h2 onClick={() => handleMenuToggle('tools')}>
-                    Ferramentas <IoIosArrowDown style={{ transform: activeMenu === 'tools' ? "rotate(180deg)" : "rotate(0)" }} />
-                </h2>
-                <AnimatePresence mode='wait'>
-                    {(isDesktop || activeMenu === 'tools') && (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: activeMenu === 'tools' || isDesktop ? 1 : 0 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "easeIn" }}
-                            id='filters'>
-                            {toolFilters.map(tool => (
-                                <React.Fragment key={tool.id}>
-                                    <input
-                                        type='checkbox'
-                                        id={tool.id}
-                                        checked={tool.checked}
-                                        onChange={() => handleToolFilterChange(tool.id)}
-                                    />
-                                    <label htmlFor={tool.id}>{tool.label}</label>
-                                </React.Fragment>
-                            ))}
-                        </motion.div>
-                    )}
-                </AnimatePresence> */}

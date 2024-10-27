@@ -13,6 +13,10 @@
         position: relative;
         width: 100%;
 
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
         .swiper-container {
             width: 100%;
             overflow: hidden;
@@ -63,8 +67,170 @@
             height: 100%;
             pointer-events: none;
             background: linear-gradient(to left, var(--bg), rgba(255, 255, 255, 0));
-            z-index: 1;
+
         }
+    }
+
+    .wrapper-line {
+        width: 2px;
+        height: 40px;
+        overflow: hidden;
+
+        border-radius: 5rem;
+        background-color: var(--btn);
+        opacity: .5;
+    }
+
+    .filter-icon {
+        width: 80px;
+        height: 34px;
+        padding: 0 .5rem;
+
+        border-radius: 1rem;
+
+        font-size: .8rem;
+        font-weight: 400;
+
+        text-decoration: none;
+        letter-spacing: .5px;
+        line-height: 1;
+
+        background-color: var(--btn);
+        color: var(--p-2);
+
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .8rem;
+        transition: all 0.3s ease;
+    }
+
+    .filter-modal {
+        position: fixed;
+        inset: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background-color: rgba(0, 0, 0, 0.329);
+        backdrop-filter: blur(10px);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        z-index: 9999999;
+
+        .filter-modal-content {
+            max-width: 600px;
+            width: 100%;
+            height: fit-content;
+            background-color: var(--bg-2);
+            padding: 2rem;
+            border-radius: .5rem;
+
+
+            display: flex;
+            align-items: start;
+            justify-content: start;
+            flex-direction: column;
+
+            .filter-tools {
+                position: relative;
+                width: 100%;
+
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+
+                p {
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    line-height: 1;
+                    letter-spacing: -.9px;
+                    color: var(--p);
+
+                    text-align: start;
+                }
+
+                input[type='checkbox'] {
+                    display: none;
+
+                    &+label {
+                        padding: 0.5rem 1.2rem;
+
+                        border-radius: 1rem;
+
+                        font-size: .8rem;
+                        font-weight: 400;
+
+                        text-decoration: none;
+                        letter-spacing: .5px;
+                        line-height: 1;
+
+                        color: var(--p);
+                        border: 1px solid var(--border);
+
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: .8rem;
+
+
+                        transition: all 0.3s ease;
+
+                        &::before {
+                            background-color: var(--btn);
+                            color: var(--p);
+                        }
+                    }
+
+                    &:checked+label {
+                        border: 1px solid var(--p);
+
+                        &::before {
+                            background-color: var(--btn);
+                            color: var(--p);
+                        }
+                    }
+                }
+            }
+
+            button {
+                width: 120px;
+                padding: .4rem 1.3rem;
+
+                font-size: .8rem;
+                font-weight: 400;
+
+                border: 1px solid var(--border);
+                background-color: var(--btn);
+                border-radius: 1rem;
+
+                color: var(--p-2);
+
+                cursor: pointer;
+                transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+                &:hover {
+                    border: 1px solid var(--border);
+                    background-color: var(--btn-2);
+                    color: var(--p);
+                }
+            }
+
+            .buttons-filter-modal {
+                margin-top: 3rem;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+
+
     }
 }
 

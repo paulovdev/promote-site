@@ -9,15 +9,12 @@ import CategorySkeleton from './CategorySkeleton/CategorySkeleton';
 import SiteCard from './SiteCard/SiteCard';
 
 import { IoSearchOutline } from "react-icons/io5";
-
 import './Category.scss';
 import { motion } from 'framer-motion';
 
 const Category = () => {
     const { category } = useParams();
-    const {
-        sites, loading, error, filters, handleToolFilterChange, setCategory,
-    } = useCategorySites();
+    const { sites, loading, error, setCategory, filters, setFilters } = useCategorySites();
     const [activeMenu, setActiveMenu] = useState('category');
     const [searchInput, setSearchInput] = useState('');
 
@@ -31,21 +28,19 @@ const Category = () => {
         setSearchInput(e.target.value);
     };
 
-    const filteredSites = sites.filter(site =>
-        site.siteName.toLowerCase().includes(searchInput.toLowerCase())
-    );
+    // Verifica se os filtros estão sendo atualizados corretamente
+    useEffect(() => {
+        console.log('Filtros atualizados:', filters);
+    }, [filters]);
 
-    const toolFilters = [
-        { id: 'react', label: 'React', checked: filters.tools?.includes('react') },
-        { id: 'wordpress', label: 'WordPress', checked: filters.tools?.includes('wordpress') },
-        { id: 'elementor', label: 'Elementor', checked: filters.tools?.includes('elementor') },
-        { id: 'framer', label: 'Framer', checked: filters.tools?.includes('framer') },
-        { id: 'ghost', label: 'Ghost', checked: filters.tools?.includes('ghost') },
-        { id: 'html-css-js', label: 'HTML + CSS + JS', checked: filters.tools?.includes('html-css-js') },
-        { id: 'next', label: 'Next', checked: filters.tools?.includes('next') },
-        { id: 'webflow', label: 'Webflow', checked: filters.tools?.includes('webflow') },
-        { id: 'wix', label: 'Wix', checked: filters.tools?.includes('wix') },
-    ];
+    const filteredSites = sites.filter(site => {
+        const matchesSearch = site.siteName.toLowerCase().includes(searchInput.toLowerCase());
+
+        const matchesTools =
+            filters.tools.length === 0 || filters.tools.includes(site.tool);
+
+        return matchesSearch && matchesTools;
+    });
 
     const handleMenuToggle = (menu) => {
         setActiveMenu(activeMenu === menu ? '' : menu);
@@ -65,10 +60,13 @@ const Category = () => {
                     exit={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, ease: 'easeIn' }}
                 >
-
-                    <div className="head-text"  >
+                    <div className="head-text">
                         <h1>{t('category.header.title')}</h1>
-                        <p>{t('category.header.subTitle')} <Link to={"/create"}>{t('category.header.aTitle')}</Link> {t('category.header.threeTitle')}  </p>
+                        <p>
+                            {t('category.header.subTitle')}
+                            <Link to={"/create"}>{t('category.header.aTitle')}</Link>
+                            {t('category.header.threeTitle')}
+                        </p>
                         <div className="search">
                             <IoSearchOutline />
                             <input
@@ -81,17 +79,21 @@ const Category = () => {
                         <CategoryFilters
                             activeMenu={activeMenu}
                             handleMenuToggle={handleMenuToggle}
-                            toolFilters={toolFilters}
-                            handleToolFilterChange={handleToolFilterChange}
-                            setSearchQuery={setSearchInput}
+                            setFilters={setFilters}
                         />
                     </div>
 
                     <section id="category">
                         <div className="site-grid">
-                            {loading ? <CategorySkeleton /> : filteredSites.map((site) => (
-                                <SiteCard key={site.id} site={site} />
-                            ))}
+                            {loading ? <CategorySkeleton /> : (
+                                filteredSites.length > 0 ? (
+                                    filteredSites.map((site) => (
+                                        <SiteCard key={site.id} site={site} />
+                                    ))
+                                ) : (
+                                    <p>{t('category.notFound')}</p>
+                                )
+                            )}
                         </div>
                     </section>
                 </motion.div>

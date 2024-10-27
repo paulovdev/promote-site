@@ -136,9 +136,15 @@
             "aTitle": "Clique aqui",
             "threeTitle": "para enviar o seu!"
         },
+        "modal": {
+            "title": "Selecione a ferramenta que deseja filtrar",
+            "ok": "Pronto",
+            "cancel": "Cancelar"
+        },
         "search": {
             "placeholder": "Pesquisar..."
         },
+        "notFound": "Nenhum resultado na busca",
         "madeBy": "Feito por"
     },
     "relatedSites": {
@@ -209,6 +215,7 @@
             "title": "Envie seu template",
             "description": "Seu template precisa ser de alta qualidade e passar por um rigoroso processo de verificação. Esse processo pode levar de 1 a 2 semanas, mas você pode acelerar assinando o Quimplo Premium."
         },
+
         "steps": {
             "1": {
                 "span": "Etapa 01",
@@ -252,6 +259,7 @@
                 "description": "Para finalizar, por favor, aceite os termos e condições. Seu site será revisado e estará disponível ao público posteriormente."
             }
         },
+        
         "successModal": {
             "title": "Formulário enviado com sucesso!",
             "description": "Observe que pode levar de 1 a 2 semanas para que revisemos sua submissão."

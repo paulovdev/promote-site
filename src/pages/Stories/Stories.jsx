@@ -3,15 +3,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Helmet } from 'react-helmet';
 import { useSites } from '../../hooks/useSites';
-import { Link } from 'react-router-dom';
+
 import { useTranslation } from 'react-i18next';
 
 import { FaDrupal, FaElementor, FaReact, FaWordpress, FaHtml5 } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiGhost, SiWebflow, SiWix } from 'react-icons/si';
-import { IoCloseOutline } from "react-icons/io5";
+
 import { DiCss3, DiJavascript1 } from 'react-icons/di';
 
-import Transition from "../../utils/Transition/Transition";
 import './Stories.scss';
 
 const Stories = () => {

@@ -9,7 +9,6 @@ import { DiCss3, DiJavascript1 } from 'react-icons/di';
 
 import './HomeSites.scss';
 
-
 const HomeSites = () => {
   const { t } = useTranslation();
   const { sites, loading, error } = useSites();
@@ -39,141 +38,143 @@ const HomeSites = () => {
   ];
 
   return (
-    <section id="home-sites">
-      {loading ? (
-        Array.from({ length: 8 }).map((_, index) => (
-          <div key={index} className="loading-skeleton" />
-        ))
-      ) : (
-        sites.map((site, index) => {
-          const currentCategory = categories.find(cat => cat.path === `/sites/${site.category}`)?.name;
 
-          return (
-            <>
-              <Link className="site-container" to={`/site/${site.id}`} key={index} onClick={() => scrollTo({ top: 0 })}>
-                <img src={site.imageURL1} alt={site.siteName} width={300} height={200} />
-                <div className="text-card">
-                  <span>
-                    {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
-                    {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
-                    {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
-                    {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
-                    {site.tool === 'html-css-js' && (
-                      <>
-                        <FaHtml5 style={{ background: '#e34c26' }} />
-                        <DiCss3 style={{ background: '#264de4' }} />
-                        <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
-                      </>
-                    )}
-                    {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
-                    {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
-                    {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
-                    {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
-                    {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
-                  </span>
+      <section id="home-sites">
+        {loading ? (
+          Array.from({ length: 8 }).map((_, index) => (
+            <div key={index} className="loading-skeleton" />
+          ))
+        ) : (
+          sites.map((site, index) => {
+            const currentCategory = categories.find(cat => cat.path === `/sites/${site.category}`)?.name;
 
-                  <div className="title-text">
-                    <h1>{site.siteName}</h1>
-                    <p>•</p>
-                    <p>{currentCategory}</p>
+            return (
+              <>
+                <Link className="site-container" to={`/site/${site.id}`} key={index} onClick={() => scrollTo({ top: 0 })}>
+                  <img src={site.imageURL1} alt={site.siteName} width={300} height={200} />
+                  <div className="text-card">
+                    <span>
+                      {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
+                      {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
+                      {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
+                      {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
+                      {site.tool === 'html-css-js' && (
+                        <>
+                          <FaHtml5 style={{ background: '#e34c26' }} />
+                          <DiCss3 style={{ background: '#264de4' }} />
+                          <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
+                        </>
+                      )}
+                      {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
+                      {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
+                      {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
+                      {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
+                      {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
+                    </span>
+
+                    <div className="title-text">
+                      <h1>{site.siteName}</h1>
+                      <p>•</p>
+                      <p>{currentCategory}</p>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
 
-              <Link className="site-container" to={`/site/${site.id}`} key={index} onClick={() => scrollTo({ top: 0 })}>
-                <img src={site.imageURL1} alt={site.siteName} width={300} height={200} />
-                <div className="text-card">
-                  <span>
-                    {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
-                    {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
-                    {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
-                    {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
-                    {site.tool === 'html-css-js' && (
-                      <>
-                        <FaHtml5 style={{ background: '#e34c26' }} />
-                        <DiCss3 style={{ background: '#264de4' }} />
-                        <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
-                      </>
-                    )}
-                    {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
-                    {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
-                    {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
-                    {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
-                    {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
-                  </span>
+                <Link className="site-container" to={`/site/${site.id}`} key={index} onClick={() => scrollTo({ top: 0 })}>
+                  <img src={site.imageURL1} alt={site.siteName} width={300} height={200} />
+                  <div className="text-card">
+                    <span>
+                      {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
+                      {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
+                      {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
+                      {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
+                      {site.tool === 'html-css-js' && (
+                        <>
+                          <FaHtml5 style={{ background: '#e34c26' }} />
+                          <DiCss3 style={{ background: '#264de4' }} />
+                          <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
+                        </>
+                      )}
+                      {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
+                      {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
+                      {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
+                      {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
+                      {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
+                    </span>
 
-                  <div className="title-text">
-                    <h1>{site.siteName}</h1>
-                    <p>•</p>
-                    <p>{currentCategory}</p>
+                    <div className="title-text">
+                      <h1>{site.siteName}</h1>
+                      <p>•</p>
+                      <p>{currentCategory}</p>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
 
-              <Link className="site-container" to={`/site/${site.id}`} key={index} onClick={() => scrollTo({ top: 0 })}>
-                <img src={site.imageURL1} alt={site.siteName} width={300} height={200} />
-                <div className="text-card">
-                  <span>
-                    {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
-                    {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
-                    {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
-                    {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
-                    {site.tool === 'html-css-js' && (
-                      <>
-                        <FaHtml5 style={{ background: '#e34c26' }} />
-                        <DiCss3 style={{ background: '#264de4' }} />
-                        <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
-                      </>
-                    )}
-                    {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
-                    {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
-                    {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
-                    {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
-                    {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
-                  </span>
+                <Link className="site-container" to={`/site/${site.id}`} key={index} onClick={() => scrollTo({ top: 0 })}>
+                  <img src={site.imageURL1} alt={site.siteName} width={300} height={200} />
+                  <div className="text-card">
+                    <span>
+                      {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
+                      {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
+                      {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
+                      {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
+                      {site.tool === 'html-css-js' && (
+                        <>
+                          <FaHtml5 style={{ background: '#e34c26' }} />
+                          <DiCss3 style={{ background: '#264de4' }} />
+                          <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
+                        </>
+                      )}
+                      {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
+                      {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
+                      {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
+                      {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
+                      {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
+                    </span>
 
-                  <div className="title-text">
-                    <h1>{site.siteName}</h1>
-                    <p>•</p>
-                    <p>{currentCategory}</p>
+                    <div className="title-text">
+                      <h1>{site.siteName}</h1>
+                      <p>•</p>
+                      <p>{currentCategory}</p>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
 
-              <Link className="site-container" to={`/site/${site.id}`} key={index} onClick={() => scrollTo({ top: 0 })}>
-                <img src={site.imageURL1} alt={site.siteName} width={300} height={200} />
-                <div className="text-card">
-                  <span>
-                    {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
-                    {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
-                    {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
-                    {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
-                    {site.tool === 'html-css-js' && (
-                      <>
-                        <FaHtml5 style={{ background: '#e34c26' }} />
-                        <DiCss3 style={{ background: '#264de4' }} />
-                        <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
-                      </>
-                    )}
-                    {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
-                    {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
-                    {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
-                    {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
-                    {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
-                  </span>
+                <Link className="site-container" to={`/site/${site.id}`} key={index} onClick={() => scrollTo({ top: 0 })}>
+                  <img src={site.imageURL1} alt={site.siteName} width={300} height={200} />
+                  <div className="text-card">
+                    <span>
+                      {site.tool === 'drupal' && <FaDrupal style={{ background: '#00598e' }} />}
+                      {site.tool === 'elementor' && <FaElementor style={{ background: '#ea4c89' }} />}
+                      {site.tool === 'framer' && <SiFramer style={{ background: '#0055ff' }} />}
+                      {site.tool === 'ghost' && <SiGhost style={{ background: '#212121' }} />}
+                      {site.tool === 'html-css-js' && (
+                        <>
+                          <FaHtml5 style={{ background: '#e34c26' }} />
+                          <DiCss3 style={{ background: '#264de4' }} />
+                          <DiJavascript1 style={{ background: '#f7df1e', color: '#000' }} />
+                        </>
+                      )}
+                      {site.tool === 'next' && <SiNextdotjs style={{ background: '#000000' }} />}
+                      {site.tool === 'react' && <FaReact style={{ background: '#00d9ff' }} />}
+                      {site.tool === 'webflow' && <SiWebflow style={{ background: '#4353ff' }} />}
+                      {site.tool === 'wix' && <SiWix style={{ background: '#0c6ebd' }} />}
+                      {site.tool === 'wordpress' && <FaWordpress style={{ background: '#21759b' }} />}
+                    </span>
 
-                  <div className="title-text">
-                    <h1>{site.siteName}</h1>
-                    <p>•</p>
-                    <p>{currentCategory}</p>
+                    <div className="title-text">
+                      <h1>{site.siteName}</h1>
+                      <p>•</p>
+                      <p>{currentCategory}</p>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </>
-          );
-        })
-      )}
-    </section>
+                </Link>
+              </>
+            );
+          })
+        )}
+      </section>
+  
   );
 };
 

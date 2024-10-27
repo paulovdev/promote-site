@@ -117,24 +117,24 @@ const CategoryFilters = ({ activeMenu, setFilters }) => {
                     >
                         <div className="filter-modal-content">
                             <p>{t('category.modal.title')}</p>
+
                             <div className="filter-tools">
-                                <div className="filter-tools">
 
-                                    {tools.map(tool => (
-                                        <React.Fragment key={tool.id}>
-                                            <input
-                                                type="checkbox"
-                                                id={tool.id}
-                                                checked={!!selectedTools[tool.id]} // Define o estado checked
-                                                onChange={() => handleToolChange(tool.id)}
-                                            />
-                                            <label htmlFor={tool.id}>{tool.label}</label>
-                                        </React.Fragment>
-                                    ))}
-
-                                </div>
+                                {tools.map(tool => (
+                                    <React.Fragment key={tool.id}>
+                                        <input
+                                            type="checkbox"
+                                            id={tool.id}
+                                            checked={!!selectedTools[tool.id]} // Define o estado checked
+                                            onChange={() => handleToolChange(tool.id)}
+                                        />
+                                        <label htmlFor={tool.id}>{tool.label}</label>
+                                    </React.Fragment>
+                                ))}
 
                             </div>
+
+
                             <div className='buttons-filter-modal'>
                                 <button
                                     type='button'

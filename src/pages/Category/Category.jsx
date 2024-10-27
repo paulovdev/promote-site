@@ -63,9 +63,8 @@ const Category = () => {
                     <div className="head-text">
                         <h1>{t('category.header.title')}</h1>
                         <p>
-                            {t('category.header.subTitle')}
-                            <Link to={"/create"}>{t('category.header.aTitle')}</Link>
-                            {t('category.header.threeTitle')}
+                            {t('category.header.subTitle')} <Link to={"/create"}>
+                                {t('category.header.aTitle')}</Link> {t('category.header.threeTitle')}
                         </p>
                         <div className="search">
                             <IoSearchOutline />

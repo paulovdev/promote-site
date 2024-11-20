@@ -102,7 +102,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 999;
+        z-index: 99999 !important;
 
         .form-container {
             position: relative;
@@ -434,6 +434,7 @@ body.no-scroll {
 
 @media (max-width:992px) {
     #publish-section {
+
         .modal-overlay {
             .form-container {
                 .form-wrapper {
@@ -441,6 +442,7 @@ body.no-scroll {
 
                     .header {
                         padding: 0;
+
 
                         .logo {
                             display: flex;

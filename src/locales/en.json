@@ -386,7 +386,8 @@
         "moreInfoText": "If you have any questions or need more information about our cookie policy, please contact us through our support."
     },
     "u404": {
-        "unfoundText": "404: Page not found",
+        "unfoundText": "Page not found",
+        "unfoundText2": "We're sorry, but the page could not be found. You may have mistyped the address or the page may have moved.",
         "back": "Back"
     },
     "helmet": {

@@ -6,6 +6,7 @@
   {
   --p: #222222;
   --p-2: #ffffff;
+  --p-3: #666666;
 
   --bg: #fefefe;
   --bg-2: #fafafa;
@@ -19,11 +20,11 @@
   --p-i: #333;
 
   --btn: #111;
-  --btn-2: #f7f7f7;
+  --btn-2: #e9e9e9;
   --btn-3: rgb(230, 230, 230);
 
   --accent: #227ce2;
-  --accent-2: #efeff8;
+  --accent-2: #e9e9f3;
   --accent-3: #151616;
 
   --fixed-c: #fff;
@@ -32,6 +33,7 @@
 .dark {
   --p: #fefefe;
   --p-2: #222222;
+  --p-3: #bbbbbb;
 
   --bg: #111111;
   --bg-2: #141414;
@@ -42,6 +44,7 @@
   --border: #202020;
   --border-2: #3a3a3a;
 
+  --accent: #dfe222;
   --accent-2: #1a1a19;
   --accent-3: #f7f7f7;
 
@@ -201,4 +204,5 @@ button {
   font-size: .8rem;
   font-weight: 500;
   border-radius: 1rem;
+  user-select: none;
 }

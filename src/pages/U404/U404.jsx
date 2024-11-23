@@ -13,6 +13,7 @@ const U404 = () => {
   return (
     <section id="u-404">
       <h1>{t("u404.unfoundText")}</h1>
+      <p>{t("u404.unfoundText2")}</p>
       <button onClick={goToHome}>{t("u404.back")}</button>
     </section>
   )

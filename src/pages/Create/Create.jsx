@@ -232,7 +232,7 @@ const Create = () => {
 
         <div className="head-container">
           <div>
-            <span>{t('create.header.span')}</span>
+           
             <h1>{t('create.header.title')}</h1>
             <p>{t('create.header.description')}</p>
             <button onClick={() => setShowModal(true)}>{t("price.publishSite")}</button>

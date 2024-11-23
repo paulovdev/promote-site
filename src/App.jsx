@@ -12,7 +12,6 @@ import SecureForm from './crip/SecureForm';
 import Footer from './components/Footer/Footer';
 
 import Cookies from './components/Cookies/Cookies';
-import Stories from './pages/Stories/Stories';
 import U404 from './pages/U404/U404';
 import CookiesPage from './pages/CookiesPage/CookiesPage';
 import About from './pages/About/About';
@@ -35,7 +34,6 @@ const App = () => {
         <Route path="/site/:id" element={<SiteDetail />} />
         <Route path="/sites/:category" element={<Category />} />
         <Route path="/sites/:tool" element={<Category />} />
-        <Route path="/stories" element={<Stories />} />
         <Route path="/cookies" element={<CookiesPage />} />
         <Route path="/success" element={<SuccessPage />} />
         <Route path="*" element={<U404 />} />

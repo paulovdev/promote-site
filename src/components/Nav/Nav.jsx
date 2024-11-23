@@ -39,7 +39,7 @@ const Navbar = () => {
                     <div className="desktop-menu">
                         <li onClick={() => scrollTo({ top: 0 })}><NavLink className='explore-nav' to="/sites/all">{t('nav.explore')}</NavLink></li>
                         <li onClick={() => scrollTo({ top: 0 })}><NavLink className='explore-nav' to="/about">{t('nav.about')}</NavLink></li>
-                        <li><NavLink className='explore-nav' to="/stories">{t('nav.stories')}</NavLink></li>
+                      
                         <li onClick={() => scrollTo({ top: 0 })}>
                             <NavLink className='feature-nav' to="/create">{t('nav.submitTemplate')}</NavLink>
                         </li>
@@ -53,8 +53,6 @@ const Navbar = () => {
                             <div className={`hm-bar ${!hmRotate ? "" : "active"}`}></div>
                         </div>
                     </div>
-
-
 
                     <AnimatePresence mode="wait">
                         {showMenu && (
@@ -80,12 +78,6 @@ const Navbar = () => {
                                     scrollTo({ top: 0 });
                                     toggleMenu()
                                 }}><NavLink to="/about">{t('nav.about')}</NavLink>
-                                </li>
-
-                                <li onClick={() => {
-                                    scrollTo({ top: 0 });
-                                    toggleMenu()
-                                }}><NavLink to="/stories">{t('nav.histories')}</NavLink>
                                 </li>
 
                                 <li onClick={() => {

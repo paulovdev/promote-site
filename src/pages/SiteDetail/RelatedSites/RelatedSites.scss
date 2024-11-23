@@ -131,8 +131,7 @@
                 p {
                     font-size: .8rem;
                     font-weight: 400;
-                    opacity: .8;
-                    color: var(--p);
+                    color: var(--p-3);
                 }
 
                 span {
@@ -154,32 +153,33 @@
     }
 }
 
-@media (max-width:768px) {#site-more-category {
-    .related-sites {
+@media (max-width:768px) {
+    #site-more-category {
+        .related-sites {
 
-        a {
+            a {
 
 
-            .text-card {
+                .text-card {
 
-                span {
-                    top: 10px;
-                    left: 10px;
-        
-                    svg {
-                        width: 30px;
-                        height: 30px;
-        
+                    span {
+                        top: 10px;
+                        left: 10px;
+
+                        svg {
+                            width: 30px;
+                            height: 30px;
+
+                        }
+                    }
+
+                    h1 {
+                        font-size: .9rem;
                     }
                 }
-        
-                h1 {
-                    font-size: .9rem;
-                }
-            }
 
+            }
         }
     }
-}
 
 }

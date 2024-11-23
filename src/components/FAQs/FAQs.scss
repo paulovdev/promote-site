@@ -4,7 +4,7 @@
     width: 100%;
 
     margin: 5rem auto;
-
+    padding: 25px;
     text-align: start;
 
     display: flex;
@@ -100,9 +100,7 @@
 
                     letter-spacing: -.5px;
 
-                    color: var(--p);
-
-                    opacity: .8;
+                    color: var(--p-3);
                 }
             }
         }

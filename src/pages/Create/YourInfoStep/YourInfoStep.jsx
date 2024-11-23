@@ -89,7 +89,7 @@ const YourInfoStep = ({ setStep }) => {
               autoComplete="name"
               onChange={(e) => {
                 setMyNameState(e.target.value);
-               
+
               }}
             />
             <div className="error-message">
@@ -108,7 +108,7 @@ const YourInfoStep = ({ setStep }) => {
               value={email}
               onChange={(e) => {
                 setEmailState(e.target.value);
-              
+
               }}
             />
             <div className="error-message">
@@ -130,7 +130,7 @@ const YourInfoStep = ({ setStep }) => {
               autoComplete="link"
               onChange={(e) => {
                 setProfileLinkState(e.target.value);
-               
+
               }}
             />
             <div className="error-message">
@@ -149,7 +149,7 @@ const YourInfoStep = ({ setStep }) => {
               value={contactLink}
               onChange={(e) => {
                 setContactLinkState(e.target.value);
-              
+
               }}
             />
             <div className="error-message">
@@ -161,7 +161,7 @@ const YourInfoStep = ({ setStep }) => {
         <br />  <hr />   <br />
 
         <div className="step-info">
-          
+
           <h1>{t('create.steps.1.title2')}</h1>
           <p>{t('create.steps.1.description2')}</p>
         </div>
@@ -178,7 +178,7 @@ const YourInfoStep = ({ setStep }) => {
               value={siteName}
               onChange={(e) => {
                 setSiteNameState(e.target.value);
-                
+
               }}
             />
             <div className="error-message">
@@ -186,6 +186,7 @@ const YourInfoStep = ({ setStep }) => {
             </div>
           </div>
 
+          {/* price */}
           <div className="input-container">
             <label className='price-text'>
               {t('yourInfoStep.price')}
@@ -196,15 +197,17 @@ const YourInfoStep = ({ setStep }) => {
               min="0"
               max="1000"
               step="5"
+              maxLength={4}
               value={price}
               onChange={(e) => {
                 setPriceState(Number(e.target.value));
-               
               }}
             />
 
             <div className="error-message"><p className='pricing-p'>{t('yourInfoStep.price')}: {price === 0 ? `${t('price.free')}` : <>${price}</>}</p></div>
-
+            <div className="error-message">
+              {submitted && errors.price && <p><FaExclamationCircle />{errors.price}</p>}
+            </div>
           </div>
         </div>
 
@@ -221,7 +224,7 @@ const YourInfoStep = ({ setStep }) => {
             maxLength={250}
             onChange={(e) => {
               setDescriptionState(e.target.value);
-            
+
             }}
           />
           <div className="error-message">
@@ -232,7 +235,7 @@ const YourInfoStep = ({ setStep }) => {
         <br />  <hr />   <br />
 
         <div className="step-info">
-        
+
           <h1>{t('create.steps.1.title3')}</h1>
           <p>{t('create.steps.1.description3')}</p>
         </div>
@@ -249,14 +252,14 @@ const YourInfoStep = ({ setStep }) => {
               value={livePreview}
               onChange={(e) => {
                 setLivePreviewState(e.target.value);
-               
+
               }}
             />
             <div className="error-message">
               {submitted && errors.livePreview && <p><FaExclamationCircle />{errors.livePreview}</p>}
             </div>
           </div>
-        
+
           <div className="input-container">
             <label>
               {t('yourInfoStep.buyLinkLabel')}
@@ -268,7 +271,7 @@ const YourInfoStep = ({ setStep }) => {
               value={buyLink}
               onChange={(e) => {
                 setBuyLinkState(e.target.value);
-      
+
               }}
             />
             <div className="error-message">

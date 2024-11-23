@@ -98,12 +98,14 @@
         background-color: var(--btn);
         color: var(--p-2);
 
-
         display: flex;
         align-items: center;
         justify-content: center;
         gap: .8rem;
+
         transition: all 0.3s ease;
+        cursor: pointer;
+
     }
 
     .filter-modal {
@@ -181,6 +183,7 @@
 
 
                         transition: all 0.3s ease;
+                        cursor: pointer;
 
                         &::before {
                             background-color: var(--btn);

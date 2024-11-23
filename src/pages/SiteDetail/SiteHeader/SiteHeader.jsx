@@ -211,9 +211,8 @@ const SiteHeader = ({ site }) => {
             className="description2"
             dangerouslySetInnerHTML={{ __html: currentDescription2 }}
           />
-
-
         </div>
+
         <div className="right-content">
           <h2>{t('siteHeader.features.features')}</h2>
           <ul>
@@ -232,10 +231,6 @@ const SiteHeader = ({ site }) => {
 
 
         </div>
-
-      </section>
-
-      <section id='site-made'>
 
       </section>
 

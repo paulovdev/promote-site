@@ -215,7 +215,6 @@
             "title": "Envie seu template",
             "description": "Seu template precisa ser de alta qualidade e passar por um rigoroso processo de verificação. Esse processo pode levar de 1 a 2 semanas, mas você pode acelerar assinando o Quimplo Premium."
         },
-
         "steps": {
             "1": {
                 "span": "Etapa 01",
@@ -259,7 +258,6 @@
                 "description": "Para finalizar, por favor, aceite os termos e condições. Seu site será revisado e estará disponível ao público posteriormente."
             }
         },
-        
         "successModal": {
             "title": "Formulário enviado com sucesso!",
             "description": "Observe que pode levar de 1 a 2 semanas para que revisemos sua submissão."
@@ -388,7 +386,8 @@
         "moreInfoText": "Se você tiver dúvidas ou precisar de mais informações sobre nossa política de cookies, entre em contato conosco através do nosso suporte."
     },
     "u404": {
-        "unfoundText": "404: Página não encontrada",
+        "unfoundText": "Página não encontrada",
+        "unfoundText2": "Lamentamos, mas a página não foi encontrada. Você pode ter digitado o endereço errado ou a página pode ter sido movida.",
         "back": "Voltar"
     },
     "helmet": {

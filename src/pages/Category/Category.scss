@@ -45,9 +45,7 @@
                 letter-spacing: 2px;
                 text-transform: uppercase;
 
-                opacity: .8;
-
-                color: var(--p);
+                color: var(--p-3);
             }
 
             h1 {
@@ -71,8 +69,7 @@
                 letter-spacing: -.5px;
                 line-height: 1.3;
 
-                opacity: .7;
-                color: var(--p);
+                color: var(--p-3);
 
                 a {
                     font-size: 1rem;
@@ -131,7 +128,7 @@
                 width: 100%;
                 height: fit-content;
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 1rem;
             }
         }
@@ -150,14 +147,6 @@
                 align-items: start;
                 justify-content: start;
                 flex-direction: column;
-
-                .site-grid {
-                    width: 100%;
-                    height: fit-content;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 1rem;
-                }
             }
         }
     }

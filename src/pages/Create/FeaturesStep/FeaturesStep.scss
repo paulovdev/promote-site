@@ -17,13 +17,11 @@
         gap: .3rem;
 
         label {
-            color: var(--p);
-
             padding: 1.5rem 0.3rem;
 
             border-radius: 1rem;
 
-            opacity: 0.8;
+            color: var(--p-3);
             font-size: 16px;
             transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 

@@ -391,8 +391,7 @@
                     letter-spacing: -.5px;
                     line-height: 1.3;
 
-                    opacity: .7;
-                    color: var(--p);
+                    color: var(--p-3);
                 }
             }
         }
@@ -412,7 +411,7 @@
 
     display: flex;
     align-items: start;
-    flex-direction: column;
+
     gap: 3rem;
 
 
@@ -498,8 +497,7 @@
             letter-spacing: -.5px;
             line-height: 1.3;
 
-            opacity: .8;
-            color: var(--p);
+            color: var(--p-3);
         }
     }
 
@@ -604,9 +602,7 @@
 
                     letter-spacing: -.5px;
 
-                    color: var(--p);
-
-                    opacity: .8;
+                    color: var(--p-3);
                 }
             }
         }
@@ -638,6 +634,9 @@
 
     }
 
+    #site-features {
+        flex-direction: column;
+    }
 }
 
 @media (max-width:768px) {
